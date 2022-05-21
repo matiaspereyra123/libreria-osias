@@ -1,11 +1,10 @@
 [
 	{
 		"id": 1,
-		"titulo": "Ciencias Naturales",
-		"autor": null,
+		"titulo": "Casdasdasd",
+		"autor": "notiene",
 		"categoria": "Educación primaria",
 		"editorial": "Convergente",
-		"descripcion": "Lorem ipsum",
 		"paginas": 200,
 		"cantidad": 50,
 		"precio": 1950,
@@ -128,31 +127,5 @@
 		"cantidad": "44",
 		"paginas": "44",
 		"imagen": "1653105775259.jpg"
-	},
-	{
-		"id": 11,
-		"titulo": "Ootra Prueba",
-		"autor": "aaa",
-		"editorial": "ddd",
-		"isbn": "1233",
-		"precio": "1233",
-		"categoria": "bbb",
-		"descripcion": "123",
-		"cantidad": "244",
-		"paginas": "245",
-		"imagen": "1653106340126.jpg"
-	},
-	{
-		"id": 12,
-		"titulo": "Soc ",
-		"autor": "bb",
-		"editorial": "bbb",
-		"isbn": "21222222222222222",
-		"precio": "2200",
-		"categoria": "bbb",
-		"descripcion": "123",
-		"cantidad": "5000",
-		"paginas": "300",
-		"imagen": "1653108243116.jpg"
 	}
 ]

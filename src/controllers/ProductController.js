@@ -59,29 +59,76 @@ const ProductController = {
 
 		fs.writeFileSync(productsFilePath, productosJSON)
 
-		res.redirect('/');
+		res.redirect('/products/detail/'+req.params.id);
 
 
        
     },
 
     edit: function(req,res){
-            let productID= req.params.id;
+			let productID	=req.params.id
 
-    
-                const libroEditar = books[productID];
-            res.render("products/edit",{hoja:'productStyles.css',libroEditar:libroEditar});
+			const product = libros.find(item=>item.id==req.params.id);
+			res.render('products/edit',{libroEditar:product ,title: libros.titulo});
+
+	
+
+
+			
+              //const libroEditar = books[productID];
+           // res.render("products/edit",{hoja:'productStyles.css',libroEditar:libroEditar})
+
     },
 
-    detail: function(req,res) {
-		let nombreTitulo;
-        let libro = libros.find(libro=>{
-            if (libro.isbn == req.params.isbn){
-				nombreTitulo = req.params.titulo;
+	update: (req, res) => {
+		libros.find(product=>{
+			if(libros.id==req.params.id){
+				libros.titulo=req.body.name,
+				libros.autor=req.body.price,
+		
+				product.descripcion=req.body.descripcion,
+				product.imagen=req.file.filename;
 			}
-        })
-        res.render("products/detail", {libro: libro, title: nombreTitulo})
-    }
+		
+		})	
+		fs.writeFileSync(productsFilePath, JSON.stringify(libros,null,'\t'));
+		//fs.readFileSync(productsFilePath,'UTF-8');
+		res.redirect('/products/detail/'+req.params.id);
+	
+
+	},
+
+
+
+    detail: function(req,res) {
+	//	let nombreTitulo;
+      //  let libro = libros.find(libro=>{
+         //   if (libro.id == req.params.id){
+		//		nombreTitulo = req.params.titulo;
+		//	}
+      //  })
+    //    res.render("products/detail", {libro: libro, title: nombreTitulo})
+
+
+	
+
+	const product = libros.find(item=>item.id==req.params.id);
+	res.render('products/detail',{libroEditar:product ,title: libros.titulo});
+
+
+    },
+		
+	
+	//** */
+
+	destroy : (req, res) => {
+	
+		//const productoToDelete=products.find(product=>product.id===parseInt(req.params.id));
+		const newListProducts=libros.filter(product=>product.id!==parseInt(req.params.id));
+		products = newListProducts;
+		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,'\t'));
+		res.redirect('/');
+	}
 
 }
 
