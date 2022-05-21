@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ("../partials/head.ejs")  %> 
+    </head>
+    <body>
+        <header>
+            <%- include ("../partials/header.ejs")%>
+        </header>
+
+
+
+        <main class="main-register">
+            <div class="caja-register">
+              <form  action="/products/create" method="POST"  class="formulario-completo" enctype="multipart/form-data">
+                        <h3> Crear un nuevo producto</h3>
+                      <label for="titulo"></label>
+                      <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" required>
+                     
+                      <label for="autor"></label>
+                      <input type="text" name="autor" id="autor" placeholder="Autor" class="input-barras" required>
+             
+                  <label for="categoria" class="nombre-usuario"></label>
+                      <input type="text" name="categoria" id="categoria" placeholder="Categoria" class="input-barras" >
+                     
+                      <label for="editorial" class="nombre-usuario"></label>
+                      <input type="text" name="editorial" id="editorial" placeholder="Editorial" class="input-barras" >
+                    
+                      <label for="isbn"></label>
+                      <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" required>
+                    
+                      <label for="precio"></label>
+                      <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras" required>
+                 
+                      <label for="cantidad"></label>
+                      <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" required>
+                      <label for="paginas"></label>
+                      <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras" required>
+              
+                     <label class="titulo-avatar" for="portada">Imagen Portada Libro</label>
+                     <input type="file" name="imagen" class="input-avatar" id="imagen">
+
+                     <div   class="textDescripcion">
+                       <label for="descripcion"></label>
+                        <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="20"
+                        cols="130"
+                        placeholder=Descripción
+                      
+                      ></textarea> 
+                     </div>                 
+                
+                  <div class="div-botones-register">
+                    <button type="submit" class="boton-enviar">Enviar</button>
+                  <button type="reset" class="boton-borrar">Borrar</button>
+                </div>
+       
+              </form>
+            </div>
+          </main>
+
+          <footer>
+            <%- include ("../partials/footer.ejs")%>
+          </footer>
+        
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ("../partials/head.ejs")  %> 
+    </head>
+    <body>
+        <header>
+            <%- include ("../partials/header.ejs")%>
+        </header>
+
+
+
+        <main class="main-register">
+            <div class="caja-register">
+              <form  method="POST" action="/products/editProduct?method=PUT" class="formulario-completo">
+                        <h3> EDITAR PRODUCTO</h3>
+                      <label for="titulo"></label>
+                   
+                      <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.titulo%>" >
+                     
+                      <label for="autor"></label>
+                      <input type="text" name="autor" id="autor" placeholder="Autor" class="input-barras" value="<%=libroEditar.autor%>">
+       
+                  <label for="categoria" class="nombre-usuario"></label>
+                      <input type="text" name="categoria" id="categoria" placeholder="Categoria" class="input-barras" value="<%=libroEditar.categoria%>" >
+                     
+                      <label for="editorial" class="nombre-usuario"></label>
+                      <input type="text" name="editorial" id="editorial" placeholder="Editorial" class="input-barras"value="<%=libroEditar.editorial%>" >
+                    
+                      <label for="isbn"></label>
+                      <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" value="<%=libroEditar.isbn%>"required>
+                    
+                      <label for="precio"></label>
+                      <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.precio%>" required>
+  
+                     <label for="fechaLanzamiento" class="label-nacimiento">Fecha de Lanzamiento</label>
+                     <input type="date" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%=libroEditar.fecha%>" required>
+                 
+                      <label for="cantidad"></label>
+                      <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.cantidad%>"required>
+                      <label for="paginas"></label>
+                      <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras"value="<%=libroEditar.paginas%>" required>
+              
+                     <label class="titulo-avatar" for="portada">Imagen Portada Libro</label>
+                     <input type="file" name="portada" class="input-avatar" id="fotoPortada" value="<%=libroEditar.foto%>">
+
+                     <div   class="textDescripcion">
+                       <label for="descripcion"></label>
+                        <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="20"
+                        cols="130"
+                        placeholder=Descripción
+                        value="<%=libroEditar.descripcion%>"
+                      ></textarea> 
+                     </div>                 
+                
+                  <div class="div-botones-register">
+                    <button type="submit" class="boton-enviar">Enviar</button>
+                  <button type="reset" class="boton-borrar">Borrar</button>
+                </div>
+       
+              </form>
+            </div>
+          </main>
+
+          <footer>
+            <%- include ("../partials/footer.ejs")%>
+          </footer>
+        
+    </body>
+</html>

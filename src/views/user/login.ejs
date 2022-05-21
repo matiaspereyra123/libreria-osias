@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ("../partials/head")  %> 
+    </head>
+    <body>
+        <header>
+            <%- include ("../partials/header")%>
+        </header>
+
+
+        <main class="main-login">
+            <div class="caja-login">  
+            <form action="/" method="get">
+          
+                
+                <div>
+                      <label class="nombre-usuario" for="nombre-usuario"></label>
+                      <input type="text" name="nombre-usuario" id="nombre-usuario" placeholder="Nombre de usuario" class="input-barras" required>
+                  </div>
+                  <div>
+                      <label for="password"></label>
+                      <input type="password" name="password" id="password" placeholder="Ingresá tu contraseña" class="input-barras" required>
+                  </div>
+                  <div  class="div-boton-login">
+                      <button type="submit" class="boton-login">Ingresar</button>
+                  </div>
+                  <a href="/user/pass"><p class="recuperacion-contraseña">
+                      ¿Olvidaste tu contraseña? 
+                  </p></a>
+          
+                </div>
+          
+          </main>
+
+          <footer>
+            <%- include ("../partials/footer.ejs")%>
+
+          </footer>
+        
+    </body>
+</html>

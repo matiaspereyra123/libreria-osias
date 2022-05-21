@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <%- include ("./partials/head.ejs")  %> 
+
+   
+    </head>
+    <body>
+    <header>     
+       <%- include("./partials/header.ejs")  %> 
+    </header>
+        
+        <section class="banner">
+            <img src="images/libros.jpeg" alt="Banner de ofertas">
+        </section>
+
+        <main>
+
+            <section class="primaria">
+                <h2>Eduación primaria</h2>
+                <div class="products-list">
+                        <% primaria.forEach(libro => { %>
+                            <article class="product">   
+                                <a href="products/detail/<%= libro.isbn %>"><img src="/images/<%= libro.isbn %>.jpeg" alt=<%= libro.titulo %> ></a> 
+                                <div class="product__info">
+                                    <p class="price">$<%= libro.precio %> </p>
+                                    <h3><%= libro.titulo %> </h3>
+                                </div>
+                            </article>
+                        <% }) %>  
+                </div>
+            </section>
+
+            <section class="secundaria">
+                <h2>Educación secundaria</h2>
+                <div class="products-list">
+
+                <% secundaria.forEach(libro => { %>
+ 
+                    <article class="product">
+                        <a href="products/detail/<%= libro.isbn %>"><img src="/images/<%= libro.isbn %>.jpeg" alt=<%= libro.titulo %> ></a>"></a>
+                        <div class="product__info">
+                            <p class="price"><%= libro.precio  %> </p>
+                            <h3><%= libro.titulo  %> </h3> 
+                        </div>
+                    </article>
+                 
+                <% }) %>
+                </div>
+            </section>
+        </main>
+
+    <footer>
+        
+        <%- include ("./partials/footer.ejs")%>
+    </footer>
+    </body>

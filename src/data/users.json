@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"firstName": "Juan",
+		"lastName": "Pérez",
+		"email": "juanperez@gmail.com",
+		"password": "123456",
+		"category": "estudiante",
+		"image": "avatarJuanPerez.jpg"
+	},
+	{
+		"id": 2,
+		"email": "raulmatiaspereyra@gmail.com"
+	},
+	{
+		"id": 3,
+		"email": "raulmatiaspereyra@gmail.com"
+	}
+]

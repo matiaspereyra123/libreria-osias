@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ("../partials/head.ejs")  %> 
+</head>
+
+<body>
+
+    <header>
+        <%- include ("../partials/header.ejs")%>
+      
+    </header>
+    <!--Descripcion del producto Inicio el main-->
+    <main>
+        <section class="contenedor-detalle">
+
+            <div class="image-detalle">
+                <img src="/images/<%= libro.isbn %>.jpeg" alt="Ciencias Naturales">  
+            </div>
+            <div class="compra-producto">
+                <h2><%= libro.titulo %> </h2>
+                <p><%= libro.precio %> </p>
+                <p>Ver medios de pago</p>
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-amex"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <form>
+                    <label class="form-cantidad">Cantidad</label>
+                    <input class="input-cantidad" type="number" placeholder="1">
+                    <input class="input-botton" type="submit" value="Agregar al carrito">
+                </form>
+
+                <form>
+                    <i class="fas fa-truck"></i>
+                    <label>Medios de envío</label>
+                    <div>
+                        <input type="text" placeholder="Tu codigo postal">
+                        <input type="submit" value="Calcular">
+                    </div>
+                </form>
+                <div>
+
+                    <i class="fa-solid fa-store"></i>
+                    <label>Nuestro local</label>
+                </div>
+                <p>Av. Rivadavia 1234</p>
+
+            </div>
+         
+
+        </section>
+        <section>
+            <h2></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam numquam ex excepturi, quod delectus
+                maiores? Voluptatem fuga modi, tempore repudiandae dolores iusto voluptate laborum in voluptas
+                pariatur tenetur, odio porro?</p>
+            </section>
+
+    </main>
+
+    <footer>
+        <%- include ("../partials/footer.ejs")%>
+    </footer>
+
+</body>
+
+</html>
