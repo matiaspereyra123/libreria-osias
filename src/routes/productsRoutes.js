@@ -24,7 +24,7 @@ router.get("/detail/:isbn", ProductController.detail);
 router.get("/cart/", ProductController.cart);
 
 router.get("/create/", ProductController.create);
-router.post("/create/", upload.single("imagen"), ProductController.save); //faltaba CREATE en la ruta.  (nunca iba a redirigir al index ya que el index pertenece al controlador HOME CONTROLLER)
+router.post("/create/", upload.single("imagen"), ProductController.save); //faltaba CREATE en la ruta.  (  el index pertenece al controlador HOME CONTROLLER, no iba a redirigir)
 
 router.get('/edit/:id', ProductController.edit);
 
