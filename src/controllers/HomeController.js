@@ -10,22 +10,20 @@ const HomeController = {
     home: function (req, res) {
 
         const secundaria = libros.filter(libro => {
-            if (libro.categoria === "Educación secundaria") {
-                return libro.categoria === "Educación secundaria"    
+            if (libro.categoria == 2) {
+                return libro.categoria     
                 }
 
         })
         
         const primaria = libros.filter(libro => {
-            if (libro.categoria === "Educación primaria") {
-            return libro.categoria === "Educación primaria"    
+            if (libro.categoria == 1) {
+            return libro.categoria     
             }
      
         })
 
-
-
-        return res.render("home",{libros: libros, primaria: primaria, secundaria: secundaria, title: "Libreria Kodos",hoja:'home.css'});
+ res.render("home",{libros: libros, primaria: primaria, secundaria: secundaria, title: "Libreria Kodos",hoja:'home.css'});
     }
 }
 

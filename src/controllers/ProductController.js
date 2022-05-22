@@ -59,8 +59,7 @@ const ProductController = {
 
 		fs.writeFileSync(productsFilePath, productosJSON)
 
-		res.redirect('/products/detail/'+req.params.id);
-
+		res.redirect('/products/detail/'+req.params.id,{libroEditar:productosJson ,title: libros.titulo}); 
 
        
     },
@@ -81,13 +80,12 @@ const ProductController = {
     },
 
 	update: (req, res) => {
-		libros.find(product=>{
-			if(libros.id==req.params.id){
-				libros.titulo=req.body.name,
-				libros.autor=req.body.price,
-		
-				product.descripcion=req.body.descripcion,
-				product.imagen=req.file.filename;
+		libros.find(libro=>{
+			if(libro.id==req.params.id){
+				libro.titulo=req.body.titulo,
+				libro.autor=req.body.autor,
+				libro.descripcion=req.body.descripcion,
+				libro.imagen=req.file.filename;
 			}
 		
 		})	

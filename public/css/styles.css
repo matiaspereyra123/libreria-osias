@@ -286,8 +286,10 @@ footer {
 
 /*Formularios*/
 
+
+
 .main-register {
-    display: flex;
+
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -328,7 +330,7 @@ footer {
 }
 
 
-.titulo-avatar ,h3{
+.titulo-avatar ,h3,.form-label,.form-input{
     color: #434343;
     display: block;
     font-size: 14px;
@@ -357,9 +359,10 @@ footer {
     box-sizing: content-box;
 }
 
-.div-botones-register {
-    display: flex;
-    flex-wrap: wrap;
+.div-botones-register, 
+.div-botones-delete {
+ text-align: center;
+
 }
 
 .boton-enviar,
@@ -368,11 +371,11 @@ footer {
     border: none;
     border-radius: 5%;
     color: white;
-    margin-left: auto;
-    margin-right: auto;
+    margin:10vh; ;
+   
     margin-top: 40px;
     padding: 8px;
-    width: 30%;
+   width: 60vh;
 }
 
 

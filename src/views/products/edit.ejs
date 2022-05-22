@@ -13,16 +13,33 @@
         <main class="main-register">
             <div class="caja-register">
               <form  action="/products/edit/<%=libroEditar.id%>?_method=PUT" method="POST"  class="formulario-completo" enctype="multipart/form-data" >   <!-- enctype-->
-                        <h3> EDITAR PRODUCTO</h3>
-                      <label for="titulo"></label>
-                   
+                       
+                        
+                 
+                    
+
+                  
+                                  
+                      <label for="titulo" class="form-label"><p>Nombre Producto: <%=libroEditar.titulo %> </p></label>
+                      <div >
+                           <img src="/images/<%= libroEditar.imagen %>" alt=<%= libroEditar.titulo %> width=15% display="block" >
+                      </div>
+                             <h3> EDITAR PRODUCTO
+                        </h3>  
                       <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.titulo%>" >
                      
                       <label for="autor"></label>
                       <input type="text" name="autor" id="autor" placeholder="Autor" class="input-barras" value="<%=libroEditar.autor%>">
        
-                  <label for="categoria" class="nombre-usuario"></label>
-                      <input type="text" name="categoria" id="categoria" placeholder="Categoria" class="input-barras" value="<%=libroEditar.categoria%>" >
+
+
+                      <label for="category" class="form-label">Categoría:</label>
+                      <select id="select" selectedIndex="<%=libroEditar.categoria%>" name="categoria"  class="form-input">
+                        <option value="">Elegí</option>
+                        <option value=1>Primaria</option>
+                        <option value=2 >Secundaria</option>
+                      </select>
+
                      
                       <label for="editorial" class="nombre-usuario"></label>
                       <input type="text" name="editorial" id="editorial" placeholder="Editorial" class="input-barras"value="<%=libroEditar.editorial%>" >
@@ -51,25 +68,32 @@
                         name="descripcion"
                         rows="20"
                         cols="130"
-                        placeholder=Descripción
-                        value="<%=libroEditar.descripcion%>"
-                      ></textarea> 
-                     </div>                 
-                
-                  <div class="div-botones-register">
-                    <button type="submit" class="boton-enviar">Enviar</button>
-
-
-     
-                </div>
+                     ><%=libroEditar.descripcion%></textarea> 
+                     </div>   
+                   
+               
+               
+                               <div  div class="div-botones-register">
+                                 <button type="submit" class="boton-enviar">Enviar</button>
+                                </div>
        
               </form>
-                    <form action="/products/delete/<%=libroEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data" style="display: inline-flex">
-                      <button type="submit" class="boton-borrar">ELIMINAR</button>
-                    </form>
+                            <div class="div-botones-delete">
+                                <form action="/products/delete/<%=libroEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                                      <button type="submit" class="boton-borrar">ELIMINAR</button>
+                                </form>
+                           </div>
+
+                   
+           
+            
             </div>
+          
+
           </main>
 
+     
+      
           <footer>
             <%- include ("../partials/footer.ejs")%>
           </footer>

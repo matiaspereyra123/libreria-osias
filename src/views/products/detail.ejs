@@ -16,7 +16,7 @@
         <section class="contenedor-detalle">
 
             <div class="image-detalle">
-                <img src="/images/<%= libroEditar.isbn %>.jpeg" alt="Ciencias Naturales">
+                <img src="/images/<%=libroEditar.imagen%>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
             </div>
             <div class="compra-producto">
                 <h2><%= libroEditar.titulo %> </h2>
@@ -45,6 +45,9 @@
                     <label>Nuestro local</label>
                 </div>
                 <p>Av. Rivadavia 1234</p>
+                <form action="/products/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
+                    <button type="submit" >EDITAR / ELIMINAR</button>
+                  </form>
 
             </div>
          
@@ -52,9 +55,7 @@
         </section>
         <section>
             <h2></h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam numquam ex excepturi, quod delectus
-                maiores? Voluptatem fuga modi, tempore repudiandae dolores iusto voluptate laborum in voluptas
-                pariatur tenetur, odio porro?</p>
+            <p><%=libroEditar.descripcion%></p>
             </section>
 
     </main>
