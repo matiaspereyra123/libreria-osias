@@ -34,10 +34,10 @@
 
 
                       <label for="category" class="form-label">Categoría:</label>
-                      <select id="select" selectedIndex="<%=libroEditar.categoria%>" name="categoria"  class="form-input">
-                        <option value="">Elegí</option>
+                      <select id="select" selectedIndex="<%=libroEditar.categoria== 1?1:2%>" name="categoria"  class="form-input">
+                        <option value=0 >Categoria</option>
                         <option value=1>Primaria</option>
-                        <option value=2 >Secundaria</option>
+                        <option value=2>Secundaria</option>
                       </select>
 
                      
@@ -50,8 +50,11 @@
                       <label for="precio"></label>
                       <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.precio%>" required>
   
+                   <!-- 
+
                      <label for="fechaLanzamiento" class="label-nacimiento">Fecha de Lanzamiento</label>
-                     <input type="date" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%=libroEditar.fecha%>" required>
+                     <input type="date" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value=" codigo EJS" required>
+                   --> 
                  
                       <label for="cantidad"></label>
                       <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.cantidad%>"required>

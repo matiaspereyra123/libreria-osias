@@ -9,16 +9,23 @@ let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const HomeController = {
     home: function (req, res) {
 
+     //   const secundaria = libros.filter(libro => {
+       //     if (libro.categoria == "Educación secundaria") {
+          //      return libro.categoria == "Educación secundaria"    
+            //    }
+
+
         const secundaria = libros.filter(libro => {
             if (libro.categoria == 2) {
-                return libro.categoria     
+                return libro.categoria ==2
+                //  No se puede cambiar de categoria la editar, hay que corregir este bug , el bug puede estar aca o en la vista en los OPTION
                 }
 
         })
         
         const primaria = libros.filter(libro => {
             if (libro.categoria == 1) {
-            return libro.categoria     
+            return libro.categoria ==1
             }
      
         })

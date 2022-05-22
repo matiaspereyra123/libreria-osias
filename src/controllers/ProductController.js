@@ -59,7 +59,7 @@ const ProductController = {
 
 		fs.writeFileSync(productsFilePath, productosJSON)
 
-		res.redirect('/products/detail/'+req.params.id,{libroEditar:productosJson ,title: libros.titulo}); 
+		res.redirect('/products/detail/'+req.params.id); 
 
        
     },
@@ -91,7 +91,9 @@ const ProductController = {
 		})	
 		fs.writeFileSync(productsFilePath, JSON.stringify(libros,null,'\t'));
 		//fs.readFileSync(productsFilePath,'UTF-8');
-		res.redirect('/products/detail/'+req.params.id);
+
+	const product = libros.find(item=>item.id==req.params.id);
+		res.redirect('/products/detail/'+req.params.id);          //posible error en esta linea
 	
 
 	},
@@ -108,10 +110,15 @@ const ProductController = {
     //    res.render("products/detail", {libro: libro, title: nombreTitulo})
 
 
+//jungle.find(el => el.threat == 5));
+		
+	const product = libros.find(item=>item.id==req.params.id);
+
 	
 
-	const product = libros.find(item=>item.id==req.params.id);
-	res.render('products/detail',{libroEditar:product ,title: libros.titulo});
+	
+	res.render('products/detail',{libroEditar:product, title: libros.titulo}); // No actualiza la variable, hay que parar el servidor y volver a correrlo para actualizar variable y  ver la vista 
+	//otra opcion redigir al home como el destroy 
 
 
     },
