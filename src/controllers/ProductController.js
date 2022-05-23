@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
-let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
-let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+// let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
+// let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 
@@ -11,6 +11,7 @@ const ProductController = {
 
     
     cart: function (req, res) {
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         return res.render('products/cart', {hoja:'productStyles.css', title: "Mis libros", libros: libros});
      },
     
@@ -23,7 +24,7 @@ const ProductController = {
 
     save: (req, res) => {
 
-		// let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let ultimo = libros.length -1;
 		let idnuevo = libros[ultimo].id + 1;  
 			
@@ -43,7 +44,7 @@ const ProductController = {
 		// Tengo que guardar esta info en algún lado
 		
 		// Primero leer lo que ya había en el archivo json
-		// let productJSON = fs.readFileSync(productsFilePath, {encoding: "utf-8"});
+		let productJSON = fs.readFileSync(productsFilePath, {encoding: "utf-8"});
 
 		let productos
 		
@@ -59,12 +60,14 @@ const ProductController = {
 
 		fs.writeFileSync(productsFilePath, productosJSON)
 
-		res.redirect('/products/detail/'+req.params.id); 
+		res.redirect("/"); //Funciona bien cuando se selecciona la categoría Primaria, pero al seleccionar Secundaria hay que actualizar para que carguen las imágenes en el Home. Pendiente para solucionar. 
 
        
     },
 
     edit: function(req,res){
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 			let productID	=req.params.id
 
 			const product = libros.find(item=>item.id==req.params.id);
@@ -80,6 +83,8 @@ const ProductController = {
     },
 
 	update: (req, res) => {
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 		libros.find(libro=>{
 			if(libro.id==req.params.id){
 				libro.titulo=req.body.titulo,
@@ -93,7 +98,7 @@ const ProductController = {
 		//fs.readFileSync(productsFilePath,'UTF-8');
 
 	const product = libros.find(item=>item.id==req.params.id);
-		res.redirect('/products/detail/'+req.params.id);          //posible error en esta linea
+		res.redirect('/products/detail/'+req.params.id);     //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución. 
 	
 
 	},
@@ -101,6 +106,9 @@ const ProductController = {
 
 
     detail: function(req,res) {
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+	
 	//	let nombreTitulo;
       //  let libro = libros.find(libro=>{
          //   if (libro.id == req.params.id){
@@ -117,7 +125,7 @@ const ProductController = {
 	
 
 	
-	res.render('products/detail',{libroEditar:product, title: libros.titulo}); // No actualiza la variable, hay que parar el servidor y volver a correrlo para actualizar variable y  ver la vista 
+	res.render('products/detail',{libroEditar: product, libros: libros, title: libros.titulo}); // No actualiza la variable, hay que parar el servidor y volver a correrlo para actualizar variable y  ver la vista 
 	//otra opcion redigir al home como el destroy 
 
 
@@ -127,11 +135,13 @@ const ProductController = {
 	//** */
 
 	destroy : (req, res) => {
+		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 	
 		//const productoToDelete=products.find(product=>product.id===parseInt(req.params.id));
-		const newListProducts=libros.filter(product=>product.id!==parseInt(req.params.id));
-		products = newListProducts;
-		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,'\t'));
+		let newListProducts=libros.filter(product=>product.id!==parseInt(req.params.id));
+		// products = newListProducts; Al comentar estea línea y pasarle con let la variable newListProducts, se arregla el bug de que no cargaban las imágenes al redirigir al Home. 
+		fs.writeFileSync(productsFilePath,JSON.stringify(newListProducts,null,'\t'));
 		res.redirect('/');
 	}
 

@@ -21,7 +21,7 @@ const upload = multer({storage})
 
 
 router.get("/detail/:id", ProductController.detail);
-router.get("/cart/", ProductController.cart);
+router.get("/cart/", ProductController.cart); //Hay que trabajar sobre esta vista
 
 router.get("/create/", ProductController.create);
 router.post("/create/", upload.single("imagen"), ProductController.save); //faltaba CREATE en la ruta.  (  el index pertenece al controlador HOME CONTROLLER, no iba a redirigir)

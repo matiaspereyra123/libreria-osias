@@ -103,19 +103,6 @@
 		"imagen": "9789501325935.jpeg"
 	},
 	{
-		"id": 9,
-		"titulo": "PROBANDO CATEGORIA",
-		"autor": "123",
-		"editorial": "44",
-		"isbn": "44",
-		"precio": "44",
-		"categoria": 1,
-		"descripcion": "cambiando categoria3333222222222222244444444",
-		"cantidad": "44",
-		"paginas": "44",
-		"imagen": "1653185641820.jpg"
-	},
-	{
 		"id": 11,
 		"titulo": "Matematica 1",
 		"autor": "Mariela Boccioni",
@@ -129,22 +116,9 @@
 		"imagen": "1653170306279.jpg"
 	},
 	{
-		"id": 12,
-		"titulo": "Cambiando titulo y categoria probando",
-		"autor": "asdasd",
-		"editorial": "asdasd",
-		"isbn": "asdasd",
-		"precio": "111",
-		"categoria": 2,
-		"descripcion": "cambiando imagen! cambiando categoria probando! boxeo  00:28",
-		"cantidad": "111",
-		"paginas": "111",
-		"imagen": "1653190134749.jpg"
-	},
-	{
 		"id": 13,
-		"titulo": "Subir",
-		"autor": "Subir",
+		"titulo": "Ciencias Sociales 1",
+		"autor": "AA.VV",
 		"editorial": "Editorial",
 		"isbn": "123",
 		"precio": "123",
@@ -152,7 +126,7 @@
 		"descripcion": "123  ",
 		"cantidad": "123",
 		"paginas": "123",
-		"imagen": "1653172136182.jpg"
+		"imagen": "1653312936104.png"
 	},
 	{
 		"id": 14,
@@ -175,23 +149,23 @@
 		"isbn": "aaa",
 		"precio": "22",
 		"categoria": "2",
-		"descripcion": "asdasd",
+		"descripcion": "Libro de lengua",
 		"cantidad": "22",
 		"paginas": "22",
-		"imagen": "1653186266540.jpg"
+		"imagen": "1653314218279.jpeg"
 	},
 	{
 		"id": 16,
-		"titulo": "CAMBIANDO TITULO TEST",
-		"autor": "2222222222222222222222222222",
+		"titulo": "Lengua y Literatura",
+		"autor": "AA.VV.",
 		"editorial": "2",
 		"isbn": "23123",
 		"precio": "2",
 		"categoria": "1",
-		"descripcion": "22222",
+		"descripcion": "Libro esencial para aprender Lengua y literatura",
 		"cantidad": "2",
 		"paginas": "2",
-		"imagen": "1653193090814.jpg"
+		"imagen": "1653313392094.jpeg"
 	},
 	{
 		"id": 17,
@@ -207,43 +181,17 @@
 		"imagen": "1653186871460.jpg"
 	},
 	{
-		"id": 18,
-		"titulo": "LENGUAA PROBANDO",
-		"autor": "prueba 3",
-		"editorial": "ddd",
-		"isbn": "123",
-		"precio": "123",
-		"categoria": "2",
-		"descripcion": "123",
-		"cantidad": "123",
-		"paginas": "123",
-		"imagen": "1653187040891.jpg"
-	},
-	{
-		"id": 19,
-		"titulo": "Lengua ultima prueba",
-		"autor": "a",
-		"editorial": "b",
-		"isbn": "1",
-		"precio": "2",
-		"categoria": "2",
-		"descripcion": "lengua matematicas",
-		"cantidad": "3",
-		"paginas": "4",
-		"imagen": "1653187338454.jpg"
-	},
-	{
 		"id": 20,
-		"titulo": "PROBANDO 12323 Matematicas",
-		"autor": "aa",
+		"titulo": "Matematicas 1",
+		"autor": "AA.VV",
 		"editorial": "aa",
 		"isbn": "123",
 		"precio": "123",
 		"categoria": "1",
-		"descripcion": "12 bna",
+		"descripcion": "Libro de matemáticas",
 		"cantidad": "1234",
 		"paginas": "1234",
-		"imagen": "1653187582882.jpg"
+		"imagen": "1653314110269.jpeg"
 	},
 	{
 		"id": 21,
@@ -259,19 +207,6 @@
 		"imagen": "1653187824011.jpg"
 	},
 	{
-		"id": 22,
-		"titulo": "Test",
-		"autor": "Test",
-		"editorial": "Test",
-		"isbn": "2",
-		"precio": "2600",
-		"categoria": "1",
-		"descripcion": "Creando libro",
-		"cantidad": "2",
-		"paginas": "2",
-		"imagen": "1653188515317.png"
-	},
-	{
 		"id": 23,
 		"titulo": "TEST 2",
 		"autor": "TEST 2",
@@ -285,71 +220,6 @@
 		"imagen": "1653188656634.png"
 	},
 	{
-		"id": 24,
-		"titulo": "Test5",
-		"autor": "Test5",
-		"editorial": "Test4",
-		"isbn": "44",
-		"precio": "44444444444444444444444444444",
-		"categoria": "2",
-		"descripcion": "test4 imagen matrix editado! TEST5",
-		"cantidad": "4",
-		"paginas": "5",
-		"imagen": "1653190196992.png"
-	},
-	{
-		"id": 25,
-		"titulo": "test6",
-		"autor": "test6",
-		"editorial": "test6",
-		"isbn": "test6",
-		"precio": "6",
-		"categoria": "2",
-		"descripcion": "Test 6",
-		"cantidad": "6",
-		"paginas": "6",
-		"imagen": "1653190394405.png"
-	},
-	{
-		"id": 26,
-		"titulo": "Test7",
-		"autor": "Test7",
-		"editorial": "Test7",
-		"isbn": "Test7",
-		"precio": "7",
-		"categoria": "2",
-		"descripcion": "Test7",
-		"cantidad": "7",
-		"paginas": "7",
-		"imagen": "1653190709379.png"
-	},
-	{
-		"id": 27,
-		"titulo": "Test8",
-		"autor": "TEST8",
-		"editorial": "TEST8",
-		"isbn": "TEST8",
-		"precio": "8",
-		"categoria": "2",
-		"descripcion": "TEST8  00:43",
-		"cantidad": "8",
-		"paginas": "8",
-		"imagen": "1653191030870.png"
-	},
-	{
-		"id": 28,
-		"titulo": "TEST9",
-		"autor": "TEST9",
-		"editorial": "TEST9",
-		"isbn": "9",
-		"precio": "9",
-		"categoria": "2",
-		"descripcion": "TEST9TEST9TEST9TEST9",
-		"cantidad": "9",
-		"paginas": "9",
-		"imagen": "1653191208796.png"
-	},
-	{
 		"id": 29,
 		"titulo": "TEST10",
 		"autor": "TEST10",
@@ -361,18 +231,5 @@
 		"cantidad": "10",
 		"paginas": "10",
 		"imagen": "1653191346968.png"
-	},
-	{
-		"id": 30,
-		"titulo": "test11",
-		"autor": "test11",
-		"editorial": "test11",
-		"isbn": "11",
-		"precio": "11",
-		"categoria": "2",
-		"descripcion": "test11test11test11",
-		"cantidad": "11",
-		"paginas": "11",
-		"imagen": "1653192078325.png"
 	}
 ]

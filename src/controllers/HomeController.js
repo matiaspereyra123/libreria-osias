@@ -8,7 +8,8 @@ let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const HomeController = {
     home: function (req, res) {
-
+        
+        let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
      //   const secundaria = libros.filter(libro => {
        //     if (libro.categoria == "Educación secundaria") {
           //      return libro.categoria == "Educación secundaria"    
