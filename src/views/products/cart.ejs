@@ -1,142 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html>
+    <head>
     <%- include ("../partials/head.ejs")  %> 
-</head>
 
-<body>
-    <section class="product-cart-section">
-        <section class="product-cart">        
-            <section class="up-section-cart">
-                <a href="/"><button type="button" class="product-cart-button"><i class="fa-solid fa-angle-left"></i></button></a>
-                <h3 class="up-section-cart__title">Carrito de compras</h3>
-            </section>
+   
+    </head>
+    <body>
+    <header>     
+       <%- include("../partials/header.ejs")  %> 
+    </header>
 
-            <section class="product-subtotal">
-                <small>PRODUCTO</small>
-                <small>SUBTOTAL</small>
-            </section>
+ <body>
 
-            <section class="product-cart-content">
-                <div class="product-cart-content-left">
-                    <div class="product-cart-content__image">
-                        <img src="/images/" alt="Product images">
-                    </div>
-                    <div class="product-cart-content__amount">
-                        <p class="product-cart-content__amount__title">Ciencias Naturales</p>
+    <main class="productoCarrito">
+        <ol id="lista2">
+            <li><img src="/images/1653170306279.jpg" alt="" width="100px" height="100px">
+                    <input type="number"> 
+                    <label for="">$2500</label>
+           
+                    <a href=""><i class="fa fa-trash" aria-hidden="true"></i> </a>
+            </li>
+            <li>List item</li>
+            <li>List item
+              
+                 
+                
+           
+            </li>
+            <li>List item</li>
+            <li>List item</li> 
+        </ol>
 
-                        
-                        <div class="product-cart-content__buttons">
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
-                            <input type="number" name="product-cart-amount" min="1" >
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
-            
-                        </div>
-                    </div>
-                </div>
-                <div class="product-cart-content-trash-price">
-                    <div>
-                        <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
-                    </div>
-                    <div>
-                        <p class="product-cart-content__price">$3000</p>
-                    </div>
-                </div>
-            </section>
 
-            <section class="product-cart-content">
-                <div class="product-cart-content-left">
-                    <div class="product-cart-content__image">
-                        <img src="/images/cienciasSociales.jpeg" alt="Product images">
-                    </div>
-                    <div class="product-cart-content__amount">
-                        <p class="product-cart-content__amount__title">Ciencias Sociales 6
-                        </p>
+    </main>
 
-                        
-                        <div class="product-cart-content__buttons">
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
-                            <input type="number" name="product-cart-amount" min="1" >
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
-            
-                        </div>
-                    </div>
-                </div>
-                <div class="product-cart-content-trash-price">
-                    <div>
-                        <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
-                    </div>
-                    <div>
-                        <p class="product-cart-content__price">$2500</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="product-cart-content">
-                <div class="product-cart-content-left">
-                    <div class="product-cart-content__image">
-                        <img src="/images/practicas-lenguaje1.jpeg" alt="Product images">
-                    </div>
-                    <div class="product-cart-content__amount">
-                        <p class="product-cart-content__amount__title">Lengua y literatura I
-                        </p>
-
-                        
-                        <div class="product-cart-content__buttons">
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
-                            <input type="number" name="product-cart-amount" min="1" >
-                            <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
-            
-                        </div>
-                    </div>
-                </div>
-                <div class="product-cart-content-trash-price">
-                    <div>
-                        <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
-                    </div>
-                    <div>
-                        <p class="product-cart-content__price">$3300</p>
-                    </div>
-                </div>
-            </section>
-        </section>
         
+    
+       
 
-        <section class="product-cart-subtotal">
-            <h3>Subtotal (sin envío):</h3>
-            <h3 class="product-cart-subtotal__price">$8.800</h3>
-        </section>
+    <footer>
+        
+        <%- include ("../partials/footer.ejs")%>
+    </footer>
 
-        <section class="product-cart-shipping">
-            <div class="product-cart-send">
-                <i class="fas fa-truck"></i>
-                <p>Medios de envío</p>
-            </div>
+ </body>
 
-            <div class="product-cart-form">
-                <form>            
-                    <div class="product-cart-form-input">
-                        <input type="text" placeholder="Tu codigo postal">
-                        <input type="submit" value="Calcular">
+ </html>
+
+  
+
+ <!-- ****************************************************************
+
+            <main>
+                <section class="product-cart">        
+                    <section class="up-section-cart">
+                        <a href="/"><button type="button" class="product-cart-button"><i class="fa-solid fa-angle-left"></i></button></a>
+                        <h3 class="up-section-cart__title">Carrito de compras</h3>
+                    </section>
+        
+                    <section class="product-subtotal">
+                        <small>PRODUCTO</small>
+                        <small>SUBTOTAL</small>
+                    </section>
+        
+                    <section class="product-cart-content">
+                        <div class="product-cart-content-left">
+                            <div class="product-cart-content__image">
+                                <img src="/images/" alt="Product images">
+                            </div>
+                            <div class="product-cart-content__amount">
+                                <p class="product-cart-content__amount__title">Ciencias Naturales</p>
+        
+                                
+                                <div class="product-cart-content__buttons">
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
+                                    <input type="number" name="product-cart-amount" min="1" >
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-cart-content-trash-price">
+                            <div>
+                                <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div>
+                                <p class="product-cart-content__price">$3000</p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <section class="product-cart-content">
+                        <div class="product-cart-content-left">
+                            <div class="product-cart-content__image">
+                                <img src="/images/cienciasSociales.jpeg" alt="Product images">
+                            </div>
+                            <div class="product-cart-content__amount">
+                                <p class="product-cart-content__amount__title">Ciencias Sociales 6
+                                </p>
+        
+                                
+                                <div class="product-cart-content__buttons">
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
+                                    <input type="number" name="product-cart-amount" min="1" >
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-cart-content-trash-price">
+                            <div>
+                                <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div>
+                                <p class="product-cart-content__price">$2500</p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <section class="product-cart-content">
+                        <div class="product-cart-content-left">
+                            <div class="product-cart-content__image">
+                                <img src="/images/practicas-lenguaje1.jpeg" alt="Product images">
+                            </div>
+                            <div class="product-cart-content__amount">
+                                <p class="product-cart-content__amount__title">Lengua y literatura I
+                                </p>
+        
+                                
+                                <div class="product-cart-content__buttons">
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-minus"></i></button>
+                                    <input type="number" name="product-cart-amount" min="1" >
+                                    <button type="button" class="product-cart-button"><i class="fa-solid fa-plus"></i></button>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-cart-content-trash-price">
+                            <div>
+                                <button type="button" class="up-section-cart__trash"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div>
+                                <p class="product-cart-content__price">$3300</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                
+        
+                <section class="product-cart-subtotal">
+                    <h3>Subtotal (sin envío):</h3>
+                    <h3 class="product-cart-subtotal__price">$8.800</h3>
+                </section>
+        
+                <section class="product-cart-shipping">
+                    <div class="product-cart-send">
+                        <i class="fas fa-truck"></i>
+                        <p>Medios de envío</p>
                     </div>
-                    <a href="https://www.correoargentino.com.ar/formularios/cpa"><small>No sé mi código postal</small></a>
-                </form>
-            </div>
-        </section>
+        
+                    <div class="product-cart-form">
+                        <form>            
+                            <div class="product-cart-form-input">
+                                <input type="text" placeholder="Tu codigo postal">
+                                <input type="submit" value="Calcular">
+                            </div>
+                            <a href="https://www.correoargentino.com.ar/formularios/cpa"><small>No sé mi código postal</small></a>
+                        </form>
+                    </div>
+                </section>
+        
+                <section class="product-cart-total">
+                    <h2>TOTAL:</h2>
+                    <h3 class="product-cart-subtotal__price">$8.800</h3>        
+                </section>
+                <div class="product-cart-purchase-end">
+                    <div class="product-cart-purchase">
+                        <input type="submit" value="INICIAR COMPRA">
+                    </div>
+                    <div class="product-cart-home">
+                        <a href="/"><small>VER MÁS PRODUCTOS</small></a>
+                    </div>
+                </div>
+                 </main>
+            </section>
 
-        <section class="product-cart-total">
-            <h2>TOTAL:</h2>
-            <h3 class="product-cart-subtotal__price">$8.800</h3>        
-        </section>
-        <div class="product-cart-purchase-end">
-            <div class="product-cart-purchase">
-                <input type="submit" value="INICIAR COMPRA">
-            </div>
-            <div class="product-cart-home">
-                <a href="/"><small>VER MÁS PRODUCTOS</small></a>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+
+
+
+
+-->
+
+       
+   
+
+
+
+
+
+
+
+
+       
+
+
+
