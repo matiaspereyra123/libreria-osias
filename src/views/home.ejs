@@ -21,11 +21,12 @@
                 <div class="products-list">
                         <% primaria.forEach(libro => { %>
                             <article class="product">   
+                                 <h3><%= libro.titulo %> </h3> 
                                 <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
                                 
                                     <div class="product__info">
                                     <p class="price">$<%= libro.precio %> </p>
-                                    <h3><%= libro.titulo %> </h3>
+                                  
                                 </div>
                                 
                                 </a> 
@@ -41,12 +42,13 @@
 
                 <% secundaria.forEach(libro => { %>
  
-                    <article class="product">
+                    <article class="product">  
+                         <h3><%= libro.titulo  %> </h3> 
                         <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>><!-- Eliminado el ".jpg"-->
                        
                             <div class="product__info">
-                            <p class="price"><%= libro.autor  %> </p>
-                            <h3><%= libro.titulo  %> </h3> 
+                            <p class="price"><%= libro.precio  %> </p>
+                         
                         </div>
                         </a> 
                    

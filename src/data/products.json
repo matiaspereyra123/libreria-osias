@@ -113,7 +113,7 @@
 		"descripcion": "Matematica 1 Puerto de palos",
 		"cantidad": "10",
 		"paginas": "95",
-		"imagen": "1653170306279.jpg"
+		"imagen": "1653493119605.jpg"
 	},
 	{
 		"id": 13,
@@ -231,5 +231,31 @@
 		"cantidad": "10",
 		"paginas": "10",
 		"imagen": "1653191346968.png"
+	},
+	{
+		"id": 30,
+		"titulo": "Historia 111",
+		"autor": "Lorem",
+		"editorial": "Lorem",
+		"isbn": "1234",
+		"precio": "2500",
+		"categoria": "2",
+		"descripcion": "Historia 1",
+		"cantidad": "19",
+		"paginas": "121",
+		"imagen": "1653500568062.jpg"
+	},
+	{
+		"id": 31,
+		"titulo": "aa",
+		"autor": "aa",
+		"editorial": "vvv",
+		"isbn": "123",
+		"precio": "123",
+		"categoria": "1",
+		"descripcion": "asdasd11",
+		"cantidad": "123",
+		"paginas": "1234",
+		"imagen": "1653500653959.jpg"
 	}
 ]

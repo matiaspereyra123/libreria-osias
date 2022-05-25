@@ -84,20 +84,24 @@ const ProductController = {
 
 	update: (req, res) => {
 		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+	
+		
 		libros.find(libro=>{
 			if(libro.id==req.params.id){
 				libro.titulo=req.body.titulo,
 				libro.autor=req.body.autor,
-				libro.descripcion=req.body.descripcion,
+				libro.descripcion=req.body.descripcion;
+			  if(req.file!=undefined){
 				libro.imagen=req.file.filename;
+			  }
+			
 			}
 		
 		})	
 		fs.writeFileSync(productsFilePath, JSON.stringify(libros,null,'\t'));
 		//fs.readFileSync(productsFilePath,'UTF-8');
 
-	const product = libros.find(item=>item.id==req.params.id);
+
 		res.redirect('/products/detail/'+req.params.id);     //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución. 
 	
 
