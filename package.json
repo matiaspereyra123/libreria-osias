@@ -1,7 +1,6 @@
 {
   "name": "html_css",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +17,14 @@
     "multer": "^1.4.4",
     "nodemon": "^2.0.16"
   },
-  "keywords": []
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariadumas/grupo_7_proyectolibreria.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mariadumas/grupo_7_proyectolibreria/issues"
+  },
+  "homepage": "https://github.com/mariadumas/grupo_7_proyectolibreria#readme",
+  "description": ""
 }
