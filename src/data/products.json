@@ -1,17 +1,5 @@
 [
 	{
-		"id": 1,
-		"titulo": "Casdasdasd",
-		"autor": "notiene",
-		"categoria": 1,
-		"editorial": "Convergente",
-		"paginas": 200,
-		"cantidad": 50,
-		"precio": 1950,
-		"isbn": 9789876426381,
-		"imagen": "9789876426381.jpeg"
-	},
-	{
 		"id": 2,
 		"titulo": "Ciencias Sociales 5",
 		"autor": null,
@@ -244,5 +232,18 @@
 		"cantidad": "19",
 		"paginas": "121",
 		"imagen": "1653500568062.jpg"
+	},
+	{
+		"id": 31,
+		"titulo": "Ciencias Naturales",
+		"autor": "dd",
+		"editorial": "ddd",
+		"isbn": "22",
+		"precio": "22",
+		"categoria": "1",
+		"descripcion": "ss",
+		"cantidad": "2",
+		"paginas": "2",
+		"imagen": "1653518385096.jpeg"
 	}
 ]

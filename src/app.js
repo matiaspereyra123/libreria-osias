@@ -24,9 +24,13 @@ const homeRoutes = require("./routes/homeRoutes.js")
 const productRoutes = require("./routes/productsRoutes.js");
 
 
-app.listen(3030,() =>{
-    console.log("Servidor corriendo en http://localhost:3030");
-});
+app.listen(process.env.PORT || 3030, () => {
+    console.log("Sevidor corriendo en http://localhost:3030");
+})
+
+// app.listen(3030,() =>{
+//     console.log("Servidor corriendo en http://localhost:3030");
+// });
 
 
 // cambio las rutas de products de acuerdo con las sugerencias del feedback

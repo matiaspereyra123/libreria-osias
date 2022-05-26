@@ -25,6 +25,7 @@ const ProductController = {
     save: (req, res) => {
 
 		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 		let ultimo = libros.length -1;
 		let idnuevo = libros[ultimo].id + 1;  
 			
@@ -91,7 +92,7 @@ const ProductController = {
 				libro.titulo=req.body.titulo,
 				libro.autor=req.body.autor,
 				libro.descripcion=req.body.descripcion;
-			  if(req.file!=undefined){
+			  	if(req.file!=undefined){
 				libro.imagen=req.file.filename;
 			  }
 			
