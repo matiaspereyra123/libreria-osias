@@ -729,7 +729,7 @@ uso para medias queries*/
 @media (min-width: 1200px) { 
  }
 
- .boton-enviar:hover, .boton-borrar:hover, .boton-login:hover, .input-botton:hover{
+ .boton-enviar:hover, .boton-borrar:hover, .boton-login:hover, .input-botton:hover,.input-botton-pagar:hover{
     /* background-color: #000; */
     background-color: #A82B6B;
  }
@@ -832,7 +832,7 @@ uso para medias queries*/
     margin: 0 0 0 2em; 
 }
 
-#lista2 li{
+#lista2 td{
         
     flex-direction: row;
     justify-content:center;
@@ -851,15 +851,15 @@ uso para medias queries*/
     width: 30vw
 }
 
-#lista2 li:hover{
+#lista2 td:hover{
     background: #eee;
 }
 
-#lista2 li:hover:before{
+#lista2 td:hover:before{
     transform: rotate(360deg);  
 }
 
-#lista2 li:before{
+#lista2 td:before{
     content: counter(li);
     counter-increment: li;
     position: absolute; 
@@ -891,7 +891,105 @@ uso para medias queries*/
 }
 
 .imagenCarrito {
-
-    margin-right: 10px;
-    align-items: center;
+    height:80px;
+    display: block;
+    margin: 10px auto;
 }
+
+
+.contenedorCarrito{
+    width: 90vw;
+    margin: auto;
+    padding-top:10px;
+ 
+}
+
+
+table{
+    text-align: center;
+    width: 60vw;
+   
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+
+.input-botton-pagar{
+    background-color: darkgrey;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    height: 40px;
+    display:block;
+    width: 100px;
+    display:inline-block;
+
+}
+
+.total-carrito{
+    text-align:right;
+}
+table input[type=text]{
+    width: 30px;
+text-align: center;
+}
+table input[type=button]{
+    width: 20px;
+text-align: center;
+margin:5px;
+}
+
+
+
+.tablaItem{
+    border-bottom: 1px solid #A82B6B;
+
+}
+
+th{
+
+  
+    letter-spacing: 2px;
+}
+
+
+caption {
+    font-family: 'Rock Salt', cursive;
+    padding: 20px;
+    font-style: italic;
+    caption-side: bottom;
+    background-color: #A82B6B;
+    color: rgb(212, 209, 209);
+    letter-spacing: 1px;
+    width:14%;
+    border-radius: 5px;
+    text-align: center;
+    align:right;
+    
+  }
+
+  .eliminarItem{
+    color: #3483fa;
+  }
+
+tfoot th {
+    text-align: right;
+}
+
+th, td {
+    padding: 20px;
+  }
+.pagar a{
+  
+    padding: 20px;
+
+    background-color: #A82B6B;
+    color: #fff;
+    letter-spacing: 1px;
+    width:100%;
+    border-radius: 5px;
+    text-align: center;
+    display:inline-block;
+  }
+
