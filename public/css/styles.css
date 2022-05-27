@@ -610,6 +610,30 @@ uso para medias queries*/
 
 @media (min-width: 576px) {
 
+    .precio b {
+        font-size: 13px;
+      }
+      .carritoHome{
+     
+          width:40px;
+          height:40px;
+          background-color:#A82B6B;
+          line-height:40px;
+          text-align:center;
+          vertical-align:middle;
+          display:inline-block;
+          border-radius:5px;
+          color:white;
+    
+  }
+  .carritoHome:hover{
+      background-color: #e2559c;
+  }
+  
+  .fa-cart-shopping{
+      line-height:inherit;
+  
+  } 
   }
 
 @media (min-width: 768px) { 
@@ -718,6 +742,56 @@ uso para medias queries*/
         border-bottom: 1px solid #EDEDED;
         padding: 5px;
     }
+    .precio b {
+        font-size: 13px;
+      }
+      .carritoHome{
+     
+          width:40px;
+          height:40px;
+          background-color:#A82B6B;
+          line-height:40px;
+          text-align:center;
+          vertical-align:middle;
+          display:inline-block;
+          border-radius:5px;
+          color:white;
+    
+  }
+  .carritoHome:hover{
+      background-color: #e2559c;
+  }
+  
+  .fa-cart-shopping{
+      line-height:inherit;
+  
+  } 
+
+  .precio b {
+    font-size: 13px;
+  }
+  .carritoHome{
+ 
+      width:40px;
+      height:40px;
+      background-color:#A82B6B;
+      line-height:40px;
+      text-align:center;
+      vertical-align:middle;
+      display:inline-block;
+      border-radius:5px;
+      color:white;
+
+}
+.carritoHome:hover{
+  background-color: #e2559c;
+}
+
+.fa-cart-shopping{
+  line-height:inherit;
+
+} 
+
     
  }
 
