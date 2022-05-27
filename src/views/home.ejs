@@ -16,47 +16,59 @@
 
         <main>
 
-            <section class="primaria">
+            <section class="contenedor">
                 <h2>Eduación primaria</h2>
-                <div class="products-list">
+                <article class="products-list">
                         <% primaria.forEach(libro => { %>
                             <article class="product">   
                                  <h3><%= libro.titulo %> </h3> 
                                 <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
                                 
                                     <div class="product__info">
-                                    <p class="price">$<%= libro.precio %> </p>
+                                </div>
+                                
+                                </a> 
+                              
+                                  <article class="precio"><b>  $<%= libro.precio %> </b>
+                                
+                                    <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
+                                </article>   
+                                     
+                                    
+                            </article>
+                        <% }) %>  
+                        </article>
+            </section>
+
+
+            <section class="contenedor">
+                <h2>Eduación secundaria</h2>
+                <article class="products-list">
+                        <% secundaria.forEach(libro => { %>
+                            <article class="product">   
+                                 <h3><%= libro.titulo %> </h3> 
+                                <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
+                                
+                                    <div class="product__info">
+                                    
+                               
                                   
                                 </div>
                                 
                                 </a> 
-                            
+                              
+                                  <article class="precio"><b>  $<%= libro.precio %> </b>
+                                
+                                    <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
+                                </article>   
+                                     
+                                    
                             </article>
                         <% }) %>  
-                </div>
+                        </article>
             </section>
 
-            <section class="secundaria">
-                <h2>Educación secundaria</h2>
-                <div class="products-list">
-
-                <% secundaria.forEach(libro => { %>
- 
-                    <article class="product">  
-                         <h3><%= libro.titulo  %> </h3> 
-                        <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>><!-- Eliminado el ".jpg"-->
-                       
-                            <div class="product__info">
-                            <p class="price"><%= libro.precio  %> </p>
-                         
-                        </div>
-                        </a> 
-                   
-                    </article>
-                 
-                <% }) %>
-                </div>
-            </section>
+           
         </main>
 
     <footer>

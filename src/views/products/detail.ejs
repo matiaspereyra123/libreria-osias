@@ -15,41 +15,51 @@
     <main>
         <section class="contenedor-detalle">
 
-            <div class="image-detalle">
+            <article class="image-detalle">
                 <img src="/images/<%=libroEditar.imagen %>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
-            </div>
-            <div class="compra-producto">
-                <h2><%= libroEditar.titulo %> </h2>
+            </article>
+            <section class="compra-producto">
+                <article class="tablaItem" >
+                  <h2><%= libroEditar.titulo %> </h2>
                 <p><%= libroEditar.precio %> </p>
-                <p>Ver medios de pago</p>
-                <i class="fa-brands fa-cc-visa"></i>
-                <i class="fa-brands fa-cc-amex"></i>
-                <i class="fa-brands fa-cc-mastercard"></i>
-                <form>
+               <a href=""  > 
+                <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png">  </span>
+                <span><img class="mediosPago" src=" https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png">  </span>
+                <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png">  </span>
+            
+               <br>
+               <p> VER MEDIOS DE PAGO</p> </a>
+              </article> 
+                 <form>
+                     <br>
                     <label class="form-cantidad">Cantidad</label>
                     <input class="input-cantidad" type="number" placeholder="1">
                     <input class="input-botton" type="submit" value="Agregar al carrito">
                 </form>
+              
+         
+                
+          
 
                 <form>
                     <i class="fas fa-truck"></i>
                     <label>Medios de envío</label>
-                    <div>
+                    <section>
                         <input type="text" placeholder="Tu codigo postal">
                         <input type="submit" value="Calcular">
-                    </div>
+                    </section>
                 </form>
-                <div>
+                <section>
 
                     <i class="fa-solid fa-store"></i>
                     <label>Nuestro local</label>
-                </div>
+                </section>
                 <p>Av. Rivadavia 1234</p>
                 <form action="/products/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
                     <button type="submit" >EDITAR / ELIMINAR</button>
                   </form>
 
-            </div>
+            </section>
          
 
         </section>
