@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ("../partials/head.ejs")  %> 
+    </head>
+    <body>
+        <header>
+            <%- include ("../partials/header.ejs") %> 
+        </header>
+
+
+
+        <main class="main-register">
+            <div class="caja-register">
+                <form  action="/user/edit/<%=usuarioEditar.id%>?_method=PUT" method="POST"  class="formulario-completo" enctype="multipart/form-data" >
+                  
+                  <section> 
+                        <img src="/images/users/<%=usuarioEditar.imagen %>" alt="" width=15% >
+                   </section>
+
+                      <label for="nombre"></label>
+                      <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="input-barras" value="<%=usuarioEditar.nombre %>">
+              
+                      <label for="usuario" class="nombre-usuario"></label>
+                      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="input-barras" minlength="4" maxlength="8" value="<%=usuarioEditar.usuario %>"  >
+          
+                 
+                      <label for="email"></label>
+                      <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras" value="<%=usuarioEditar.email %>" >
+  
+  
+                     <label for="fecha-nacimiento" class="label-nacimiento" >Fecha de nacimiento</label>
+              
+                     <input type="date" name="nacimiento" class="input-barras" value="<%=usuarioEditar.nacimiento %>">
+                 
+                      <label for="domicilio"></label>
+                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" value="<%=usuarioEditar.domicilio %>" >
+              
+                    <label class="titulo-avatar" for="avatar">Seleccionar una imagen de perfil</label>
+                    <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.imagen %>" >
+                
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras" >
+                    <label for="password"></label>
+                    <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras" >
+                  <div class="div-botones-register">
+                    <button type="submit" class="boton-enviar">Enviar</button>
+             
+                </form>
+                <div class="div-botones-delete">
+                    <form action="/user/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="boton-borrar">ELIMINAR CUENTA</button>
+                    </form>
+               </div>
+
+       
+              </form>
+            </div>
+          </main>
+
+          <footer>
+            <%- include ("../partials/footer.ejs")%>
+          </footer>
+        
+    </body>
+</html>

@@ -32,7 +32,7 @@
 
               <% carrito.forEach(libro => { %>
                      <tr class="tablaItem">
-                         <td><img  src="/images/<%=libro.imagen %>" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem"><p>Eliminar</p></a></td>
+                         <td><img  src="/images/products/<%=libro.imagen %>" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem"><p>Eliminar</p></a></td>
                           <td> <%=libro.titulo%></td>
                           <td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
                         <td><%=libro.precio%></td>

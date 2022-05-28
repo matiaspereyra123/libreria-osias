@@ -8,7 +8,7 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
     destination:  (req, file, cb) =>{
-      cb(null, path.join(__dirname, "../../public/images"));
+      cb(null, path.join(__dirname, "../../public/images/products"));
     },
     filename:  (req, file, cb) =>{
       let imageName=Date.now()+path.extname(file.originalname); //intentar guardar imagen con el nombre del titulo+id
