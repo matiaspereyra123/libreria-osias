@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
+const carritoFilePath = path.join(__dirname, '../data/cart.json');
 // let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
 // let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -11,8 +12,8 @@ const ProductController = {
 
     
     cart: function (req, res) {
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        return res.render('products/cart', {hoja:'productStyles.css', title: "Mis libros", libros: libros});
+		let librosCarrito = JSON.parse(fs.readFileSync(carritoFilePath, 'utf-8'));
+        return res.render('products/cart', {hoja:'productStyles.css', title: "Mis libros", carrito: librosCarrito});
      },
     
     create: function (req, res) {

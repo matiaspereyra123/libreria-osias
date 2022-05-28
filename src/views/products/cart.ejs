@@ -18,67 +18,38 @@
           
             <thead >
                      <tr>
-               <th>IMAGEN</th>
-                <th>TITULO</th>
-                 <th>CANTIDAD</th>
-                <th>PRECIO</th>
+               <th><h3><b>PRODUCTO </b> </h3></th>
+                <th><h3>TITULO </h3></th>
+                <th><h3>CANTIDAD</h3></th>
+                <th><h3>PRECIO</h3></th>
                 <th></th>
                  </tr>
                 </thead>
         <tbody>
-
-              <tr class="tablaItem">
-                    
-                                   <td><img src="/images/1653170306279.jpg" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem">Eliminar</a></td>
-                          <td>Libro 1</td>
-                          <!-- CANTIDAD CON BOTONES I-->
-                          <td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
-
-                            <!-- CANTIDAD SIN BOTONES LISTA SELECT-->
-                          <!--  OTRA POSIBLE OPCION HAY QUE DECIDIR CUAL  -->
-
-                          <!--      <td><select name="" class="" id="">
-                                   <option selected="">1</option>
-                                  <option>2</option>
-                                <option>3</option>
-                              <option>4</option>
-                                  <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                 <option>8</option>
-                                 <option>9</option>
-                                   <option>10</option>
-                                </select></td> --> 
-                              <td>2500</td>
-                      
                 
-                </tr>
-                <tr class="tablaItem">
-                    
-                    <td><img src="/images/1653171367975.jpg" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem">Eliminar</a></td><br>
-           <td>Libro 1</td>
-            <!--<td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> --> 
-            <td><select name="" class="" id="">
-                    <option selected="">1</option>
-                   <option>2</option>
-                 <option>3</option>
-               <option>4</option>
-                   <option>5</option>
-                 <option>6</option>
-                 <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                    <option>10</option>
-                 </select></td> 
-               <td>2500</td>
+           
+
+
+              <% carrito.forEach(libro => { %>
+                     <tr class="tablaItem">
+                         <td><img  src="/images/<%=libro.imagen %>" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem"><p>Eliminar</p></a></td>
+                          <td> <%=libro.titulo%></td>
+                          <td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
+                        <td><%=libro.precio%></td>
+                               <% }) %>  
+                      </tr>
+
+
+
+   
        
  
- </tr>
- <tr class="tablaItem">
+ 
+<!--  <tr class="tablaItem">
                     
     <td><img src="/images/1653186266540.jpg" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem">Eliminar</a></td>
 <td>Libro 1</td>
-<!--<td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> --> 
+<td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
 <td><select name="" class="" id="">
     <option selected="">1</option>
    <option>2</option>
@@ -92,9 +63,11 @@
     <option>10</option>
  </select></td> 
 <td>2500</td>
+</tr> -->
 
 
-</tr>
+
+
         </tbody>
         <tfoot>
       <tr>
@@ -304,7 +277,13 @@
 
 -->
 
+
+   
+
+
        
+
+
    
 
 

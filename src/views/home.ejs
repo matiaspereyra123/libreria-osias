@@ -22,12 +22,15 @@
                         <% primaria.forEach(libro => { %>
                            <article class="product">  
                                  <h3><%= libro.titulo %> </h3> 
-                                <a href="products/detail/<%= libro.id %>"><img  clss="imagenLibroHome"src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
+                                 <article class="artImagen">
+                                          <a href="products/detail/<%= libro.id %>"><img  clss="imagenLibroHome"src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
                                 
                                    <!--   div class="product__info">
                                 </div>
                                  -->
                                 </a> 
+                                 </article>
+                           
                                 
                                   <article class="precio"><b>  $<%= libro.precio %> </b>
                                 
@@ -47,16 +50,13 @@
                         <% secundaria.forEach(libro => { %>
                             <article class="product">   
                                  <h3><%= libro.titulo %> </h3> 
-                                <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
-                                
-                                    <div class="product__info">
-                                    
-                               
-                                  
-                                </div>
+                               <article class="artImagen">
+                                            
+                                        <a href="products/detail/<%= libro.id %>"><img src="/images/<%= libro.imagen %>" alt=<%= libro.titulo %>>
+                              
                                 
                                 </a> 
-                              
+                               </article> 
                                   <article class="precio"><b>  $<%= libro.precio %> </b>
                                 
                                     <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
