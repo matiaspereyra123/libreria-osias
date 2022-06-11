@@ -1,3 +1,5 @@
+const bcryptjs = require('bcryptjs');
+
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator"); // requerimos para poder validar errores
@@ -19,10 +21,10 @@ const userController = {
     save: function (req, res) {
        // let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
        let errors = validationResult(req); //guarda validacion errores
-
-
         let ultimo = users.length -1;
 		let idnuevo = users[ultimo].id + 1;  
+
+        
                 if(errors.isEmpty()){ //preguntamos si errores esta vacio, entonces guarda usuario nuevo.
     let newUser = {
             id: idnuevo,  

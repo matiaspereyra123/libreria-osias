@@ -46,7 +46,6 @@
 		"domicilio": "hhhhh",
 		"imagen": "1653775818802.jpg",
 		"password": "12345"
-	
 	},
 	{
 		"id": 6,
@@ -57,5 +56,14 @@
 		"domicilio": "",
 		"password": "",
 		"imagen": "1653313392094.jpeg"
+	},
+	{
+		"id": 7,
+		"nombre": "",
+		"usuario": "",
+		"email": "",
+		"nacimiento": "",
+		"domicilio": "",
+		"password": ""
 	}
 ]

@@ -12,33 +12,42 @@
 
         <main class="main-register">
             <div class="caja-register">
+
+              <% if (locals.errors) { %> <!-- si EXISTE se ejecuta foreach-->       <!-- POR AHORA MUESTRA LOS MENSAJES ARRIBA DEL FORM-->
+                <% errors.forEach(error => { %>
+              <p class="feedback is-danger"><%= error.msg %> </p>
+                   
+        
+             <% }) %>
+          <% } %>
+
               <form action="/user/register" method="POST"  class="formulario-completo" enctype="multipart/form-data">
                   
                       <label for="nombre"></label>
-                      <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="input-barras" required>
+                      <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="input-barras">
               
                       <label for="usuario" class="nombre-usuario"></label>
                       <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="input-barras" minlength="4" maxlength="8" >
           
                  
                       <label for="email"></label>
-                      <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras" required>
+                      <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras">
   
   
                      <label for="fecha-nacimiento" class="label-nacimiento">Fecha de nacimiento</label>
               
-                     <input type="date" name="nacimiento" class="input-barras" required>
+                     <input type="date" name="nacimiento" class="input-barras" >
                  
                       <label for="domicilio"></label>
-                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" required>
+                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras">
               
                     <label class="titulo-avatar" for="avatar">Seleccionar una imagen de perfil</label>
                     <input type="file" name="imagen" class="input-avatar">
                 
                     <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras" required>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras">
                     <label for="password"></label>
-                    <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras" required>
+                    <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras">
                   <div class="div-botones-register">
                     <button type="submit" class="boton-enviar">Enviar</button>
                   <button type="reset" class="boton-borrar">Borrar</button>
