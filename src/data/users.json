@@ -46,5 +46,16 @@
 		"domicilio": "hhhhh",
 		"imagen": "1653775818802.jpg",
 		"password": "12345"
+	
+	},
+	{
+		"id": 6,
+		"nombre": "",
+		"usuario": "",
+		"email": "",
+		"nacimiento": "",
+		"domicilio": "",
+		"password": "",
+		"imagen": "1653313392094.jpeg"
 	}
 ]

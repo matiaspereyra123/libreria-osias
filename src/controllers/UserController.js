@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require("express-validator"); // requerimos para poder validar errores
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 let usersJSON = fs.readFileSync(usersFilePath, 'utf-8');
@@ -8,7 +9,7 @@ let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));  //variable rep
 
 
 
-const UserController = {
+const userController = {
     login: function (req, res) {
       return  res.render('user/login',{hoja:'userStyles.css', title: "Iniciar sesión"});
     },
@@ -17,10 +18,13 @@ const UserController = {
     },
     save: function (req, res) {
        // let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
+       let errors = validationResult(req); //guarda validacion errores
+
+
         let ultimo = users.length -1;
 		let idnuevo = users[ultimo].id + 1;  
-
-        let newUser = {
+                if(errors.isEmpty()){ //preguntamos si errores esta vacio, entonces guarda usuario nuevo.
+    let newUser = {
             id: idnuevo,  
             nombre: req.body.usuario, 
             usuario: req.body.usuario,
@@ -47,6 +51,11 @@ const UserController = {
         fs.writeFileSync(usersFilePath, usersToJSON)
 
         res.redirect('/user/login/')
+
+                }else{ //si errores no esta vacio envia errores a la vista
+                    res.render('user/create',{errors:errors.array(),old:req.body,title:"Crear Usuario"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+                }
+    
 
     },
     /* */
@@ -111,8 +120,17 @@ const UserController = {
 		// products = newListProducts; Al comentar estea línea y pasarle con let la variable newListProducts, se arregla el bug de que no cargaban las imágenes al redirigir al Home. 
 		fs.writeFileSync(usersFilePath,JSON.stringify(newListUsers,null,'\t'));
 		res.redirect('/');
-	}
+	},
+
+    list:(req,res)=>{
+
+		let usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+	
+   
+	res.render("users/usersList",{usuarios: usuarios, title: "Lista de Usuarios",hoja:'style.css'});
+	   },
+
 
 }
 
-module.exports = UserController
+module.exports = userController

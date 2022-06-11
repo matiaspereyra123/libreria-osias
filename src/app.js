@@ -17,11 +17,11 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const usersRoutes = require("./routes/usersRoutes.js")
+const usersRoutes = require("./routes/userRoutes.js")
 
-const homeRoutes = require("./routes/homeRoutes.js")
+const mainRoutes = require("./routes/mainRoutes.js")
 
-const productRoutes = require("./routes/productsRoutes.js");
+const productRoutes = require("./routes/productRoutes.js");
 
 
 app.listen(process.env.PORT || 3030, () => {
@@ -35,10 +35,10 @@ app.listen(process.env.PORT || 3030, () => {
 
 // cambio las rutas de products de acuerdo con las sugerencias del feedback
 
-app.use('/', homeRoutes);
-app.use('/user', usersRoutes);
-app.use('/products', productRoutes);
+app.use('/', mainRoutes);
 
+app.use('/product', productRoutes);
+app.use('/user', usersRoutes);
 // app.use('/editProduct', productRoutes);
 // app.use('editProduct/:id',productRoutes);
 

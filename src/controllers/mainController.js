@@ -6,7 +6,7 @@ let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
 let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
-const HomeController = {
+const mainController = {
     home: function (req, res) {
         
         let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -37,4 +37,4 @@ const HomeController = {
 
 
 
-module.exports = HomeController
+module.exports = mainController
