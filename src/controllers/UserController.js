@@ -127,7 +127,7 @@ const userController = {
 		let usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 	
    
-	res.render("users/usersList",{usuarios: usuarios, title: "Lista de Usuarios",hoja:'style.css'});
+	res.render("user/usersList",{usuarios: usuarios, title: "Lista de Usuarios",hoja:'style.css'});
 	   },
 
 

@@ -19,9 +19,10 @@
             <thead >
                      <tr>
                <th><h3><b>USUARIO </b> </h3></th>
-                <th><h3>TITULO </h3></th>
-                <th><h3>CANTIDAD</h3></th>
-                <th><h3>PRECIO</h3></th>
+                <th><h3>NOMBRE </h3></th>
+                <th><h3>EMAIL</h3></th>
+              
+                
                 <th></th>
                  </tr>
                 </thead>
@@ -34,7 +35,7 @@
                      <tr class="tablaItem">
                          <td><img  src="/images/users/<%=usuario.imagen %>" class="imagenCarrito" alt="" width="100px" height="100px"><a href="" class="eliminarItem"><p>Eliminar</p></a></td>
                           <td> <%=usuario.nombre%></td>
-                          <td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
+  
                         <td><%=usuario.email%></td>
                                <% }) %>  
                       </tr>
