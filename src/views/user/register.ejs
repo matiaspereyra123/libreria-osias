@@ -13,25 +13,34 @@
         <main class="main-register">
             <div class="caja-register">
 
-              <% if (locals.errors) { %> <!-- si EXISTE se ejecuta foreach-->       <!-- POR AHORA MUESTRA LOS MENSAJES ARRIBA DEL FORM-->
-                <% errors.forEach(error => { %>
-              <p class="feedback is-danger"><%= error.msg %> </p>
-                   
-        
-             <% }) %>
-          <% } %>
+    
 
               <form action="/user/register" method="POST"  class="formulario-completo" enctype="multipart/form-data">
                   
                       <label for="nombre"></label>
-                      <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="input-barras">
+                      <input type="text" name="nombre" id="nombre"  class="input-barras"  value="<%= locals.old ? old.nombre : null %>">
+                      <% if(locals.errors && errors.nombre) {%> 
+                     <div class="text-danger">
+                       <%= errors.nombre.msg %> 
+                     </div>
+                     <% } %> 
               
                       <label for="usuario" class="nombre-usuario"></label>
-                      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="input-barras" minlength="4" maxlength="8" >
+                      <input type="text" name="usuario" id="usuario" class="input-barras" minlength="4" maxlength="8"     value="<%= locals.old ? old.usuario : null %>">
+                      <% if(locals.errors && errors.usuario) {%> 
+                     <div class="text-danger">
+                       <%= errors.usuario.msg %> 
+                     </div>
+                     <% } %> 
           
                  
                       <label for="email"></label>
-                      <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras">
+                      <input type="email" name="email" id="email"  class="input-barras"     value="<%= locals.old ? old.email : null %>">
+                      <% if(locals.errors && errors.email) {%> 
+                     <div class="text-danger">
+                       <%= errors.email.msg %> 
+                     </div>
+                     <% } %> 
   
   
                      <label for="fecha-nacimiento" class="label-nacimiento">Fecha de nacimiento</label>

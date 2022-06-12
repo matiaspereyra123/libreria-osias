@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
+const path = require("path")
+const multer = require("multer");
 let validations = require('../middlewares/validateCreateProduct');// Requerimos el middleware.
 
 const productController = require("../controllers/productController");
 
-const path = require("path")
-const multer = require("multer");
+
 
 const storage = multer.diskStorage({
     destination:  (req, file, cb) =>{
@@ -26,7 +26,7 @@ router.get("/detail/:id", productController.detail);
 router.get("/cart/", productController.cart); 
 
 router.get("/create/", productController.create);
-router.post("/create/",validations, upload.single("imagen"), productController.save); //faltaba CREATE en la ruta.  (  el index pertenece al controlador HOME CONTROLLER, no iba a redirigir)
+router.post("/create/", upload.single("imagen"),validations, productController.save); //faltaba CREATE en la ruta.  (  el index pertenece al controlador HOME CONTROLLER, no iba a redirigir)
 
 router.get('/edit/:id', productController.edit);
 router.put('/edit/:id',upload.single("imagen"), productController.update);

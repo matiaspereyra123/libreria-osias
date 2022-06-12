@@ -24,7 +24,7 @@ const userController = {
         let ultimo = users.length -1;
 		let idnuevo = users[ultimo].id + 1;  
 
-        
+
                 if(errors.isEmpty()){ //preguntamos si errores esta vacio, entonces guarda usuario nuevo.
     let newUser = {
             id: idnuevo,  
@@ -55,7 +55,7 @@ const userController = {
         res.redirect('/user/login/')
 
                 }else{ //si errores no esta vacio envia errores a la vista
-                    res.render('user/create',{errors:errors.array(),old:req.body,title:"Crear Usuario"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+                    res.render('user/register',{errors:errors.mapped(),old:req.body,title:"Crear Usuario"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
                 }
     
 

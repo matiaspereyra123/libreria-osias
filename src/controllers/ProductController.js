@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { validationResult } = require("express-validator"); // requerimos para poder validar errores
+const { validationResult } = require('express-validator'); // requerimos para poder validar errores
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const carritoFilePath = path.join(__dirname, "../data/cart.json");
@@ -70,7 +70,7 @@ const productController = {
 
 			res.redirect("/"); //Funciona bien cuando se selecciona la categoría Primaria, pero al seleccionar Secundaria hay que actualizar para que carguen las imágenes en el Home. Pendiente para solucionar.
 		}else{
-			res.render('products/create',{errors:errors.array(), old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+			res.render('products/create',{errors:errors.mapped(), old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
 	
 		}
 	},
