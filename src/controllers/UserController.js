@@ -33,9 +33,8 @@ const userController = {
             email: req.body.email,
             nacimiento: req.body.nacimiento,
             domicilio: req.body.domicilio,
-            password:req.body.password
-       
-        
+            imagen:(req.file)?req.file.filename : "avatar.jpg",
+            password: bcryptjs.hashSync(req.body.password,10)
         }
 
         let usersN 

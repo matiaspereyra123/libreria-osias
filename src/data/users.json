@@ -65,5 +65,24 @@
 		"nacimiento": "",
 		"domicilio": "",
 		"password": ""
+	},
+	{
+		"id": 8,
+		"nombre": "Bcrypt",
+		"usuario": "Bcrypt",
+		"email": "notengo@hotmail.com",
+		"nacimiento": "2005-02-22",
+		"domicilio": "av asda123",
+		"password": "$2a$10$1Sb8iT5bxYZkhQ4XnF/7ye4Zo9zhea9U2q0yhFOBryfsrjU9DAC9G"
+	},
+	{
+		"id": 9,
+		"nombre": "test1",
+		"usuario": "test1",
+		"email": "test@test.com.ar",
+		"nacimiento": "2006-02-22",
+		"domicilio": "123",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$ajC9n4ZfP1nMs2LygUoSYuNdJeyQoMKcEWIfU0anbzMWTpWo5.8rW"
 	}
 ]

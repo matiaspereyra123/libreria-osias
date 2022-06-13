@@ -47,6 +47,9 @@ const productController = {
 				cantidad: req.body.cantidad,
 				paginas: req.body.paginas,
 				imagen: req.file.filename,
+
+			
+
 			};
 			// Tengo que guardar esta info en algún lado
 
@@ -94,7 +97,7 @@ const productController = {
 			if (libro.id == req.params.id) {
 				(libro.titulo = req.body.titulo),
 					(libro.autor = req.body.autor),
-					(libro.descripcion = req.body.descripcion);
+					(libro.descripcion = req.body.descripcion)
 				if (req.file != undefined) {
 					libro.imagen = req.file.filename;
 				}
