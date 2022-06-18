@@ -1,6 +1,6 @@
 CRUD usuarios.----------------------------------------------------------(REALIZADO)
-Vista editar/Eliminar no se puede acceder.------------------------------(REALIZADO)
-Session y Cookie.-------------------------------------------------------(REALIZADO)
+Error en Vista editar/Eliminar Producto .-------------------------------(REALIZADO)
+Session y Cookies.------------------------------------------------------(REALIZADO)
 Login: validar si el usuario ya existe.---------------------------------(REALIZADO
 Validar Igualdad de password al Registrar/Editar usuario.---------------(REALIZADO)
 Asignar rol de usuario / Ocultar funcionalidades segun Rol.-------------(REALIZADO)
