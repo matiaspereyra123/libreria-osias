@@ -29,10 +29,19 @@
                 <li><a href="#">CONTACTO</a></li>
             </ul>
             <ul>
-                <li><a href="/user/register">CREAR CUENTA <i class="far fa-id-card"></i></a></li>
-                <li><a href="/user/login">INICIAR SESIÓN <i class="fas fa-sign-in-alt"></i></a></li>
-                <li><a href="/product/cart">MIS LIBROS <i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li><a href="/product/create">CREAR PRODUCTO </a></li>
+                <% if (!locals.userLogged) { %>
+                    <li><a href="/user/register">CREAR CUENTA <i class="far fa-id-card"></i></a></li>
+                <li><a href="/user/login">INICIAR SESIÓN <i class="fas fa-sign-in-alt"></i></a></li> 
+                <% }else{ %>
+                    <li><a href="/user/profile">MI CUENTA: <%= locals.usuarioLogeado.nombre %>  <i class="fas fa-sign-in-alt"></i></a></li>
+                    <li><a href="/product/cart">MIS LIBROS <i class="fa-solid fa-cart-shopping"></i></a></li>
+
+               <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
+                 <li><a href="/product/create">CREAR PRODUCTO </a></li>
+                 <li><a href="/user/usersList">LISTA DE USUARIOS </a></li>
+               <% } %>
+               
+                <% } %> 
             </ul>
         </nav>
 

@@ -1,0 +1,22 @@
+CRUD usuarios.----------------------------------------------------------(REALIZADO)
+Vista editar/Eliminar no se puede acceder.------------------------------(REALIZADO)
+Session y Cookie.-------------------------------------------------------(REALIZADO)
+Login: validar si el usuario ya existe.---------------------------------(REALIZADO
+Validar Igualdad de password al Registrar/Editar usuario.---------------(REALIZADO)
+Asignar rol de usuario / Ocultar funcionalidades segun Rol.-------------(REALIZADO)
+Formulario para recuperar contraseña.-----------------------------------(NO REALIZADO)
+Formulario de contacto.-------------------------------------------------(NO REALIZADO)
+Mejorar Formularios, botones, diseño.-----------------------------------(NO REALIZADO)
+Validar todos los campos.-----------------------------------------------(NO REALIZADO)
+
+
+CUENTAS LOGIN:
+
+ROL USUARIO
+USUARIO: test5@test.com
+PASS: 55555
+
+
+ROL ADMIN
+usuario: admin@admin
+PASS: Admin

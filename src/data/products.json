@@ -169,19 +169,6 @@
 		"imagen": "1653186871460.jpg"
 	},
 	{
-		"id": 20,
-		"titulo": "Matematicas222233344",
-		"autor": "aaaaaaaaaaaa",
-		"editorial": "aa",
-		"isbn": "123",
-		"precio": "123",
-		"categoria": "1",
-		"descripcion": "Libro de matemáticas",
-		"cantidad": "1234",
-		"paginas": "1234",
-		"imagen": "1653776093793.jpg"
-	},
-	{
 		"id": 21,
 		"titulo": "Probando 1234 lengua",
 		"autor": "aaaa",

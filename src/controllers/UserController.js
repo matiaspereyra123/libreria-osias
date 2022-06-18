@@ -17,16 +17,21 @@ const userController = {
     },
     loginProcess: function(req,res) {
         let errors = validationResult(req); //guarda validacion errores
-            console.log(errors);
-       
                   const usuarioRegistrado = users.find(
                     (user) => user.email == req.body.email
-                );         
-     
+                ); 
             if(errors.isEmpty()){ 
                 if(usuarioRegistrado){ 
-                        let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password); 
-                        if(passwordOk){ res.render("user/profile",{usuarioRegistrado:usuarioRegistrado,title:"Perfil de usuario",hoja:"style.css"})
+                
+                         let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password); 
+                        if(passwordOk){  
+                            if(req.body.recordar){
+                         res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});      
+                        }           
+                            //delete usuarioRegistrado.password;  
+                       
+                            req.session.usuarioLogeado=usuarioRegistrado;
+                            res.redirect("profile");
                     }else{
                             res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
                         });
@@ -46,12 +51,16 @@ const userController = {
         },
 
         profile: (req, res) => {
-            return res.render("user/profile", {
-                hoja: "userStyles.css",
+            return res.render("user/profile", {usuarioLogeado:req.session.usuarioLogeado,
+                hoja: "styles.css",
                 title: "Perfil de usuario",
             });      
         },
- 
+        logout: function (req, res) {
+            res.clearCookie('recordar'); //destruir cookie para el logout 
+            req.session.destroy(); //destruir  session
+            return res.redirect('/');//redirigir al home
+        },
     /* */
    
 
@@ -77,32 +86,38 @@ const userController = {
         } else {
             if (errors.isEmpty()) {
                 //preguntamos si errores esta vacio, entonces guarda usuario nuevo.
-
-                let newUser = {
-                    id: idnuevo,
-                    nombre: req.body.usuario,
-                    usuario: req.body.usuario,
-                    email: req.body.email,
-                    nacimiento: req.body.nacimiento,
-                    domicilio: req.body.domicilio,
-                    imagen: req.file ? req.file.filename : "avatar.jpg",
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                };
-            
-                let usersN;
-
-                if (usersJSON == "") {
-                    usersN = [];
-                } else {
-                    usersN = JSON.parse(usersJSON);
+                if(req.body.password==req.body.password2){
+                    let newUser = {
+                        id: idnuevo,
+                        nombre: req.body.usuario,
+                        usuario: req.body.usuario,
+                        email: req.body.email,
+                        nacimiento: req.body.nacimiento,
+                        domicilio: req.body.domicilio,
+                        imagen: req.file ? req.file.filename : "avatar.jpg",
+                        password: bcryptjs.hashSync(req.body.password, 10),
+                        rol:"usuario"
+                    };
+                
+                    let usersN;
+    
+                    if (usersJSON == "") {
+                        usersN = [];
+                    } else {
+                        usersN = JSON.parse(usersJSON);
+                    }
+                    usersN.push(newUser);
+    
+                    let usersToJSON = JSON.stringify(usersN, null, "\t");
+    
+                    fs.writeFileSync(usersFilePath, usersToJSON);
+    
+                    res.redirect("/user/login/");
+                }else{
+                    res.render("user/register", {errors:{datos:{ msg: "Los password deben ser iguales" }},old:req.body, title: "Registro de Usuario",
+                        });
                 }
-                usersN.push(newUser);
-
-                let usersToJSON = JSON.stringify(usersN, null, "\t");
-
-                fs.writeFileSync(usersFilePath, usersToJSON);
-
-                res.redirect("/user/login/");
+          
             } else {
                 //si errores no esta vacio envia errores a la vista
                 res.render("user/register", {
@@ -125,22 +140,29 @@ const userController = {
 
     update: (req, res) => {
         let usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-        usuarios.find((usuario) => {
+     if(req.body.password==req.body.password2){
+           usuarios.find((usuario) => {
             if (usuario.id == req.params.id) {
-                (usuario.nombre = req.body.nombre),
-                    (usuario.usuario = req.body.usuario),
-                    (usuario.email = req.body.email),
-                    (usuario.nacimiento = req.body.nacimiento),
-                    (usuario.domicilio = req.body.domicilio),
-                    (usuario.passowrd = req.body.password);
-                if (req.file != undefined) {
-                    usuario.imagen = req.file.filename;
-                }
+                      usuario.nombre = req.body.nombre,
+                    usuario.usuario = req.body.usuario,
+                    usuario.email = req.body.email,
+                    usuario.nacimiento = req.body.nacimiento,
+                    usuario.domicilio = req.body.domicilio,
+                    usuario.password = bcryptjs.hashSync(req.body.password, 10),
+                    usuario.imagen= req.file ? req.file.filename : "avatar.jpg"
+             
             }
         });
-        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, "\t"));
+fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, "\t"));
         //fs.readFileSync(productsFilePath,'UTF-8');
         res.redirect("/user/login/"); //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución.
+        
+     }else{
+        res.render("user/edit", {errors:{datos:{ msg: "Los password deben ser iguales" }},usuarioEditar:req.body, title: "Editar Usuario",
+    });
+     }
+      
+        
     },
 
     // agrego controlador para formulario de recuperación de contraseña

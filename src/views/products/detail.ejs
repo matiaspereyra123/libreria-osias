@@ -55,9 +55,12 @@
                     <label>Nuestro local</label>
                 </section>
                 <p>Av. Rivadavia 1234</p>
-                <form action="/products/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
+                <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
+                   <form action="/product/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
                     <button type="submit" >EDITAR / ELIMINAR</button>
                   </form>
+                <% } %>
+              
 
             </section>
          

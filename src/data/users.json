@@ -6,7 +6,8 @@
 		"email": "test1@test.com",
 		"nacimiento": "2005-02-22",
 		"domicilio": "av asda123",
-		"password": "$2a$10$1Sb8iT5bxYZkhQ4XnF/7ye4Zo9zhea9U2q0yhFOBryfsrjU9DAC9G"
+		"password": "$2a$10$1Sb8iT5bxYZkhQ4XnF/7ye4Zo9zhea9U2q0yhFOBryfsrjU9DAC9G",
+		"rol": "usuario"
 	},
 	{
 		"id": 2,
@@ -16,7 +17,8 @@
 		"nacimiento": "2006-02-22",
 		"domicilio": "123",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$ajC9n4ZfP1nMs2LygUoSYuNdJeyQoMKcEWIfU0anbzMWTpWo5.8rW"
+		"password": "$2a$10$ajC9n4ZfP1nMs2LygUoSYuNdJeyQoMKcEWIfU0anbzMWTpWo5.8rW",
+		"rol": "usuario"
 	},
 	{
 		"id": 3,
@@ -26,7 +28,8 @@
 		"nacimiento": "1345-02-02",
 		"domicilio": "1234",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$8to8EO7No3OATeF8Hok1a.gogJK1vyYn0ONn4hqcPwWAYLvwq4mGK"
+		"password": "$2a$10$8to8EO7No3OATeF8Hok1a.gogJK1vyYn0ONn4hqcPwWAYLvwq4mGK",
+		"rol": "usuario"
 	},
 	{
 		"id": 4,
@@ -36,7 +39,7 @@
 		"nacimiento": "3333-02-22",
 		"domicilio": "3333",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$NaWHHofOEmYvxY.LJm2K..jkU8F80BqOc1j.Y9JHoApjFWFyIAoqy"
+		"rol": "usuario"
 	},
 	{
 		"id": 5,
@@ -46,17 +49,19 @@
 		"nacimiento": "1995-02-25",
 		"domicilio": "av san juan123",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$hJifpQszIbNI0sOQKBYdBO/T7h9RX0rjqt7LzvNxd7edxELQgXX9a"
+		"password": "$2a$10$hJifpQszIbNI0sOQKBYdBO/T7h9RX0rjqt7LzvNxd7edxELQgXX9a",
+		"rol": "usuario"
 	},
 	{
 		"id": 6,
-		"nombre": "1232",
-		"usuario": "1232",
-		"email": "a@hotmail.com",
+		"nombre": "Cliente1",
+		"usuario": "cliente1",
+		"email": "cliente@cliente.com",
 		"nacimiento": "0002-02-02",
 		"domicilio": "",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$Cm69PogrjgFa6Ygp3ib6BOWAl2JVonGe83prR6n2WlGZj0y6h8GwW"
+		"password": "$2a$10$EbxQo8dLwbJoOsGgRrXQo.p6EJYxtROUiJkne/VYXT66fTrI0kXoy",
+		"rol": "usuario"
 	},
 	{
 		"id": 7,
@@ -66,7 +71,8 @@
 		"nacimiento": "0033-03-31",
 		"domicilio": "av asda123",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$l6lOu.r1OthxO0477Mk4g.hF/FeoFuVYDVjRJ5G1mMZ8VdgQGjlrS"
+		"password": "$2a$10$l6lOu.r1OthxO0477Mk4g.hF/FeoFuVYDVjRJ5G1mMZ8VdgQGjlrS",
+		"rol": "usuario"
 	},
 	{
 		"id": 8,
@@ -76,7 +82,8 @@
 		"nacimiento": "22222-02-22",
 		"domicilio": "654321",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$gWdvJ8Xe7yt/mc0tbVWU9ORE0YSmrzwvYi3hFPeBjbZF2wxZH7BEq"
+		"password": "$2a$10$gWdvJ8Xe7yt/mc0tbVWU9ORE0YSmrzwvYi3hFPeBjbZF2wxZH7BEq",
+		"rol": "usuario"
 	},
 	{
 		"id": 9,
@@ -86,7 +93,40 @@
 		"nacimiento": "2255-05-05",
 		"domicilio": "5555",
 		"imagen": "avatar.jpg",
-		"password": "$2a$10$MtAKYRK3KrmqLkrmlaKvMenhsCy3zgaBXFdsDWP6KhJgQqTcydKzW"  
+		"password": "$2a$10$MtAKYRK3KrmqLkrmlaKvMenhsCy3zgaBXFdsDWP6KhJgQqTcydKzW",
+		"rol": "usuario"
+	},
+	{
+		"id": 10,
+		"nombre": "test6",
+		"usuario": "test6",
+		"email": "test6@test.com",
+		"nacimiento": "",
+		"domicilio": "",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$bBgWR8I/Fe2AGz3EZrBKz.63QNW3o.vFYD6AGMNgLktzLPZBYlZ0C",
+		"rol": "admin"
+	},
+	{
+		"id": 11,
+		"nombre": "Admin",
+		"usuario": "Admin",
+		"email": "admin@admin.com",
+		"nacimiento": "2222-02-22",
+		"domicilio": "Admin",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$SP0kG5s048eDqRuv6E7fGet4UfclofhmuhgDHf1giFKLwXYdCxOLG",
+		"rol": "admin"
+	},
+	{
+		"id": 12,
+		"nombre": "usuario",
+		"usuario": "usuario",
+		"email": "usuario@usuario.com",
+		"nacimiento": "33444-03-22",
+		"domicilio": "44444",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$yOAf2VJra/CF6AG8Ji5KwOXF/fi0Iy/evWUYppkdelficTrqwQzCS",
+		"rol": "usuario"
 	}
 ]
-
