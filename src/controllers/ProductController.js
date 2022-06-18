@@ -47,12 +47,8 @@ const productController = {
 				cantidad: req.body.cantidad,
 				paginas: req.body.paginas,
 				imagen: req.file.filename,
-
-			
-
 			};
-			// Tengo que guardar esta info en algún lado
-
+			
 			// Primero leer lo que ya había en el archivo json
 			let productJSON = fs.readFileSync(productsFilePath, {
 				encoding: "utf-8",
@@ -132,19 +128,14 @@ const productController = {
 		//otra opcion redigir al home como el destroy
 	},
 	list:(req,res)=>{
-
 		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	
-   
 	res.render("products/productsList",{libros: libros, title: "Lista de libros",hoja:'style.css'});
 	   },
-
 
 	//** */
 
 	destroy: (req, res) => {
 		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
 		//const productoToDelete=products.find(product=>product.id===parseInt(req.params.id));
 		let newListProducts = libros.filter(
 			(product) => product.id !== parseInt(req.params.id)

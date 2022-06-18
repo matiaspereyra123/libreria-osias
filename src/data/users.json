@@ -1,88 +1,92 @@
 [
 	{
 		"id": 1,
-		"firstName": "Juan",
-		"lastName": "Pérez",
-		"email": "juanperez@gmail.com",
-		"password": "123456",
-		"category": "estudiante",
-		"imagen": "avatarJuanPerez.jpg"
-	},
-	{
-		"id": 2,
-		"firstName": "Rodrigo",
-		"lastName": "Pérez",
-		"email": "juanperez@gmail.com",
-		"password": "123456",
-		"category": "estudiante",
-		"imagen": "mate.jpg"
-	},
-	{
-		"id": 3,
-		"nombre": "1234",
-		"usuario": "1234",
-		"email": "matias@gmail.com",
-		"nacimiento": "0022-02-22",
-		"domicilio": "222",
-		"imagen": "1653775282390.png",
-		"password": "123"
-	},
-	{
-		"id": 4,
-		"nombre": "aaaaaaaa",
-		"usuario": "aaaaaaaa",
-		"email": "matia3s@gmail.com",
-		"nacimiento": "0033-03-31",
-		"domicilio": "fffffffffffffff",
-		"imagen": "1653775700841.png",
-		"password": "1232312"
-	},
-	{
-		"id": 5,
-		"nombre": "bbbbbbbb",
-		"usuario": "bbbbbbbb",
-		"email": "notengo@hotmail.com",
-		"nacimiento": "0044-04-04",
-		"domicilio": "hhhhh",
-		"imagen": "1653775818802.jpg",
-		"password": "12345"
-	},
-	{
-		"id": 6,
-		"nombre": "",
-		"usuario": "",
-		"email": "",
-		"nacimiento": "",
-		"domicilio": "",
-		"password": "",
-		"imagen": "1653313392094.jpeg"
-	},
-	{
-		"id": 7,
-		"nombre": "",
-		"usuario": "",
-		"email": "",
-		"nacimiento": "",
-		"domicilio": "",
-		"password": ""
-	},
-	{
-		"id": 8,
-		"nombre": "Bcrypt",
-		"usuario": "Bcrypt",
-		"email": "notengo@hotmail.com",
+		"nombre": "TEST1",
+		"usuario": "test1",
+		"email": "test1@test.com",
 		"nacimiento": "2005-02-22",
 		"domicilio": "av asda123",
 		"password": "$2a$10$1Sb8iT5bxYZkhQ4XnF/7ye4Zo9zhea9U2q0yhFOBryfsrjU9DAC9G"
 	},
 	{
-		"id": 9,
-		"nombre": "test1",
-		"usuario": "test1",
-		"email": "test@test.com.ar",
+		"id": 2,
+		"nombre": "test2",
+		"usuario": "test2",
+		"email": "test2@test.com",
 		"nacimiento": "2006-02-22",
 		"domicilio": "123",
 		"imagen": "avatar.jpg",
 		"password": "$2a$10$ajC9n4ZfP1nMs2LygUoSYuNdJeyQoMKcEWIfU0anbzMWTpWo5.8rW"
+	},
+	{
+		"id": 3,
+		"nombre": "TEST3",
+		"usuario": "test3",
+		"email": "test3@test.com",
+		"nacimiento": "1345-02-02",
+		"domicilio": "1234",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$8to8EO7No3OATeF8Hok1a.gogJK1vyYn0ONn4hqcPwWAYLvwq4mGK"
+	},
+	{
+		"id": 4,
+		"nombre": "test4",
+		"usuario": "test4",
+		"email": "test4@test.com",
+		"nacimiento": "3333-02-22",
+		"domicilio": "3333",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$NaWHHofOEmYvxY.LJm2K..jkU8F80BqOc1j.Y9JHoApjFWFyIAoqy"
+	},
+	{
+		"id": 5,
+		"nombre": "lucas",
+		"usuario": "lucas",
+		"email": "lucas@hotmail.com",
+		"nacimiento": "1995-02-25",
+		"domicilio": "av san juan123",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$hJifpQszIbNI0sOQKBYdBO/T7h9RX0rjqt7LzvNxd7edxELQgXX9a"
+	},
+	{
+		"id": 6,
+		"nombre": "1232",
+		"usuario": "1232",
+		"email": "a@hotmail.com",
+		"nacimiento": "0002-02-02",
+		"domicilio": "",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$Cm69PogrjgFa6Ygp3ib6BOWAl2JVonGe83prR6n2WlGZj0y6h8GwW"
+	},
+	{
+		"id": 7,
+		"nombre": "pereyra",
+		"usuario": "pereyra",
+		"email": "matiaspereyra@gmail.com",
+		"nacimiento": "0033-03-31",
+		"domicilio": "av asda123",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$l6lOu.r1OthxO0477Mk4g.hF/FeoFuVYDVjRJ5G1mMZ8VdgQGjlrS"
+	},
+	{
+		"id": 8,
+		"nombre": "martin",
+		"usuario": "martin",
+		"email": "martin@hotmail.com",
+		"nacimiento": "22222-02-22",
+		"domicilio": "654321",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$gWdvJ8Xe7yt/mc0tbVWU9ORE0YSmrzwvYi3hFPeBjbZF2wxZH7BEq"
+	},
+	{
+		"id": 9,
+		"nombre": "TEST_5",
+		"usuario": "TEST_5",
+		"email": "test5@test.com",
+		"nacimiento": "2255-05-05",
+		"domicilio": "5555",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$MtAKYRK3KrmqLkrmlaKvMenhsCy3zgaBXFdsDWP6KhJgQqTcydKzW"  
 	}
 ]
+

@@ -17,7 +17,7 @@
 
               <form action="/user/register" method="POST"  class="formulario-completo" enctype="multipart/form-data">
                   
-                      <label for="nombre"></label>
+                      <label for="nombre">Nombre</label>
                       <input type="text" name="nombre" id="nombre"  class="input-barras"  value="<%= locals.old ? old.nombre : null %>">
                       <% if(locals.errors && errors.nombre) {%> 
                      <div class="text-danger">
@@ -25,7 +25,7 @@
                      </div>
                      <% } %> 
               
-                      <label for="usuario" class="nombre-usuario"></label>
+                      <label for="usuario" class="nombre-usuario">usuario</label>
                       <input type="text" name="usuario" id="usuario" class="input-barras" minlength="4" maxlength="8"     value="<%= locals.old ? old.usuario : null %>">
                       <% if(locals.errors && errors.usuario) {%> 
                      <div class="text-danger">
@@ -34,7 +34,7 @@
                      <% } %> 
           
                  
-                      <label for="email"></label>
+                      <label for="email">email</label>
                       <input type="email" name="email" id="email"  class="input-barras"     value="<%= locals.old ? old.email : null %>">
                       <% if(locals.errors && errors.email) {%> 
                      <div class="text-danger">
@@ -47,16 +47,16 @@
               
                      <input type="date" name="nacimiento" class="input-barras" >
                  
-                      <label for="domicilio"></label>
-                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras">
+                      <label for="domicilio">domicilio</label>
+                      <input type="text" name="domicilio" id="domicilio"  class="input-barras">
               
                     <label class="titulo-avatar" for="avatar">Seleccionar una imagen de perfil</label>
                     <input type="file" name="imagen" class="input-avatar">
                 
-                    <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras">
-                    <label for="password"></label>
-                    <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password"  class="input-barras">
+                    <label for="password">confirmar password</label>
+                    <input type="password" name="password2" id="password2"  class="input-barras">
                   <div class="div-botones-register">
                     <button type="submit" class="boton-enviar">Enviar</button>
                   <button type="reset" class="boton-borrar">Borrar</button>

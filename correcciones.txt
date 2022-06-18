@@ -1,0 +1,12 @@
+1  Validar todos los campos.
+2  CRUD usuarios.
+3  Vista editar/Eliminar no se puede acceder.
+4  Session y Cookie.
+5  Login: validar si el usuario ya existe.
+6  Ocultar funcionalidades segun rol de usuario / asignar rol de usuario.
+7  Formulario para recuperar contraseña.
+8  Mejorar Formularios, botones, diseño.
+9  
+
+TEST_5
+pass: 55555

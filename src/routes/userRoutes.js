@@ -3,6 +3,7 @@ const path = require("path")
 const multer = require("multer");
 
 let validations = require('../middlewares/validateCreateUser');// Requerimos el middleware.
+let validationLogin=require('../middlewares/validateLoginUser');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -21,11 +22,14 @@ const router = express.Router()
 
 const userController = require("../controllers/userController")
 
+//rutas login
 router.get("/login", userController.login);
-router.get("/register", userController.register);
-router.post("/register",upload.single("imagen"),validations, userController.save)   //mismo error que en la ruta PRODUCTS 
-// agrego ruta para formulario de recuperación de contraseña
+router.post("/login",validationLogin,userController.loginProcess);
 router.get("/pass", userController.pass);
+
+router.get("/register", userController.register);
+router.post("/register",upload.single("imagen"),validations, userController.save)   
+
 
 // Rutas nueva edit
 router.get('/edit/:id',userController.edit);

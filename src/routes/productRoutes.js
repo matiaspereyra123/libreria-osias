@@ -2,31 +2,27 @@ const express = require("express");
 const router = express.Router();
 const path = require("path")
 const multer = require("multer");
-let validations = require('../middlewares/validateCreateProduct');// Requerimos el middleware.
+let validations = require('../middlewares/validateCreateProduct');
 
 const productController = require("../controllers/productController");
-
-
 
 const storage = multer.diskStorage({
     destination:  (req, file, cb) =>{
       cb(null, path.join(__dirname, "../../public/images/products"));
     },
     filename:  (req, file, cb) =>{
-      let imageName=Date.now()+path.extname(file.originalname); //intentar guardar imagen con el nombre del titulo+id
+      let imageName=Date.now()+path.extname(file.originalname); 
       cb(null,imageName);
     }
   });
   
 const upload = multer({storage})
-//get all products
-
 
 router.get("/detail/:id", productController.detail);
 router.get("/cart/", productController.cart); 
 
 router.get("/create/", productController.create);
-router.post("/create/", upload.single("imagen"),validations, productController.save); //faltaba CREATE en la ruta.  (  el index pertenece al controlador HOME CONTROLLER, no iba a redirigir)
+router.post("/create/", upload.single("imagen"),validations, productController.save); 
 
 router.get('/edit/:id', productController.edit);
 router.put('/edit/:id',upload.single("imagen"), productController.update);

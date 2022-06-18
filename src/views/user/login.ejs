@@ -1,42 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include ("../partials/head")  %> 
-    </head>
-    <body>
-        <header>
-            <%- include ("../partials/header")%>
-        </header>
+
+<head>
+    <%- include ("../partials/head") %>
+</head>
+
+<body>
+    <header>
+        <%- include ("../partials/header")%>
+    </header>
 
 
-        <main class="main-login">
-            <div class="caja-login">  
-            <form action="/" method="get">
-          
-                
-                <div>
-                      <label class="nombre-usuario" for="nombre-usuario"></label>
-                      <input type="text" name="nombre-usuario" id="nombre-usuario" placeholder="Nombre de usuario" class="input-barras" required>
-                  </div>
-                  <div>
-                      <label for="password"></label>
-                      <input type="password" name="password" id="password" placeholder="Ingresá tu contraseña" class="input-barras" required>
-                  </div>
-                  <div  class="div-boton-login">
-                      <button type="submit" class="boton-login">Ingresar</button>
-                  </div>
-                  <a href="/user/pass"><p class="recuperacion-contraseña">
-                      ¿Olvidaste tu contraseña? 
-                  </p></a>
-          
-                </div>
-          
-          </main>
-
-          <footer>
-            <%- include ("../partials/footer.ejs")%>
-
-          </footer>
+    <main class="main-login">
+        <div class="caja-login">
+         
+            <form action="/user/login" method="POST"  class="formulario-completo" >
+                <label for="email">email</label>
+                <input type="email" name="email" id="email"  class="input-barras"   >
+                <% if(locals.errors && errors.email) {%> 
+               <div class="text-danger">
+                 <%= errors.email.msg %> 
+               </div>
+               <% } %> 
         
-    </body>
+                <label for="password" class="">password</label>
+                <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8"     >
+                <% if(locals.errors && errors.password) {%> 
+               <div class="text-danger">
+                 <%= errors.password.msg %> 
+               </div>
+               <% } %> 
+               <% if(locals.errors && errors.datos) {%> 
+                <div class="text-danger">
+                  <%= errors.datos.msg %> 
+                </div>
+                <% } %> 
+     
+    
+           
+        
+
+              <button type="submit" class="boton-enviar">Enviar</button>
+            <button type="reset" class="boton-borrar">Borrar</button>
+          </div>
+ 
+        </form>
+
+
+
+
+            <a href="/user/pass">
+                <p class="recuperacion-contraseña">
+                    ¿Olvidaste tu contraseña?
+                </p>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <%- include ("../partials/footer.ejs")%>
+
+    </footer>
+
+</body>
+
 </html>
