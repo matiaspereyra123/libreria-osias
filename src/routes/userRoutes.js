@@ -21,14 +21,16 @@ const upload = multer({ storage: storage })
 const router = express.Router()
 
 const userController = require("../controllers/userController")
-
+router.get("/register", userController.register);
+router.post("/register",upload.single("imagen"),validations, userController.save)   
 //rutas login
 router.get("/login", userController.login);
 router.post("/login",validationLogin,userController.loginProcess);
 router.get("/pass", userController.pass);
 
-router.get("/register", userController.register);
-router.post("/register",upload.single("imagen"),validations, userController.save)   
+//profile
+router.get('/profile/',userController.profile); 
+
 
 
 // Rutas nueva edit

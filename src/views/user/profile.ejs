@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../partials/head") %>
+</head>
+
+<body>
+    <header>
+        <%- include ("../partials/header")%>
+    </header>
+
+
+    <main class="main-login">
+        <div class="caja-login">
+         
+            <div class="container" style="margin-top: 40px;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Hi <%= usuarioRegistrado.nombre %> </h2>
+                        <img  src="/images/users/<%=usuarioRegistrado.imagen %>" class="imagenUsuario" alt="" width="200px" height="200px" style="border-radius:100px">
+                        <br>
+                        <br>
+                        <div class="alert alert-success"><%= usuarioRegistrado.email %> </div>
+                        <div class="alert alert-success"><%= usuarioRegistrado.nacimiento %> </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+    </main>
+
+    <footer>
+        <%- include ("../partials/footer.ejs")%>
+
+    </footer>
+
+</body>
+
+</html>

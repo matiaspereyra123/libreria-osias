@@ -26,7 +26,8 @@ const userController = {
             if(errors.isEmpty()){ 
                 if(usuarioRegistrado){ 
                         let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password); 
-                        if(passwordOk){ res.send("hola: "+usuarioRegistrado.email)}else{
+                        if(passwordOk){ res.render("user/profile",{usuarioRegistrado:usuarioRegistrado,title:"Perfil de usuario",hoja:"style.css"})
+                    }else{
                             res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
                         });
                         }
@@ -43,6 +44,13 @@ const userController = {
 
             }
         },
+
+        profile: (req, res) => {
+            return res.render("user/profile", {
+                hoja: "userStyles.css",
+                title: "Perfil de usuario",
+            });      
+        },
  
     /* */
    
@@ -58,11 +66,11 @@ const userController = {
         let errors = validationResult(req); //guarda validacion errores
         let ultimo = users.length - 1;
         let idnuevo = users[ultimo].id + 1;
-            console.log(errors);
+
         const usuarioRegistrado = users.find(
             (user) => user.email == req.body.email
         );
-            console.log(usuarioRegistrado);
+     
         if (usuarioRegistrado) {
             res.render("user/register", {errors:{email:{ msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" }}, old: req.body, title: "Crear Usuario",
             });
