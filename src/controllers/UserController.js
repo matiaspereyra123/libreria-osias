@@ -31,6 +31,7 @@ const userController = {
                             //delete usuarioRegistrado.password;  
                        
                             req.session.usuarioLogeado=usuarioRegistrado;
+                         
                             res.redirect("profile");
                     }else{
                             res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
@@ -134,7 +135,7 @@ const userController = {
         const editUsuario = usuarios.find((usuario) => usuario.id == req.params.id);
         res.render("user/edit", {
             usuarioEditar: editUsuario,
-            title: editUsuario.nombre,
+            title: "Editar Usuario",
         });
     },
 

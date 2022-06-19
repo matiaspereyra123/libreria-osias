@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));  
-
+//Dependiendo del rol de usuario oculta funcionalidades en la barra de navegacion
 function userLoggedBlockNav(req,res,next){
    res.locals.userLogged =  false;
     let emailEnCookie = req.cookies.recordar;

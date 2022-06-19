@@ -6,8 +6,8 @@ let validations = require('../middlewares/validateCreateUser');// Requerimos el 
 let validationLogin=require('../middlewares/validateLoginUser');
 let userLogged = require('../middlewares/userLogged');
 let userNotLogged=require('../middlewares/userNotLogged');
-let block=require('../middlewares/block');
-
+let notAdmin=require('../middlewares/notAdmin');
+let editUser=require('../middlewares/editUser');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -38,12 +38,12 @@ router.get('/profile/',userNotLogged,userController.profile);
 
 
 // Rutas nueva edit
-router.get('/edit/:id',block,userController.edit);
+router.get('/edit/:id',editUser,userController.edit);  
 router.put('/edit/:id',upload.single("imagen"),userController.update);
 
 router.delete('/delete/:id', userController.destroy); 
 
 /** */
-router.get('/usersList',block,userController.list);
+router.get('/usersList',notAdmin,userController.list);
 module.exports = router
 
