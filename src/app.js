@@ -35,14 +35,13 @@ const usersRoutes = require("./routes/userRoutes.js")
 const mainRoutes = require("./routes/mainRoutes.js")
 const productRoutes = require("./routes/productRoutes.js");
 
-app.listen(process.env.PORT || 3030, () => {
-    console.log("Sevidor corriendo en http://localhost:3030");
-})
+
 // cambio las rutas de products de acuerdo con las sugerencias del feedback
 app.use('/', mainRoutes);
 app.use('/user', usersRoutes);
 app.use('/product', productRoutes);
 
 
-
-
+app.listen(process.env.PORT || 3030, () => {
+    console.log("Sevidor corriendo en http://localhost:3030");
+})
