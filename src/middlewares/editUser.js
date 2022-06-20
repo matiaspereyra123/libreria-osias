@@ -12,7 +12,7 @@ function editUser(req, res, next) {
      
          if(usuarioRegistrado.rol=="usuario"){
            if(req.params.id!=usuarioRegistrado.id){
-               return res.redirect("/user/profile");
+               return res.redirect("/user/profile"); 
            }
          } 
         }else{

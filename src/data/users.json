@@ -128,5 +128,16 @@
 		"imagen": "avatar.jpg",
 		"password": "$2a$10$yOAf2VJra/CF6AG8Ji5KwOXF/fi0Iy/evWUYppkdelficTrqwQzCS",
 		"rol": "usuario"
+	},
+	{
+		"id": 13,
+		"nombre": "test10",
+		"usuario": "test10",
+		"email": "test10@test.com",
+		"nacimiento": "2010-10-10",
+		"domicilio": "test10",
+		"imagen": "avatar.jpg",
+		"password": "$2a$10$Bfw9erm8IWd4IWzx8FtmVO0AUtN7MjchdWvJrOWlSxgkE1wLowDCy",
+		"rol": "usuario"
 	}
 ]

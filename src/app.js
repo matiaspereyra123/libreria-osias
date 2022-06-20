@@ -1,8 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const cookies = require('cookie-parser');
-const bp = require('body-parser')/****** */
-const userLoggedBlockNav=require('./middlewares/userLoggedBlockNav');
+//const bp = require('body-parser')/****** */
+const userLoggedNavBar=require('./middlewares/userLoggedNavBar');
 const app = express();
 app.use(express.static('./public'));
 
@@ -20,8 +20,8 @@ app.use(session({         //pasar middleware como aplicacion
 app.use(cookies());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(userLoggedBlockNav);
-app.use(bp.json());/****** */
+app.use(userLoggedNavBar);
+//app.use(bp.json());/****** */
 //app.use(bp.urlencoded({ extended: true }))/****** */
 
 const methodOverride =  require('method-override'); 
