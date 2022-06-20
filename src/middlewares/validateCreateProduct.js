@@ -2,11 +2,11 @@ const path = require("path");
 const { body } = require("express-validator");
 
 const validar = [
-  body("titulo").notEmpty().withMessage("Debes completar el campo de TITULO"),
+  body("titulo").notEmpty().withMessage("Debes completar el campo TITULO"),
   body("autor").notEmpty().withMessage("Debes completar el campo AUTOR"),
   body("editorial")
     .notEmpty()
-    .withMessage("Debes compeltar el campo editorial")
+    .withMessage("Debes compeltar el campo EDITORIAL")
     .bail()
    // .isNumeric()
    // .withMessage("Debes ingresar un número válido"),

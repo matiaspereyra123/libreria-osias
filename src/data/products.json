@@ -232,5 +232,70 @@
 		"cantidad": "2",
 		"paginas": "2",
 		"imagen": "1653518385096.jpeg"
+	},
+	{
+		"id": 32,
+		"titulo": "Discurso del oso",
+		"autor": "Julio Cortázar",
+		"editorial": "Anagrama",
+		"isbn": "1234567",
+		"precio": "1235",
+		"categoria": "1",
+		"descripcion": "",
+		"cantidad": "4",
+		"paginas": "45",
+		"imagen": "1655758424821.jpeg"
+	},
+	{
+		"id": 33,
+		"titulo": "Discurso del oso",
+		"autor": "Julio Cortázar",
+		"editorial": "Anagrama",
+		"isbn": "9874568902",
+		"precio": "1235",
+		"categoria": "1",
+		"descripcion": "",
+		"cantidad": "4",
+		"paginas": "78",
+		"imagen": "1655758498347.jpeg"
+	},
+	{
+		"id": 34,
+		"titulo": "Hilo sin fin",
+		"autor": "Mac Barnett",
+		"editorial": "Juventud",
+		"isbn": "778555",
+		"precio": "1900",
+		"categoria": "1",
+		"descripcion": "",
+		"cantidad": "2",
+		"paginas": "",
+		"imagen": "1655758641698.jpeg"
+	},
+	{
+		"id": 35,
+		"titulo": "Simon de Beauvoir",
+		"autor": "Carmen G. de la Cueva",
+		"editorial": "Lumen",
+		"isbn": "",
+		"precio": "",
+		"categoria": "2",
+		"descripcion": "",
+		"cantidad": "",
+		"paginas": "",
+		"imagen": "1655758748405.jpg"
+	},
+	{
+		"id": 36,
+		"titulo": "Heimat",
+		"autor": "Nora Krug",
+		"editorial": "Lumen",
+		"isbn": "",
+		"precio": "",
+		"categoria": "2",
+		"descripcion": "",
+		"cantidad": "",
+		"paginas": "",
+		"imagen": "1655758812402.jpeg"
 	}
 ]

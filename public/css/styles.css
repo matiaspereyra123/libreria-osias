@@ -160,7 +160,7 @@ main section h2{
 .products-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .product{
@@ -335,26 +335,23 @@ footer {
     background-color: ghostwhite;
 }
 
-.label-nacimiento {
+/* .label-nacimiento {
     display: block;
     font-weight: bold;
     color: #434343;
     font-size: 14px;
     margin-left: 15px;
     width: 40%;
+} */
 
-}
 
-
-.titulo-avatar ,h3,.form-label,.form-input{
-    color: #434343;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
+h3,.form-label,.form-input{
     margin-left: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     margin-top: 15px;
+    width: 100%;
 }
+
 body h3{
     margin-left:0px;
     margin-bottom: 15px;
@@ -387,15 +384,14 @@ body h3{
 
 .boton-enviar,
 .boton-borrar {
-    background-color:darkgray;
+    background-color:#A82B6B;
+    opacity: 0.8;
     border: none;
     border-radius: 5%;
     color: white;
-    margin:10vh; ;
-   
     margin-top: 40px;
     padding: 8px;
-   width: 60vh;
+    width: 50%;
 }
 
 
@@ -406,14 +402,14 @@ body h3{
 }
 
 .boton-login {
-    background-color: darkgray;
+    background-color: #A82B6B;
     border: none;
     color: white;
     border-radius: 5%;
     margin-left: auto;
     margin-right: auto;
     padding: 8px;
-    width: 40vw;
+    width: 100%;
 }
 
 .recuperacion-contraseña, a {
@@ -421,21 +417,45 @@ body h3{
     color: #4F4F4F
 }
 
+.botones-register {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.boton-enviar {
+    width: 48%;
+}
+.boton-borrar {
+    width: 48%;
+}
+
+.boton-login:hover, .boton-enviar:hover, .boton-borrar:hover {
+    opacity: 1.0;
+}
+
 .caja-login,
 .caja-register {
     background-color: white;
-    width: 90%;
+    width: 85%;
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 90px;
+    margin-bottom: 90px;
     padding: 50px;
+    border: darkgray 2px solid;
+    border-radius: 35px;
 }
 
 /* Recuperar contraseña */
 
 .envio-mail {
     color: #4F4F4F;
+}
+
+.text-danger {
+    color: rgb(146, 2, 2)
 }
 
 
@@ -451,6 +471,7 @@ body h3{
 .boton-enviar:hover, .boton-borrar:hover, .boton-login:hover, .input-botton:hover,.input-botton-pagar:hover{
     /* background-color: #000; */
     background-color: #A82B6B;
+    opacity: 1.0;
  }
 
 
@@ -636,7 +657,11 @@ body h3{
 .fa-cart-shopping{
   line-height:inherit;
 
-} 
+}
+
+.caja-login, .caja-register {
+    width: 60%;
+}
 
     
  }
@@ -644,6 +669,10 @@ body h3{
 @media (min-width: 992px) { 
     .up-section__text{
         text-align: center;
+    }
+
+    .caja-login, .caja-register {
+        width: 40%;
     }
 /*.contendor{
         display: flex;
@@ -667,9 +696,9 @@ body h3{
     transition: all 300ms;
     padding-left:10px;
     padding-right: 10px;
-     border: 0.2px solid #dbdbdb;
-      border-radius: 5px;
-      margin-bottom: 50px;
+    border: 0.2px solid #dbdbdb;
+    border-radius: 5px;
+    margin-bottom: 50px;
 
 }
 .product:hover{
@@ -798,6 +827,7 @@ transform: scale(1.20);
 
 .textDescripcion{
    text-align: center;
+   width: 40%;
 }
 
 

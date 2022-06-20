@@ -15,7 +15,7 @@
     <section class="caja-login">
 
       <form action="/user/login" method="POST" class="formulario-completo">
-        <label for="email">email</label>
+        <label for="email">Email</label>
         <input type="email" name="email" id="email" class="input-barras">
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
@@ -23,7 +23,7 @@
           </section>
           <% } %>
 
-            <label for="password" class="">password</label>
+            <label for="password" class="">Contraseña</label>
             <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8">
             <% if(locals.errors && errors.password) {%>
               <section class="text-danger">
@@ -37,7 +37,7 @@
                   <% } %>
                     <section class="">
                       <label class="">
-                        <input type="checkbox" name="recordar" id="recordar">Recordar mi usuario
+                        <input type="checkbox" name="recordar" id="recordar"> Recordar mi usuario
                       </label>
                     </section>
 
