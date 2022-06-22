@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <%- include ("../partials/head.ejs")  %> 
+
+   
+    </head>
+    <body>
+    <header>     
+       <%- include("../partials/header.ejs")  %> 
+    </header>
+
+ <body>
+
+    <main class="contenedorCarrito">
+
+        <table >
+          
+            <thead >
+                     <tr>
+               <th><h3><b>USUARIO </b> </h3></th>
+                <th><h3>NOMBRE </h3></th>
+                <th><h3>EMAIL</h3></th>
+                <th><h3>ROL</h3></th>
+                
+                <th></th>
+                 </tr>
+                </thead>
+        <tbody>
+                
+           
+
+
+              <% usuarios.forEach(usuario => { %>
+                     <tr class="tablaItem">
+                         <td><img  src="/images/users/<%=usuario.imagen %>" class="imagenUsuario" alt="" width="100px" height="100px" style="border-radius:50px"><a href="./edit/<%=usuario.id%>" class="eliminarItem"><p>Eliminar/Editar</p></a></td>
+                          <td> <%=usuario.nombre%></td>
+  
+                        <td><%=usuario.email%></td>
+                        <td><%=usuario.rol%></td>
+                               <% }) %>  
+                      </tr>
+
+
+
+   
+       
+ 
+
+
+
+
+
+        </tbody>
+     
+      
+
+        </table>   
+
+
+    </main>
+
+
+
+    <footer>
+        
+        <%- include ("../partials/footer.ejs")%>
+    </footer>
+
+ </body>
+
+ </html>
+
+  

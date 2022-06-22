@@ -1,0 +1,24 @@
+5to SPRINT
+
+CRUD usuarios.----------------------------------------------------------(SI)
+Error en Vista editar/Eliminar Producto.--------------------------------(SI)
+Login: validar si el usuario ya existe.---------------------------------(SI)
+Validar Igualdad de password al Registrar/Editar usuario.---------------(SI)
+Session y Cookies.------------------------------------------------------(SI)
+Recordar usuario.-------------------------------------------------------(SI)
+Asignar rol de usuario / Ocultar funcionalidades segun Rol.-------------(SI)
+
+Validar todos los campos.-----------------------------------------------(NO)
+Formulario recuperar password.------------------------------------------(NO)
+Formulario de contacto.-------------------------------------------------(NO)
+Mejorar Formularios, botones, etc.--------------------------------------(NO)
+
+CUENTAS LOGIN:
+
+ROL ADMIN
+usuario: admin@admin
+PASS: Admin
+
+ROL USUARIO
+USUARIO: test5@test.com
+PASS: 55555

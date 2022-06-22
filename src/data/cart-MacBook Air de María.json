@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"titulo": "Ciencias Sociales 5",
+		"precio": 1000,
+		"imagen": "9789501309706.jpeg"
+	},
+	{
+		"id": 2,
+		"titulo": "Matemática I",
+		"precio": 1500,
+			"imagen": "1653500568062.jpg"
+	},
+	{
+        "id": 3,
+		"titulo": "Historia I",
+		"precio": 1500,
+		"imagen": "1653500568062.jpg"
+	},
+    {
+        "id": 4,
+		"titulo": "Lengua I",
+		"precio": 1500,
+        "imagen": "1653186871460.jpg"
+	}
+]

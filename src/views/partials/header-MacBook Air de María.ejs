@@ -1,0 +1,52 @@
+
+    <section class="up-section">
+        <div class="up-section__img">
+            <a href="/">
+                <img src="/images/LOGO Sin fondo.png" alt="Logo">
+            </a>
+        </div>
+
+        <form class="up-section__search" action="#">
+            <input  type="text" placeholder="Todos los libros a un clic">
+            <button type="button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        
+       
+    
+    </section>
+
+    <section class="down-section">
+        <nav>
+            <ul>
+                <li><a href="/">INICIO</a></li>
+                <p class="separador">|</p>
+                <li><a href="#">LIBROS</a></li>
+                <p class="separador">|</p>
+                <li><a href="#">ENVÍOS</a></li>
+                <p class="separador">|</p>
+                <li><a href="#">CONTACTO</a></li>
+            </ul>
+            <ul>
+                <% if (!locals.userLogged) { %>
+                    <li><a href="/user/register">CREAR CUENTA <i class="far fa-id-card"></i></a></li>
+                <li><a href="/user/login">INICIAR SESIÓN <i class="fas fa-sign-in-alt"></i></a></li> 
+                <% }else{ %>
+                    <li><a href="/user/profile">MI CUENTA: <%= locals.usuarioLogeado.nombre %>  <i class="fas fa-sign-in-alt"></i></a></li>
+                    <li><a href="/product/cart">MIS LIBROS <i class="fa-solid fa-cart-shopping"></i></a></li>
+
+               <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
+                 <li><a href="/product/create">CREAR PRODUCTO </a></li>
+                 <li><a href="/user/usersList">LISTA DE USUARIOS </a></li>
+               <% } %>
+               
+                <% } %> 
+            </ul>
+        </nav>
+
+        <div class="hamburguer-menu">
+            <i class="fa fa-bars burger"></i>
+        </div>
+
+    </section>

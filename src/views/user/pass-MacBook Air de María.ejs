@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ("../partials/head.ejs") %> 
+    </head>
+    <body>
+        <header>
+            <%- include ("../partials/header.ejs")%>
+
+        </header>
+
+
+        <main class="main-login">
+
+            <div class="caja-login">  
+            <form action="/" method="get">
+          
+                <div>
+                      <label class="email" for="email"></label>
+                      <input type="email" name="email" id="email" placeholder="Ingresá tu email" class="input-barras" required>
+                  </div>
+                  <div  class="div-boton-login">
+                      <button type="submit" class="boton-login">Enviar email</button>
+                  </div>
+        
+          
+                </div>
+          
+          </main>
+
+          <footer>
+            <%- include ("../partials/footer.ejs")%>
+          </footer>
+        
+    </body>
+</html>
