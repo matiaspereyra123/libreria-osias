@@ -2,7 +2,7 @@ const path = require("path");
 const { body } = require("express-validator");
 
 const validar = [
-  body("titulo").notEmpty().withMessage("Debes completar el campo TITULO"),
+  body("titulo").notEmpty().withMessage("Debes completar el campo TíTULO"),
   body("autor").notEmpty().withMessage("Debes completar el campo AUTOR"),
   body("editorial")
     .notEmpty()

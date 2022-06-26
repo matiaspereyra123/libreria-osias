@@ -14,7 +14,7 @@
             <div class="caja-register">
   
               <form  action="/product/create"  method="POST" class="formulario-completo" enctype="multipart/form-data">
-                        <h3> Crear un nuevo producto</h3>
+                        <h3>CREAR UN NUEVO PRODUCTO</h3>
                         <br>
                         <br>
                       <label for="titulo">Título</label>
@@ -32,16 +32,33 @@
                      <div class="text-danger">
                        <%= errors.autor.msg %> 
                      </div>
-                     <% } %> 
+                     <% } %>
+                     <!-- Agrego campos de ilustrador y traductor, revisar -->
+                     <label for="ilustrador">Ilustrador</label>
+                     <input type="text" name="ilustrador" id="ilustrador"  class="input-barras"  value="<%= locals.old ? old.ilustrador : null %>">
+                     <% if(locals.ilustrador && errors.ilustrador) {%> 
+                    <div class="text-danger">
+                      <%= errors.ilustrador.msg %> 
+                    </div>
+                    <% } %>
+                    <label for="traductor">Traductor</label>
+                    <input type="text" name="traductor" id="traductor"  class="input-barras"  value="<%= locals.old ? old.traductor : null %>">
+                    <% if(locals.traductor && errors.traductor) {%> 
+                   <div class="text-danger">
+                     <%= errors.traductor.msg %> 
+                   </div>
+                   <% } %>   
                  
-                      <label for="categoria" class="form-label">Categoría</label>
-                      <select name="categoria" id="categoria" class="form-input">
+                      <label for="categoria">Categoría</label>
+                      <select name="categoria" id="categoria" class="form-input-categoria">
                         <option value="">Elegí</option>
-                        <option value=2>Secundaria</option>
-                        <option value=1>Primaria</option>
+                        <option value=1>Historieta & Novela gráfica</option>
+                        <option value=2>Literatura ilustrada</option>
+                        <option value=3>Infantiles</option>
                       </select>
-                     
-                      <label for="editorial" class="nombre-usuario">Editorial</label>
+                     <br>
+                     <br>
+                      <label for="editorial">Editorial</label>
                       <input type="text" name="editorial" id="editorial"class="input-barras" value="<%= locals.old ? old.editorial : null %>">
                       <% if(locals.errors && errors.editorial) {%> 
                      <div class="text-danger">
@@ -53,7 +70,11 @@
                       <input type="text" name="isbn" id="isbn" class="input-barras" >
                     
                       <label for="precio">Precio</label>
-                      <input type="number" name="precio" id="precio" class="input-barras" >
+                      <input type="number" name="precio" id="precio" class="input-barras">
+
+                      <label for="fecha_publicacion">Año de publicación</label>
+                      <input type="number" name="fecha_publicacion" id="fecha_publicacion" class="input-barras">
+
                  
                       <label for="cantidad">Cantidad</label>
                       <input type="number" name="cantidad" id="cantidad" class="input-barras" >
@@ -71,7 +92,7 @@
                         rows="20"
                         cols="50"
 
-                        placeholder=Descripción
+                        placeholder="Descripción"
                       
                       ></textarea> 
                      </div>                 

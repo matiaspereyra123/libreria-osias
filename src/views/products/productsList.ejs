@@ -19,9 +19,9 @@
                 <article class="products-list">
                         <% libros.forEach(libro => { %>
                            <article class="product">  
-                                 <h3><%= libro.titulo %> </h3> 
+                                 <h3><%= libro.title %> </h3> 
                                  <article class="artImagen">
-                                          <a href="product/detail/<%= libro.id %>"><img  clss="imagenLibroHome"src="/images/products/<%= libro.imagen %>" alt=<%= libro.titulo %>>
+                                          <a href="product/detail/<%= libro.id %>"><img  class="imagenLibroHome"src="/images/products/<%= libro.image %>" alt=<%= libro.title %>>
                                 
                                    <!--   div class="product__info">
                                 </div>
@@ -30,7 +30,7 @@
                                  </article>
                            
                                 
-                                  <article class="precio"><b>  $<%= libro.precio %> </b>
+                                  <article class="precio"><b>  $<%= libro.price %> </b>
                                 
                                     <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
                                 </article>   

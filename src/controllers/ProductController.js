@@ -12,7 +12,6 @@ const productController = {
 	cart: function (req, res) {
 		let librosCarrito = JSON.parse(fs.readFileSync(carritoFilePath, "utf-8"));
 		return res.render("products/cart", {
-			hoja: "productStyles.css",
 			title: "Mis libros",
 			carrito: librosCarrito,
 		});
@@ -123,7 +122,7 @@ const productController = {
 		res.render("products/detail", {
 			libroEditar: product,
 			libros: libros,
-			title: libros.titulo,
+			title: libros.title,
 		}); // No actualiza la variable, hay que parar el servidor y volver a correrlo para actualizar variable y  ver la vista
 		//otra opcion redigir al home como el destroy
 	},
