@@ -7,34 +7,32 @@ let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const mainController = {
+    
     home: function (req, res) {
-        
         let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-     //   const secundaria = libros.filter(libro => {
-       //     if (libro.categoria == "Educación secundaria") {
-          //      return libro.categoria == "Educación secundaria"    
-            //    }
 
-
-        const secundaria = libros.filter(libro => {
-            if (libro.categoria == 2) {
-                return libro.categoria ==2
-                //  No se puede cambiar de categoria la editar, hay que corregir este bug , el bug puede estar aca o en la vista en los OPTION
-                }
-
-        })
-        
-        const primaria = libros.filter(libro => {
-            if (libro.categoria == 1) {
-            return libro.categoria ==1
+        const historieta = libros.filter(libro => {
+            if (libro.genre == "Historieta") {
+                return libro.genre == "Historieta"
             }
-     
-        })
+        });
 
- res.render("home",{libros: libros, primaria: primaria, secundaria: secundaria, title: "Libreria Kodos",hoja:'home.css'});
-    }
+        const literatura = libros.filter(libro => {
+            if (libro.genre == "Literatura ilustrada") {
+                return libro.genre == "Literatura ilustrada"
+            }
+        });
+
+        const infantiles = libros.filter(libro => {
+            if (libro.genre == "Infantiles") {
+                return libro.genre == "Infantiles"
+            }
+        });
+
+
+        res.render("home", { libros: libros, historieta: historieta, literatura: literatura, infantiles: infantiles, title: "Libreria Kodos" })
+    },
 }
 
 
-
-module.exports = mainController
+    module.exports = mainController

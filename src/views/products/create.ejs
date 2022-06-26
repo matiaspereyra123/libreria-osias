@@ -3,7 +3,7 @@
     <head>
         <%- include ("../partials/head.ejs")  %> 
     </head>
-    <body>
+    <body class="body-login">
         <header>
             <%- include ("../partials/header.ejs")%>
         </header>
@@ -15,6 +15,8 @@
   
               <form  action="/product/create"  method="POST" class="formulario-completo" enctype="multipart/form-data">
                         <h3> Crear un nuevo producto</h3>
+                        <br>
+                        <br>
                       <label for="titulo">Título</label>
                 
                       <input type="text" name="titulo" id="titulo" class="input-barras"
@@ -74,7 +76,7 @@
                       ></textarea> 
                      </div>                 
                 
-                  <div class="div-botones-register">
+                  <div class="botones-register">
                     <button type="submit" class="boton-enviar">Enviar</button>
                   <button type="reset" class="boton-borrar">Borrar</button>
                 </div>
@@ -83,7 +85,7 @@
             </div>
           </main>
 
-          <footer>
+          <footer class="footer-section">
             <%- include ("../partials/footer.ejs")%>
           </footer>
         

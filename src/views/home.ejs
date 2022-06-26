@@ -6,72 +6,153 @@
    
     </head>
     <body>
-    <header>     
-       <%- include("./partials/header.ejs")  %> 
-    </header>
-        
-        <section class="banner">
-            <img src="images/libros.jpeg" alt="Banner de ofertas">
-        </section>
+        <div class="hero">
 
+            <header>
+                <%- include("./partials/header.ejs")  %> 
+            </header>
+    
+            <div class="hero-box">
+                <h2 class="box-title">Romeo y Julieta</h2>
+                <p class="box-text">La clásica tragedia de Shakespeare cobra nueva vida con el arte de Svetlin Vassilev</p>
+                <div class="button">
+                    <button class="cfa">Leer un fragmento</button>
+                </div>
+            </div>
+            <div class="down-section">
+                <p class="down-section__text">Romeo y Julieta, ilustrado por Svetlin Vassilev</p>
+                <button class="down-section__button">LEER UN FRAGMENTO</button>
+            </div>
+            <div class="oculto">
+    
+            <!-- <div class="left-arrow">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="right-arrow">
+                <i class="fa-solid fa-angle-right"></i>
+            </div> -->
+            </div>
+    
+        </div>
+        <!-- End of Hero section -->
+    
         <main>
-
-            <section class="contenedor">
-                <h2>Eduación primaria</h2>
-                <article class="products-list">
-                        <% primaria.forEach(libro => { %>
-                           <article class="product">  
-                                 <h3><%= libro.titulo %> </h3> 
-                                 <article class="artImagen">
-                                          <a href="product/detail/<%= libro.id %>"><img  clss="imagenLibroHome"src="/images/products/<%= libro.imagen %>" alt=<%= libro.titulo %>>
-                                
-                                   <!--   div class="product__info">
-                                </div>
-                                 -->
-                                </a> 
-                                 </article>
-                           
-                                
-                                  <article class="precio"><b>  $<%= libro.precio %> </b>
-                                
-                                    <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
-                                </article>   
-                                     
-                                    
-                            </article>
-                        <% }) %>  
-                        </article>
+    
+            <section class="graphic-novel">
+                <div class="title-container">
+                    <h1 class="graphic-novel__title">
+                        > HISTORIETA y NOVELA GRÁFICA
+                    </h1>
+                </div>
+                <div class="novel-container">
+                    <% historieta.forEach(libro => { %>
+                        <article class="novel-item">
+                           <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
+                            <h2> <%= libro.title %>  </h2>
+                            <p> <%= libro.author %>  </p>
+                            <p class="precio"> $ <%= libro.price %></p></a>  
+                        </article> 
+                    <% }) %>
+    
+                    
+    
+                </div>
             </section>
-
-
-            <section class="contenedor">
-                <h2>Eduación secundaria</h2>
-                <article class="products-list">
-                        <% secundaria.forEach(libro => { %>
-                            <article class="product">   
-                                 <h3><%= libro.titulo %> </h3> 
-                               <article class="artImagen">
-                                            
-                                        <a href="product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.imagen %>" alt=<%= libro.titulo %>>
-                              
-                                
-                                </a> 
-                               </article> 
-                                  <article class="precio"><b>  $<%= libro.precio %> </b>
-                                
-                                    <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
-                                </article>   
-                                     
-                                    
+            <section class="literature">
+    
+                <div class="title-container">
+                    <h1 class="literature-novel__title">
+                        > LITERATURA ILUSTRADA
+                    </h1>
+                </div>
+                <article class="literature-container">
+                    <div class="corner-text-wrapper">
+                        <div class="corner-text">
+                          <span>NUEVO</span>
+                          </div>
+                    </div>
+    
+                    <div class="literature-highlight">
+                    <% literatura.forEach(libro => { %>
+                        <% if (libro.title === "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
+                            <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt=""></a> 
+                        </div>
+        
+                        <div class="literature-description">
+                            <h2 class="highlight-title"> <%= libro.title %> </h2>
+                            <h3 class="highlight-text">En esta magistral versión, ilustrada con los dibujos originales de Aubrey Beardsley de la edición de 1893, Roger Lancelyn Green recrea el mundo mágico en el que transcurre una de las leyendas más grandes de todos los tiempos, y nos muestra las andanzas, triunfos y desventuras de nobles y valientes caballeros, magos, dragones... Un legado que nos recuerda que algunas historias no deben olvidarse jamás.</h3>
+                            <div class="highlight-button-container">
+                            <a href="/product/detail/<%= libro.id %>"><button class="highlight-button">VER MÁS</button></a>
+                            </div>  
+                        </div>
+                    </article>
+                        <% } %>
+                     
+                    <% }) %>
+                   
+              
+            
+            <section class="literature-section">
+    
+                <div class="novel-container">
+                    <% literatura.forEach(libro => { %>
+                        <% if (libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
+                            <article class="novel-item">
+                                <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">  
+                                <h2><%= libro.title %></h2>
+                                <p><%= libro.author %> </p>
+                                <p>Ilus.: <%= libro.illustrator %> </p>
+                                <p class="precio">$ <%= libro.price %> </p></a>
                             </article>
-                        <% }) %>  
-                        </article>
+                        <% } %>
+                    <% }) %>
+    
+                </div>
             </section>
-
+            </section>
+    
+            <section class="children">
+                <div class="title-container">
+                    <h1 class="children__title">
+                        > INFANTILES
+                    </h1>
+                </div>
+    
+                <div class="children-container">
+    
+                    <% infantiles.forEach(libro => { %>
+                        <article class="children-item">
+                            <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">    
+                            <h2><%= libro.title %></h2>  
+                            <p><%= libro.author %> </p>
+                            <p>Ilus.: <%= libro.illustrator %> </p>
+                            <p class="precio">$ <%= libro.price %> </p></a>
+                        </article>
+                    <% }) %>
+    
+                </div>
+            </section>
+      
            
+            <!-- <div class="title-container">
+                <h1 class="children__title">
+                    SEGUÍ EXPLORANDO
+                </h1>
+            </div> -->
+            <div class="more-genres">
+                <p class="viajes"><a href="">> VIAJES</a></p>
+                <p class="humor"><a href="">> HUMOR</a></p>
+                <p class="biografia"><a href="">> BIOGRAFÍA</a></p>
+                <!-- <p class="biografia"><a href="">> ARTE</a></p> -->
+    
+            </div>
+    
+
+    
         </main>
 
-    <footer>
+
+    <footer class="footer-section">
         
         <%- include ("./partials/footer.ejs")%>
     </footer>
