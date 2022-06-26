@@ -22,9 +22,7 @@
     width: 90%;
 }
 
-/* .input-barras:invalid {
-    background-color: pink;
-} */
+
 
 .input-barras:focus {
     background-color: ghostwhite;
