@@ -72,8 +72,10 @@ body {
 
 }
 
+
+
 .fa-user,
-.fa-search, .fa-cart-shopping {
+.fa-search, .fa-cart-shopping, .fa-sign-in-alt {
     color: whitesmoke;
     font-size: 20px;
 }
