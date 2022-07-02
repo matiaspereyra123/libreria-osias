@@ -26,7 +26,7 @@
                           <%= errors.titulo.msg %> 
                         </div>
                         <% } %> 
-                      <label for="autor">Autor</label>
+                      <label for="autor">Autor</label> 
                       <input type="text" name="autor" id="autor"  class="input-barras"  value="<%= locals.old ? old.autor : null %>">
                       <% if(locals.autor && errors.autor) {%> 
                      <div class="text-danger">
@@ -49,12 +49,14 @@
                    </div>
                    <% } %>   
                  
-                      <label for="categoria">Categoría</label>
-                      <select name="categoria" id="categoria" class="form-input-categoria">
-                        <option value="">Elegí</option>
-                        <option value=1>Historieta & Novela gráfica</option>
-                        <option value=2>Literatura ilustrada</option>
-                        <option value=3>Infantiles</option>
+                      <label for="genero">Género</label>
+                      <select name="genero" id="genero" class="form-input-categoria">
+                        <option value="">Elegí un género</option>
+                        <% generos.forEach(genero => { %>
+                          <option value="<%= genero.id %>">
+                            <%= genero.name %>
+                          </option>   
+                        <% }) %>
                       </select>
                      <br>
                      <br>

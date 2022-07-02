@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const { validationResult } = require('express-validator'); // requerimos para poder validar errores
+const db = require("../database/models");
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const carritoFilePath = path.join(__dirname, "../data/cart.json");
@@ -18,53 +19,77 @@ const productController = {
 	},
 
 	create: function (req, res) {
-		return res.render("products/create", {
-			hoja: "productStyles.css",
-			title: "Crear producto",
-		});
+		
+		db.Genero.findAll()
+		.then(function(generos){
+			res.render("products/create", {generos:generos, title: "Crear producto"});
+		})
+		
 	},
 
 	save: (req, res) => {
+		
 		let errors = validationResult(req); //guarda validacion errores
 
 		console.log(errors);
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+		// let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-		let ultimo = libros.length - 1;
-		let idnuevo = libros[ultimo].id + 1;
+		// let ultimo = libros.length - 1;
+		// let idnuevo = libros[ultimo].id + 1;
 		if (errors.isEmpty()) {
 			//bloque que valida si errors esta vacio
-			let newProduct = {
-				id: idnuevo,
-				titulo: req.body.titulo,
-				autor: req.body.autor,
-				editorial: req.body.editorial,
-				isbn: req.body.isbn,
-				precio: req.body.precio,
-				categoria: req.body.categoria,
-				descripcion: req.body.descripcion,
-				cantidad: req.body.cantidad,
-				paginas: req.body.paginas,
-				imagen: req.file.filename,
-			};
 			
-			// Primero leer lo que ya había en el archivo json
-			let productJSON = fs.readFileSync(productsFilePath, {
-				encoding: "utf-8",
+			//ver cómo hacer con el author_id, genre_id y publisher_id
+
+
+			db.Libro.create({
+				title: req.body.titulo,
+				author_id: req.body.autor,
+				illustrator: req.body.ilustrador,
+				translator: req.body.traductor,
+				genre_id: req.body.genero,
+				publisher_id: req.body.editorial,
+				isbn: req.body.isbn,
+				price: req.body.precio,
+				publication_date: req.body.fecha_publicacion,
+				stock: req.body.cantidad,
+				pages: req.body.paginas,
+				image: req.file.filename,
+				description: req.body.descripcion
+	
 			});
+			
+			// let newProduct = {
+			// 	id: idnuevo,
+			// 	titulo: req.body.titulo,
+			// 	autor: req.body.autor,
+			// 	editorial: req.body.editorial,
+			// 	isbn: req.body.isbn,
+			// 	precio: req.body.precio,
+			// 	categoria: req.body.categoria,
+			// 	descripcion: req.body.descripcion,
+			// 	cantidad: req.body.cantidad,
+			// 	paginas: req.body.paginas,
+			// 	imagen: req.file.filename,
+			// };
+			
+			// // Primero leer lo que ya había en el archivo json
+			// let productJSON = fs.readFileSync(productsFilePath, {
+			// 	encoding: "utf-8",
+			// });
 
-			let productos;
+			// let productos;
 
-			if (productJSON == "") {
-				productos = [];
-			} else {
-				productos = JSON.parse(productJSON);
-			}
-			productos.push(newProduct);
+			// if (productJSON == "") {
+			// 	productos = [];
+			// } else {
+			// 	productos = JSON.parse(productJSON);
+			// }
+			// productos.push(newProduct);
 
-			let productosJSON = JSON.stringify(productos, null, "\t");
+			// let productosJSON = JSON.stringify(productos, null, "\t");
 
-			fs.writeFileSync(productsFilePath, productosJSON);
+			// fs.writeFileSync(productsFilePath, productosJSON);
 
 			res.redirect("/"); //Funciona bien cuando se selecciona la categoría Primaria, pero al seleccionar Secundaria hay que actualizar para que carguen las imágenes en el Home. Pendiente para solucionar.
 		}else{
@@ -105,31 +130,39 @@ const productController = {
 	},
 
 	detail: function (req, res) {
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-		//	let nombreTitulo;
-		//  let libro = libros.find(libro=>{
-		//   if (libro.id == req.params.id){
-		//		nombreTitulo = req.params.titulo;
-		//	}
-		//  })
-		//    res.render("products/detail", {libro: libro, title: nombreTitulo})
+		db.Libro.findByPk(req.params.id, {
+			include: [{
+				association: "genero",
+				attribute: "name"
+			}, 
+		{
+			association: "autor",
+			attribute: "first_name",
+			attribute: "last_name"
+		}]
+		})
+		.then(function(libro){
+			res.render("products/detail", {libro: libro, title: libro.title})
+		})
+		.catch(function(error){
+			console.log(error)
+		})
 
-		//jungle.find(el => el.threat == 5));
-
-		const product = libros.find((item) => item.id == req.params.id);
-
-		res.render("products/detail", {
-			libroEditar: product,
-			libros: libros,
-			title: libros.title,
-		}); // No actualiza la variable, hay que parar el servidor y volver a correrlo para actualizar variable y  ver la vista
-		//otra opcion redigir al home como el destroy
 	},
 	list:(req,res)=>{
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	res.render("products/productsList",{libros: libros, title: "Lista de libros",hoja:'style.css'});
-	   },
+
+		db.Libro.findAll()
+		.then(function(libros){
+			res.render("products/productsList", {libros: libros, title: "Lista de libros"})
+
+		})
+	},
+
+
+	// 	let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+	// res.render("products/productsList",{libros: libros, title: "Lista de libros",hoja:'style.css'});
+	//    },
 
 	//** */
 
@@ -146,6 +179,8 @@ const productController = {
 		);
 		res.redirect("/");
 	},
-};
+
+
+}
 
 module.exports = productController;

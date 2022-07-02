@@ -45,13 +45,16 @@
                     </h1>
                 </div>
                 <div class="novel-container">
-                    <% historieta.forEach(libro => { %>
-                        <article class="novel-item">
-                           <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
-                            <h2> <%= libro.title %>  </h2>
-                            <p> <%= libro.author %>  </p>
-                            <p class="precio"> $ <%= libro.price %></p></a>  
-                        </article> 
+                    <% libros.forEach(libro => { %>
+                        <% if (libro.genre_id == 1) { %>
+                            <article class="novel-item">
+                                <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
+                                 <h2> <%= libro.title %>  </h2>
+                                 <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
+                                 <p class="precio"> $ <%= libro.price %></p></a>  
+                             </article> 
+                        <% } %>
+
                     <% }) %>
     
                     
@@ -73,7 +76,7 @@
                     </div>
     
                     <div class="literature-highlight">
-                    <% literatura.forEach(libro => { %>
+                    <% libros.forEach(libro => { %>
                         <% if (libro.title === "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
                             <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt=""></a> 
                         </div>
@@ -95,12 +98,12 @@
             <section class="literature-section">
     
                 <div class="novel-container">
-                    <% literatura.forEach(libro => { %>
-                        <% if (libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
+                    <% libros.forEach(libro => { %>
+                        <% if (libro.genre_id ==2 && libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
                             <article class="novel-item">
                                 <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">  
                                 <h2><%= libro.title %></h2>
-                                <p><%= libro.author %> </p>
+                                <p><%= libro.autor.first_name + " " + libro.autor.last_name %> </p>
                                 <p>Ilus.: <%= libro.illustrator %> </p>
                                 <p class="precio">$ <%= libro.price %> </p></a>
                             </article>
@@ -120,14 +123,18 @@
     
                 <div class="children-container">
     
-                    <% infantiles.forEach(libro => { %>
-                        <article class="children-item">
-                            <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">    
-                            <h2><%= libro.title %></h2>  
-                            <p><%= libro.author %> </p>
-                            <p>Ilus.: <%= libro.illustrator %> </p>
-                            <p class="precio">$ <%= libro.price %> </p></a>
-                        </article>
+                    <% libros.forEach(libro => { %>
+                        <% if (libro.genre_id == 3) { %>
+                            <article class="children-item">
+                                <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">    
+                                <h2><%= libro.title %></h2>  
+                                <p><%= libro.author %> </p>
+                                <p>Ilus.: <%= libro.illustrator %> </p>
+                                <p class="precio">$ <%= libro.price %> </p></a>
+                            </article>
+                         
+                        <% } %>
+
                     <% }) %>
     
                 </div>

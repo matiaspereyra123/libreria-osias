@@ -16,12 +16,12 @@
         <section class="contenedor-detalle">
 
             <article class="image-detalle">
-                <img src="/images/products/<%=libroEditar.image %>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
+                <img src="/images/products/<%=libro.image %>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
             </article>
             <section class="compra-producto">
                 <article class="tablaItem" >
-                  <h2 class="book-title"><%= libroEditar.title %></h2>
-                  <p class="book-price">$ <%= libroEditar.price %></p>
+                  <h2 class="book-title"><%= libro.title %></h2>
+                  <p class="book-price">$ <%= libro.price %></p>
                 <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png">  </span>
                 <span><img class="mediosPago" src=" https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png">  </span>
                 <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png">  </span>
@@ -52,7 +52,7 @@
 
             
                 <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
-                   <form class="form-editar" action="/product/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
+                   <form class="form-editar" action="/product/edit/<%=libro.id%>" method="GET" enctype="multipart/form-data" >
                     <button class="editar-eliminar" type="submit" >EDITAR / ELIMINAR</button>
                   </form>
                 <% } %>
@@ -63,7 +63,7 @@
 
         </section>
         <section class="description-container">
-            <p class="description-text"><%=libroEditar.description%></p>
+            <p class="description-text"><%=libro.description%></p>
         </section>
 
     </main>
