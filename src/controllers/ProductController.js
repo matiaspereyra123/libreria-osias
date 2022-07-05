@@ -20,11 +20,26 @@ const productController = {
 
 	create: function (req, res) {
 		
-		db.Genero.findAll()
-		.then(function(generos){
-			res.render("products/create", {generos:generos, title: "Crear producto"});
+	//acá falta pasarle los géneros pero no me salió el Promise.all
+	
+		db.Autor.findAll()
+			.then(function( autores){
+			res.render("products/create", {autores:autores, title: "Crear producto"});
 		})
 		
+	},
+
+	//pruebo CRUD autor
+	saveAutor: (req,res) => {
+		
+		db.Autor.create({
+			first_name: req.body.nombre,
+			last_name: req.body.apellido
+		})
+
+		res.redirect("/product/create")
+
+
 	},
 
 	save: (req, res) => {
@@ -39,9 +54,9 @@ const productController = {
 		if (errors.isEmpty()) {
 			//bloque que valida si errors esta vacio
 			
+
+			
 			//ver cómo hacer con el author_id, genre_id y publisher_id
-
-
 			db.Libro.create({
 				title: req.body.titulo,
 				author_id: req.body.autor,
@@ -90,6 +105,7 @@ const productController = {
 			// let productosJSON = JSON.stringify(productos, null, "\t");
 
 			// fs.writeFileSync(productsFilePath, productosJSON);
+			
 
 			res.redirect("/"); //Funciona bien cuando se selecciona la categoría Primaria, pero al seleccionar Secundaria hay que actualizar para que carguen las imágenes en el Home. Pendiente para solucionar.
 		}else{
@@ -152,11 +168,15 @@ const productController = {
 	},
 	list:(req,res)=>{
 
-		db.Libro.findAll()
-		.then(function(libros){
-			res.render("products/productsList", {libros: libros, title: "Lista de libros"})
+		db.Libro.findAll( {include: [{association: "genero", attribute: "name"}, {association: "autor", attribute: "first_name", attribute: "last_name"},{ association: "editorial", attribute: "name"}]})
+        .then(function(libros){
+            
+            res.render("products/productsList", {libros: libros, title: "Librería Kodos"})  
+        })
+        .catch(function(error){
+            console.log(error);
 
-		})
+        })
 	},
 
 

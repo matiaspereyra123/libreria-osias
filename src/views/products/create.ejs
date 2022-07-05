@@ -26,14 +26,16 @@
                           <%= errors.titulo.msg %> 
                         </div>
                         <% } %> 
-                      <label for="autor">Autor</label> 
+                      <label for="autor">Autor</label>
+
                       <input type="text" name="autor" id="autor"  class="input-barras"  value="<%= locals.old ? old.autor : null %>">
                       <% if(locals.autor && errors.autor) {%> 
                      <div class="text-danger">
                        <%= errors.autor.msg %> 
                      </div>
                      <% } %>
-                     <!-- Agrego campos de ilustrador y traductor, revisar -->
+
+                    <!-- Agrego campos de ilustrador y traductor, revisar -->
                      <label for="ilustrador">Ilustrador</label>
                      <input type="text" name="ilustrador" id="ilustrador"  class="input-barras"  value="<%= locals.old ? old.ilustrador : null %>">
                      <% if(locals.ilustrador && errors.ilustrador) {%> 
@@ -49,15 +51,16 @@
                    </div>
                    <% } %>   
                  
-                      <label for="genero">Género</label>
-                      <select name="genero" id="genero" class="form-input-categoria">
-                        <option value="">Elegí un género</option>
-                        <% generos.forEach(genero => { %>
-                          <option value="<%= genero.id %>">
-                            <%= genero.name %>
-                          </option>   
-                        <% }) %>
-                      </select>
+                   <label for="genero">Género</label>
+                   <select name="genero" id="genero" class="form-input-categoria">
+                    <option value="">Elegí un género</option>
+                    <% generos.forEach(genero => { %>
+                      <option value="<%= genero.id %>">
+                        <%= genero.name %>
+                      </option>   
+                    <% }) %>
+                  </select>
+
                      <br>
                      <br>
                       <label for="editorial">Editorial</label>

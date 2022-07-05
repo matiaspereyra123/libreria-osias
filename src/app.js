@@ -42,6 +42,6 @@ app.use('/user', usersRoutes);
 app.use('/product', productRoutes);
 
 
-app.listen(process.env.PORT || 3030, () => {
-    console.log("Sevidor corriendo en http://localhost:3030");
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Sevidor corriendo en http://localhost:3000");
 })

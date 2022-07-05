@@ -1,3 +1,5 @@
+const db = require("../database/models");
+
 const bcryptjs = require("bcryptjs");
 
 const fs = require("fs");
@@ -17,38 +19,48 @@ const userController = {
     },
     loginProcess: function(req,res) {
         let errors = validationResult(req); //guarda validacion errores
-                  const usuarioRegistrado = users.find(
-                    (user) => user.email == req.body.email
-                ); 
-            if(errors.isEmpty()){ 
+          
+        if(errors.isEmpty()){ 
+
+            const usuarioRegistrado = db.Usuario.findOne({
+                where: {
+                    email: req.body.email
+                }
+            }).then((resultado)=> {
                 if(usuarioRegistrado){ 
                 
-                         let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password); 
-                        if(passwordOk){  
-                            if(req.body.recordar){
-                         res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});      
-                        }           
-                            //delete usuarioRegistrado.password;  
-                       
-                            req.session.usuarioLogeado=usuarioRegistrado;
-                         
-                            res.redirect("profile");
-                    }else{
-                            res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
-                        });
-                        }
-                }else{
-                    res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
-                });
-                }
-            }else{
-                res.render("user/login", {
-                    errors: errors.mapped(),
-                    old: req.body,
-                    title: "Login Usuario",
-                });
+                    let passwordOk = bcryptjs.compareSync(req.body.password, db.Usuario.password); 
+                   if(passwordOk){  
+                       if(req.body.recordar){
+                    res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});      
+                   }           
+                       //delete usuarioRegistrado.password;  
+                  
+                       req.session.usuarioLogeado=usuarioRegistrado;
+                    
+                       res.redirect("profile");
+               }else{
+                       res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+                   });
+                   }
+           }else{
+               res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+           });
+           }
+                
+            })
+            
 
-            }
+        }else{
+            res.render("user/login", {
+                errors: errors.mapped(),
+                old: req.body,
+                title: "Login Usuario",
+            });
+
+        }
+        
+         
         },
 
         profile: (req, res) => {
@@ -88,32 +100,23 @@ const userController = {
             if (errors.isEmpty()) {
                 //preguntamos si errores esta vacio, entonces guarda usuario nuevo.
                 if(req.body.password==req.body.password2){
-                    let newUser = {
-                        id: idnuevo,
-                        nombre: req.body.usuario,
-                        usuario: req.body.usuario,
+                    
+                    db.Usuario.create({
+                        first_name: req.body.nombre,
+                        last_name: req.body.apellido,
                         email: req.body.email,
-                        nacimiento: req.body.nacimiento,
-                        domicilio: req.body.domicilio,
-                        imagen: req.file ? req.file.filename : "avatar.jpg",
                         password: bcryptjs.hashSync(req.body.password, 10),
-                        rol:"usuario"
-                    };
-                
-                    let usersN;
-    
-                    if (usersJSON == "") {
-                        usersN = [];
-                    } else {
-                        usersN = JSON.parse(usersJSON);
-                    }
-                    usersN.push(newUser);
-    
-                    let usersToJSON = JSON.stringify(usersN, null, "\t");
-    
-                    fs.writeFileSync(usersFilePath, usersToJSON);
-    
-                    res.redirect("/user/login/");
+                        dni: req.body.dni,
+                        address: req.body.domicilio,
+                        birth_date: req.body.nacimiento,
+                        image: req.file ? req.file.filename : "avatar.jpg",
+                        isAdmin: 0,
+                    })
+                    
+                   
+                    .then(() => {
+                        res.redirect('/user/login')})
+
                 }else{
                     res.render("user/register", {errors:{datos:{ msg: "Los password deben ser iguales" }},old:req.body, title: "Registro de Usuario",
                         });
@@ -140,23 +143,52 @@ const userController = {
     },
 
     update: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-     if(req.body.password==req.body.password2){
-           usuarios.find((usuario) => {
-            if (usuario.id == req.params.id) {
-                      usuario.nombre = req.body.nombre,
-                    usuario.usuario = req.body.usuario,
-                    usuario.email = req.body.email,
-                    usuario.nacimiento = req.body.nacimiento,
-                    usuario.domicilio = req.body.domicilio,
-                    usuario.password = bcryptjs.hashSync(req.body.password, 10),
-                    usuario.imagen= req.file ? req.file.filename : "avatar.jpg"
+        
+        
+        // let usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+     
+        if(req.body.password==req.body.password2){
+           
+            db.Usuario.update({
+                first_name: req.body.nombre,
+                last_name: req.body.apellido,
+                email: req.body.email,
+                password: bcryptjs.hashSync(req.body.password, 10),
+                dni: req.body.dni,
+                address: req.body.domicilio,
+                birth_date: req.body.nacimiento,
+                image: req.file ? req.file.filename : "avatar.jpg",
+                isAdmin: 0,
+            }, {
+                where: {
+                    id: req.params.id
+                }
+                
+
+            })
+            .then(()=> {
+                return res.redirect('/movies')})            
+            .catch(error => res.send(error))
+    
+
+            
+
+            
+//             usuarios.find((usuario) => {
+//             if (usuario.id == req.params.id) {
+//                     usuario.nombre = req.body.nombre,
+//                     usuario.usuario = req.body.usuario,
+//                     usuario.email = req.body.email,
+//                     usuario.nacimiento = req.body.nacimiento,
+//                     usuario.domicilio = req.body.domicilio,
+//                     usuario.password = bcryptjs.hashSync(req.body.password, 10),
+//                     usuario.imagen= req.file ? req.file.filename : "avatar.jpg"
              
-            }
-        });
-fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, "\t"));
+//             }
+//         });
+// fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, "\t"));
         //fs.readFileSync(productsFilePath,'UTF-8');
-        res.redirect("/user/login/"); //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución.
+        res.redirect("/user/profile/"); //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución.
         
      }else{
         res.render("user/edit", {errors:{datos:{ msg: "Los password deben ser iguales" }},usuarioEditar:req.body, title: "Editar Usuario",

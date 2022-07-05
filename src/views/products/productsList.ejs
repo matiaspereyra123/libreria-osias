@@ -14,33 +14,28 @@
 
         <main>
 
-            <section class="contenedor">
-                <h2>Lista de Libros</h2>
-                <article class="products-list">
-                        <% libros.forEach(libro => { %>
-                           <article class="product">  
-                                 <h3><%= libro.title %> </h3> 
-                                 <article class="artImagen">
-                                          <a href="product/detail/<%= libro.id %>"><img  class="imagenLibroHome"src="/images/products/<%= libro.image %>" alt=<%= libro.title %>>
-                                
-                                   <!--   div class="product__info">
-                                </div>
-                                 -->
-                                </a> 
-                                 </article>
-                           
-                                
-                                  <article class="precio"><b>  $<%= libro.price %> </b>
-                                
-                                    <span class="carritoHome"> <i class="fa-solid fa-cart-shopping"></i> </span> 
-                                </article>   
-                                     
-                                    
-                            </article>
-                        <% }) %>  
-                        </article>
-            </section>
+            <section class="full-list">
+                <div class="title-container">
+                    <h1 class="section__title">
+                        > LISTADO DE LIBROS
+                    </h1>
+                </div>
+                <div class="items-container">
+                    <% libros.forEach(libro => { %>
+                            <article class="novel-item">
+                                <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
+                                 <h2> <%= libro.title %>  </h2>
+                                 <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
+                                 <p class="precio"> $ <%= libro.price %></p></a>  
+                             </article> 
+                     
 
+                    <% }) %>
+    
+                    
+    
+                </div>
+            </section>
 
          
            

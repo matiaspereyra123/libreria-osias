@@ -17,13 +17,21 @@
 
               <form action="/user/register" method="POST"  class="formulario-completo" enctype="multipart/form-data">
                   
-                      <label for="nombre">Nombre y apellido</label>
+                      <label for="nombre">Nombre</label>
                       <input type="text" name="nombre" id="nombre" class="input-barras"  value="<%= locals.old ? old.nombre : null %>">
                       <% if(locals.errors && errors.nombre) {%> 
                      <div class="text-danger">
                        <%= errors.nombre.msg %> 
                      </div>
                      <% } %> 
+
+                     <label for="apellido">Apellido</label>
+                     <input type="text" name="apellido" id="apellido" class="input-barras"  value="<%= locals.old ? old.apellido : null %>">
+                     <% if(locals.errors && errors.apellido) {%> 
+                    <div class="text-danger">
+                      <%= errors.apellido.msg %> 
+                    </div>
+                    <% } %> 
               
                       <label for="usuario" class="nombre-usuario">Nombre de usuario</label>
                       <input type="text" name="usuario" id="usuario" class="input-barras" minlength="4" maxlength="8"     value="<%= locals.old ? old.usuario : null %>">
@@ -31,7 +39,15 @@
                      <div class="text-danger">
                        <%= errors.usuario.msg %> 
                      </div>
-                     <% } %> 
+                     <% } %>
+                     
+                     <label for="dni" class="nombre-usuario">DNI</label>
+                     <input type="text" name="dni" id="dni" class="input-barras" value="<%= locals.old ? old.dni : null %>">
+                     <% if(locals.errors && errors.dni) {%> 
+                    <div class="text-danger">
+                      <%= errors.dni.msg %> 
+                    </div>
+                    <% } %> 
           
                  
                       <label for="email">Email</label>

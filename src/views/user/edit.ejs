@@ -35,7 +35,18 @@
                  
                       <label for="domicilio"></label>
                       <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" value="<%=usuarioEditar.domicilio %>" >
-              
+                    
+                    <!-- Cambiar el if -->
+                    <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
+                      <label for="rol"></label>
+                      <select name="rol" id="rol">
+                        <option value="0">Usuario</option>
+                        <option value="1">Admin</option>
+                      </select>
+                    <% } %>
+                    <br>
+                    <br>
+               
                     <label class="titulo-avatar" for="avatar">Seleccionar una imagen de perfil</label>
                     <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.imagen %>" >
                 

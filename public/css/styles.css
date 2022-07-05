@@ -247,6 +247,11 @@ main {
     padding-bottom: 50px;
 }
 
+.full-list {
+    background-color: #546460;
+    padding-bottom: 50px;
+}
+
 .title-container {
     background-color: #f4f4f4;
     margin-bottom: 50px;
@@ -261,7 +266,7 @@ main {
 
 }
 
-.novel-container {
+.itmes-container {
     background-color: white;
     border-radius: 35px;
     display: flex;
@@ -275,25 +280,25 @@ main {
     width: 80%;
 }
 
-.novel-container a {
+.items-container a {
     text-decoration: none;
 }
 
-.novel-item {
+.item {
     background-color: #fff;
     margin-bottom: 15px;
     padding: 20px;
     width: 100%;
 }
 
-.novel-item img {
+.item img {
     border: none;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
 
-.novel-item h2 {
+.item h2 {
     color: #464646;
     font-size: 16px;
     margin-bottom: 10px;
@@ -302,7 +307,7 @@ main {
 
 }
 
-.novel-item p {
+.item p {
     color: #464646;
     font-size: 14px;
 }
@@ -456,7 +461,7 @@ main {
     padding-bottom: 50px;
 }
 
-.children-container {
+.items-container {
     background-color: white;
     border-radius: 35px;
     display: flex;
@@ -471,42 +476,8 @@ main {
     width: 80%;
 }
 
-.children-container a {
+.items-container a {
     text-decoration: none;
-}
-
-.children-item {
-    background-color: #fff;
-    margin-bottom: 15px;
-    padding: 20px;
-    width: 100%;
-}
-
-.children-item img {
-    border: none;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    border: none;
-}
-
-.children-item h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    padding-top: 8px;
-    text-decoration: none;
-    color: #464646;
-
-}
-
-.children-item p {
-    color: #464646;
-    font-size: 14px;
-}
-
-.children-item:hover {
-    transform: scale(1.10);
-    transition: all ease-in-out 250ms;
 }
 
 
@@ -1183,7 +1154,7 @@ td {
     display: inline-block;
     letter-spacing: 1px;
     margin-bottom: 70px;
-    padding: 20px;
+    padding: 10px 25px;
     opacity: 0.8;
     text-align: center;
     width: 100%;
@@ -1236,13 +1207,12 @@ td {
     }
 
 
-    .novel-item:hover {
+    .item:hover {
         transform: scale(1.10);
         transition: all ease-in-out 250ms;
     }
 
-    .novel-item,
-    .children-item {
+    .item {
         margin-right: 8px;
         margin-bottom: 15px;
         padding: 20px;
@@ -1352,8 +1322,7 @@ td {
         display: block
     }
 
-    .novel-item,
-    .children-item {
+    .item {
         margin-right: 8px;
         width: 25%;
     }

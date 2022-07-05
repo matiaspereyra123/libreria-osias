@@ -40,14 +40,14 @@
     
             <section class="graphic-novel">
                 <div class="title-container">
-                    <h1 class="graphic-novel__title">
+                    <h1 class="section__title">
                         > HISTORIETA y NOVELA GRÁFICA
                     </h1>
                 </div>
-                <div class="novel-container">
+                <div class="items-container">
                     <% libros.forEach(libro => { %>
                         <% if (libro.genre_id == 1) { %>
-                            <article class="novel-item">
+                            <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
                                  <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
@@ -64,7 +64,7 @@
             <section class="literature">
     
                 <div class="title-container">
-                    <h1 class="literature-novel__title">
+                    <h1 class="section__title">
                         > LITERATURA ILUSTRADA
                     </h1>
                 </div>
@@ -97,10 +97,10 @@
             
             <section class="literature-section">
     
-                <div class="novel-container">
+                <div class="items-container">
                     <% libros.forEach(libro => { %>
                         <% if (libro.genre_id ==2 && libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
-                            <article class="novel-item">
+                            <article class="item">
                                 <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">  
                                 <h2><%= libro.title %></h2>
                                 <p><%= libro.autor.first_name + " " + libro.autor.last_name %> </p>
@@ -116,16 +116,16 @@
     
             <section class="children">
                 <div class="title-container">
-                    <h1 class="children__title">
+                    <h1 class="section__title">
                         > INFANTILES
                     </h1>
                 </div>
     
-                <div class="children-container">
+                <div class="items-container">
     
                     <% libros.forEach(libro => { %>
                         <% if (libro.genre_id == 3) { %>
-                            <article class="children-item">
+                            <article class="item">
                                 <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">    
                                 <h2><%= libro.title %></h2>  
                                 <p><%= libro.author %> </p>
