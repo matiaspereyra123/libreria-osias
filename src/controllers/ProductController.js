@@ -20,13 +20,19 @@ const productController = {
 
 	create: function (req, res) {
 		
-	//acá falta pasarle los géneros pero no me salió el Promise.all
-	
-		db.Autor.findAll()
-			.then(function( autores){
-			res.render("products/create", {autores:autores, title: "Crear producto"});
+			let pedidoAutores = db.Autor.findAll()
+			let pedidoGeneros = db.Genero.findAll()
+			let pedidoEditoriales = db.Editorial.findAll()
+		
+			Promise.all([pedidoAutores, pedidoGeneros, pedidoEditoriales])
+			.then(function([autores, generos, editoriales]){
+			res.render("products/create", {autores: autores, generos: generos, editoriales: editoriales, title: "Crear producto"});
 		})
 		
+	}, 
+	createAutor: (req, res) => {
+		res.render("products/createAutor", {title: "Crear autor"})
+
 	},
 
 	//pruebo CRUD autor
@@ -37,7 +43,29 @@ const productController = {
 			last_name: req.body.apellido
 		})
 
-		res.redirect("/product/create")
+		.then(() => {
+			res.redirect('/product/create')})
+
+
+	},
+	createEditorial: (req, res) => {
+		res.render("products/createEditorial", {title: "Crear editorial"})
+
+	},
+
+	
+	saveEditorial: (req,res) => {
+		
+		db.Editorial.create({
+			name: req.body.nombre,
+			address: req.body.direccion,
+			email: req.body.email,
+			phone_number: req.body.telefono
+
+		})
+
+		.then(() => {
+			res.redirect('/product/create')})
 
 
 	},
@@ -47,16 +75,11 @@ const productController = {
 		let errors = validationResult(req); //guarda validacion errores
 
 		console.log(errors);
-		// let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-		// let ultimo = libros.length - 1;
-		// let idnuevo = libros[ultimo].id + 1;
+		
 		if (errors.isEmpty()) {
 			//bloque que valida si errors esta vacio
 			
-
-			
-			//ver cómo hacer con el author_id, genre_id y publisher_id
 			db.Libro.create({
 				title: req.body.titulo,
 				author_id: req.body.autor,
@@ -72,45 +95,25 @@ const productController = {
 				image: req.file.filename,
 				description: req.body.descripcion
 	
-			});
 			
-			// let newProduct = {
-			// 	id: idnuevo,
-			// 	titulo: req.body.titulo,
-			// 	autor: req.body.autor,
-			// 	editorial: req.body.editorial,
-			// 	isbn: req.body.isbn,
-			// 	precio: req.body.precio,
-			// 	categoria: req.body.categoria,
-			// 	descripcion: req.body.descripcion,
-			// 	cantidad: req.body.cantidad,
-			// 	paginas: req.body.paginas,
-			// 	imagen: req.file.filename,
-			// };
+			})
+			.then(() => {
+				res.redirect('/product/productsList')})
 			
-			// // Primero leer lo que ya había en el archivo json
-			// let productJSON = fs.readFileSync(productsFilePath, {
-			// 	encoding: "utf-8",
-			// });
+				.catch(function(error){
+					console.log(error)
+				})
+			}
+		else {
 
-			// let productos;
-
-			// if (productJSON == "") {
-			// 	productos = [];
-			// } else {
-			// 	productos = JSON.parse(productJSON);
-			// }
-			// productos.push(newProduct);
-
-			// let productosJSON = JSON.stringify(productos, null, "\t");
-
-			// fs.writeFileSync(productsFilePath, productosJSON);
-			
-
-			res.redirect("/"); //Funciona bien cuando se selecciona la categoría Primaria, pero al seleccionar Secundaria hay que actualizar para que carguen las imágenes en el Home. Pendiente para solucionar.
-		}else{
-			res.render('products/create',{errors:errors.mapped(), old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
-	
+			let pedidoAutores = db.Autor.findAll()
+			let pedidoGeneros = db.Genero.findAll()
+			let pedidoEditoriales = db.Editorial.findAll()
+		
+			Promise.all([pedidoAutores, pedidoGeneros, pedidoEditoriales])
+			.then(function([autores, generos, editoriales]) {
+			res.render('products/create',{errors:errors.mapped(), autores:autores, generos:generos, editoriales:editoriales, old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+		})
 		}
 	},
 

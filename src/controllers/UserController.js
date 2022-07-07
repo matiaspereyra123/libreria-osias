@@ -19,48 +19,38 @@ const userController = {
     },
     loginProcess: function(req,res) {
         let errors = validationResult(req); //guarda validacion errores
-          
-        if(errors.isEmpty()){ 
-
-            const usuarioRegistrado = db.Usuario.findOne({
-                where: {
-                    email: req.body.email
-                }
-            }).then((resultado)=> {
+                  const usuarioRegistrado = users.find(
+                    (user) => user.email == req.body.email
+                ); 
+            if(errors.isEmpty()){ 
                 if(usuarioRegistrado){ 
                 
-                    let passwordOk = bcryptjs.compareSync(req.body.password, db.Usuario.password); 
-                   if(passwordOk){  
-                       if(req.body.recordar){
-                    res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});      
-                   }           
-                       //delete usuarioRegistrado.password;  
-                  
-                       req.session.usuarioLogeado=usuarioRegistrado;
-                    
-                       res.redirect("profile");
-               }else{
-                       res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
-                   });
-                   }
-           }else{
-               res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
-           });
-           }
-                
-            })
-            
+                         let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password); 
+                        if(passwordOk){  
+                            if(req.body.recordar){
+                         res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});      
+                        }           
+                            //delete usuarioRegistrado.password;  
+                       
+                            req.session.usuarioLogeado=usuarioRegistrado;
+                         
+                            res.redirect("profile");
+                    }else{
+                            res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+                        });
+                        }
+                }else{
+                    res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+                });
+                }
+            }else{
+                res.render("user/login", {
+                    errors: errors.mapped(),
+                    old: req.body,
+                    title: "Login Usuario",
+                });
 
-        }else{
-            res.render("user/login", {
-                errors: errors.mapped(),
-                old: req.body,
-                title: "Login Usuario",
-            });
-
-        }
-        
-         
+            }
         },
 
         profile: (req, res) => {

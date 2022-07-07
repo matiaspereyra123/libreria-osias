@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncremenct: true,
-            allowNull: false
+           
         }, 
         first_name: {
             type: DataTypes.STRING(45)
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         });
 
 
-        //acá agregar las relaciones las relaciones
+        //acá agregar las relaciones 
         Autor.associate = function(models) {
             Autor.hasMany(models.Libro , {
                 as: "libros",
