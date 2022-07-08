@@ -87,6 +87,7 @@ const productController = {
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
 				publisher_id: req.body.editorial,
+				language: req.body.idioma,
 				isbn: req.body.isbn,
 				price: req.body.precio,
 				publication_date: req.body.fecha_publicacion,

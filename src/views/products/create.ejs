@@ -1,138 +1,140 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include ("../partials/head.ejs")  %> 
-    </head>
-    <body class="body-login">
-        <header>
-            <%- include ("../partials/header.ejs")%>
-        </header>
+
+<head>
+  <%- include ("../partials/head.ejs") %>
+</head>
+
+<body class="body-login">
+  <header>
+    <%- include ("../partials/header.ejs")%>
+  </header>
 
 
 
-        <main class="main-register">
-            <div class="caja-register">
-  
-              <form  action="/product/create"  method="POST" class="formulario-completo" enctype="multipart/form-data">
-                        <h3>CREAR UN NUEVO PRODUCTO</h3>
-                        <br>
-                        <br>
-                        <label for="autor" class="form-label" >Seleccioná un autor o creá uno nuevo <a href="/product/createAutor" class="linkAutor">aquí</a></label> 
-                       
-                  
-                        <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
-                          <option value="">Seleccioná un autor</option>
-                          <% autores.forEach(autor => { %>
-                            <option value="<%= autor.id %>">
-                              <%= autor.last_name + ", " + autor.first_name %> 
-                              </option> 
-                          <% }) %>
-                            </select>
-                            <% if(locals.autor && errors.autor) {%> 
-                              <div class="text-danger">
-                                <%= errors.autor.msg %> 
-                              </div>
-                              <% } %>
-                     
-                      <!-- Revisar si va acá la variable locals para recordar lo que se había ingresado -->
-                       <label for="editorial" class="form-label" >Seleccioná una editorial o creá una nueva <a href="/product/createAutor" class="linkAutor">aquí</a></label>
-                       <select name="editorial" value="<%= locals.old ? old.editorial : null %>" class="form-input-categoria">
-                        <option value="">Seleccioná una editorial</option>
-                        <% editoriales.forEach(editorial => { %>
-                          <option value="<%= editorial.id %>">
-                            <%= editorial.name %> 
-                            </option> 
-                        <% }) %>
-                          </select>
-                       <% if(locals.errors && errors.editorial) {%> 
-                      <div class="text-danger">
-                        <%= errors.editorial.msg %> 
-                      </div>
-                      <% } %> 
-                    
-                      <label for="titulo" class="form-label">Título</label>
-                      <input type="text" name="titulo" id="titulo" class="input-barras"
-                      value="<%= locals.old ? old.titulo : null %>">
-                         <% if(locals.errors && errors.titulo) {%> 
-                        <div class="text-danger">
-                          <%= errors.titulo.msg %> 
-                        </div>
-                        <% } %> 
-                     
+  <main class="main-register">
+    <div class="caja-register">
+
+      <form action="/product/create" method="POST" class="formulario-completo" enctype="multipart/form-data">
+        <h3>CREAR UN NUEVO PRODUCTO</h3>
+        <br>
+        <br>
+        <label for="autor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+            class="linkAutor">aquí</a></label>
+
+
+        <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
+          <option value="">Seleccioná un autor</option>
+          <% autores.forEach(autor=> { %>
+            <option value="<%= autor.id %>">
+              <%= autor.last_name + ", " + autor.first_name %>
+            </option>
+            <% }) %>
+        </select>
+        <% if(locals.autor && errors.autor) {%>
+          <div class="text-danger">
+            <%= errors.autor.msg %>
+          </div>
+          <% } %>
+
+            <!-- Revisar si va acá la variable locals para recordar lo que se había ingresado -->
+            <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
+                href="/product/createAutor" class="linkAutor">aquí</a></label>
+            <select name="editorial" value="<%= locals.old ? old.editorial : null %>" class="form-input-categoria">
+              <option value="">Seleccioná una editorial</option>
+              <% editoriales.forEach(editorial=> { %>
+                <option value="<%= editorial.id %>">
+                  <%= editorial.name %>
+                </option>
+                <% }) %>
+            </select>
+            <% if(locals.errors && errors.editorial) {%>
+              <div class="text-danger">
+                <%= errors.editorial.msg %>
+              </div>
+              <% } %>
+
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" name="titulo" id="titulo" class="input-barras"
+                  value="<%= locals.old ? old.titulo : null %>">
+                <% if(locals.errors && errors.titulo) {%>
+                  <div class="text-danger">
+                    <%= errors.titulo.msg %>
+                  </div>
+                  <% } %>
+
 
 
 
                     <!-- Agrego campos de ilustrador y traductor, revisar -->
-                     <label for="ilustrador" class="form-label" >Ilustrador</label>
-                     <input type="text" name="ilustrador" id="ilustrador"  class="input-barras"  value="<%= locals.old ? old.ilustrador : null %>">
-                     <% if(locals.ilustrador && errors.ilustrador) {%> 
-                    <div class="text-danger">
-                      <%= errors.ilustrador.msg %> 
-                    </div>
-                    <% } %>
-                    <label for="traductor" class="form-label">Traductor</label>
-                    <input type="text" name="traductor" id="traductor"  class="input-barras"  value="<%= locals.old ? old.traductor : null %>">
-                    <% if(locals.traductor && errors.traductor) {%> 
-                   <div class="text-danger">
-                     <%= errors.traductor.msg %> 
-                   </div>
-                   <% } %>   
-                 
-                   <label for="genero" class="form-label">Seleccioná el género</label>
-                   <select name="genero" id="genero" class="form-input-categoria">
-                    <option value="">Elegí un género</option>
-                    <% generos.forEach(genero => { %>
-                      <option value="<%= genero.id %>">
-                        <%= genero.name %>
-                      </option>   
-                    <% }) %>
-                  </select>
+                    <label for="ilustrador" class="form-label">Ilustrador</label>
+                    <input type="text" name="ilustrador" id="ilustrador" class="input-barras"
+                      value="<%= locals.old ? old.ilustrador : null %>">
+                    <% if(locals.ilustrador && errors.ilustrador) {%>
+                      <div class="text-danger">
+                        <%= errors.ilustrador.msg %>
+                      </div>
+                      <% } %>
+                        <label for="traductor" class="form-label">Traductor</label>
+                        <input type="text" name="traductor" id="traductor" class="input-barras"
+                          value="<%= locals.old ? old.traductor : null %>">
+                        <% if(locals.traductor && errors.traductor) {%>
+                          <div class="text-danger">
+                            <%= errors.traductor.msg %>
+                          </div>
+                          <% } %>
 
-                  
-                 
-                      <label for="isbn" class="form-label">ISBN</label>
-                      <input type="text" name="isbn" id="isbn" class="input-barras" >
-                    
-                      <label for="precio" class="form-label">Precio</label>
-                      <input type="number" name="precio" id="precio" class="input-barras">
+                            <label for="genero" class="form-label">Seleccioná el género</label>
+                            <select name="genero" id="genero" class="form-input-categoria">
+                              <option value="">Elegí un género</option>
+                              <% generos.forEach(genero=> { %>
+                                <option value="<%= genero.id %>">
+                                  <%= genero.name %>
+                                </option>
+                                <% }) %>
+                            </select>
 
-                      <label for="fecha_publicacion" class="form-label">Año de publicación</label>
-                      <input type="number" name="fecha_publicacion" id="fecha_publicacion" class="input-barras">
+                            <label for="idioma" class="form-label">Idioma</label>
+                            <input type="text" name="idioma" id="idioma" class="input-barras">
 
-                 
-                      <label for="cantidad" class="form-label">Cantidad</label>
-                      <input type="number" name="cantidad" id="cantidad" class="input-barras" >
-                      <label for="paginas">Cantidad de páginas</label>
-                      <input type="number" name="paginas" id="paginas" class="input-barras">
-              
-                     <label class="form-label" for="portada">Imagen de la portada</label>
-                     <input type="file" name="imagen" class="input-avatar" id="imagen">
 
-                     <div class="textDescripcion">
-                       <label for="descripcion"></label>
-                        <textarea
-                        id="descripcion"
-                        name="descripcion"
-                        rows="20"
-                        cols="50"
+                            <label for="isbn" class="form-label">ISBN</label>
+                            <input type="text" name="isbn" id="isbn" class="input-barras">
 
-                        placeholder="Descripción"
-                      
-                      ></textarea> 
-                     </div>                 
-                
-                  <div class="botones-register">
-                    <button type="submit" class="boton-enviar">Enviar</button>
-                  <button type="reset" class="boton-borrar">Borrar</button>
-                </div>
-       
-              </form>
-            </div>
-          </main>
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="number" name="precio" id="precio" class="input-barras">
 
-          <footer class="footer-section">
-            <%- include ("../partials/footer.ejs")%>
-          </footer>
-        
-    </body>
+                            <label for="fecha_publicacion" class="form-label">Año de publicación</label>
+                            <input type="number" name="fecha_publicacion" id="fecha_publicacion" class="input-barras">
+
+
+                            <label for="cantidad" class="form-label">Cantidad</label>
+                            <input type="number" name="cantidad" id="cantidad" class="input-barras">
+                            <label for="paginas">Cantidad de páginas</label>
+                            <input type="number" name="paginas" id="paginas" class="input-barras">
+
+                            <label class="form-label" for="portada">Imagen de la portada</label>
+                            <input type="file" name="imagen" class="input-avatar" id="imagen">
+
+                            <div class="textDescripcion">
+                              <label for="descripcion"></label>
+                              <textarea id="descripcion" name="descripcion" rows="20" cols="50"
+                                placeholder="Descripción"></textarea>
+                            </div>
+
+                            <div class="botones-register">
+                              <button type="submit" class="boton-enviar">Enviar</button>
+                              <button type="reset" class="boton-borrar">Borrar</button>
+                            </div>
+
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer-section">
+    <%- include ("../partials/footer.ejs")%>
+  </footer>
+
+</body>
+
 </html>
