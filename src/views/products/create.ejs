@@ -19,10 +19,11 @@
         <h3>CREAR UN NUEVO PRODUCTO</h3>
         <br>
         <br>
+        <!-- Primer autor -->
         <label for="autor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
             class="linkAutor">aquí</a></label>
-
-
+        
+       <div class="primerAutor">
         <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
           <option value="">Seleccioná un autor</option>
           <% autores.forEach(autor=> { %>
@@ -36,10 +37,34 @@
             <%= errors.autor.msg %>
           </div>
           <% } %>
+          <i class="fa-solid fa-circle-plus"></i>
+          <i class="fa-solid fa-circle-minus"></i>
+        </div>
+     
+  
 
+          <!-- Segundo autor -->
+          <div class="segundoAutor">
+          <label for="segundoAutor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+            class="linkAutor">aquí</a></label>
+          <select name="segundoAutor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
+            <option value="">Seleccioná un autor</option>
+            <% autores.forEach(autor=> { %>
+              <option value="<%= autor.id %>">
+                <%= autor.last_name + ", " + autor.first_name %>
+              </option>
+              <% }) %>
+          </select>
+          <% if(locals.autor && errors.autor) {%>
+            <div class="text-danger">
+              <%= errors.autor.msg %>
+            </div>
+            <% } %>
+          </div>
+          
             <!-- Revisar si va acá la variable locals para recordar lo que se había ingresado -->
             <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
-                href="/product/createAutor" class="linkAutor">aquí</a></label>
+                href="/product/createEditorial" class="linkAutor">aquí</a></label>
             <select name="editorial" value="<%= locals.old ? old.editorial : null %>" class="form-input-categoria">
               <option value="">Seleccioná una editorial</option>
               <% editoriales.forEach(editorial=> { %>
@@ -136,5 +161,5 @@
   </footer>
 
 </body>
-
+<script src="/js/create.js"></script>
 </html>

@@ -13,6 +13,18 @@ module.exports = (sequelize, DataTypes) => {
         author_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: "Autor",
+                key: "id"
+            }
+        },
+        second_author_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "Autor",
+                key: "id"
+            }
         },
         publisher_id: {
             type: DataTypes.INTEGER,
@@ -79,7 +91,12 @@ module.exports = (sequelize, DataTypes) => {
         })
         Libro.belongsTo(models.Autor, {
             as: "autor",
-            foreignKey: "author_id"
+            foreignKey: "author_id" 
+        })
+        //prueba segundo autor
+        Libro.belongsTo(models.Autor, {
+            as: "segundoAutor",
+            foreignKey: "second_author_id" 
         })
         Libro.belongsTo(models.Editorial, {
             as: "editorial",

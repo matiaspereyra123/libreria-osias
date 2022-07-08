@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
                 as: "libros",
                 foreignKey: "author_id"
             })
+      
+        
+
         }
 
         

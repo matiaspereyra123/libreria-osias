@@ -874,8 +874,36 @@ input {
 
 }
 
+.segundoAutor {
+    display: none;
+}
+
+.fa-circle-plus {
+    color: #c53758;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+   
+}
+
+.fa-circle-minus {
+    color: #c53758;
+    cursor: pointer;
+    display: none;
+    font-size: 18px;
+    padding: 5px;
+
+}
+
 .text-danger {
     color: rgb(146, 2, 2)
+}
+
+.primerAutor {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 .form-input-categoria {

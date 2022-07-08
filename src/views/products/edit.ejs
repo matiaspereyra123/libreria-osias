@@ -23,54 +23,99 @@
                            <img src="/images/products/<%= libroEditar.image %>" alt=<%= libroEditar.title %> width=35% display="block" >
                       </div>
                       <br>
+
+                    
+                    <!-- No queda seleccionado el autor original -->
+                    <label for="autor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+                    class="linkAutor">aquí</a></label>
+                    
+                   <div class="primerAutor">
+                    <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
+                      <option value="">Seleccioná un autor</option>
+                      <% autores.forEach(autor=> { %>
+                        <option value="<%= autor.id %>">
+                          <%= autor.last_name + ", " + autor.first_name %>
+                        </option>
+                        <% }) %>
+                    </select>
+                      <i class="fa-solid fa-circle-plus"></i>
+                      <i class="fa-solid fa-circle-minus"></i>
+                    </div>
+                 
+              
+            
+                      <!-- Segundo autor -->
+                      <div class="segundoAutor">
+                      <label for="segundoAutor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+                        class="linkAutor">aquí</a></label>
+                      <select name="segundoAutor" value="<%= libroEditar.author %>" class="form-input-categoria">
+                        <option value="">Seleccioná un autor</option>
+                        <% autores.forEach(autor=> { %>
+                          <option value="<%= autor.id %>">
+                            <%= autor.last_name + ", " + autor.first_name %>
+                          </option>
+                          <% }) %>
+                      </select>
+                      </div>
+
+                     <!-- No queda seleccionada la editorial original -->
+                      <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
+                        href="/product/createEditorial" class="linkAutor">aquí</a></label>
+                    <select name="editorial" value="<%= libroEditar.publisher %>" class="form-input-categoria">
+                      <option value="">Seleccioná una editorial</option>
+                      <% editoriales.forEach(editorial => { %>
+                        <option value="<%= editorial.id %>">
+                        <%= editorial.name %> 
+                        </option>
+                      <% }) %>
+                    </select>
                   
-                      <label for="titulo">Título</label>  
+                      <label for="titulo" class="form-label">Título</label>  
                       <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.title%>" >
                      
-                      <label for="autor">Autor</label>
-                      <input type="text" name="autor" id="autor" placeholder="Autor" class="input-barras" value="<%=libroEditar.author%>">
 
-                      <label for="autor">Ilustrador</label>
+
+                      <label for="ilustrador" class="form-label">Ilustrador</label>
                       <input type="text" name="ilustrador" id="ilustrador" placeholder="Ilustrador" class="input-barras" value="<%=libroEditar.illustrator%>">
 
-                      <label for="autor">Traductor</label>
+                      <label for="traductor" class="form-label">Traductor</label>
                       <input type="text" name="traductor" id="traductor" placeholder="Traductor" class="input-barras" value="<%=libroEditar.translator%>">
       
 
-                      <label for="category">Categoría:</label>
-                      <!-- ver genre -->
-                      <select id="select" selectedIndex="<%=libroEditar.genre == 1?1:2%>" name="categoria"  class="form-input"> 
-                        <option value=0 >Género</option>
-                        <option value=1>Historieta & Novela gráfica</option>
-                        <option value=2>Literatura ilustrada</option>
-                        <option value=3>Infantiles</option>
+                      <label for="genero" class="form-label">Género</label>
+                      <!-- No queda seleccionado el género original -->
+                      
+                      <select id="select" selectedIndex="<%=libroEditar.genre%>" name="genero"  class="form-input-categoria">
+                        <option value="">Seleccioná un género</option>
+                        <% generos.forEach(genero => { %>
+                          <option value="<%= genero.id %>"><%= genero.name %> </option>
+                        <% }) %>
                       </select>
                       <br>
                       <br>
-                      <label for="editorial" class="editorial">Editorial</label>
-                      <input type="text" name="editorial" id="editorial" placeholder="Editorial" class="input-barras"value="<%=libroEditar.publisher%>">
+                     
                     
-                      <label for="isbn">ISBN</label>
+                      <label for="isbn" class="form-label">ISBN</label>
                       <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" value="<%=libroEditar.isbn%>"required>
                     
-                      <label for="precio">Precio</label>
+                      <label for="precio" class="form-label">Precio</label>
                       <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.price%>" required>
   
                    
 
-                     <label for="fechaLanzamiento">Fecha de publicación</label>
+                     <label for="fechaLanzamiento" class="form-label">Fecha de publicación</label>
                      <input type="year" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%= libroEditar.publication_date %>" required>  
                    
                  
-                      <label for="cantidad">Cantidad</label>
+                      <label for="cantidad" class="form-label">Cantidad</label>
                       <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.stock%>"required>
-                      <label for="paginas">Páginas</label>
+                      <label for="paginas" class="form-label">Páginas</label>
                       <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras"value="<%=libroEditar.pages%>" required>
               
-                   <label for="portada">Imagen de la portada</label>
+                   <label for="portada" class="form-label">Imagen de la portada</label>
                      <input type="file" name="imagen" class="input-avatar" id="images" value="<%=libroEditar.imagen%>">
                     <br>
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion" class="form-label">Descripción</label>
                      <div class="textDescripcion">
                         <textarea class="textarea"
                         id="descripcion"
@@ -108,4 +153,5 @@
           </footer>
         
     </body>
+    <script src="/js/edit.js"></script>
 </html>

@@ -3,6 +3,7 @@ const path = require("path");
 
 const { validationResult } = require('express-validator'); // requerimos para poder validar errores
 const db = require("../database/models");
+const { body } = require("express-validator");
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const carritoFilePath = path.join(__dirname, "../data/cart.json");
@@ -83,6 +84,7 @@ const productController = {
 			db.Libro.create({
 				title: req.body.titulo,
 				author_id: req.body.autor,
+				second_author_id: req.body.segundoAutor,
 				illustrator: req.body.ilustrador,
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
@@ -96,7 +98,6 @@ const productController = {
 				image: req.file.filename,
 				description: req.body.descripcion
 	
-			
 			})
 			.then(() => {
 				res.redirect('/product/productsList')})
@@ -119,34 +120,52 @@ const productController = {
 	},
 
 	edit: function (req, res) {
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-		let productID = req.params.id;
+		let pedidoLibro = db.Libro.findByPk(req.params.id)
 
-		const product = libros.find((item) => item.id == req.params.id);
-		res.render("products/edit", { libroEditar: product, title: libros.titulo });
+		let pedidoAutores = db.Autor.findAll()
 
-		//const libroEditar = books[productID];
-		// res.render("products/edit",{hoja:'productStyles.css',libroEditar:libroEditar})
+		let pedidoEditoriales = db.Editorial.findAll()
+
+		let pedidoGeneros = db.Genero.findAll()
+
+		Promise.all([pedidoLibro, pedidoAutores, pedidoGeneros, pedidoEditoriales])
+		.then(function ([libroEditar, autores, generos, editoriales]) {
+			res.render("products/edit", { libroEditar:libroEditar, autores:autores, generos:generos, editoriales:editoriales, title: libroEditar.title })
+		})
 	},
 
 	update: (req, res) => {
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-		libros.find((libro) => {
-			if (libro.id == req.params.id) {
-				(libro.titulo = req.body.titulo),
-					(libro.autor = req.body.autor),
-					(libro.descripcion = req.body.descripcion)
-				if (req.file != undefined) {
-					libro.imagen = req.file.filename;
-				}
+		// Falta que recuerde el autor, la editorial, el género y la imagen
+
+		db.Libro.update({
+				title: req.body.titulo,
+				author_id: req.body.autor,
+				second_author_id: req.body.segundoAutor,
+				illustrator: req.body.ilustrador,
+				translator: req.body.traductor,
+				genre_id: req.body.genero,
+				publisher_id: req.body.editorial,
+				language: req.body.idioma,
+				isbn: req.body.isbn,
+				price: req.body.precio,
+				publication_date: req.body.fecha_publicacion,
+				stock: req.body.cantidad,
+				pages: req.body.paginas,
+				image: req.file.filename,
+				description: req.body.descripcion
+		}, {
+			where: {
+				id: req.params.id
 			}
-		});
-		fs.writeFileSync(productsFilePath, JSON.stringify(libros, null, "\t"));
-		//fs.readFileSync(productsFilePath,'UTF-8');
-
-		res.redirect("/products/detail/" + req.params.id); //Funciona bien el método pero hay que volver a cargar la imagen cada vez que se edita. Buscar solución.
+		})
+		.then(() => {
+			res.redirect('/product/productsList')})
+		
+			.catch(function(error){
+				console.log(error)
+			})
 	},
 
 	detail: function (req, res) {
@@ -183,26 +202,19 @@ const productController = {
         })
 	},
 
-
-	// 	let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	// res.render("products/productsList",{libros: libros, title: "Lista de libros",hoja:'style.css'});
-	//    },
-
-	//** */
-
 	destroy: (req, res) => {
-		let libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-		//const productoToDelete=products.find(product=>product.id===parseInt(req.params.id));
-		let newListProducts = libros.filter(
-			(product) => product.id !== parseInt(req.params.id)
-		);
-		// products = newListProducts; Al comentar estea línea y pasarle con let la variable newListProducts, se arregla el bug de que no cargaban las imágenes al redirigir al Home.
-		fs.writeFileSync(
-			productsFilePath,
-			JSON.stringify(newListProducts, null, "\t")
-		);
-		res.redirect("/");
-	},
+		db.Libro.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
+		.then(() => {
+			res.redirect('/product/productsList')})
+		
+			.catch(function(error){
+				console.log(error)
+			})
+	}
 
 
 }
