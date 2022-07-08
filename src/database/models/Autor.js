@@ -26,7 +26,10 @@ module.exports = (sequelize, DataTypes) => {
                 as: "libros",
                 foreignKey: "author_id"
             })
-      
+            Autor.hasMany(models.Libro , {
+                as: "libros_segundo Autor",
+                foreignKey: "author_id"
+            })
         
 
         }
