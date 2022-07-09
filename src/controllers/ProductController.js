@@ -153,6 +153,14 @@ const productController = {
 
 	update: (req, res) => {
 
+		let imagen = function (nombreImagen) {
+			if (req.file != undefined) {
+				libro.imagen = req.file.filename;
+			} return nombreImagen
+		} 
+		
+		
+
 		// Falta que recuerde la imagen
 
 		db.Libro.update({
@@ -169,8 +177,9 @@ const productController = {
 				publication_date: req.body.fecha_publicacion,
 				stock: req.body.cantidad,
 				pages: req.body.paginas,
-				image: req.file.filename,
-				description: req.body.descripcion
+				description: req.body.descripcion,
+				image: imagen()
+				
 		}, {
 			where: {
 				id: req.params.id
