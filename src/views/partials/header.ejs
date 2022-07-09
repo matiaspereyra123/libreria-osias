@@ -6,23 +6,26 @@
     <nav class="main-menu">
         <ul class="menu">
             <li class="menu__item"><a class="animation" href="/">Inicio</a></li>
-            <li class="menu__item"><a class="animation" href="">¿Quiénes somos?</a></li>
+            <li class="menu__item"><a class="animation" href="">Nuestra librería</a></li>
             <li class="menu__item"><a class="animation" href="">Catálogo</a></li>
             <% if (!locals.userLogged) { %>
-            <li class="menu__item"><a href="/user/register"><i class="fa-regular fa-user"></i></a></li>
-            <li class="menu__item"><a href="/user/login"><i class="fas fa-sign-in-alt"></i></a></li> 
+            <li><a href="/user/register"><i class="fa-regular fa-user"></i></a></li>
+            <li><a href="/user/login"><i class="fas fa-sign-in-alt"></i></a></li> 
             <% }else{ %>
-                <li class="menu__item"><a href="/user/profile"><%= locals.usuarioLogeado.nombre %>  <i class="fas fa-sign-in-alt"></i></a></li>
-                <li class="menu__item"><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/user/profile"><%= locals.usuarioLogeado.nombre %>  <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <% } %>
                 <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
                     <li class="menu__item"><a href="/product/create">CREAR PRODUCTO </a></li>
                     <li class="menu__item"><a href="/user/usersList">LISTA DE USUARIOS </a></li>
+                    <li class="menu__item"><a href="/product/productssList">LISTA DE LIBROS </a></li>
                   <% } %>
-            <!-- <li class="menu__item"><a href="/user/login"><i class="fa-regular fa-user"></i></a></li>
-            <li class="menu__item"><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li> -->
-            <li class="menu__item"><a href=""><i class="fa fa-search"></i></a></li>
-
+                  <div class="search-bar">
+                    <input class ="search-bar__input" type="text" placeholder="Buscá por título, autor, etc." aria-label="search">
+                    <button class="search-bar__submit">
+                        <i class="fa fa-search" aria-label="submit search"></i>
+                    </button>
+                    </div>  
 
         </ul>
     </nav>
@@ -31,3 +34,4 @@
         <i class="fa fa-bars burger"></i>
     </div>
 </section>
+<script src="/js/home.js"></script>
