@@ -35,6 +35,9 @@ router.post("/createEditorial", productController.saveEditorial)
 
 router.get('/edit/:id',notAdmin, productController.edit);
 router.put('/edit/:id',upload.single("imagen"), productController.update);
+
+// para deshabilitar libro
+router.put("/disable/:id", productController.disable)
 /** */
 router.delete('/delete/:id', productController.destroy); 
 

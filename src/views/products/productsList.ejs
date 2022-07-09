@@ -22,14 +22,19 @@
                 </div>
                 <div class="items-container">
                     <% libros.forEach(libro => { %>
-                            <article class="item">
+                        <% if (libro.active === 1) { %>
+                          <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
                                  <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
+                                 <% if (libro.second_author_id != null) { %>
+                                    <p> <%= libro.segundoAutor.first_name + " "+ libro.segundoAutor.last_name%>  </p> 
+                                 <% } %>
+                                 
                                  <p class="precio"> $ <%= libro.price %></p></a>  
                              </article> 
-                     
-
+                        <% } %>
+                           
                     <% }) %>
     
                     

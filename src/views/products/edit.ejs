@@ -31,9 +31,9 @@
                     
                    <div class="primerAutor">
                     <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
-                      <option value="">Seleccioná un autor</option>
+                      <option value="" disabled>Seleccioná un autor</option>
                       <% autores.forEach(autor=> { %>
-                        <option value="<%= autor.id %>">
+                        <option <%= libroEditar.autor.last_name + libroEditar.autor.first_name == autor.last_name + autor.first_name ? "selected": "" %>   value="<%= autor.id %>">
                           <%= autor.last_name + ", " + autor.first_name %>
                         </option>
                         <% }) %>
@@ -49,10 +49,13 @@
                       <label for="segundoAutor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
                         class="linkAutor">aquí</a></label>
                       <select name="segundoAutor" value="<%= libroEditar.author %>" class="form-input-categoria">
-                        <option value="">Seleccioná un autor</option>
+                        <option value="" disabled>Seleccioná un autor</option>
                         <% autores.forEach(autor=> { %>
-                          <option value="<%= autor.id %>">
+                          <option <% if (libroEditar.second_author_id !== null) { %> 
+                            <%= libroEditar.segundoAutor.last_name + libroEditar.segundoAutor.first_name == autor.last_name + autor.first_name ? "selected": "" %> value="<%= autor.id %>">
                             <%= autor.last_name + ", " + autor.first_name %>
+                          <% } %>
+        
                           </option>
                           <% }) %>
                       </select>
@@ -62,9 +65,9 @@
                       <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
                         href="/product/createEditorial" class="linkAutor">aquí</a></label>
                     <select name="editorial" value="<%= libroEditar.publisher %>" class="form-input-categoria">
-                      <option value="">Seleccioná una editorial</option>
+                      <option value="" disabled>Seleccioná una editorial</option>
                       <% editoriales.forEach(editorial => { %>
-                        <option value="<%= editorial.id %>">
+                        <option <%= libroEditar.editorial.name == editorial.name ? "selected": "" %> value="<%= editorial.id %>">
                         <%= editorial.name %> 
                         </option>
                       <% }) %>
@@ -85,10 +88,10 @@
                       <label for="genero" class="form-label">Género</label>
                       <!-- No queda seleccionado el género original -->
                       
-                      <select id="select" selectedIndex="<%=libroEditar.genre%>" name="genero"  class="form-input-categoria">
-                        <option value="">Seleccioná un género</option>
+                      <select id="select" name="genero"  class="form-input-categoria">
+                        <option value="" disabled>Seleccioná un género</option>
                         <% generos.forEach(genero => { %>
-                          <option value="<%= genero.id %>"><%= genero.name %> </option>
+                          <option <%= libroEditar.genero.name == genero.name ? "selected" : "" %>  value="<%= genero.id %>"><%= genero.name %> </option>
                         <% }) %>
                       </select>
                       <br>
@@ -135,6 +138,11 @@
                                 <form action="/product/delete/<%=libroEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data" class="contenedor-boton-eliminar">
                                       
                                   <button type="submit" class="edit-boton-borrar">ELIMINAR</button>
+                                </form>
+                                <form action="/product/disable/<%=libroEditar.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="contenedor-boton-eliminar">
+                                      
+                                  <button type="submit" class="edit-boton-borrar">DESHABILITAR</button>
+
                                 </form>
                        
 

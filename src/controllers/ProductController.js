@@ -120,8 +120,24 @@ const productController = {
 	},
 
 	edit: function (req, res) {
+        
 
-		let pedidoLibro = db.Libro.findByPk(req.params.id)
+		let pedidoLibro = db.Libro.findByPk(req.params.id, 
+			{include: [{
+				association: "genero", attribute: "name"
+			}, {
+				association: "autor", 
+				attribute: "first_name", 
+				attribute: "last_name"
+			},{
+				association: "segundoAutor", 
+				attribute: "first_name", 
+				attribute: "last_name"
+			},{ 
+				association: "editorial", 
+				attribute: "name"
+			}]}
+		)
 
 		let pedidoAutores = db.Autor.findAll()
 
@@ -137,7 +153,7 @@ const productController = {
 
 	update: (req, res) => {
 
-		// Falta que recuerde el autor, la editorial, el género y la imagen
+		// Falta que recuerde la imagen
 
 		db.Libro.update({
 				title: req.body.titulo,
@@ -172,13 +188,15 @@ const productController = {
 
 		db.Libro.findByPk(req.params.id, {
 			include: [{
+
 				association: "genero",
 				attribute: "name"
-			}, 
-		{
-			association: "autor",
-			attribute: "first_name",
-			attribute: "last_name"
+
+			}, {
+
+				association: "autor",
+				attribute: "first_name",
+				attribute: "last_name"
 		}]
 		})
 		.then(function(libro){
@@ -191,7 +209,24 @@ const productController = {
 	},
 	list:(req,res)=>{
 
-		db.Libro.findAll( {include: [{association: "genero", attribute: "name"}, {association: "autor", attribute: "first_name", attribute: "last_name"},{ association: "editorial", attribute: "name"}]})
+		db.Libro.findAll({
+
+			include: [{
+				association: "genero", 
+				attribute: "name"
+			}, {
+				association: "autor", 
+				attribute: "first_name", 
+				attribute: "last_name"
+			}, {
+				association: "segundoAutor", 
+				attribute: "first_name", 
+				attribute: "last_name"
+			},
+				{ association: "editorial", 
+				attribute: "name"
+			}
+			]})
         .then(function(libros){
             
             res.render("products/productsList", {libros: libros, title: "Librería Kodos"})  
@@ -200,6 +235,23 @@ const productController = {
             console.log(error);
 
         })
+	},
+
+	disable: (req, res) => {
+		db.Libro.update({
+			active: 0 
+		}, {
+			where: {
+				id: req.params.id
+			}
+		})
+		.then(() => {
+			res.redirect('/product/productsList')})
+		
+			.catch(function(error){
+				console.log(error)
+			})
+
 	},
 
 	destroy: (req, res) => {

@@ -68,6 +68,10 @@ module.exports = (sequelize, DataTypes) => {
         language: {
             type: DataTypes.STRING(45)
         },
+        active: {
+            type: DataTypes.INTEGER,
+            defaultValue: 1
+        },
         create_time: {
             type: DataTypes.DATE,
         },
