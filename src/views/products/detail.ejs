@@ -51,7 +51,7 @@
                 </section>
 
             
-                <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
+                <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
                    <form class="form-editar" action="/product/edit/<%=libro.id%>" method="GET" enctype="multipart/form-data" >
                     <button class="editar-eliminar" type="submit" >EDITAR / ELIMINAR</button>
                   </form>

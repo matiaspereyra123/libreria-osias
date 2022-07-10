@@ -31,15 +31,26 @@
            
 
 
-              <% usuarios.forEach(usuario => { %>
-                     <tr class="tablaItem">
-                         <td><img  src="/images/users/<%=usuario.imagen %>" class="imagenUsuario" alt="" width="100px" height="100px" style="border-radius:50px"><a href="./edit/<%=usuario.id%>" class="eliminarItem"><p>Eliminar/Editar</p></a></td>
-                          <td> <%=usuario.nombre%></td>
-  
-                        <td><%=usuario.email%></td>
-                        <td><%=usuario.rol%></td>
-                               <% }) %>  
-                      </tr>
+            <% usuarios.forEach(usuario => { %>
+                <tr class="tablaItem">
+                   <% if (usuario.active===1) { %>
+                            <td><img  src="/images/users/<%=usuario.image %>" class="imagenUsuario" alt="" width="100px" height="100px" style="border-radius:50px"><a href="./edit/<%=usuario.id%>" class="eliminarItem"><p>Eliminar/Editar</p></a></td>
+                     <td> <%=usuario.first_name +" "+ usuario.last_name%></td>
+
+                   <td><%=usuario.email%></td>
+              
+                   <% if (usuario.isAdmin===1) { %>
+                       <td>Admin</td>
+                          <% }else{ %>
+                          <td>Cliente</td>
+                          <% } %>
+
+
+                          <% } %>  
+                 </tr>
+                  
+
+                  <% }) %>
 
 
 

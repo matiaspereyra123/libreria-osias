@@ -32,14 +32,15 @@
                       <%= errors.apellido.msg %> 
                     </div>
                     <% } %> 
-              
-                      <label for="usuario" class="nombre-usuario">Nombre de usuario</label>
-                      <input type="text" name="usuario" id="usuario" class="input-barras" minlength="4" maxlength="8"     value="<%= locals.old ? old.usuario : null %>">
-                      <% if(locals.errors && errors.usuario) {%> 
-                     <div class="text-danger">
-                       <%= errors.usuario.msg %> 
-                     </div>
-                     <% } %>
+                 
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email"  class="input-barras"     value="<%= locals.old ? old.email : null %>">
+                    <% if(locals.errors && errors.email) {%> 
+                   <div class="text-danger">
+                     <%= errors.email.msg %> 
+                   </div>
+                   <% } %> 
+                 
                      
                      <label for="dni" class="nombre-usuario">DNI</label>
                      <input type="text" name="dni" id="dni" class="input-barras" value="<%= locals.old ? old.dni : null %>">
@@ -49,15 +50,7 @@
                     </div>
                     <% } %> 
           
-                 
-                      <label for="email">Email</label>
-                      <input type="email" name="email" id="email"  class="input-barras"     value="<%= locals.old ? old.email : null %>">
-                      <% if(locals.errors && errors.email) {%> 
-                     <div class="text-danger">
-                       <%= errors.email.msg %> 
-                     </div>
-                     <% } %> 
-  
+              
   
                      <label for="fecha-nacimiento" class="label-nacimiento">Fecha de nacimiento</label>
               

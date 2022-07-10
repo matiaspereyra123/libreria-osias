@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         author_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: "Autor",
                 key: "id"
@@ -20,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         second_author_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: "Autor",
                 key: "id"

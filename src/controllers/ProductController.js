@@ -95,7 +95,7 @@ const productController = {
 				publication_date: req.body.fecha_publicacion,
 				stock: req.body.cantidad,
 				pages: req.body.paginas,
-				image: req.file.filename,
+				image: req.file ? req.file.filename: "book.png",
 				description: req.body.descripcion
 	
 			})
@@ -153,15 +153,9 @@ const productController = {
 
 	update: (req, res) => {
 
-		let imagen = function (nombreImagen) {
-			if (req.file != undefined) {
-				libro.imagen = req.file.filename;
-			} return nombreImagen
-		} 
-		
-		
+		const imagenLibro = db.Libro.findOne({ where: { id:req.params.id } });
 
-		// Falta que recuerde la imagen
+
 
 		db.Libro.update({
 				title: req.body.titulo,
@@ -178,8 +172,9 @@ const productController = {
 				stock: req.body.cantidad,
 				pages: req.body.paginas,
 				description: req.body.descripcion,
-				image: imagen()
-				
+				image: req.file ? req.file.filename: imagenLibro.image
+
+		
 		}, {
 			where: {
 				id: req.params.id

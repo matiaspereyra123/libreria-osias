@@ -4,7 +4,6 @@ const { body } = require("express-validator");
 const validar = [
   body("nombre").notEmpty().withMessage("Debes completar el campo NOMBRE"),
   body("apellido").notEmpty().withMessage("Debes completar el campo APELLIDO"),
-  body("usuario").notEmpty().withMessage("Debes completar el campo USUARIO"),
   body("dni").notEmpty().withMessage("Debes completar el campo DNI"),
   body("email")
     .notEmpty()
