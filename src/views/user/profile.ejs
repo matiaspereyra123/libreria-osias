@@ -5,7 +5,7 @@
     <%- include ("../partials/head") %>
 </head>
 
-<body>
+<body class="body-login">
     <header>
         <%- include ("../partials/header")%>
     </header>
@@ -19,16 +19,19 @@
                     <section class="">
                         <h2>PERFIL DE USUARIO</h2>
                         <br>
-                        <h3>Rol: <%=usuarioLogeado.rol%></h3>
-                        <h3> Nombre: <%= usuarioLogeado.nombre %> </h3>
+                        <% if (usuarioLogeado.isAdmin==1) { %>
+                          <h3>Usted tiene rol de administrador</h3>
+                        <% } %>
+                       
+                        <h3> Nombre: <%= usuarioLogeado.first_name +" "+usuarioLogeado.last_name %> </h3>
                         <div>
-                             <img  src="/images/users/<%=usuarioLogeado.imagen %>" class="imagenUsuario" alt="" width="200px" height="200px" style="border-radius:100px">
+                             <img  src="/images/users/<%=usuarioLogeado.image %>" class="imagenUsuario" alt="" width="200px" height="200px" style="border-radius:100px">
                         </div>
                        
                         <br>
                         <br>
                         <div class="alert alert-success">Email: <%= usuarioLogeado.email %> </div>
-                        <div class="alert alert-success">Fecha de nacimiento: <%= usuarioLogeado.nacimiento %> </div>
+                        <div class="alert alert-success">Fecha de nacimiento: <%= usuarioLogeado.birth_date %> </div>
                     </section>
                     <article> <a class="dropdown-item" href="/user/edit/<%=usuarioLogeado.id%>">Editar/Eliminar</a></article>
                     <article><a class="dropdown-item" href="/user/logout">Cerrar sesión</a></article>
@@ -42,7 +45,7 @@
             </div>
     </main>
 
-    <footer>
+    <footer class="footer-section">
         <%- include ("../partials/footer.ejs")%>
 
     </footer>

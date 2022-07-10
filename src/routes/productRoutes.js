@@ -24,10 +24,20 @@ router.get("/detail/:id", productController.detail);
 router.get("/cart/",userNotLogged, productController.cart); 
 
 router.get("/create/",notAdmin, productController.create);
-router.post("/create/", upload.single("imagen"),validations, productController.save); 
+router.post("/create/", upload.single("imagen"),validations, productController.save);
+
+//pruebo CRUD de autor
+router.get("/createAutor", productController.createAutor)
+router.post("/createAutor", productController.saveAutor)
+//pruebo CRUD de editorial
+router.get("/createEditorial", productController.createEditorial)
+router.post("/createEditorial", productController.saveEditorial)
 
 router.get('/edit/:id',notAdmin, productController.edit);
 router.put('/edit/:id',upload.single("imagen"), productController.update);
+
+// para deshabilitar libro
+router.put("/disable/:id", productController.disable)
 /** */
 router.delete('/delete/:id', productController.destroy); 
 

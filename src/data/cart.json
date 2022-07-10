@@ -1,26 +1,66 @@
 [
 	{
 		"id": 1,
-		"titulo": "Ciencias Sociales 5",
-		"precio": 1000,
-		"imagen": "9789501309706.jpeg"
+		"title": "El cielo sobre Berlín",
+		"author": "Sebastiano y Lorenzo Toma",
+		"illustrator": null,
+		"translator": "Carmen Gauger",
+		"genre": "Historieta",
+		"publisher": "Libros del Zorro Rojo",
+		"description": "El cielo sobre Berlín es la obra maestra de Wim Wenders y uno de los éxitos internacionales más importantes del cine alemán. Monólogos de fuerte lirismo conforman el lenguaje poético con el que se profundizan dilemas humanos como la existencia, la finitud, la soledad o el amor. Sebastiano y Lorenzo Toma actualizan la vigencia de esta hermosa obra, reescenificándola en el Berlín del presente, en donde un ángel elegirá perder su armadura y la fijeza de sus alas, para que sean las alas del deseo («Crecerán alas nuevas en el lugar de las viejas») las que guíen sus pasos hacia el destino del amor. Ese amor que, en palabras de Joseph Roth, «no nos ciega, como dice el absurdo refrán, sino que, al contrario, nos abre los ojos», y que en el lenguaje fílmico de Wenders abre la mirada del ángel a la fiesta de los colores en el amarillo de un cartel, el azul del cielo, el rojo de un vestido.",
+		"pages": 192,
+		"publication_date": 2016,
+		"stock": 4,
+		"price": 5600,
+		"isbn": 9788494494291,
+		"image": "Cover-Cielo-sobre-Berlin-WEB.jpeg"
 	},
 	{
 		"id": 2,
-		"titulo": "Matemática I",
-		"precio": 1500,
-			"imagen": "1653500568062.jpg"
+		"title": "El piano oriental",
+		"author": "Zeina Abirached",
+		"illustrator": null,
+		"translator": "María Otero Porta",
+		"genre": "Historieta",
+		"publisher": "Salamandra Graphic",
+		"description": "Nominada a mejor obra en el festival de Angulema de 2016, El piano oriental es una conmovedora y divertida novela gráfica inspirada en la vida del bisabuelo de su autora, un músico aficionado que, en el Beirut de la década de los cincuenta, inventó un piano bilingüe capaz de tender puentes entre las tradiciones musicales de Oriente y Occidente. Si en El juego de las golondrinas, Abirached relataba una infancia marcada por la violencia, la incertidumbre y el miedo de la guerra civil, en El piano oriental se concentra en la edad adulta y, a partir de ella, plantea una reflexión sobre el pasado, la memoria y las diferencias culturales. El resultado es una extraordinaria metáfora sobre su propia vida y su identidad, constituida con elementos de dos culturas en apariencia irreconciliables.",
+		"pages": 192,
+		"publication_date": 2016,
+		"stock": 4,
+		"price": 3499,
+		"isbn": 9788416131242,
+		"image": "home_cover_piano.jpeg"
 	},
 	{
-        "id": 3,
-		"titulo": "Historia I",
-		"precio": 1500,
-		"imagen": "1653500568062.jpg"
+		"id": 3,
+		"title": "Persépolis",
+		"author": "Marjane Satrapi",
+		"illustrator": null,
+		"translator": "Carlos Mayor",
+		"genre": "Historieta",
+		"publisher": "Reservoir Books",
+		"description": "Persépolis nos cuenta la revolución islámica iraní vista desde los ojos de una niña que asiste atónita al cambio profundo que experimentan su país y su familia, mientras ella debe aprender a llevar el velo. Intensamente personal y profundamente político, el relato autobiográfico de Marjane Satrapi examina qué significa crecer en un ambiente de guerra y represión.",
+		"pages": 352,
+		"publication_date": 2020,
+		"stock": 7,
+		"price": 5300,
+		"isbn": 9789873818783,
+		"image": "home_cover_persepolis.jpeg"
 	},
-    {
-        "id": 4,
-		"titulo": "Lengua I",
-		"precio": 1500,
-        "imagen": "1653186871460.jpg"
+	{
+		"id": 4,
+		"title": "El año de la rata",
+		"author": "Mariana Enríquez",
+		"illustrator": "Dr. Alderete",
+		"translator": null,
+		"genre": "Historieta",
+		"publisher": "Nuevo extremo",
+		"description": "A mitad de camino entre la realidad y la más absoluta ficción, El año de la rata es una crónica gráfica y distópica a dos voces, creada durante el 2020, el año de la rata en el calendario chino.",
+		"pages": 160,
+		"publication_date": 2021,
+		"stock": 7,
+		"price": 2990,
+		"isbn": 9789873818783,
+		"image": "COVER_El-ano-de-la-rata_ALTA-800x1093.jpeg"
 	}
 ]

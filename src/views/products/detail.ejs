@@ -5,59 +5,55 @@
     <%- include ("../partials/head.ejs")  %> 
 </head>
 
-<body>
+<body class="body-detail">
 
     <header>
         <%- include ("../partials/header.ejs")%>
       
     </header>
     <!--Descripcion del producto Inicio el main-->
-    <main>
+    <main class="main-detail">
         <section class="contenedor-detalle">
 
             <article class="image-detalle">
-                <img src="/images/products/<%=libroEditar.imagen %>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
+                <img src="/images/products/<%=libro.image %>" alt="Imagen Libro"> <!-- SIN EL .JPG-->
             </article>
             <section class="compra-producto">
                 <article class="tablaItem" >
-                  <h2><%= libroEditar.titulo %> </h2>
-                <p><%= libroEditar.precio %> </p>
-               <a href=""  > 
+                  <h2 class="book-title"><%= libro.title %></h2>
+                  <p class="book-price">$ <%= libro.price %></p>
                 <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png">  </span>
                 <span><img class="mediosPago" src=" https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png">  </span>
                 <span><img class="mediosPago" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png">  </span>
-            
                <br>
-               <p> VER MEDIOS DE PAGO</p> </a>
+               <a href=""><p class="medios-title">VER MEDIOS DE PAGO</p></a>
               </article> 
                  <form>
                      <br>
                     <label class="form-cantidad">Cantidad</label>
                     <input class="input-cantidad" type="number" placeholder="1">
-                    <input class="input-botton" type="submit" value="Agregar al carrito">
+                    <input class="input-button" type="submit" value="Agregar al carrito">
                 </form>
-              
-         
-                
-          
 
                 <form>
                     <i class="fas fa-truck"></i>
-                    <label>Medios de envío</label>
+                    <label class="envio-title">Envío a domicilio</label>
                     <section>
                         <input type="text" placeholder="Tu codigo postal">
-                        <input type="submit" value="Calcular">
+                        <input class="button-calcular" type="submit" value="Calcular">
                     </section>
                 </form>
                 <section>
 
                     <i class="fa-solid fa-store"></i>
-                    <label>Nuestro local</label>
+                    <label class="retiro">Retiro en nuestro local</label>
+                    <p class="direccion">Av. Rivadavia 1234</p>
                 </section>
-                <p>Av. Rivadavia 1234</p>
-                <% if (locals.userLogged && locals.usuarioLogeado.rol=="admin") { %>
-                   <form action="/product/edit/<%=libroEditar.id%>" method="GET" enctype="multipart/form-data" >
-                    <button type="submit" >EDITAR / ELIMINAR</button>
+
+            
+                <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
+                   <form class="form-editar" action="/product/edit/<%=libro.id%>" method="GET" enctype="multipart/form-data" >
+                    <button class="editar-eliminar" type="submit" >EDITAR / ELIMINAR</button>
                   </form>
                 <% } %>
               
@@ -66,14 +62,13 @@
          
 
         </section>
-        <section>
-            <h2></h2>
-            <p><%=libroEditar.descripcion%></p>
-            </section>
+        <section class="description-container">
+            <p class="description-text"><%=libro.description%></p>
+        </section>
 
     </main>
 
-    <footer>
+    <footer class="footer-section">
         <%- include ("../partials/footer.ejs")%>
     </footer>
 

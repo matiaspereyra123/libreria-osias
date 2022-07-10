@@ -15,55 +15,72 @@
                 <form  action="/user/edit/<%=usuarioEditar.id%>?_method=PUT" method="POST"  class="formulario-completo" enctype="multipart/form-data" >
                   
                   <section> 
-                        <img src="/images/users/<%=usuarioEditar.imagen %>" alt="" width=15% >
+                        <img src="/images/users/<%=usuarioEditar.image %>" alt="" width=15% >
                    </section>
+                   <br>
+                   <br>
 
-                      <label for="nombre"></label>
-                      <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="input-barras" value="<%=usuarioEditar.nombre %>">
-              
-                      <label for="usuario" class="nombre-usuario"></label>
-                      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="input-barras" minlength="4" maxlength="8" value="<%=usuarioEditar.usuario %>"  >
-          
-                 
-                      <label for="email"></label>
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="input-barras" value="<%=usuarioEditar.first_name %>">
+
+                      <label for="apellido" class="form-label">Apellido</label>
+                      <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="input-barras" value="<%=usuarioEditar.last_name %>">
+
+                      <label for="email" class="form-label">Email</label>
                       <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras" value="<%=usuarioEditar.email %>" >
   
   
-                     <label for="fecha-nacimiento" class="label-nacimiento" >Fecha de nacimiento</label>
+                     <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
               
-                     <input type="date" name="nacimiento" class="input-barras" value="<%=usuarioEditar.nacimiento %>">
+                     <input type="date" name="nacimiento" class="input-barras" value="<%=usuarioEditar.birth_date %>">
                  
-                      <label for="domicilio"></label>
-                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" value="<%=usuarioEditar.domicilio %>" >
-              
-                    <label class="titulo-avatar" for="avatar">Seleccionar una imagen de perfil</label>
-                    <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.imagen %>" >
+                      <label for="domicilio" class="form-label">Domicilio</label>
+                      <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" value="<%=usuarioEditar.address %>" >
+                    
+                    <!-- Cambiar el if -->
+                    <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
+                      <label for="rol" class="form-label">Rol</label>
+                      <select name="rol" id="rol" class="form-input-categoria">
+                        <option value="0">Usuario</option>
+                        <option value="1">Admin</option>
+                      </select>
+                    <% } %>
+                    <br>
+                    <br>
+               
+                    <label class="form-label" for="avatar">Seleccionar una imagen de perfil</label>
+                    <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.image %>" >
                 
-                    <label for="password"></label>
+                    <label for="password" class="form-label">Contraseña</label>
                     <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras" >
-                    <label for="password"></label>
+                    <label for="password" class="form-label">Confirmar contraseña</label>
                     <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras" >
                     <% if(locals.errors && errors.datos) {%>
                       <section class="text-danger">
                         <%= errors.datos.msg %>
                       </section>
                       <% } %>
-                  <div class="div-botones-register">
-                    <button type="submit" class="boton-enviar">Enviar</button>
+                  <div class="botones-editar">
+                    <button type="submit" class="edit-boton-enviar">ENVIAR</button>
+                  </div>
              
                 </form>
-                <div class="div-botones-delete">
-                    <form action="/user/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data">
-                          <button type="submit" class="boton-borrar">ELIMINAR CUENTA</button>
-                    </form>
-               </div>
-
-       
+                    <form action="/user/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST" enctype="multipart/form-data" class="contenedor-boton-eliminar">
+                          
+                      <button type="submit" class="edit-boton-borrar">ELIMINAR CUENTA</button>
+               
               </form>
+              <form action="/user/disable/<%=usuarioEditar.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="contenedor-boton-eliminar">
+                                      
+                <button type="submit" class="edit-boton-borrar">DESHABILITAR</button>
+
+              </form>
+       
+              
             </div>
           </main>
 
-          <footer>
+          <footer class="footer-section">
             <%- include ("../partials/footer.ejs")%>
           </footer>
         

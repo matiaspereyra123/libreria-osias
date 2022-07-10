@@ -42,6 +42,7 @@ router.get('/edit/:id',editUser,userController.edit);
 router.put('/edit/:id',upload.single("imagen"),userController.update);
 
 router.delete('/delete/:id', userController.destroy); 
+router.put("/disable/:id", userController.disable);
 
 /** */
 router.get('/usersList',notAdmin,userController.list);

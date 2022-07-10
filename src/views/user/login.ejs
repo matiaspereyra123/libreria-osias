@@ -5,7 +5,7 @@
   <%- include ("../partials/head") %>
 </head>
 
-<body>
+<body class="body-login">
   <header>
     <%- include ("../partials/header")%>
   </header>
@@ -42,31 +42,25 @@
                     </section>
 
                     <section>
+                      <p class="recuperacion-contraseña">
+                        ¿No tenés cuenta?  <a href="/user/register">Creala</a>. 
+                    </p>
                       <a href="/user/pass">
                         <p class="recuperacion-contraseña">
                           ¿Olvidaste tu contraseña?
                         </p>
                       </a>
                     </section>
-
-
-
-                    <button type="submit" class="boton-enviar">Enviar</button>
-                    <button type="reset" class="boton-borrar">Borrar</button>
-                    </div>
+                    <button type="submit" class="boton-login">Enviar</button>
+                    <!-- <button type="reset" class="boton-borrar">Borrar</button> -->
+                   
 
       </form>
 
 
-
-
-
-
-      </div>
-
   </main>
 
-  <footer>
+  <footer class="footer-section">
     <%- include ("../partials/footer.ejs")%>
 
   </footer>
