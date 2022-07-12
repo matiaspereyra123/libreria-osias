@@ -26,10 +26,14 @@
                           <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
-                                 <% libro.autor.forEach(autor => { %>
-                                    <p> <%= autor.first_name + " " + autor.last_name %>  </p>                                  
+                             
+                                    <p> <%= libro.author%></p>
+                                    <% if (libro.second_author != null) { %>
+                                        <p> <%= libro.second_author %>  </p> 
+                                    <% } %>
+                                                                   
 
-                                 <% }) %>
+                                 
                                  
                                  <p class="precio"> $ <%= libro.price %></p></a>  
                              </article> 

@@ -10,11 +10,20 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+
         
         publisher_id: {
             type: DataTypes.INTEGER,
           
         },
+        author: {
+            type: DataTypes.STRING(150),
+            allowNull: false
+        },
+        second_author: {
+            type: DataTypes.STRING(150),
+        },
+
         title: {
             type: DataTypes.STRING(500),
             allowNull: false
@@ -77,18 +86,6 @@ module.exports = (sequelize, DataTypes) => {
         Libro.belongsTo(models.Genero, {
             as: "genero",
             foreignKey: "genre_id"
-        })
-        Libro.hasMany(models.Autor_libro, {
-            as: "libro_pivote",
-            foreignKey: "book_id" 
-        })
-
-        Libro.belongsToMany(models.Autor, {
-            as: "autor",
-            through: "authors_books",
-            foreignKey: "book_id",
-            otherKey: "author_id",
-            timestamps: false
         })
     
   

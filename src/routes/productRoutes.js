@@ -26,9 +26,7 @@ router.get("/cart/",userNotLogged, productController.cart);
 router.get("/create/",notAdmin, productController.create);
 router.post("/create/", upload.single("imagen"),validations, productController.save);
 
-//pruebo CRUD de autor
-router.get("/createAutor", productController.createAutor)
-router.post("/createAutor", productController.saveAutor)
+
 //pruebo CRUD de editorial
 router.get("/createEditorial", productController.createEditorial)
 router.post("/createEditorial", productController.saveEditorial)
