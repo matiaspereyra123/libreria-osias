@@ -5,7 +5,7 @@ const mainController = {
     
     home: (req, res)=> {
 
-        db.Libro.findAll({include: [{association: "genero", attribute: "name"}, {association: "autor", attribute: "first_name", attribute: "last_name"},{association: "segundoAutor", attribute: "first_name", attribute: "last_name"},{ association: "editorial", attribute: "name"}]},
+        db.Libro.findAll({include: [{association: "genero", attribute: "name"},{ association: "editorial", attribute: "name"}]},
         )
         .then(function(libros){
             

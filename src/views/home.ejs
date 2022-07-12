@@ -50,7 +50,15 @@
                             <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
-                                 <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
+        
+                               
+                                    <p> <%= libro.author%></p>
+                                    <% if (libro.second_author != null) { %>
+                                        <p> <%= libro.second_author %>  </p> 
+                                    <% } %>                                  
+
+                                  
+                            
                                  <p class="precio"> $ <%= libro.price %></p></a>  
                              </article> 
                         <% } %>
@@ -99,11 +107,14 @@
     
                 <div class="items-container">
                     <% libros.forEach(libro => { %>
-                        <% if (libro.genre_id ==2 && libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda") { %>
+                        <% if (libro.genre_id ==2 && libro.title != "El rey Arturo y sus caballeros de la Tabla Redonda" && libro.id <14) { %>
                             <article class="item">
                                 <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">  
                                 <h2><%= libro.title %></h2>
-                                <p><%= libro.autor.first_name + " " + libro.autor.last_name %> </p>
+                                <p><%= libro.author%> </p>
+                                <% if (libro.second_author != null) { %>
+                                    <p> <%= libro.second_author %>  </p> 
+                                <% } %>
                                 <p>Ilus.: <%= libro.illustrator %> </p>
                                 <p class="precio">$ <%= libro.price %> </p></a>
                             </article>
@@ -129,6 +140,9 @@
                                 <a href="/product/detail/<%= libro.id %>"><img src="/images/products/<%= libro.image %>" alt="">    
                                 <h2><%= libro.title %></h2>  
                                 <p><%= libro.author %> </p>
+                                <% if (libro.second_author != null) { %>
+                                    <p> <%= libro.second_author %>  </p> 
+                                <% } %>
                                 <p>Ilus.: <%= libro.illustrator %> </p>
                                 <p class="precio">$ <%= libro.price %> </p></a>
                             </article>

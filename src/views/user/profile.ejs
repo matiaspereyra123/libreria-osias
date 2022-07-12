@@ -22,8 +22,9 @@
                         <% if (usuarioLogeado.isAdmin==1) { %>
                           <h3>Usted tiene rol de administrador</h3>
                         <% } %>
-                       
-                        <h3> Nombre: <%= usuarioLogeado.first_name +" "+usuarioLogeado.last_name %> </h3>
+                        <br>
+                        <h3> Nombre: <%= usuarioLogeado.first_name + " "+ usuarioLogeado.last_name %> </h3>
+                        <br>
                         <div>
                              <img  src="/images/users/<%=usuarioLogeado.image %>" class="imagenUsuario" alt="" width="200px" height="200px" style="border-radius:100px">
                         </div>

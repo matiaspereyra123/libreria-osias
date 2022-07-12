@@ -10,24 +10,20 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        author_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "Autor",
-                key: "id"
-            }
-        },
-        second_author_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "Autor",
-                key: "id"
-            }
-        },
+
+        
         publisher_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+          
         },
+        author: {
+            type: DataTypes.STRING(150),
+            allowNull: false
+        },
+        second_author: {
+            type: DataTypes.STRING(150),
+        },
+
         title: {
             type: DataTypes.STRING(500),
             allowNull: false
@@ -91,15 +87,8 @@ module.exports = (sequelize, DataTypes) => {
             as: "genero",
             foreignKey: "genre_id"
         })
-        Libro.belongsTo(models.Autor, {
-            as: "autor",
-            foreignKey: "author_id" 
-        })
-        //prueba segundo autor
-        Libro.belongsTo(models.Autor, {
-            as: "segundoAutor",
-            foreignKey: "second_author_id" 
-        })
+    
+  
         Libro.belongsTo(models.Editorial, {
             as: "editorial",
             foreignKey: "publisher_id"

@@ -24,8 +24,6 @@ function userLoggedBlockNav(req,res,next){
 
 
 
-
-
     next();
 }
 

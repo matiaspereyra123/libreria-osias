@@ -1,16 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-
 const { validationResult } = require('express-validator'); // requerimos para poder validar errores
-const db = require("../database/models");
+
 const { body } = require("express-validator");
 
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const carritoFilePath = path.join(__dirname, "../data/cart.json");
-// let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
-// let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require("../database/models");
+
 
 const productController = {
+	
 	cart: function (req, res) {
 		let librosCarrito = JSON.parse(fs.readFileSync(carritoFilePath, "utf-8"));
 		return res.render("products/cart", {
@@ -21,34 +17,17 @@ const productController = {
 
 	create: function (req, res) {
 		
-			let pedidoAutores = db.Autor.findAll()
+		
 			let pedidoGeneros = db.Genero.findAll()
 			let pedidoEditoriales = db.Editorial.findAll()
 		
-			Promise.all([pedidoAutores, pedidoGeneros, pedidoEditoriales])
+			Promise.all([, pedidoGeneros, pedidoEditoriales])
 			.then(function([autores, generos, editoriales]){
-			res.render("products/create", {autores: autores, generos: generos, editoriales: editoriales, title: "Crear producto"});
+			res.render("products/create", {generos: generos, editoriales: editoriales, title: "Crear producto"});
 		})
 		
 	}, 
-	createAutor: (req, res) => {
-		res.render("products/createAutor", {title: "Crear autor"})
 
-	},
-
-	//pruebo CRUD autor
-	saveAutor: (req,res) => {
-		
-		db.Autor.create({
-			first_name: req.body.nombre,
-			last_name: req.body.apellido
-		})
-
-		.then(() => {
-			res.redirect('/product/create')})
-
-
-	},
 	createEditorial: (req, res) => {
 		res.render("products/createEditorial", {title: "Crear editorial"})
 
@@ -83,8 +62,8 @@ const productController = {
 			
 			db.Libro.create({
 				title: req.body.titulo,
-				author_id: req.body.autor,
-				second_author_id: req.body.segundoAutor,
+				author :req.body.autor,
+				second_author: req.body.segundoAutor,
 				illustrator: req.body.ilustrador,
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
@@ -95,10 +74,11 @@ const productController = {
 				publication_date: req.body.fecha_publicacion,
 				stock: req.body.cantidad,
 				pages: req.body.paginas,
-				image: req.file ? req.file.filename: "book.png",
+				image: req.file ? req.file.filename: "book.jpeg",
 				description: req.body.descripcion
 	
-			})
+			}
+			)
 			.then(() => {
 				res.redirect('/product/productsList')})
 			
@@ -108,13 +88,13 @@ const productController = {
 			}
 		else {
 
-			let pedidoAutores = db.Autor.findAll()
+			
 			let pedidoGeneros = db.Genero.findAll()
 			let pedidoEditoriales = db.Editorial.findAll()
 		
-			Promise.all([pedidoAutores, pedidoGeneros, pedidoEditoriales])
-			.then(function([autores, generos, editoriales]) {
-			res.render('products/create',{errors:errors.mapped(), autores:autores, generos:generos, editoriales:editoriales, old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+			Promise.all([pedidoGeneros, pedidoEditoriales])
+			.then(function([generos, editoriales]) {
+			res.render('products/create',{errors:errors.mapped(), generos:generos, editoriales:editoriales, old:req.body, title:"Crear Producto"})  //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
 		})
 		}
 	},
@@ -125,29 +105,21 @@ const productController = {
 		let pedidoLibro = db.Libro.findByPk(req.params.id, 
 			{include: [{
 				association: "genero", attribute: "name"
-			}, {
-				association: "autor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			},{
-				association: "segundoAutor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			},{ 
+			}, { 
 				association: "editorial", 
 				attribute: "name"
 			}]}
 		)
 
-		let pedidoAutores = db.Autor.findAll()
+		
 
 		let pedidoEditoriales = db.Editorial.findAll()
 
 		let pedidoGeneros = db.Genero.findAll()
 
-		Promise.all([pedidoLibro, pedidoAutores, pedidoGeneros, pedidoEditoriales])
-		.then(function ([libroEditar, autores, generos, editoriales]) {
-			res.render("products/edit", { libroEditar:libroEditar, autores:autores, generos:generos, editoriales:editoriales, title: libroEditar.title })
+		Promise.all([pedidoLibro, pedidoGeneros, pedidoEditoriales])
+		.then(function ([libroEditar, generos, editoriales]) {
+			res.render("products/edit", { libroEditar:libroEditar, generos:generos, editoriales:editoriales, title: libroEditar.title })
 		})
 	},
 
@@ -159,8 +131,8 @@ const productController = {
 
 		db.Libro.update({
 				title: req.body.titulo,
-				author_id: req.body.autor,
-				second_author_id: req.body.segundoAutor,
+				author: req.body.autor,
+				second_author: req.body.segundoAutor,
 				illustrator: req.body.ilustrador,
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
@@ -196,12 +168,9 @@ const productController = {
 				association: "genero",
 				attribute: "name"
 
-			}, {
+			}
 
-				association: "autor",
-				attribute: "first_name",
-				attribute: "last_name"
-		}]
+		]
 		})
 		.then(function(libro){
 			res.render("products/detail", {libro: libro, title: libro.title})
@@ -218,16 +187,8 @@ const productController = {
 			include: [{
 				association: "genero", 
 				attribute: "name"
-			}, {
-				association: "autor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			}, {
-				association: "segundoAutor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			},
-				{ association: "editorial", 
+			},{ 
+				association: "editorial", 
 				attribute: "name"
 			}
 			]})
