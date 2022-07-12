@@ -50,7 +50,12 @@
                             <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
-                                 <p> <%= libro.autor.first_name + " " + libro.autor.last_name %>  </p>
+        
+                                 <% libro.autor.forEach(autor => { %>
+                                    <p> <%= autor.first_name + " " + autor.last_name %>  </p>                                  
+
+                                 <% }) %>   
+                            
                                  <p class="precio"> $ <%= libro.price %></p></a>  
                              </article> 
                         <% } %>

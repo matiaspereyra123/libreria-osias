@@ -10,23 +10,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        author_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "Autor",
-                key: "id"
-            }
-        },
-        second_author_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "Autor",
-                key: "id"
-            }
-        },
+        
         publisher_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+          
         },
         title: {
             type: DataTypes.STRING(500),
@@ -91,15 +78,20 @@ module.exports = (sequelize, DataTypes) => {
             as: "genero",
             foreignKey: "genre_id"
         })
-        Libro.belongsTo(models.Autor, {
+        Libro.hasMany(models.Autor_libro, {
+            as: "libro_pivote",
+            foreignKey: "book_id" 
+        })
+
+        Libro.belongsToMany(models.Autor, {
             as: "autor",
-            foreignKey: "author_id" 
+            through: "authors_books",
+            foreignKey: "book_id",
+            otherKey: "author_id",
+            timestamps: false
         })
-        //prueba segundo autor
-        Libro.belongsTo(models.Autor, {
-            as: "segundoAutor",
-            foreignKey: "second_author_id" 
-        })
+    
+  
         Libro.belongsTo(models.Editorial, {
             as: "editorial",
             foreignKey: "publisher_id"

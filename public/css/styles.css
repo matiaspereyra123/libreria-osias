@@ -1168,6 +1168,8 @@ a {
     width: 90vw;
     margin: auto;
     padding-top: 10px;
+    margin-bottom: 150px;
+    margin-top: 70px;
 
 }
 
@@ -1224,6 +1226,8 @@ th {
 }
 
 
+
+
 /*caption {
     font-family: 'Rock Salt', cursive;
     padding: 20px;
@@ -1250,6 +1254,7 @@ tfoot th {
 th,
 td {
     padding: 20px;
+  
 }
 
 .pagar a {

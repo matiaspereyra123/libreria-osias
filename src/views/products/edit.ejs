@@ -46,13 +46,13 @@
             
                       <!-- Segundo autor -->
                       <div class="segundoAutor">
-                      <label for="segundoAutor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+                      <label for="autor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
                         class="linkAutor">aquí</a></label>
-                      <select name="segundoAutor" value="<%= libroEditar.author %>" class="form-input-categoria">
+                      <select name="autor" value="<%= libroEditar.author %>" class="form-input-categoria">
                         <option value="" disabled>Seleccioná un autor</option>
                         <% autores.forEach(autor=> { %>
                           <option <% if (libroEditar.second_author_id !== null) { %> 
-                            <%= libroEditar.segundoAutor.last_name + libroEditar.segundoAutor.first_name == autor.last_name + autor.first_name ? "selected": "" %> value="<%= autor.id %>">
+                            <%= libroEditar.autor.last_name + libroEditar.autor.first_name == autor.last_name + autor.first_name ? "selected": "" %> value="<%= autor.id %>">
                             <%= autor.last_name + ", " + autor.first_name %>
                           <% } %>
         

@@ -1,16 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-
 const { validationResult } = require('express-validator'); // requerimos para poder validar errores
-const db = require("../database/models");
+
 const { body } = require("express-validator");
 
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const carritoFilePath = path.join(__dirname, "../data/cart.json");
-// let productJSON = fs.readFileSync(productsFilePath, 'utf-8');
-// let libros = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require("../database/models");
+
 
 const productController = {
+	
 	cart: function (req, res) {
 		let librosCarrito = JSON.parse(fs.readFileSync(carritoFilePath, "utf-8"));
 		return res.render("products/cart", {
@@ -83,8 +79,10 @@ const productController = {
 			
 			db.Libro.create({
 				title: req.body.titulo,
-				author_id: req.body.autor,
-				second_author_id: req.body.segundoAutor,
+				autores: [
+					{author_id: req.body.autor},
+					{author_id: req.body.autor}
+				], 
 				illustrator: req.body.ilustrador,
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
@@ -95,10 +93,12 @@ const productController = {
 				publication_date: req.body.fecha_publicacion,
 				stock: req.body.cantidad,
 				pages: req.body.paginas,
-				image: req.file ? req.file.filename: "book.png",
+				image: req.file ? req.file.filename: "book.jpeg",
 				description: req.body.descripcion
 	
-			})
+			}, {include: [{association: "autor", attribute: "first_name",
+			attribute: "last_name" }]}
+			)
 			.then(() => {
 				res.redirect('/product/productsList')})
 			
@@ -108,7 +108,7 @@ const productController = {
 			}
 		else {
 
-			let pedidoAutores = db.Autor.findAll()
+			let pedidoAutores = db.Autor.findAll({include: {association: "libros"}})
 			let pedidoGeneros = db.Genero.findAll()
 			let pedidoEditoriales = db.Editorial.findAll()
 		
@@ -127,10 +127,6 @@ const productController = {
 				association: "genero", attribute: "name"
 			}, {
 				association: "autor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			},{
-				association: "segundoAutor", 
 				attribute: "first_name", 
 				attribute: "last_name"
 			},{ 
@@ -160,7 +156,7 @@ const productController = {
 		db.Libro.update({
 				title: req.body.titulo,
 				author_id: req.body.autor,
-				second_author_id: req.body.segundoAutor,
+				// second_author_id: req.body.segundoAutor,
 				illustrator: req.body.ilustrador,
 				translator: req.body.traductor,
 				genre_id: req.body.genero,
@@ -201,7 +197,9 @@ const productController = {
 				association: "autor",
 				attribute: "first_name",
 				attribute: "last_name"
-		}]
+		},
+
+		]
 		})
 		.then(function(libro){
 			res.render("products/detail", {libro: libro, title: libro.title})
@@ -222,12 +220,8 @@ const productController = {
 				association: "autor", 
 				attribute: "first_name", 
 				attribute: "last_name"
-			}, {
-				association: "segundoAutor", 
-				attribute: "first_name", 
-				attribute: "last_name"
-			},
-				{ association: "editorial", 
+			}, { 
+				association: "editorial", 
 				attribute: "name"
 			}
 			]})

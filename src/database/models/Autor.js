@@ -22,14 +22,18 @@ module.exports = (sequelize, DataTypes) => {
 
         //acá agregar las relaciones 
         Autor.associate = function(models) {
-            Autor.hasMany(models.Libro , {
+            Autor.belongsToMany(models.Libro, {
                 as: "libros",
+                through: "authors_books",
+                foreignKey: "book_id",
+                otherKey: "author_id",
+                timestamps: false
+            })
+            Autor.hasMany(models.Autor_libro, {
+                as: "autor_pivote",
                 foreignKey: "author_id"
             })
-            Autor.hasMany(models.Libro , {
-                as: "libros_segundo_Autor",
-                foreignKey: "second_author_id"
-            })
+      
         
 
         }

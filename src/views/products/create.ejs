@@ -45,22 +45,22 @@
 
           <!-- Segundo autor -->
           <div class="segundoAutor">
-          <label for="segundoAutor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
-            class="linkAutor">aquí</a></label>
-          <select name="segundoAutor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
-            <option value="">Seleccioná un autor</option>
-            <% autores.forEach(autor=> { %>
-              <option value="<%= autor.id %>">
-                <%= autor.last_name + ", " + autor.first_name %>
-              </option>
-              <% }) %>
-          </select>
-          <% if(locals.autor && errors.autor) {%>
-            <div class="text-danger">
-              <%= errors.autor.msg %>
+            <label for="autor" class="form-label">Seleccioná un autor o creá uno nuevo <a href="/product/createAutor"
+              class="linkAutor">aquí</a></label>
+            <select name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria">
+              <option value="">Seleccioná un autor</option>
+              <% autores.forEach(autor=> { %>
+                <option value="<%= autor.id %>">
+                  <%= autor.last_name + ", " + autor.first_name %>
+                </option>
+                <% }) %>
+            </select>
+            <% if(locals.autor && errors.autor) {%>
+              <div class="text-danger">
+                <%= errors.autor.msg %>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
           
             <!-- Revisar si va acá la variable locals para recordar lo que se había ingresado -->
             <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a

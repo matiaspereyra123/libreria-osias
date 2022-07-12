@@ -1,0 +1,8 @@
+Para fusionar una rama al main:
+
+Si estamos en la rama, conectarse al main:
+
+git checkout main
+git merge maria    (o el nombre de la rama)
+
+Depsués desde el repo remoto se hace un pull request y se autoriza la merge. 
