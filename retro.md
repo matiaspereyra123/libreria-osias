@@ -2,7 +2,7 @@
 
 
 ## 1. Hicimos bien
---Mantuvimos una comunicación fluida en todo momento
+* Mantuvimos una comunicación fluida en todo momento
 --Fuimos eficientes al dividirnos tareas: una parte del grupo se enfocó más en el trabajo en el back-end, mientras que otra encaró el rediseño de la web en función de la nueva temática, que era una cuenta pendiete; el front había quedado relegado. 
 --Cumplimos con los requerimientos del Sprint
 --Comentamos más el código
