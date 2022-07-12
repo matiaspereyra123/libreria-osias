@@ -1,4 +1,4 @@
-## Retrospectiva del Sprint 5 - 
+## Retrospectiva del Sprint 5
 
 
 ## 1. Hicimos bien
