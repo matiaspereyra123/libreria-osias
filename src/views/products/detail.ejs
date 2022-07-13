@@ -63,6 +63,14 @@
 
         </section>
         <section class="description-container">
+            <p class="description-author"><%= libro.author %> </p>
+            <% if (libro.illustrator) { %>
+                <p class="description-illustrator">Ilustr. <%= libro.illustrator %> </p>
+            <% } %> 
+            <% if (libro.translator) { %>
+                <p class="description-translator">Trad. <%= libro.translator %> </p>
+            <% } %> 
+            <p class="description-translator">Trad. <%= libro.translator %> </p>
             <p class="description-text"><%=libro.description%></p>
         </section>
 
