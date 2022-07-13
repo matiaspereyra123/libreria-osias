@@ -15,72 +15,50 @@ const userController = {
         });
     },
     loginProcess: async (req, res) => {
-
         let errors = validationResult(req); //guarda validacion errores
-
-
-
         const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email } })
-
-
-
-        if (errors.isEmpty()) {
-            //bloque que valida si errors esta vacio
-
-
-            if (usuarioRegistrado) {
-
-
+        if (usuarioRegistrado === null) {
+            res.render("user/register", {
+                errors: errors.mapped(),
+                old: req.body,
+                title: "Crear Usuario",
+            }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+        } else {
+            if (errors.isEmpty()) {
+                //bloque que valida si errors esta vacio
                 let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
                 if (passwordOk) {
+                    req.session.usuarioLogeado = usuarioRegistrado
                     if (req.body.recordar) {
                         res.cookie('recordar', usuarioRegistrado.email, { maxAge: (60000) * 2 });
-
                     }
-                    //delete usuarioRegistrado.password;  
-
-                    req.session.usuarioLogeado = usuarioRegistrado
+                    //delete usuarioRegistrado.password;
+                    console.log("**PROBANDO*")
                     console.log(req.session.usuarioLogeado);
-
-
+                    console.log("**FIN*")
                     res.redirect('profile')
-
-
-
-
-
                 } else {
                     res.render("user/login", {
                         errors: { datos: { msg: "USUARIO O PASSWORD NO VALIDO" } }, title: "Login Usuario",
                     });
                 }
-
-
-
-
             } else {
-                res.render("user/register", {
-                    errors: errors.mapped(),
-                    old: req.body,
-                    title: "Crear Usuario",
-                }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+                res.render("user/register", { errors: { email: { msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" } }, old: req.body, title: "Crear Usuario" });
             }
-
-
-        } else {
-            res.render("user/register", { errors: { email: { msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" } }, old: req.body, title: "Crear Usuario" });
         }
-
-
     },
 
-    profile: (req, res) => {
-        db.Usuario.findByPk(req.params.id)
-            .then(function () {
-                res.render("user/profile", {
-                    usuarioLogeado: req.session.usuarioLogeado, title: "Perfil de usuario",
-                });
-            })
+    profile: async (req, res) => {
+        console.log("Estas en PROFILE:");
+        console.log(req.session);
+
+        const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.session.usuarioLogeado.email } })
+        if (usuarioRegistrado === null) {
+            console.log("not found");
+        } else {
+            res.render("user/profile", { usuarioLogeado: usuarioRegistrado, title: "Perfil de usuario", });
+        }
+
 
     },
     logout: function (req, res) {
