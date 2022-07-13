@@ -14,39 +14,58 @@ const userController = {
             title: "Iniciar sesión",
         });
     },
-    loginProcess: async (req, res) => {
+    loginProcess: async(req,res)=> {
+
+
+        
+
         let errors = validationResult(req); //guarda validacion errores
-        const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email } })
-        if (usuarioRegistrado === null) {
-            res.render("user/register", {
-                errors: errors.mapped(),
-                old: req.body,
-                title: "Crear Usuario",
-            }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
-        } else {
-            if (errors.isEmpty()) {
-                //bloque que valida si errors esta vacio
-                let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
-                if (passwordOk) {
-                    req.session.usuarioLogeado = usuarioRegistrado
-                    if (req.body.recordar) {
-                        res.cookie('recordar', usuarioRegistrado.email, { maxAge: (60000) * 2 });
-                    }
-                    //delete usuarioRegistrado.password;
-                    console.log("**PROBANDO*")
-                    console.log(req.session.usuarioLogeado);
-                    console.log("**FIN*")
-                    res.redirect('profile')
-                } else {
-                    res.render("user/login", {
-                        errors: { datos: { msg: "USUARIO O PASSWORD NO VALIDO" } }, title: "Login Usuario",
-                    });
-                }
-            } else {
-                res.render("user/register", { errors: { email: { msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" } }, old: req.body, title: "Crear Usuario" });
-            }
-        }
-    },
+         const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email} })
+         try{
+ 
+             if(usuarioRegistrado===null){
+                 res.render("user/register", {
+                     errors: errors.mapped(),
+                     old: req.body,
+                     title: "Crear Usuario",
+                 }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
+             }else{
+                 if (errors.isEmpty()) {
+                     //bloque que valida si errors esta vacio
+                                  let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+                                 if(passwordOk){
+                                     req.session.usuarioLogeado=usuarioRegistrado
+                                     if(req.body.recordar){
+                                  res.cookie('recordar',usuarioRegistrado.email,{maxAge:(60000)*2});
+ 
+                                  //res.cookie('testing','probandocookie',{maxAge:(60000)*2});
+                                 }
+                                     //delete usuarioRegistrado.password;
+                                    // return res.send(req.session.usuarioLogeado);
+                                 //  return res.send(req.cookies);
+                                     console.log("**PROBANDO*")
+                                     console.log(req.session.usuarioLogeado);
+                                     console.log("**FIN*")
+                                         res.redirect('profile')
+                             }else{
+                                     res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+                                 });
+                                 }
+                 } else {
+                     res.render("user/register", {errors:{email:{ msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" }}, old: req.body, title: "Crear Usuario"});
+                 }
+             }
+ 
+ 
+         }catch(error){
+             console.log(error)
+ 
+         }
+ 
+ 
+  
+       
+         },
 
     profile: async (req, res) => {
         console.log("Estas en PROFILE:");
