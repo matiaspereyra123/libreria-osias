@@ -27,12 +27,16 @@
                 </thead>
         <tbody>
                 
-              <% carrito.forEach(libro => { %>
+              <% libros.forEach(libro => { %>
+                <% if (libro.id < 4) { %>
+                 
+                
                      <tr class="tablaItem">
                          <td><img src="/images/products/<%=libro.image %>" class="imagenCarrito" alt="" width="auto"><a href="" class="eliminarItem"><p>Eliminar</p></a></td>
                           <td> <%=libro.title%></td>
                           <td><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(0)" ></td> 
                         <td>$<%=libro.price%></td>
+                        <% } %>
                                <% }) %>  
                       </tr>
 

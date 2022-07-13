@@ -8,11 +8,13 @@ const db = require("../database/models");
 const productController = {
 	
 	cart: function (req, res) {
-		let librosCarrito = JSON.parse(fs.readFileSync(carritoFilePath, "utf-8"));
-		return res.render("products/cart", {
-			title: "Mis libros",
-			carrito: librosCarrito,
-		});
+		
+		db.Libro.findAll()
+		.then(function(libros){
+            
+            res.render("products/cart", {libros: libros, title: "Mis libros"}) 
+	
+		})
 	},
 
 	create: function (req, res) {
