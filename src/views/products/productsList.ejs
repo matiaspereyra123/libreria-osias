@@ -28,8 +28,11 @@
                                  <h2> <%= libro.title %>  </h2>
                              
                                     <p> <%= libro.author%></p>
-                                    <% if (libro.second_author != null) { %>
+                                   
                                         <p> <%= libro.second_author %>  </p> 
+                            
+                                    <% if (libro.illustrator) { %>
+                                        <p>Ilustr: <%= libro.illustrator %> </p> 
                                     <% } %>
                                                                    
 

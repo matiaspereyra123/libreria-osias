@@ -15,6 +15,19 @@ const mainController = {
             console.log(error);
 
         })
+    },
+    viajes: (req, res)=>{
+        db.Libro.findAll({include: [{association: "genero", attribute: "name"},{ association: "editorial", attribute: "name"}]},
+        )
+        .then(function(libros){
+            
+            res.render("viajes", {libros: libros, title: "Libros de viajes"})  
+        })
+        .catch(function(error){
+            console.log(error);
+
+        })
+
     }
 
 }

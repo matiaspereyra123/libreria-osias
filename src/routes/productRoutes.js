@@ -41,4 +41,5 @@ router.delete('/delete/:id', productController.destroy);
 
 router.get('/productsList',productController.list);
 
+
 module.exports = router;

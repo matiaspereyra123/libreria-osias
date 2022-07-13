@@ -604,6 +604,13 @@ main {
 
 }
 
+
+.viajes-page{
+        background-color: #f7f6d5;
+        padding-bottom: 50px;
+    }
+
+
 /* Footer */
 
 
@@ -850,8 +857,28 @@ input {
     margin-right: auto;
     margin-top: 40px;
     max-width: 1000px;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 40px;
 
+}
+
+.description-author, .description-illustrator {
+    color: #2a2a2a;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+
+}
+
+.description-translator {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.description-text {
+    margin-top: 30px;
 }
 
 /* Login y Register*/
