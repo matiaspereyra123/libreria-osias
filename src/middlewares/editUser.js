@@ -1,7 +1,4 @@
-const fs = require("fs");
-const path = require("path");
-const usersFilePath = path.join(__dirname, "../data/users.json");
-let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));  
+ 
 const db = require("../database/models");
 //Permite al usuario editar solo su perfil, no puede acceder a editar otro perfil a traves de URL
 function editUser(req, res, next) {

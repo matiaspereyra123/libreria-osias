@@ -10,18 +10,15 @@ const { syncBuiltinESMExports } = require("module");
 const userController = {
     login: function (req, res) {
         return res.render("user/login", {
-            hoja: "userStyles.css",
-            title: "Iniciar sesión",
+            title: "Iniciar sesión"
         });
     },
     loginProcess: async(req,res)=> {
 
 
-        
-
         let errors = validationResult(req); //guarda validacion errores
          const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email} })
-         try{
+         try {
  
              if(usuarioRegistrado===null){
                  res.render("user/register", {
@@ -48,7 +45,7 @@ const userController = {
                                      console.log("**FIN*")
                                          res.redirect('profile')
                              }else{
-                                     res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VALIDO" }}, title: "Login Usuario",
+                                     res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VÁLIDO" }}, title: "Login Usuario",
                                  });
                                  }
                  } else {
@@ -57,7 +54,7 @@ const userController = {
              }
  
  
-         }catch(error){
+         } catch(error){
              console.log(error)
  
          }
@@ -68,7 +65,7 @@ const userController = {
          },
 
     profile: async (req, res) => {
-        console.log("Estas en PROFILE:");
+        console.log("Estás en PROFILE:");
         console.log(req.session);
 
         const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.session.usuarioLogeado.email } })

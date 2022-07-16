@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const usersFilePath = path.join(__dirname, "../data/users.json");
-let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));  
+// const fs = require("fs");
+// const path = require("path");
+// const usersFilePath = path.join(__dirname, "../data/users.json");
+// let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));  
 const db = require("../database/models");
 //bloquea funcionalidades de ADMIN
 function notAdmin(req, res, next) {
@@ -11,9 +11,20 @@ function notAdmin(req, res, next) {
              (user) => user.email == usuario.email
          );  */ 
          const usuarioRegistrado =  db.Usuario.findOne({ where: { email: usuario.email} })
-         if(usuarioRegistrado.isAdmin==0){
+         .then(usuario=>{
+          if(usuario.isAdmin==0){
             return res.redirect('/'); 
          } 
+    
+          }) 
+      
+      .catch((error) => {
+              console.log(error);
+          }) 
+
+
+
+    
     
 	}else{
         return res.redirect('/');
