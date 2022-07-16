@@ -25,10 +25,6 @@ res.locals.usuarioLogeado = req.session.usuarioLogeado;
 
  }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 044488e559a87a52affa7895b5f1c576513c1cd0
     }
   
     next(); 

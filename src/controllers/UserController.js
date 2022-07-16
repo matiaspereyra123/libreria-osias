@@ -65,7 +65,7 @@ const userController = {
          },
 
     profile: async (req, res) => {
-            res.render("user/profile", { usuarioLogeado: req.session.usuarioLogeado, title: "Perfil de usuario", });
+            res.render("user/profile", { usuarioLogeado: req.session.usuarioLogeado, title: "Perfil de usuario"});
     },
     logout: function (req, res) {
         res.clearCookie('recordar'); //destruir cookie para el logout 

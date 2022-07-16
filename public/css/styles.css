@@ -9,6 +9,7 @@
     font-family: "Open Sans", "Segoe UI", "Lucida Grande", Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 
 }
 
@@ -56,25 +57,67 @@ body {
     display: flex;
     display: none;
     justify-content: space-around;
-
-
 }
 
+
 .menu__item:not(last-child) {
+    cursor: pointer;
     font-weight: bold;
+    margin-right: 20px;
     position: relative;
     text-align: center;
-    width: 150px;
+    width: 180px;
 }
 
 
 .menu >li { 
     list-style-type: none;
     text-decoration: none;
-
-
-
 }
+
+
+.menu-dropdown {
+    box-shadow: 0 0 5px lightgrey;
+    color:#2a2a2a;
+    display: none;
+    top: 4.46rem;
+    left: -1rem;
+    background-color:rgba(245, 245, 245, 0.934);
+    border-radius: 5px;
+    opacity: 0.7;
+    padding: 3px;
+    position: absolute;
+    width: 12rem;
+    transition: opacity 200ms ease-in-out;
+}
+
+
+.menu-dropdown >li {
+    color:#2a2a2a;
+    border-bottom:#c53758 1px solid;
+    font-size: 13px;
+    font-weight: 500;
+    list-style: none;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    transition: background-color 400ms ease-in;
+}
+
+.menu-dropdown >li:hover {
+    background-color: #c53758;
+ 
+} 
+
+.menu-dropdown > li >a:hover {
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.fa-angle-down {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
 
 .fa-user, .fa-cart-shopping, .fa-sign-in-alt {
     color: whitesmoke;
@@ -89,7 +132,7 @@ body {
     color: lightgray;
 }
 
-nav a {
+nav .animation {
     color: whitesmoke;
     font-size: 14px;
     text-decoration: none;
@@ -97,23 +140,24 @@ nav a {
 
 }
 
-nav a:hover {
+.animation:hover {
     color: lightgray
 }
 
-nav .animation::before {
+nav .animation::after {
     background-color: lightgray;
     content: "";
     display: block;
-    height: 5px;
+    height: 0.3rem;
     position: absolute;
-    top: 0;
+    bottom: 0.5rem;
+    left: 1rem;
     transition: all ease-in-out 250ms;
     width: 0%;
 }
 
-nav a:hover::before {
-    width: 100%;
+nav a:hover::after {
+    width: 90%;
 }
 
 .search-bar {

@@ -5,6 +5,10 @@ window.onload = function(){
     let input = document.querySelector(".search-bar__input")
     
     icon = document.querySelector(".fa-search")
+
+    let catalogo = document.querySelector(".catalogo")
+
+    let dropdown = document.querySelector(".menu-dropdown")
     
     hero = document.querySelector("hero")
     
@@ -17,6 +21,14 @@ window.onload = function(){
     input.addEventListener("blur", function(){
         icon.style.color = "white"
     
+    })
+
+    catalogo.addEventListener("mouseover", function(){
+        dropdown.style.display = "block"
+    })
+    
+    dropdown.addEventListener("mouseout", function(){
+        dropdown.style.display = "none"
     })
     
     
