@@ -1,20 +1,20 @@
 const db = require("../database/models"); 
 //Dependiendo del rol de usuario oculta funcionalidades en la barra de navegacion
 function userLoggedBlockNav(req,res,next){ 
-
-    
     res.locals.userLogged =  false;
     let emailEnCookie = req.cookies.recordar;
-    if(req.cookies.recordar){
-         let usuarioRegistrado =  db.Usuario.findOne({ where: { email: emailEnCookie} })
-    .then(usuario=>{
+    if(req.cookies.recordar || req.session.usuarioLogeado){
+        if(emailEnCookie){
+            let usuarioRegistrado =  db.Usuario.findOne({ where: { email: emailEnCookie} })
+                .then(usuario=>{
      
       req.session.usuarioLogeado = usuario;
     }) 
-
-.catch((error) => {
+    .catch((error) => {
         console.log(error);
     }) 
+        }
+         
 
  if(req.session.usuarioLogeado){
   
@@ -25,13 +25,14 @@ res.locals.usuarioLogeado = req.session.usuarioLogeado;
 
  }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 044488e559a87a52affa7895b5f1c576513c1cd0
     }
   
     next(); 
-
-
-      
+    
 }
 
 module.exports = userLoggedBlockNav;

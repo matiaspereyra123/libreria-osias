@@ -65,17 +65,7 @@ const userController = {
          },
 
     profile: async (req, res) => {
-        console.log("Estás en PROFILE:");
-        console.log(req.session);
-
-        const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.session.usuarioLogeado.email } })
-        if (usuarioRegistrado === null) {
-            console.log("not found");
-        } else {
-            res.render("user/profile", { usuarioLogeado: usuarioRegistrado, title: "Perfil de usuario", });
-        }
-
-
+            res.render("user/profile", { usuarioLogeado: req.session.usuarioLogeado, title: "Perfil de usuario", });
     },
     logout: function (req, res) {
         res.clearCookie('recordar'); //destruir cookie para el logout 
@@ -115,7 +105,7 @@ const userController = {
 
                 })
                     .then(() => {
-                        res.redirect('/user/login')
+                        res.redirect("user/profile");
                     })
 
                     .catch(function (error) {
@@ -174,7 +164,7 @@ const userController = {
 
 
                 .then(() => {
-                    res.redirect('/user/profile')
+                    res.redirect('/')
                 })
 
                 .catch(function (error) {
