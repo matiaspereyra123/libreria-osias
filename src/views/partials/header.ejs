@@ -25,7 +25,7 @@
                         <a class="anchor-dropdown" href="">Humor</a>
                     </li >
                     <li class="dropdown-item">
-                        <a class="anchor-dropdown" href="">Arte</a>
+                        <a class="anchor-dropdown" href="">Fotografía</a>
                     </li>
                 </ul>
             </li>
@@ -36,16 +36,20 @@
             <%= console.log(locals.usuarioLogeado) %> 
             <%= console.log("fin header") %> 
             <% }else{ %>
-                <li><a href="/user/profile"><%= locals.usuarioLogeado.first_name %>  <i class="fas fa-sign-in-alt"></i></a></li>
                 <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li class="menu__item profile"><a href="/user/profile"><%= locals.usuarioLogeado.first_name %> <i class="fas fa-sign-in-alt"></i></a>
                 <% } %>
                 <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
                 <%= console.log("inicio Head") %> 
                 <%= console.log(locals.usuarioLogeado.isAdmin) %> 
-                <%= console.log("fin Head") %> 
-                    <li class="menu__item"><a href="/product/create">CREAR PRODUCTO </a></li>
-                    <li class="menu__item"><a href="/user/usersList">USUARIOS </a></li>
-                    <li class="menu__item"><a href="/product/productsList">LIBROS </a></li>
+                <%= console.log("fin Head") %>
+                <ul class="menu-dropdown2"> 
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="/user/profile">MI PERFIL </a></li>
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="/product/create">CREAR PRODUCTO </a></li>
+                    <li cclass="dropdown-item"><a class="anchor-dropdown" href="/user/usersList">LISTA DE USUARIOS </a></li>
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="/product/productsList">LISTA DE LIBROS </a></li>
+                </ul>
+                </li>
                   <% } %>
                   <div class="search-bar">
                     <input class ="search-bar__input" type="text" placeholder="Buscá por título, autor, etc." aria-label="search">

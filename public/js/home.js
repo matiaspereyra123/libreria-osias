@@ -7,8 +7,10 @@ window.onload = function(){
     icon = document.querySelector(".fa-search")
 
     let catalogo = document.querySelector(".catalogo")
+    let profile = document.querySelector(".profile")
 
     let dropdown = document.querySelector(".menu-dropdown")
+    let dropdown2 = document.querySelector(".menu-dropdown2")
     
     hero = document.querySelector("hero")
     
@@ -29,6 +31,14 @@ window.onload = function(){
     
     dropdown.addEventListener("mouseout", function(){
         dropdown.style.display = "none"
+    })
+
+    profile.addEventListener("mouseover", function(){
+        dropdown2.style.display = "block"
+    })
+    
+    dropdown2.addEventListener("mouseout", function(){
+        dropdown2.style.display = "none"
     })
     
     

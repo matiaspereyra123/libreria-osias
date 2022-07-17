@@ -76,7 +76,7 @@ body {
 }
 
 
-.menu-dropdown {
+.menu-dropdown, .menu-dropdown2 {
     box-shadow: 0 0 5px lightgrey;
     color:#2a2a2a;
     display: none;
@@ -92,7 +92,7 @@ body {
 }
 
 
-.menu-dropdown >li {
+.menu-dropdown >li, .menu-dropdown2 > li {
     color:#2a2a2a;
     border-bottom:#c53758 1px solid;
     font-size: 13px;
@@ -103,12 +103,12 @@ body {
     transition: background-color 400ms ease-in;
 }
 
-.menu-dropdown >li:hover {
+.menu-dropdown >li:hover, .menu-dropdown2 >li:hover {
     background-color: #c53758;
  
 } 
 
-.menu-dropdown > li >a:hover {
+.menu-dropdown > li >a:hover, .menu-dropdown2 > li >a:hover  {
     color: whitesmoke;
     font-weight: 600;
 }
@@ -132,7 +132,7 @@ body {
     color: lightgray;
 }
 
-nav .animation {
+.menu__item > a {
     color: whitesmoke;
     font-size: 14px;
     text-decoration: none;
