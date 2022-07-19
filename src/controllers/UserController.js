@@ -108,7 +108,7 @@ const userController = {
 
                 })
                     .then(() => {
-                        res.redirect("user/profile");
+                        res.redirect('/user/profile');
                     })
 
                     .catch(function (error) {
