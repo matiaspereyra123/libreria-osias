@@ -40,7 +40,7 @@ window.onload = function(){
    
     }
 
-    const validarPassword=(p)=>{
+    const validarPassword=()=>{
         if(campoPassword.value==''){
             parrafoPassword.style.display="block";
             campoPassword.style.borderColor="Red";
