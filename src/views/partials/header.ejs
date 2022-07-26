@@ -37,26 +37,35 @@
             <%= console.log("fin header") %> 
             <% }else{ %>
                 <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li class="menu__item profile"><a href="/user/profile"><%= locals.usuarioLogeado.first_name %> <i class="fas fa-sign-in-alt"></i></a>
+                <li class="menu__item profile"><a href="/user/profile"><%= locals.usuarioLogeado.first_name %><i class="fas fa-sign-in-alt"></i></a>
                 <% } %>
                 <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
                 <%= console.log("inicio Head") %> 
                 <%= console.log(locals.usuarioLogeado.isAdmin) %> 
                 <%= console.log("fin Head") %>
                 <ul class="menu-dropdown2"> 
-                    <li class="dropdown-item"><a class="anchor-dropdown" href="/user/profile">MI PERFIL </a></li>
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="/user/profile">MI CUENTA </a></li>
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/product/create">CREAR PRODUCTO </a></li>
                     <li cclass="dropdown-item"><a class="anchor-dropdown" href="/user/usersList">LISTA DE USUARIOS </a></li>
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/product/productsList">LISTA DE LIBROS </a></li>
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="/user/logout">CERRAR SESIÓN</a></li>
                 </ul>
+                <% } else { %>
+                    <ul class="menu-dropdown2"> 
+                        <li class="dropdown-item"><a class="anchor-dropdown" href="/user/profile">MI CUENTA</a></li>
+                        <li class="dropdown-item"><a class="anchor-dropdown" href="">MIS FAVORITOS</a></li>
+                        <li class="dropdown-item"><a class="anchor-dropdown" href="/user/logout">CERRAR SESIÓN</a></li>
+                    </ul>
                 </li>
                   <% } %>
+                  <li class="menu__item">
                   <div class="search-bar">
                     <input class ="search-bar__input" type="text" placeholder="Buscá por título, autor, etc." aria-label="search">
                     <button class="search-bar__submit">
                         <i class="fa fa-search" aria-label="submit search"></i>
                     </button>
-                    </div>  
+                    </div>
+                </li>  
 
         </ul>
     </nav>

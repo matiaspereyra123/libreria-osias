@@ -18,7 +18,7 @@
 
 
 
-      <form action="/user/login" method="POST" class="formulario-completo" >
+      <form action="/user/login" method="POST" class="formulario-completo" id="form">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="input-barras">
         <label class="errores"></label>
@@ -58,7 +58,7 @@
                         </p>
                       </a>
                     </section>
-                    <button type="submit" class="boton-login">Enviar</button>
+                    <button type="submit" class="boton-login" id="btnEnviar">Enviar</button>
                     <!-- <button type="reset" class="boton-borrar">Borrar</button> -->
                    
 
@@ -72,7 +72,7 @@
     <%- include ("../partials/footer.ejs")%>
 
   </footer>
-  <script src="/js/userValidation/userValidation.js"></script>
+ 
 </body>
-
+ <script src="/js/userValidation/userValidation.js"></script>
 </html>
