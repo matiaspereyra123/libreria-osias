@@ -4,4 +4,5 @@
   
   .is-invalid {
     color: #842029;
+    display:block;
   }

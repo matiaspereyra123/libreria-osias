@@ -2,19 +2,23 @@ window.onload = function(){
     let formulario = document.querySelector('#formulario');
     let formu= document.querySelector(".formulario-completo");
     let email=document.getElementById("email");
-    let password=document.getElementById("password");
+    let inputPassword=document.getElementById('password');
     let errores=document.querySelector(".errores");
-    let emailVacio = document.getElementById("emailVacio");
+    let passwordP = document.getElementById("passwordP");
+    
 
-    formu.addEventListener("submit",function(e){
+    
 
+    inputPassword.addEventListener("blur",function(){
+        if(inputPassword.value=''){
+            inputPassword.style.borderColor="Red";
+            console.log("password vacio")
+        }
     })
-    email.addEventListener("blur",function(){
-       if(email.value=''){
-  
-        errores.classList.add("is-invalid");
-       }
-    })
+
+   
+     
+ 
 
 }
 //probando
