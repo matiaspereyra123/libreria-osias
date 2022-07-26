@@ -17,12 +17,8 @@ function userLoggedBlockNav(req,res,next){
          
 
  if(req.session.usuarioLogeado){
-  
      res.locals.userLogged=true;
 res.locals.usuarioLogeado = req.session.usuarioLogeado;
-
-
-
  }
 
     }

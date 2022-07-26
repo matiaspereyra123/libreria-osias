@@ -1028,7 +1028,9 @@ input {
 }
 
 .text-danger {
-    color: rgb(146, 2, 2)
+    color: rgb(146, 2, 2);
+    padding-bottom: 20px;
+
 }
 
 .primerAutor {

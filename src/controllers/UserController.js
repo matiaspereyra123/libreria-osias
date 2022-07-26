@@ -28,6 +28,7 @@ const userController = {
                  }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
              }else{
                  if (errors.isEmpty()) {
+                    
                      //bloque que valida si errors esta vacio
                                   let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
                                  if(passwordOk){
@@ -91,8 +92,8 @@ const userController = {
 
             if (errors.isEmpty()) {
                 //bloque que valida si errors esta vacio
-
-                db.Usuario.create({
+     
+                         db.Usuario.create({
                     first_name: req.body.nombre,
                     last_name: req.body.apellido,
                     email: req.body.email,
@@ -111,6 +112,8 @@ const userController = {
                     .catch(function (error) {
                         console.log(error)
                     })
+      
+           
             } else {
                 res.render("user/register", {
                     errors: errors.mapped(),

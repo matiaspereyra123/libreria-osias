@@ -14,9 +14,14 @@
   <main class="main-login">
     <section class="caja-login">
 
+
+
+
+
       <form action="/user/login" method="POST" class="formulario-completo">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="input-barras">
+        <label class="errores"></label>
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
             <%= errors.email.msg %>
@@ -58,13 +63,14 @@
       </form>
 
 
+
   </main>
 
   <footer class="footer-section">
     <%- include ("../partials/footer.ejs")%>
 
   </footer>
-
+  <script src="/js/userValidation/userValidation.js"></script>
 </body>
 
 </html>

@@ -9,17 +9,8 @@ let userNotLogged=require('../middlewares/userNotLogged');
 let notAdmin=require('../middlewares/notAdmin');
 let editUser=require('../middlewares/editUser');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, "../../public/images/users"))
-    },
-    filename: function (req, file, cb) {
-      let imageName=Date.now()+path.extname(file.originalname);
-      cb(null,imageName);
-    }
-  })
-  
-const upload = multer({ storage: storage })
+const upload = require('../middlewares/multerMiddleware');
+
 
 
 const router = express.Router()
