@@ -20,7 +20,7 @@ window.onload = function(){
     campoPassword.addEventListener("blur",(e)=>{
      
         validarPassword();
-    });
+    })
 
     
 
@@ -28,49 +28,34 @@ window.onload = function(){
         expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
          if(campoEmail.value.match(expReg)){
-             campoEmail.style.borderColor="green";
+             campoEmail.style.border="2.1px solid green";
              parrafoEmail.style.display = "none"
            // parrafoEmail.innerHTML=" FORMATO válido";
         }else{
             parrafoEmail.innerHTML="El correo no es un FORMATO válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
-            campoEmail.style.borderColor="Red";
+            campoEmail.style.border="2.1px solid Red";
         } 
    
     }
 
+ 
+
     const validarPassword=()=>{
         if(campoPassword.value==''){
             parrafoPassword.style.display="block";
-            campoPassword.style.borderColor="Red";
+            campoPassword.style.border="2.1px solid red";
             parrafoPassword.classList.add('is-invalid');
             parrafoPassword.innerHTML="El campo PASSWORD se encuentra vacio"
         }else{
 
              parrafoPassword.style.display="none";
-            campoPassword.style.borderColor='green';
+            campoPassword.style.border="2.1px solid green";
 
          
 
         }
     }
-
-
-
-
-/* 
- campoEmail.addEventListener("blur",function(){
-    if(campoEmail.value==''){
-        parrafoEmail.style.display="block";
-        campoEmail.style.borderColor="Red";
-        parrafoEmail.classList.add('is-invalid');
-    }else{
-        parrafoEmail.style.display="none";
-        campoEmail.style.borderColor='';
-
-    }
-})  */
-
-   
+ 
 }
