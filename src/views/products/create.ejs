@@ -23,10 +23,12 @@
         <!-- Primer autor -->
       <label for="autor" class="form-label">Autor</label>
        <div class="primerAutor">
-        <input name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria"></input>
-  
+        <input name="autor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria" id="author"></input>
           <i class="fa-solid fa-circle-plus"></i>
           <i class="fa-solid fa-circle-minus"></i>
+        </div>
+        <div class="is-invalid">
+          <small class="is-invalid" id="error-author"></small>
         </div>
              <% if(locals.errors && errors.autor) {%>
           <div class="text-danger">
@@ -42,7 +44,7 @@
           <div class="segundoAutor">
             <label for="segundoAutor" class="form-label">Segundo autor</label>
             <input name="segundoAutor" value="<%= locals.old ? old.autor : null %>" class="form-input-categoria"></input>
-            <% if(locals.errors && errors.segundoAautor) {%>
+            <% if(locals.errors && errors.segundoAutor) {%>
               <div class="text-danger">
         
                 <%= errors.segundoAutor.msg %>
@@ -64,6 +66,9 @@
                 </option>
                 <% }) %>
             </select>
+            <div class="is-invalid">
+              <small class="is-invalid" id="error-publisher"></small>
+            </div>
             <% if(locals.errors && errors.editorial) {%>
               <div class="text-danger">
            
@@ -75,6 +80,9 @@
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" name="titulo" id="titulo" class="input-barras"
                   value="<%= locals.old ? old.titulo : null %>">
+                  <div class="is-invalid">
+                    <small class="is-invalid" id="error-title"></small>
+                  </div>
                 <% if(locals.errors && errors.titulo) {%>
                   <div class="text-danger">
         
@@ -118,6 +126,10 @@
                                 </option>
                                 <% }) %>
                             </select>
+                            <div class="is-invalid">
+                              <small class="is-invalid" id="error-genre"></small>
+                            </div>
+                            
                              
 
                             <label for="idioma" class="form-label">Idioma</label>
@@ -176,6 +188,9 @@
 
                             <label class="form-label" for="portada">Imagen de la portada</label>
                             <input type="file" name="imagen" class="input-avatar" id="imagen">
+                            <div class="is-invalid">
+                              <small class="is-invalid" id="error-image"></small>
+                            </div>
                             <% if(locals.errors && errors.imagen) {%>
                               <section class="text-danger">
                            
@@ -188,6 +203,9 @@
                               <label for="descripcion"></label>
                               <textarea id="descripcion" name="descripcion" rows="12" cols="40"
                                 placeholder="Descripción"></textarea>
+                                <div class="is-invalid">
+                                  <small class="is-invalid" id="error-description"></small>
+                                </div>
                                 <% if(locals.errors && errors.descripcion) {%>
                                   <div class="text-danger">
                                     
