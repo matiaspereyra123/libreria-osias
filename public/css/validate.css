@@ -4,4 +4,20 @@
   
   .is-invalid {
     color: #842029;
+    display:block;
+  }
+
+  form > i{
+    padding-left:20px;
+  }
+
+
+  .fa-circle-xmark{
+    visibility:hidden;
+    
+  }
+
+  .fa-circle-check{
+    visibility:hidden;
+  
   }

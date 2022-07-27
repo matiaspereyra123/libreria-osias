@@ -1,20 +1,82 @@
-// window.onload = function(){
-//     let formulario = document.querySelector('#formulario');
-//     let formu= document.querySelector(".formulario-completo");
-//     let email=document.getElementById("email");
-//     let password=document.getElementById("password");
-//     let errores=document.querySelector(".errores");
-//     let emailVacio = document.getElementById("emailVacio");
+window.onload = function(){
+    //let formu =  document.getElementById('form');
+    let campoEmail=document.getElementById('email');
+    let campoPassword = document.querySelector('#password');
+    let parrafoEmail = document.getElementById('emailP');
+    let parrafoPassword = document.getElementById('passwordP');
 
-//     formu.addEventListener("submit",function(e){
+    let iconEmail = document.getElementById('iconEmail');
+    let iconPassword=document.getElementById('iconPassword');
+    let btnEnviar=document.getElementById('btnEnviar');
 
-//     })
-//     email.addEventListener("blur",function(){
-//        if(email.value=''){
-  
-//         errores.classList.add("is-invalid");
-//        }
-//     })
+    btnEnviar.addEventListener("click",(e)=>{
+        e.preventDefault();
+        validarCorreo();
+        validarPassword();
+    })
 
-// }
-//probando
+    campoEmail.addEventListener("blur",(e)=>{
+            validarCorreo();
+    })
+
+    campoPassword.addEventListener("blur",(e)=>{
+     
+        validarPassword();
+    })
+
+    
+
+    const validarCorreo=()=>{
+        expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+         if(campoEmail.value.match(expReg)){
+             campoEmail.style.border="2.1px solid green";
+             parrafoEmail.style.display = "none";
+             
+                iconEmail.classList.remove('fa-circle-xmark');
+                iconEmail.classList.add('fa-circle-check');
+              iconEmail.style.visibility="visible";
+              iconEmail.style.color="green";
+           // parrafoEmail.innerHTML=" FORMATO válido";
+        }else{
+            parrafoEmail.innerHTML="El correo no es un FORMATO válido";
+            parrafoEmail.style.display="block";
+            parrafoEmail.classList.add('is-invalid');
+            campoEmail.style.border="2.1px solid Red";
+            iconEmail.classList.remove('fa-cicle-check');
+            iconEmail.classList.add('fa-circle-xmark');
+            iconEmail.style.visibility="visible";
+            iconEmail.style.color="red";
+        
+        } 
+   
+    }
+
+ 
+
+    const validarPassword=()=>{
+        if(campoPassword.value==''){
+            parrafoPassword.style.display="block";
+            campoPassword.style.border="2.1px solid red";
+            parrafoPassword.classList.add('is-invalid');
+            parrafoPassword.innerHTML="El campo PASSWORD se encuentra vacio";
+            iconPassword.classList.remove('fa-cicle-check');
+            iconPassword.classList.add('fa-circle-xmark');
+            iconPassword.style.visibility="visible";
+            iconPassword.style.color="red";
+        
+        }else{
+
+             parrafoPassword.style.display="none";
+            campoPassword.style.border="2.1px solid green";
+            iconPassword.classList.remove('fa-circle-xmark');
+            iconPassword.classList.add('fa-circle-check');
+          iconPassword.style.visibility="visible";
+          iconPassword.style.color="green";
+
+         
+
+        }
+    }
+ 
+}
