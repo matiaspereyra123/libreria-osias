@@ -20,17 +20,18 @@
 
       <form action="/user/login" method="POST" class="formulario-completo" id="form">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="input-barras">
+        <input type="email" name="email" id="email" class="input-barras"><i class="fa-solid fa-circle-check" id="iconEmail"></i>
         <label class="errores"></label>
         <p id="emailP" style="display:none">Email No valido</p>
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
             <%= errors.email.msg %>
-          </section>
+          </section>    
+       
           <% } %>
 
             <label for="password" class="">Contraseña</label>
-            <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8">
+            <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8"><i class="fa-solid fa-circle-xmark" id="iconPassword"></i>
             <p id="passwordP" style="display:none">Password No valido</p>
             <% if(locals.errors && errors.password) {%>
               <section class="text-danger">
