@@ -52,8 +52,7 @@
               </div>
               <% } %>
             </div>
-          
-            <!-- Revisar si va acá la variable locals para recordar lo que se había ingresado -->
+            <div class="div-campos">
             <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
                 href="/product/createEditorial" class="linkAutor">aquí</a></label>
             <select name="editorial" value="<%= locals.old ? old.editorial : null %>" class="form-input-categoria">
@@ -75,8 +74,10 @@
                 <%= errors.editorial.msg %>
             
               </div>
+            </div>
               <% } %>
 
+                <div class="div-campos">
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" name="titulo" id="titulo" class="input-barras"
                   value="<%= locals.old ? old.titulo : null %>">
@@ -89,12 +90,12 @@
                     <%= errors.titulo.msg %>
        
                   </div>
+                </div>
                   <% } %>
 
 
 
-
-                    <!-- Agrego campos de ilustrador y traductor, revisar -->
+                    <div class="div-campos">
                     <label for="ilustrador" class="form-label">Ilustrador</label>
                     <input type="text" name="ilustrador" id="ilustrador" class="input-barras"
                       value="<%= locals.old ? old.ilustrador : null %>">
@@ -104,7 +105,9 @@
                         <%= errors.ilustrador.msg %>
            
                       </div>
+                    </div>
                       <% } %>
+                        <div class="div-campos">
                         <label for="traductor" class="form-label">Traductor</label>
                         <input type="text" name="traductor" id="traductor" class="input-barras"
                           value="<%= locals.old ? old.traductor : null %>">
@@ -114,8 +117,10 @@
                             <%= errors.traductor.msg %>
                
                           </div>
+                        </div>
                           <% } %>
 
+                          <div class="div-campos">
                             <label for="genero" class="form-label">Seleccioná el género</label>
                             <select name="genero" id="genero" class="form-input-categoria">
                               <option value="">Elegí un género</option>
@@ -129,9 +134,10 @@
                             <div class="is-invalid">
                               <small class="is-invalid" id="error-genre"></small>
                             </div>
+                          </div>
                             
                              
-
+                            <div class="div-campos">
                             <label for="idioma" class="form-label">Idioma</label>
                             <input type="text" name="idioma" id="idioma" class="input-barras">
                             <% if(locals.errors && errors.idioma) {%>
@@ -140,9 +146,10 @@
                                 <%= errors.idioma.msg %>
                        
                               </div>
+                            </div>
                               <% } %> 
 
-
+                            <div class="div-campos">
                             <label for="isbn" class="form-label">ISBN</label>
                             <input type="text" name="isbn" id="isbn" class="input-barras">
                             <% if(locals.errors && errors.isbn) {%>
@@ -151,8 +158,9 @@
                                 <%= errors.isbn.msg %>
                        
                               </div>
+                            </div>
                               <% } %> 
-
+                            <div class="div-campos">
                             <label for="precio" class="form-label">Precio</label>
                             <input type="number" name="precio" id="precio" class="input-barras">
                             <% if(locals.errors && errors.precio) {%>
@@ -161,13 +169,16 @@
                                 <%= errors.precio.msg %>
                        
                               </div>
+                            </div>
                               <% } %> 
 
+                            <div class="div-campos">
                             <label for="fecha_publicacion" class="form-label">Año de publicación</label>
                             <input type="date" name="fecha_publicacion" id="fecha_publicacion" class="input-barras">
+                          </div>
 
-
-                            <label for="cantidad" class="form-label">Cantidad</label>
+                          <div class="div-campos">  
+                          <label for="cantidad" class="form-label">Cantidad</label>
                             <input type="number" name="cantidad" id="cantidad" class="input-barras">
                             <% if(locals.errors && errors.cantidad) {%>
                               <div class="text-danger">
@@ -175,7 +186,10 @@
                                 <%= errors.cantidad.msg %>
                        
                               </div>
+                            </div>
                               <% } %> 
+
+                            <div class="div-campos">  
                             <label for="paginas">Cantidad de páginas</label>
                             <input type="number" name="paginas" id="paginas" class="input-barras">
                             <% if(locals.errors && errors.paginas) {%>
@@ -184,9 +198,11 @@
                                 <%= errors.paginas.msg %>
                            
                               </section>
+                            </div>
                               <% } %>
 
-                            <label class="form-label" for="portada">Imagen de la portada</label>
+                            <div class="div-campos">
+                              <label class="form-label" for="portada">Imagen de la portada</label>
                             <input type="file" name="imagen" class="input-avatar" id="imagen">
                             <div class="is-invalid">
                               <small class="is-invalid" id="error-image"></small>
@@ -197,6 +213,7 @@
                                 <%= errors.imagen.msg %>
                       
                               </section>
+                            </div>
                               <% } %>
 
                             <div class="textDescripcion">

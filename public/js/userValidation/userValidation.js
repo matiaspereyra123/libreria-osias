@@ -10,7 +10,8 @@ window.onload = function(){
     let btnEnviar=document.getElementById('btnEnviar');
 
     btnEnviar.addEventListener("click",(e)=>{
-        e.preventDefault();
+        //Revisar esta línea de preventDefault, porque como estaba no me dejaba loguearme
+        // e.preventDefault();
         validarCorreo();
         validarPassword();
     })
@@ -39,7 +40,7 @@ window.onload = function(){
               iconEmail.style.color="green";
            // parrafoEmail.innerHTML=" FORMATO válido";
         }else{
-            parrafoEmail.innerHTML="El correo no es un FORMATO válido";
+            parrafoEmail.innerHTML="El correo electrónico no es válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
             campoEmail.style.border="2.1px solid Red";
@@ -59,7 +60,7 @@ window.onload = function(){
             parrafoPassword.style.display="block";
             campoPassword.style.border="2.1px solid red";
             parrafoPassword.classList.add('is-invalid');
-            parrafoPassword.innerHTML="El campo PASSWORD se encuentra vacio";
+            parrafoPassword.innerHTML="Ingresá tu contraseña";
             iconPassword.classList.remove('fa-cicle-check');
             iconPassword.classList.add('fa-circle-xmark');
             iconPassword.style.visibility="visible";

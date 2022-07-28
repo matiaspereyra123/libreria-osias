@@ -39,7 +39,7 @@ window.onload = function(){
 
     inputAuthor.addEventListener("blur", function(){
         if (inputAuthor.value.length < 1 ) {
-           errorAuthor.innerText = "Debés completar el campo de autor";
+           errorAuthor.innerText = "Ingresá el nombre y apellido del autor";
            inputAuthor.style.backgroundColor = "lightpink" 
 
         }
@@ -56,14 +56,14 @@ window.onload = function(){
 
         let errores = {}
         if (inputAuthor.value.length < 1) {
-            errores.author = "El campo de autor debe estar completo"
+            errores.author = "Ingresá el nombre y apellido del autor"
         }
         else if (inputAuthor.value.length < 5) {
-            errores.author = "El campo de autor debe tener al menos 5 caracteres"
+            errores.author = "El nombre del autor debe tener al menos 5 caracteres"
         }
 
         if (inputTitle.value.length < 1) {
-            errores.title = "El campo de título debe estar completo"
+            errores.title = "Ingresá el título"
         }
         
         if (inputGenre.value < 1) {
@@ -72,11 +72,11 @@ window.onload = function(){
 
         //Revisar 
         if (inputImage.value.filename != ".jpg") {
-            errores.image = "La imagen debe ser un archivo JPG, JPEG, PNG, GIF"
+            errores.image = "Las extensiones de archivo permitidas sob .jpg, .jpeg, .png, .gif"
         }
 
         if (inputDescription.value.length < 20) {
-            errores.description = "La descripción debe incluir al menos 20 caracteres"
+            errores.description = "La descripción debe tener al menos 20 caracteres"
         }
 
 

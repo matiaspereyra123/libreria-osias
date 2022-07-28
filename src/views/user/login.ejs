@@ -19,20 +19,24 @@
 
 
       <form action="/user/login" method="POST" class="formulario-completo" id="form">
-        <label for="email">Email</label>
+        
+        <div class="div-campos">
+        <label for="email">Correo electrónico</label>
         <input type="email" name="email" id="email" class="input-barras"><i class="fa-solid fa-circle-check" id="iconEmail"></i>
         <label class="errores"></label>
-        <p id="emailP" style="display:none">Email No valido</p>
+        <p id="emailP" style="display:none">Correo electrónico no valido</p>
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
             <%= errors.email.msg %>
-          </section>    
+          </section>
+        </div>    
        
           <% } %>
 
-            <label for="password" class="">Contraseña</label>
+          <div class="div-campos">  
+          <label for="password" class="">Contraseña</label>
             <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8"><i class="fa-solid fa-circle-xmark" id="iconPassword"></i>
-            <p id="passwordP" style="display:none">Password No valido</p>
+            <p id="passwordP" style="display:none">Contraseña no válida</p>
             <% if(locals.errors && errors.password) {%>
               <section class="text-danger">
                 <%= errors.password.msg %>
@@ -43,13 +47,17 @@
                     <%= errors.datos.msg %>
                   </section>
                   <% } %>
+          </div>
+                    <div class="div-campos">
                     <section class="">
                       <label class="">
                         <input type="checkbox" name="recordar" id="recordar"> Recordar mi usuario
                       </label>
                     </section>
+                  </div>
 
-                    <section>
+                  <div class="div-campos">  
+                  <section>
                       <p class="recuperacion-contraseña">
                         ¿No tenés cuenta?  <a href="/user/register">Creala</a>. 
                     </p>
@@ -59,6 +67,8 @@
                         </p>
                       </a>
                     </section>
+                  </div>
+
                     <button type="submit" class="boton-login" id="btnEnviar">Enviar</button>
                     <!-- <button type="reset" class="boton-borrar">Borrar</button> -->
                    

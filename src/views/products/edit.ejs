@@ -26,7 +26,7 @@
 
                     
                       <label for="autor" class="form-label">Autor</label>
-                    <div class="primerAutor">
+                      <div class="primerAutor">
                       <input type="text" name="autor" id="autor" class="input-barras" value="<%=libroEditar.author%>">
                       <i class="fa-solid fa-circle-plus"></i>
                       <i class="fa-solid fa-circle-minus"></i>
@@ -41,7 +41,8 @@
                       </div>
 
                      <!-- No queda seleccionada la editorial original -->
-                      <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
+                     <div class="div-campos"> 
+                     <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
                         href="/product/createEditorial" class="linkAutor">aquí</a></label>
                     <select name="editorial" value="<%= libroEditar.publisher %>" class="form-input-categoria">
                       <option value="" disabled>Seleccioná una editorial</option>
@@ -51,20 +52,28 @@
                         </option>
                       <% }) %>
                     </select>
+                  </div>
                   
+                      <div class="div-campos">
                       <label for="titulo" class="form-label">Título</label>  
                       <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.title%>" >
+                    </div>
                      
 
 
-                      <label for="ilustrador" class="form-label">Ilustrador</label>
+                    <div class="div-campos">  
+                    <label for="ilustrador" class="form-label">Ilustrador</label>
                       <input type="text" name="ilustrador" id="ilustrador" placeholder="Ilustrador" class="input-barras" value="<%=libroEditar.illustrator%>">
+                    </div>
 
-                      <label for="traductor" class="form-label">Traductor</label>
+                    <div class="div-campos">  
+                    <label for="traductor" class="form-label">Traductor</label>
                       <input type="text" name="traductor" id="traductor" placeholder="Traductor" class="input-barras" value="<%=libroEditar.translator%>">
+                    </div>
       
 
-                      <label for="genero" class="form-label">Género</label>
+                    <div class="div-campos">  
+                    <label for="genero" class="form-label">Género</label>
                       <!-- No queda seleccionado el género original -->
                       
                       <select id="select" name="genero"  class="form-input-categoria">
@@ -73,30 +82,42 @@
                           <option <%= libroEditar.genero.name == genero.name ? "selected" : "" %>  value="<%= genero.id %>"><%= genero.name %> </option>
                         <% }) %>
                       </select>
-                      <br>
-                      <br>
+                    </div>
+                   
                      
                     
+                      <div class="div-campos">
                       <label for="isbn" class="form-label">ISBN</label>
                       <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" value="<%=libroEditar.isbn%>"required>
+                    </div>
                     
-                      <label for="precio" class="form-label">Precio</label>
+                    <div class="div-campos">  
+                    <label for="precio" class="form-label">Precio</label>
                       <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.price%>" required>
+                      </div>
   
                    
 
-                     <label for="fechaLanzamiento" class="form-label">Fecha de publicación</label>
-                     <input type="year" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%= libroEditar.publication_date %>" required>  
+                      <div class="div-campos">
+                      <label for="fechaLanzamiento" class="form-label">Fecha de publicación</label>
+                     <input type="year" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%= libroEditar.publication_date %>" required> 
+                    </div> 
                    
                  
-                      <label for="cantidad" class="form-label">Cantidad</label>
+                    <div class="div-campos">
+                    <label for="cantidad" class="form-label">Cantidad</label>
                       <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.stock%>"required>
+                    </div>
+                    <div class="div-campos">
                       <label for="paginas" class="form-label">Páginas</label>
                       <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras"value="<%=libroEditar.pages%>" required>
+                    </div>
               
-                   <label for="portada" class="form-label">Imagen de la portada</label>
+                   <div class="div-campos">
+                    <label for="portada" class="form-label">Imagen de la portada</label>
                      <input type="file" name="imagen" class="input-avatar" id="images" value="<%=libroEditar.image%>">
-                    <br>
+                    </div>
+                    
                     <label for="descripcion" class="form-label">Descripción</label>
                      <div class="textDescripcion">
                         <textarea class="textarea"

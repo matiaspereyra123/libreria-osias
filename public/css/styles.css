@@ -956,8 +956,8 @@ input {
     display: inline-block;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    margin-top: 10px;
     padding: 10px 10px;
     width: 90%;
 }
@@ -978,6 +978,7 @@ input {
     color: whitesmoke;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     opacity: 0.8;
     padding: 8px;
     text-align: center;
@@ -989,7 +990,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 
 }
 
@@ -1000,6 +1001,7 @@ input {
 
 .textarea {
     border: 1px solid lightgray;
+    margin-top: 15px;
     max-width: 100%;
     padding: 8px;
 
@@ -1045,16 +1047,20 @@ input {
     display:inline-block;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    margin-top: 10px;
     padding: 8px;
     width: 90%;
 }
 
 .form-label {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;   
     width: 90%
+}
+
+.div-campos {
+    margin-top: 20px;
 }
 
 .boton-enviar {
@@ -1118,14 +1124,7 @@ a {
     width: 85%;
 }
 
-.titulo-avatar,
-.label-nacimiento {
-    color: #434343;
-    font-family: "Open Sans", "Segoe UI", "Lucida Grande", Verdana, sans-serif;
-    font-size: 16px;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
+
 
 
 .input-avatar {

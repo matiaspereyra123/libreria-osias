@@ -19,46 +19,66 @@
                    </section>
                    <br>
                    <br>
-
+                      <div class="div-campos">
                       <label for="nombre" class="form-label">Nombre</label>
                       <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="input-barras" value="<%=usuarioEditar.first_name %>">
+                      </div>
 
+                      <div class="div-campos">
                       <label for="apellido" class="form-label">Apellido</label>
                       <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="input-barras" value="<%=usuarioEditar.last_name %>">
+                      </div>
 
-                      <label for="email" class="form-label">Email</label>
+                      <div class="div-campos">
+                      <label for="email" class="form-label">Correo electrónico</label>
                       <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras" value="<%=usuarioEditar.email %>" >
+                      </div>
+
+                      <div class="div-campos">
+                        <label for="dni" class="form-label">Documento</label>
+                        <input type="text" name="dni" id="dni" placeholder="Documento" class="input-barras" value="<%=usuarioEditar.dni %>" >
+                      </div>
   
   
-                     <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
-              
+                     <div class="div-campos">
+                      <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
                      <input type="date" name="nacimiento" class="input-barras" value="<%=usuarioEditar.birth_date %>">
+                    </div>
                  
-                      <label for="domicilio" class="form-label">Domicilio</label>
+                    <div class="div-campos">  
+                    <label for="domicilio" class="form-label">Domicilio</label>
                       <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio" class="input-barras" value="<%=usuarioEditar.address %>" >
+                    </div>
                     
-                    <!-- Cambiar el if -->
+                    <div class="div-campos">
                     <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
-                      <label for="rol" class="form-label">Rol</label>
+                      <label for="rol" class="form-label">Rol del usuario</label>
                       <select name="rol" id="rol" class="form-input-categoria">
                         <option value="0">Usuario</option>
                         <option value="1">Admin</option>
                       </select>
                     <% } %>
-                    <br>
-                    <br>
+                  </div>
+
                
+                    <div class="div-campos">
                     <label class="form-label" for="avatar">Seleccionar una imagen de perfil</label>
                     <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.image %>" >
+                    </div>
                 
+                    <div class="div-campos">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras" >
+                    </div>
+
+                    <div class="div-campos">
                     <label for="password" class="form-label">Confirmar contraseña</label>
                     <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras" >
                     <% if(locals.errors && errors.datos) {%>
                       <section class="text-danger">
                         <%= errors.datos.msg %>
                       </section>
+                    </div>
                       <% } %>
                   <div class="botones-editar">
                     <button type="submit" class="edit-boton-enviar">ENVIAR</button>

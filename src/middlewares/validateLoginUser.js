@@ -3,9 +3,9 @@ const { body } = require("express-validator");
 
 const validar = [
 	body('email')
-		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail()
-		.isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
+		.notEmpty().withMessage('Ingresá tu correo electrónico').bail()
+		.isEmail().withMessage('Debés escribir un formato de correo válido'),
+	body('password').notEmpty().withMessage('Ingresá tu contraseña'),
  
 ];
 
