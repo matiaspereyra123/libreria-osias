@@ -46,11 +46,11 @@ const userController = {
                                      console.log("**FIN*")
                                          res.redirect('profile')
                              }else{
-                                     res.render("user/login", {errors:{datos:{ msg: "USUARIO O PASSWORD NO VÁLIDO" }}, title: "Login Usuario",
+                                     res.render("user/login", {errors:{datos:{ msg: "El usuario o la contraseña no son válidos" }}, title: "Login Usuario",
                                  });
                                  }
                  } else {
-                     res.render("user/register", {errors:{email:{ msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" }}, old: req.body, title: "Crear Usuario"});
+                     res.render("user/register", {errors:{email:{ msg: "Este correo electrónico ya se encuentra registrado" }}, old: req.body, title: "Crear Usuario"});
                  }
              }
  
@@ -124,7 +124,7 @@ const userController = {
 
 
         } else {
-            res.render("user/register", { errors: { email: { msg: "ESTE EMAIL YA SE ENCUENTRA REGISTRADO" } }, old: req.body, title: "Crear Usuario" });
+            res.render("user/register", { errors: { email: { msg: "Este correo electrónico ya se encuentra registrado" } }, old: req.body, title: "Crear Usuario" });
         }
 
 
@@ -178,7 +178,7 @@ const userController = {
 
         } else {
             res.render("user/edit", {
-                errors: { datos: { msg: "Los password deben ser iguales" } }, usuarioEditar: req.body, title: "Editar Usuario",
+                errors: { datos: { msg: "Las contraseñas deben ser iguales" } }, usuarioEditar: req.body, title: "Editar Usuario",
             });
         }
 

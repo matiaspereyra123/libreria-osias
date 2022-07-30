@@ -1,9 +1,9 @@
 .is-valid {
-    color: #198754;
+    color:#59ed9c;
   }
   
   .is-invalid {
-    color: #842029;
+    color:#EF5350;
     display:block;
   }
 
@@ -12,12 +12,11 @@
   }
 
 
-  .fa-circle-xmark{
-    visibility:hidden;
+  .fa-circle-xmark {
+    visibility: hidden;
     
   }
 
-  .fa-circle-check{
-    visibility:hidden;
-  
+  .fa-circle-check {
+    visibility: hidden;
   }

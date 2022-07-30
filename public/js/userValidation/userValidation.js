@@ -31,23 +31,22 @@ window.onload = function(){
         expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
          if(campoEmail.value.match(expReg)){
-             campoEmail.style.border="2.1px solid green";
+             campoEmail.style.border="2.1px solid #19c8a6";
              parrafoEmail.style.display = "none";
-             
-                iconEmail.classList.remove('fa-circle-xmark');
-                iconEmail.classList.add('fa-circle-check');
-              iconEmail.style.visibility="visible";
-              iconEmail.style.color="green";
+             iconEmail.classList.remove('fa-circle-xmark');
+             iconEmail.classList.add('fa-circle-check');
+             iconEmail.style.visibility="visible";
+             iconEmail.style.color="#19c8a6";
            // parrafoEmail.innerHTML=" FORMATO válido";
         }else{
             parrafoEmail.innerHTML="El correo electrónico no es válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
-            campoEmail.style.border="2.1px solid Red";
-            iconEmail.classList.remove('fa-cicle-check');
+            campoEmail.style.border="2.1px solid #EF5350";
+            iconEmail.classList.remove('fa-circle-check');
             iconEmail.classList.add('fa-circle-xmark');
             iconEmail.style.visibility="visible";
-            iconEmail.style.color="red";
+            iconEmail.style.color="#EF5350";
         
         } 
    
@@ -58,22 +57,22 @@ window.onload = function(){
     const validarPassword=()=>{
         if(campoPassword.value==''){
             parrafoPassword.style.display="block";
-            campoPassword.style.border="2.1px solid red";
+            campoPassword.style.border="2.1px solid #EF5350";
             parrafoPassword.classList.add('is-invalid');
             parrafoPassword.innerHTML="Ingresá tu contraseña";
-            iconPassword.classList.remove('fa-cicle-check');
+            iconPassword.classList.remove('fa-circle-check');
             iconPassword.classList.add('fa-circle-xmark');
             iconPassword.style.visibility="visible";
-            iconPassword.style.color="red";
+            iconPassword.style.color="#EF5350";
         
-        }else{
+        } else {
 
-             parrafoPassword.style.display="none";
-            campoPassword.style.border="2.1px solid green";
+            parrafoPassword.style.display="none";
+            campoPassword.style.border="2.1px solid #19c8a6";
             iconPassword.classList.remove('fa-circle-xmark');
-            iconPassword.classList.add('fa-circle-check');
-          iconPassword.style.visibility="visible";
-          iconPassword.style.color="green";
+            iconPassword.classList.toggle('fa-circle-check');
+            iconPassword.style.visibility="visible";
+            iconPassword.style.color="#19c8a6";
 
          
 

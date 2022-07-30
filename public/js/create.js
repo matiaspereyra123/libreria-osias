@@ -1,3 +1,5 @@
+// const path = require("path");
+
 window.onload = function(){
 
     let segundoAutor = document.querySelector(".segundoAutor");
@@ -6,6 +8,8 @@ window.onload = function(){
 
     let inputAuthor = document.querySelector("#author");
     let errorAuthor = document.querySelector("#error-author");
+    let inputPublisher = document.querySelector("#publisher");
+    let errorPublisher = document.querySelector("#error-publisher");
     let inputTitle = document.querySelector("#titulo");
     let errorTitle = document.querySelector("#error-title");
     let inputGenre = document.querySelector("#genero");
@@ -14,6 +18,9 @@ window.onload = function(){
     let errorImage = document.querySelector("#error-image");
     let inputDescription = document.querySelector("#descripcion");
     let errorDescription = document.querySelector("#error-description");
+
+ 
+
 
 
     
@@ -40,18 +47,104 @@ window.onload = function(){
     inputAuthor.addEventListener("blur", function(){
         if (inputAuthor.value.length < 1 ) {
            errorAuthor.innerText = "Ingresá el nombre y apellido del autor";
-           inputAuthor.style.backgroundColor = "lightpink" 
-
+           inputAuthor.style.border = "2.1px solid #EF5350"
+           iconAuthor.classList.add("fa-circle-xmark")
+           iconAuthor.style.visibility = "visible"
+           iconAuthor.style.color = "#EF5350"
         }
     })
 
     inputAuthor.addEventListener("change", function () {
         errorAuthor.style.display = "none";
-        inputAuthor.style.backgroundColor = "white"
-        inputAuthor.style.border = "limegreen solid 1px"   
+        inputAuthor.style.border = "#19c8a6 2.1px solid";
+        iconAuthor.classList.remove("fa-circle-xmark")
+        iconAuthor.classList.add("fa-circle-check")
+        iconAuthor.style.visibility = "visible"
+        iconAuthor.style.color = "#19c8a6"   
     })
 
+    inputPublisher.addEventListener("blur", function(){
+        if (inputPublisher.value.length < 1 ) {
+           errorPublisher.innerText = "Ingresá el nombre y apellido del autor";
+           inputPublisher.style.border = "2.1px solid #EF5350"
+           iconPublisher.classList.add("fa-circle-xmark")
+           iconPublisher.style.visibility = "visible"
+           iconPublisher.style.color = "#EF5350"
+        }
+    })
+
+    inputPublisher.addEventListener("change", function () {
+        errorPublisher.style.display = "none";
+        inputPublisher.style.border = "#19c8a6 2.1px solid";
+        iconPublisher.classList.remove("fa-circle-xmark")
+        iconPublisher.classList.add("fa-circle-check")
+        iconPublisher.style.visibility = "visible"
+        iconPublisher.style.color = "#19c8a6"   
+    })
+
+
+    inputTitle.addEventListener("blur", function(){
+        if (inputTitle.value.length < 1 ) {
+           errorTitle.innerText = "Ingresá el título";
+           inputTitle.style.border = "2.1px solid #EF5350"
+           iconTitle.classList.add("fa-circle-xmark")
+           iconTitle.style.visibility = "visible"
+           iconTitle.style.color = "#EF5350"
+        }
+    })
+
+    inputTitle.addEventListener("change", function () {
+        errorTitle.style.display = "none";
+        inputTitle.style.border = "#19c8a6 2.1px solid";
+        iconTitle.classList.remove("fa-circle-xmark")
+        iconTitle.classList.add("fa-circle-check")
+        iconTitle.style.visibility = "visible"
+        iconTitle.style.color = "#19c8a6"   
+    })
+
+    inputGenre.addEventListener("blur", function(){
+        if (inputGenre.value.length < 1 ) {
+           errorGenre.innerText = "Debés seleccionar un género";
+           inputGenre.style.border = "2.1px solid #EF5350"
+           iconGenre.classList.add("fa-circle-xmark")
+           iconGenre.style.visibility = "visible"
+           iconGenre.style.color = "#EF5350"
+        }
+    })
+
+    inputGenre.addEventListener("change", function () {
+        errorGenre.style.display = "none";
+        inputGenre.style.border = "#19c8a6 2.1px solid";
+        iconGenre.classList.remove("fa-circle-xmark")
+        iconGenre.classList.add("fa-circle-check")
+        iconGenre.style.visibility = "visible"
+        iconGenre.style.color = "#19c8a6"   
+    })
+
+
+    inputDescription.addEventListener("blur", function(){
+        if (inputDescription.value.length < 20 ) {
+           errorDescription.innerText = "La descripción debe tener al menos 20 caracteres";
+           inputDescription.style.border = "2.1px solid #EF5350"
+           iconDescription.classList.add("fa-circle-xmark")
+           iconDescription.style.visibility = "visible"
+           iconDescription.style.color = "#EF5350"
+        }
+    })
+
+    inputDescription.addEventListener("change", function () {
+        errorDescription.style.display = "none";
+        inputDescription.style.border = "#19c8a6 2.1px solid";
+        iconDescription.classList.remove("fa-circle-xmark")
+        iconDescription.classList.add("fa-circle-check")
+        iconDescription.style.visibility = "visible"
+        iconDescription.style.color = "#19c8a6"   
+    })
+
+    
+
     botonSubmit.addEventListener("click", function(event){
+
         event.preventDefault();
 
         let errores = {}
@@ -70,10 +163,16 @@ window.onload = function(){
             errores.genre = "Debés seleccionar un género"
         }
 
-        //Revisar 
-        if (inputImage.value.filename != ".jpg") {
-            errores.image = "Las extensiones de archivo permitidas sob .jpg, .jpeg, .png, .gif"
-        }
+        // let file = req.file;
+        // let acceptedExtensions = ['.jpg', 'jpeg', '.png', '.gif'];
+  
+        // if (file) {
+        //     let fileExtension = path.extname(file.originalname);
+        //     if (!acceptedExtensions.includes(fileExtension)) {
+        //       errores.description =`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`
+        //     }
+        // }
+      
 
         if (inputDescription.value.length < 20) {
             errores.description = "La descripción debe tener al menos 20 caracteres"
