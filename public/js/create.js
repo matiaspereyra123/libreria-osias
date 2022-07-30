@@ -1,4 +1,4 @@
-// const path = require("path");
+
 
 window.onload = function(){
 
@@ -121,6 +121,24 @@ window.onload = function(){
         iconGenre.style.color = "#19c8a6"   
     })
 
+    inputImage.addEventListener("blur", function(){
+        if (inputGenre.value.length < 1 ) {
+           errorImage.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
+           iconImage.classList.add("fa-circle-xmark")
+           iconImage.style.visibility = "visible"
+           iconImage.style.color = "#EF5350"
+        }
+    })
+
+    inputImage.addEventListener("change", function () {
+        errorImage.style.display = "none";
+        iconImage.classList.remove("fa-circle-xmark")
+        iconImage.classList.add("fa-circle-check")
+        iconImage.style.visibility = "visible"
+        iconImage.style.color = "#19c8a6"   
+    })
+
+
 
     inputDescription.addEventListener("blur", function(){
         if (inputDescription.value.length < 20 ) {
@@ -163,15 +181,14 @@ window.onload = function(){
             errores.genre = "Debés seleccionar un género"
         }
 
-        // let file = req.file;
-        // let acceptedExtensions = ['.jpg', 'jpeg', '.png', '.gif'];
+       
+        let extension = file.value.split(".").pop()
   
-        // if (file) {
-        //     let fileExtension = path.extname(file.originalname);
-        //     if (!acceptedExtensions.includes(fileExtension)) {
-        //       errores.description =`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`
-        //     }
-        // }
+        if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif") {
+           
+              errores.image = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif"
+            }
+        
       
 
         if (inputDescription.value.length < 20) {
