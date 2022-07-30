@@ -88,14 +88,18 @@
                   <div class="is-invalid">
                     <small class="is-invalid" id="error-title"></small>
                   </div>
-                <% if(locals.errors && errors.titulo) {%>
+                  <div class="probando">   <%= let bandera=false%>
+             <% if(locals.errors && errors.titulo) {%>
                   <div class="text-danger">
-        
+                   
                     <%= errors.titulo.msg %>
        
                   </div>
-                </div>
+            
                   <% } %>
+    </div>
+                  </div>
+             
 
 
 

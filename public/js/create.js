@@ -19,6 +19,9 @@ window.onload = function(){
     let inputDescription = document.querySelector("#descripcion");
     let errorDescription = document.querySelector("#error-description");
 
+
+    let probando =document.querySelector(".probando");
+
  
 
 
@@ -85,22 +88,35 @@ window.onload = function(){
 
     inputTitle.addEventListener("blur", function(){
         if (inputTitle.value.length < 1 ) {
-           errorTitle.innerText = "Ingresá el título";
+            if( !locals.errors && !errors.titulo ){
+           probando.style.display="none";
+            }
+                errorTitle.innerText = "Ingresá el título";
            inputTitle.style.border = "2.1px solid #EF5350"
+           iconTitle.classList.remove("fa-circle-check");
            iconTitle.classList.add("fa-circle-xmark")
            iconTitle.style.visibility = "visible"
            iconTitle.style.color = "#EF5350"
+
+        }else{
+            errorTitle.style.display = "none";
+            inputTitle.style.border = "#19c8a6 2.1px solid";
+            iconTitle.classList.remove("fa-circle-xmark")
+            iconTitle.classList.add("fa-circle-check")
+            iconTitle.style.visibility = "visible"
+            iconTitle.style.color = "#19c8a6"   
+           
         }
     })
 
-    inputTitle.addEventListener("change", function () {
+/*     inputTitle.addEventListener("change", function () {
         errorTitle.style.display = "none";
         inputTitle.style.border = "#19c8a6 2.1px solid";
         iconTitle.classList.remove("fa-circle-xmark")
         iconTitle.classList.add("fa-circle-check")
         iconTitle.style.visibility = "visible"
         iconTitle.style.color = "#19c8a6"   
-    })
+    }) */
 
     inputGenre.addEventListener("blur", function(){
         if (inputGenre.value.length < 1 ) {
@@ -163,7 +179,7 @@ window.onload = function(){
 
     botonSubmit.addEventListener("click", function(event){
 
-        event.preventDefault();
+
 
         let errores = {}
         if (inputAuthor.value.length < 1) {
