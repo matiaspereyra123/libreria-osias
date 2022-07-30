@@ -1,5 +1,4 @@
 
-
 window.onload = function(){
 
     let segundoAutor = document.querySelector(".segundoAutor");
@@ -18,14 +17,22 @@ window.onload = function(){
     let errorImage = document.querySelector("#error-image");
     let inputDescription = document.querySelector("#descripcion");
     let errorDescription = document.querySelector("#error-description");
+    // let errorBackAuthor = document.querySelectorAll("div .text-danger")[0]
+    let errorBackPublisher = document.querySelectorAll("div .text-danger")[1]
+    // let errorBackPTitle = document.querySelectorAll("div .text-danger")[2]
+    // let errorBackIdioma = document.querySelectorAll("div .text-danger")[3]
+    // let errorBackISBN = document.querySelectorAll("div .text-danger")[4]
+    // let errorBackPrecio = document.querySelectorAll("div .text-danger")[5]
+    // let errorBackCantidad = document.querySelectorAll("div .text-danger")[6]
+    // let errorBackDescripcion = document.querySelectorAll("div .text-danger")[7]
+    // let errorBackPublisher = document.querySelectorAll("div .text-danger")[8]
 
- 
-
-
-
-    
     let botonSubmit = document.querySelector(".boton-enviar");
     let form = document.querySelector(".formulario-completo");
+
+ console.log(errorBack)
+
+    
     
 
 
@@ -51,17 +58,23 @@ window.onload = function(){
            iconAuthor.classList.add("fa-circle-xmark")
            iconAuthor.style.visibility = "visible"
            iconAuthor.style.color = "#EF5350"
+        } else {
+            errorAuthor.style.display = "none";
+            inputAuthor.style.border = "#19c8a6 2.1px solid";
+            iconAuthor.classList.remove("fa-circle-xmark")
+            iconAuthor.classList.add("fa-circle-check")
+            iconAuthor.style.visibility = "visible"
+            iconAuthor.style.color = "#19c8a6"
+           
         }
     })
 
-    inputAuthor.addEventListener("change", function () {
-        errorAuthor.style.display = "none";
-        inputAuthor.style.border = "#19c8a6 2.1px solid";
-        iconAuthor.classList.remove("fa-circle-xmark")
-        iconAuthor.classList.add("fa-circle-check")
-        iconAuthor.style.visibility = "visible"
-        iconAuthor.style.color = "#19c8a6"   
+    inputAuthor.addEventListener("change", function(){
+        errorBackAuthor.style.visibility = "hidden"
     })
+
+
+   
 
     inputPublisher.addEventListener("blur", function(){
         if (inputPublisher.value.length < 1 ) {
@@ -70,17 +83,23 @@ window.onload = function(){
            iconPublisher.classList.add("fa-circle-xmark")
            iconPublisher.style.visibility = "visible"
            iconPublisher.style.color = "#EF5350"
+
+        } else {
+            errorPublisher.style.display = "none";
+            inputPublisher.style.border = "#19c8a6 2.1px solid";
+            iconPublisher.classList.remove("fa-circle-xmark")
+            iconPublisher.classList.add("fa-circle-check")
+            iconPublisher.style.visibility = "visible"
+            iconPublisher.style.color = "#19c8a6" 
+
         }
     })
 
-    inputPublisher.addEventListener("change", function () {
-        errorPublisher.style.display = "none";
-        inputPublisher.style.border = "#19c8a6 2.1px solid";
-        iconPublisher.classList.remove("fa-circle-xmark")
-        iconPublisher.classList.add("fa-circle-check")
-        iconPublisher.style.visibility = "visible"
-        iconPublisher.style.color = "#19c8a6"   
+    inputPublisher.addEventListener("change", function(){
+        errorBackPublisher.style.visibility = "hidden"
     })
+
+
 
 
     inputTitle.addEventListener("blur", function(){
@@ -90,17 +109,19 @@ window.onload = function(){
            iconTitle.classList.add("fa-circle-xmark")
            iconTitle.style.visibility = "visible"
            iconTitle.style.color = "#EF5350"
+        } else {
+            errorTitle.style.display = "none";
+            inputTitle.style.border = "#19c8a6 2.1px solid";
+            iconTitle.classList.remove("fa-circle-xmark")
+            iconTitle.classList.add("fa-circle-check")
+            iconTitle.style.visibility = "visible"
+            iconTitle.style.color = "#19c8a6"  
+            
         }
     })
 
-    inputTitle.addEventListener("change", function () {
-        errorTitle.style.display = "none";
-        inputTitle.style.border = "#19c8a6 2.1px solid";
-        iconTitle.classList.remove("fa-circle-xmark")
-        iconTitle.classList.add("fa-circle-check")
-        iconTitle.style.visibility = "visible"
-        iconTitle.style.color = "#19c8a6"   
-    })
+ 
+
 
     inputGenre.addEventListener("blur", function(){
         if (inputGenre.value.length < 1 ) {
@@ -110,16 +131,18 @@ window.onload = function(){
            iconGenre.style.visibility = "visible"
            iconGenre.style.color = "#EF5350"
         }
+        else {
+
+            errorGenre.style.display = "none";
+            inputGenre.style.border = "#19c8a6 2.1px solid";
+            iconGenre.classList.remove("fa-circle-xmark")
+            iconGenre.classList.add("fa-circle-check")
+            iconGenre.style.visibility = "visible"
+            iconGenre.style.color = "#19c8a6"   
+        }
     })
 
-    inputGenre.addEventListener("change", function () {
-        errorGenre.style.display = "none";
-        inputGenre.style.border = "#19c8a6 2.1px solid";
-        iconGenre.classList.remove("fa-circle-xmark")
-        iconGenre.classList.add("fa-circle-check")
-        iconGenre.style.visibility = "visible"
-        iconGenre.style.color = "#19c8a6"   
-    })
+ 
 
     inputImage.addEventListener("blur", function(){
         if (inputGenre.value.length < 1 ) {
@@ -127,16 +150,16 @@ window.onload = function(){
            iconImage.classList.add("fa-circle-xmark")
            iconImage.style.visibility = "visible"
            iconImage.style.color = "#EF5350"
+        } else {
+            errorImage.style.display = "none";
+            iconImage.classList.remove("fa-circle-xmark")
+            iconImage.classList.add("fa-circle-check")
+            iconImage.style.visibility = "visible"
+            iconImage.style.color = "#19c8a6" 
         }
     })
 
-    inputImage.addEventListener("change", function () {
-        errorImage.style.display = "none";
-        iconImage.classList.remove("fa-circle-xmark")
-        iconImage.classList.add("fa-circle-check")
-        iconImage.style.visibility = "visible"
-        iconImage.style.color = "#19c8a6"   
-    })
+ 
 
 
 
@@ -147,23 +170,25 @@ window.onload = function(){
            iconDescription.classList.add("fa-circle-xmark")
            iconDescription.style.visibility = "visible"
            iconDescription.style.color = "#EF5350"
+        } else {
+            errorDescription.style.display = "none";
+            inputDescription.style.border = "#19c8a6 2.1px solid";
+            iconDescription.classList.remove("fa-circle-xmark")
+            iconDescription.classList.add("fa-circle-check")
+            iconDescription.style.visibility = "visible"
+            iconDescription.style.color = "#19c8a6"   
+
         }
     })
 
-    inputDescription.addEventListener("change", function () {
-        errorDescription.style.display = "none";
-        inputDescription.style.border = "#19c8a6 2.1px solid";
-        iconDescription.classList.remove("fa-circle-xmark")
-        iconDescription.classList.add("fa-circle-check")
-        iconDescription.style.visibility = "visible"
-        iconDescription.style.color = "#19c8a6"   
-    })
+
 
     
 
     botonSubmit.addEventListener("click", function(event){
 
-        event.preventDefault();
+      
+        // event.preventDefault();
 
         let errores = {}
         if (inputAuthor.value.length < 1) {
@@ -189,7 +214,6 @@ window.onload = function(){
               errores.image = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif"
             }
         
-      
 
         if (inputDescription.value.length < 20) {
             errores.description = "La descripción debe tener al menos 20 caracteres"
@@ -197,11 +221,14 @@ window.onload = function(){
 
 
         if (Object.keys(errores).length >=1) {
+
+
             errorAuthor.innerText = (errores.author) ? errores.author: "";
             errorTitle.innerText = (errores.title) ? errores.title: "";
             errorGenre.innerText = (errores.genre) ? errores.genre: "";
             errorImage.innerText = (errores.image) ? errores.image: "";
             errorDescription.innerText = (errores.description) ? errores.description: "";
+
 
         } else {
             form.submit();
@@ -211,9 +238,6 @@ window.onload = function(){
       
 
     })
-
-
-
 
 
 }

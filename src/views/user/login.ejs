@@ -24,7 +24,7 @@
         <label for="email">Correo electrónico</label>
         <input type="email" name="email" id="email" class="input-barras"><i class="fa-solid fa-circle-check" id="iconEmail"></i>
         <label class="errores"></label>
-        <p id="emailP" style="display:none">Correo electrónico no valido</p>
+        <p id="emailP" style="display:none"></p>
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
             <%= errors.email.msg %>
@@ -36,7 +36,7 @@
           <div class="div-campos">  
           <label for="password" class="">Contraseña</label>
             <input type="password" name="password" id="password" class="input-barras" minlength="4" maxlength="8"><i class="fa-solid fa-circle-xmark" id="iconPassword"></i>
-            <p id="passwordP" style="display:none">Contraseña no válida</p>
+            <p id="passwordP" style="display:none"></p>
             <% if(locals.errors && errors.password) {%>
               <section class="text-danger">
                 <%= errors.password.msg %>
