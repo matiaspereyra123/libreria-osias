@@ -37,13 +37,6 @@ window.onload = function(){
 
     let botonSubmit = document.querySelector(".boton-enviar");
     let form = document.querySelector(".formulario-completo");
-
-
-
-
-
-
-    
     
 
 
