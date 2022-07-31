@@ -231,6 +231,13 @@ window.onload = function () {
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
                     
+                } else if (inputPass2.value.length < 1) {
+                    errorPass2.innerText = "Confirmá tu contraseña";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+
                 }
                 else {
                     errorPass2.style.display = "none";
