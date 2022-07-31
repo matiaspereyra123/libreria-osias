@@ -150,7 +150,7 @@ const userController = {
                 first_name: req.body.nombre,
                 last_name: req.body.apellido,
                 email: req.body.email,
-         
+                password: req.body.password !="" ? bcryptjs.hashSync(req.body.password, 10): passwordOld.password,
                 dni: req.body.dni,
                 address: req.body.domicilio,
                 birth_date: req.body.nacimiento,
