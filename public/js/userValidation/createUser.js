@@ -1,4 +1,7 @@
+
 window.onload = function () {
+
+    // const db = require("../../../src/database/models")
 
 
     regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
@@ -33,7 +36,7 @@ window.onload = function () {
             iconNombre.style.color = "#EF5350"
         }
 
-        else if (inputNombre.value.length < 5) {
+        else if (inputNombre.value.length < 2) {
             errorNombre.innerText = "El nombre debe tener al menos 2 caracteres";
             inputNombre.style.border = "2.1px solid #EF5350"
             iconNombre.classList.add("fa-circle-xmark")
@@ -90,8 +93,15 @@ window.onload = function () {
 
         validarCorreo()
 
+       
+
     })
 
+
+    
+
+
+  
 
     const validarCorreo = () => {
         expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -219,7 +229,6 @@ window.onload = function () {
 
 
                 } else {
-
                     errorPass.style.display = "none";
                     inputPass.style.border = "#19c8a6 2.1px solid";
                     iconPass.classList.remove("fa-circle-xmark")
@@ -267,119 +276,6 @@ window.onload = function () {
 
 
 
-            const passwordSame=()=>{
-                regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
-
-                        if((inputPass2.value == inputPass.value)&&((inputPass.value.match(regularExp))&&(inputPass2.value.match(regularExp)))){
-                         
-                    samePass.style.display = "none";
-                    inputPass2.style.border = "#19c8a6 2.1px solid";
-                    iconPass2.classList.remove("fa-circle-xmark")
-                    iconPass2.classList.add("fa-circle-check")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#19c8a6"
-                    
-                    errorPass.style.display = "none";
-                    inputPass.style.border = "#19c8a6 2.1px solid";
-                    iconPass.classList.remove("fa-circle-xmark")
-                    iconPass.classList.add("fa-circle-check")
-                    iconPass.style.visibility = "visible"
-                    iconPass.style.color = "#19c8a6"
-                        }else{
-                            samePass.innerText = "Las contraseñas no coinciden";
-                            inputPass2.style.border = "2.1px solid #EF5350"
-                            iconPass2.classList.add("fa-circle-xmark")
-                            iconPass2.style.visibility = "visible"
-                            iconPass2.style.color = "#EF5350"
-                            samePass.style.display = "block";
-                            inputPass.style.border = "2.1px solid #EF5350"
-                            iconPass.classList.add("fa-circle-xmark")
-                            iconPass.style.visibility = "visible"
-                            iconPass.style.color = "#EF5350"
-
-                        }
-                    
-       
-            }
-
-
-
-
-    /*         const passwordSame=()=>{
-                let pass1=validarPass();
-                let pass2=validarPass2();
-                console.log(pass1);
-                console.log(pass2);
-                    if (validarPass2()&&validarPass()){
-                        if(inputPass2.value == inputPass.value){
-                         
-                    errorPass2.style.display = "none";
-                    inputPass2.style.border = "#19c8a6 2.1px solid";
-                    iconPass2.classList.remove("fa-circle-xmark")
-                    iconPass2.classList.add("fa-circle-check")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#19c8a6"
-                    
-                    errorPass.style.display = "none";
-                    inputPass.style.border = "#19c8a6 2.1px solid";
-                    iconPass.classList.remove("fa-circle-xmark")
-                    iconPass.classList.add("fa-circle-check")
-                    iconPass.style.visibility = "visible"
-                    iconPass.style.color = "#19c8a6"
-                        }else{
-                            errorPass2.innerText = "Las contraseñas no coinciden";
-                            inputPass2.style.border = "2.1px solid #EF5350"
-                            iconPass2.classList.add("fa-circle-xmark")
-                            iconPass2.style.visibility = "visible"
-                            iconPass2.style.color = "#EF5350"
-                          
-                            inputPass.style.border = "2.1px solid #EF5350"
-                            iconPass.classList.add("fa-circle-xmark")
-                            iconPass.style.visibility = "visible"
-                            iconPass.style.color = "#EF5350"
-                        }
-                    }
-       
-            }
- */
-
-
-
-
-  /*           inputPass2.addEventListener("blur", function(){
-                
-                if (inputPass2.value != inputPass.value) {
-                    errorPass2.innerText = "Las contraseñas no coinciden";
-                    inputPass2.style.border = "2.1px solid #EF5350"
-                    iconPass2.classList.add("fa-circle-xmark")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#EF5350"
-                    
-                }
-                else {
-                    errorPass2.style.display = "none";
-                    inputPass2.style.border = "#19c8a6 2.1px solid";
-                    iconPass2.classList.remove("fa-circle-xmark")
-                    iconPass2.classList.add("fa-circle-check")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#19c8a6"
-
-                }
-
-            }) */
-
-
-      
-
-
-
-
-
-
-
-
-
-
 
 
         botonSubmit.addEventListener("click", function(event){
@@ -391,30 +287,34 @@ window.onload = function () {
                 if (inputNombre.value.length < 1) {
                     errores.nombre = "Ingresá tu nombre"
                 }
-                else if (inputAuthor.value.length < 5) {
+                else if (inputNombre.value.length < 2) {
                     errores.nombre = "El nombre debe tener al menos 2 caracteres"
                 }
 
                 if (inputApellido.value.length < 1) {
                     errores.apellido = "Ingresá tu apellido"
                 }
-                else if (inputApellido.value.length < 5) {
+                else if (inputApellido.value.length < 2) {
                     errores.apellido = "El apellido debe tener al menos 2 caracteres"
                 }
 
-                if (validarCorreo()) {
-                    errores.email = "Ingresá un correo válido"
+                //no se está validando el mail
+                if (inputEmail.value.length < 1) {
+                    errores.email = "Ingresá tu correo electrónico"
                 }
 
                 if (inputDni.value.length < 1) {
                     errores.dni = "Ingresá tu DNI"
                 }
 
-                if (validarPass) {
+                //no se está validando la contraseña
+                if (inputPass.value.length > 0) {
+                    validarPass()
                     errores.pass = "Ingresá una contraseña válida"
                 }
 
-                if (inputPass2.value =! inputPass.value) {
+                if (inputPass2.value != inputPass.value) {
+
                     errores.pass2 = "Las contraseñas no coinciden"
                 }
 

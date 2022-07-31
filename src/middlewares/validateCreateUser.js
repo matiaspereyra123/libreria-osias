@@ -27,6 +27,7 @@ const validar = [
   
       return true;
     }),   
+    //pasarle las reglas de la expresión que usamos en la validación del front
     body('password').notEmpty().withMessage("Ingresá tu contraseña")
     .isLength({min:8}).withMessage("La contraseña debe tener al menos 8 caracteres"),
     body('password2').notEmpty().withMessage("Ingresá tu contraseña")

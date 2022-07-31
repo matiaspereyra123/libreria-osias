@@ -120,7 +120,7 @@ const userController = {
 
     update: async (req, res) => {
         const passwordOld = await db.Usuario.findOne({ where: { id:req.params.id } });
-         try{
+         try {
                 if (req.body.password == req.body.password2) { 
                 db.Usuario.update({
                 first_name: req.body.nombre,
