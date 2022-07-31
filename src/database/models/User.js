@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         dni: {
             type: DataTypes.INTEGER,
-            unique: true,
+    
             allowNull: false
         },
         address: {

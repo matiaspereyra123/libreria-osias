@@ -38,8 +38,8 @@ window.onload = function(){
              iconEmail.style.visibility="visible";
              iconEmail.style.color="#19c8a6";
            // parrafoEmail.innerHTML=" FORMATO válido";
-        }else{
-            parrafoEmail.innerHTML="El correo electrónico no es válido";
+        }else {
+            parrafoEmail.innerHTML="Tenés que ingresar un correo electrónico válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
             campoEmail.style.border="2.1px solid #EF5350";
