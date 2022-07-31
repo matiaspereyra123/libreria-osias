@@ -1,6 +1,7 @@
 
 window.onload = function(){
 
+
     let segundoAutor = document.querySelector(".segundoAutor");
     let plusicon = document.querySelector(".fa-circle-plus");
     let minusicon = document.querySelector(".fa-circle-minus");
@@ -116,8 +117,12 @@ window.onload = function(){
 
     inputTitle.addEventListener("blur", function(){
         if (inputTitle.value.length < 1 ) {
-           errorTitle.innerText = "Ingresá el título";
+            if( !locals.errors && !errors.titulo ){
+           probando.style.display="none";
+            }
+                errorTitle.innerText = "Ingresá el título";
            inputTitle.style.border = "2.1px solid #EF5350"
+           iconTitle.classList.remove("fa-circle-check");
            iconTitle.classList.add("fa-circle-xmark")
            iconTitle.style.visibility = "visible"
            iconTitle.style.color = "#EF5350"
@@ -412,6 +417,6 @@ window.onload = function(){
       
 
     })
-
+ 
 
 }

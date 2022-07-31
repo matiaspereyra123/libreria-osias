@@ -22,3 +22,14 @@ PASS: Admin
 ROL USUARIO
 USUARIO: test5@test.com
 PASS: 55555
+
+
+Cuando edito el user, si no le pongo la contraseña de nuevo,
+ luego cuando quiero loguearme, me dice que hay error de autenticación, 
+ eso es porque no está guardando la contraseña vieja.
+
+
+
+ $10$huBa3rs/eigIt5llrhL/1OGL6B9fGKR.t3us56/r41fjOzFiX7kNG
+
+ $10$IBFnd/rLeZdDtpoRYP2HWeDYP446HpwjwryEGeJpGAdy3N9kg0WE2

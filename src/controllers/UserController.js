@@ -97,6 +97,7 @@ const userController = {
                     first_name: req.body.nombre,
                     last_name: req.body.apellido,
                     email: req.body.email,
+
                     password: bcryptjs.hashSync(req.body.password, 10),
                     dni: req.body.dni,
                     adress: req.body.adress,
@@ -137,21 +138,19 @@ const userController = {
                 res.render('user/edit', { usuarioEditar: usuario, title: "Editar usuario" });
             })
 
-    },
+    }, 
 
-    update: (req, res) => {
+    update: async (req, res) => {
 
+        const passwordOld = await db.Usuario.findOne({ where: { id:req.params.id } });
 
-
-
-
-        if (req.body.password == req.body.password2) {
+        if (req.body.password == req.body.password2) { 
 
             db.Usuario.update({
                 first_name: req.body.nombre,
                 last_name: req.body.apellido,
                 email: req.body.email,
-                password: bcryptjs.hashSync(req.body.password, 10),
+         
                 dni: req.body.dni,
                 address: req.body.domicilio,
                 birth_date: req.body.nacimiento,
