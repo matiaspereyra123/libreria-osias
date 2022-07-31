@@ -18,9 +18,8 @@ const userController = {
         let errors = validationResult(req); //guarda validacion errores
          const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email} })
          try {
- 
              if(usuarioRegistrado===null){
-                 res.render("user/register", {
+                 res.render("user/login", {
                      errors: errors.mapped(),
                      old: req.body,
                      title: "Crear Usuario",
@@ -74,7 +73,7 @@ const userController = {
             title: "Registro",
         });
     },
-    
+
     save: async (req, res) => {
         let errors = validationResult(req); //guarda validacion errores
         console.log(errors);
