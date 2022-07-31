@@ -13,9 +13,8 @@ const userController = {
             title: "Iniciar sesión"
         });
     },
+
     loginProcess: async(req,res)=> {
-
-
         let errors = validationResult(req); //guarda validacion errores
          const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email} })
          try {
@@ -27,8 +26,7 @@ const userController = {
                      title: "Crear Usuario",
                  }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
              }else{
-                 if (errors.isEmpty()) {
-                    
+                 if (errors.isEmpty()) { 
                      //bloque que valida si errors esta vacio
                                   let passwordOk = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
                                  if(passwordOk){
@@ -53,21 +51,15 @@ const userController = {
                      res.render("user/register", {errors:{email:{ msg: "Este correo electrónico ya se encuentra registrado" }}, old: req.body, title: "Crear Usuario"});
                  }
              }
- 
- 
          } catch(error){
              console.log(error)
- 
          }
- 
- 
-  
-       
          },
 
     profile: async (req, res) => {
             res.render("user/profile", { usuarioLogeado: req.session.usuarioLogeado, title: "Perfil de usuario"});
     },
+
     logout: function (req, res) {
         res.clearCookie('recordar'); //destruir cookie para el logout 
         req.session.destroy(); //destruir  session
@@ -82,29 +74,23 @@ const userController = {
             title: "Registro",
         });
     },
+    
     save: async (req, res) => {
         let errors = validationResult(req); //guarda validacion errores
-
         console.log(errors);
-
         const project = await db.Usuario.findOne({ where: { email: req.body.email } });
         if (project === null) {
-
             if (errors.isEmpty()) {
                 //bloque que valida si errors esta vacio
-     
-                         db.Usuario.create({
+                    db.Usuario.create({
                     first_name: req.body.nombre,
                     last_name: req.body.apellido,
                     email: req.body.email,
-
                     password: bcryptjs.hashSync(req.body.password, 10),
                     dni: req.body.dni,
                     adress: req.body.adress,
                     birth_date: req.body.birth_date,
                     image: req.file ? req.file.filename : "avatar.jpg",
-
-
                 })
                     .then(() => {
                         res.redirect('/user/profile');
@@ -112,9 +98,7 @@ const userController = {
 
                     .catch(function (error) {
                         console.log(error)
-                    })
-      
-           
+                    }) 
             } else {
                 res.render("user/register", {
                     errors: errors.mapped(),
@@ -122,14 +106,9 @@ const userController = {
                     title: "Crear Usuario",
                 }); //enviamos a la vista array con errores , y old envia datos validos para no volver a completarlos
             }
-
-
         } else {
             res.render("user/register", { errors: { email: { msg: "Este correo electrónico ya se encuentra registrado" } }, old: req.body, title: "Crear Usuario" });
         }
-
-
-
     },
 
     edit: function (req, res) {
@@ -137,16 +116,14 @@ const userController = {
             .then(function (usuario) {
                 res.render('user/edit', { usuarioEditar: usuario, title: "Editar usuario" });
             })
-
     }, 
 
+
     update: async (req, res) => {
-
         const passwordOld = await db.Usuario.findOne({ where: { id:req.params.id } });
-
-        if (req.body.password == req.body.password2) { 
-
-            db.Usuario.update({
+         try{
+                if (req.body.password == req.body.password2) { 
+                db.Usuario.update({
                 first_name: req.body.nombre,
                 last_name: req.body.apellido,
                 email: req.body.email,
@@ -160,11 +137,7 @@ const userController = {
                 where: {
                     id: req.params.id
                 }
-
-
             })
-
-
                 .then(() => {
                     res.redirect('/')
                 })
@@ -173,18 +146,18 @@ const userController = {
                     console.log(error)
                 })
 
-
-
         } else {
             res.render("user/edit", {
                 errors: { datos: { msg: "Las contraseñas deben ser iguales" } }, usuarioEditar: req.body, title: "Editar Usuario",
             });
         }
-
-
+         }catch(error){
+                console.log(error);
+         }
+   
     },
 
-    // agrego controlador para formulario de recuperación de contraseña
+  // agrego controlador para formulario de recuperación de contraseña
     pass: function (req, res) {
         return res.render("user/pass", {
             hoja: "userStyles.css",
@@ -192,8 +165,8 @@ const userController = {
         });
     },
 
-    destroy: (req, res) => {
 
+    destroy: (req, res) => {
         db.Usuario.destroy({
             where: {
                 id: req.params.id
@@ -206,10 +179,8 @@ const userController = {
             .catch(function (error) {
                 console.log(error)
             })
-
-
-
     },
+
     disable: (req, res) => {
         db.Usuario.update({
             active: 0
@@ -225,7 +196,6 @@ const userController = {
             .catch(function (error) {
                 console.log(error)
             })
-
     },
 
     list: (req, res) => {
@@ -234,7 +204,6 @@ const userController = {
             .then(function (usuarios) {
                 res.render("user/usersList", { usuarios: usuarios, title: "Lista de Usuarios" });
             })
-
     },
 };
 
