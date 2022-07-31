@@ -16,8 +16,6 @@ window.onload = function(){
         validarPassword();
     })
 
-    
-    
     campoEmail.addEventListener("blur",(e)=>{
             validarCorreo();
     })
@@ -40,8 +38,8 @@ window.onload = function(){
              iconEmail.style.visibility="visible";
              iconEmail.style.color="#19c8a6";
            // parrafoEmail.innerHTML=" FORMATO válido";
-        }else {
-            parrafoEmail.innerHTML="Tenés que ingresar un correo electrónico válido";
+        }else{
+            parrafoEmail.innerHTML="El correo electrónico no es válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
             campoEmail.style.border="2.1px solid #EF5350";
@@ -80,37 +78,5 @@ window.onload = function(){
 
         }
     }
-
-
-    // btnEnviar.addEventListener("click",(e)=>{
-    //     //Revisar esta línea de preventDefault, porque como estaba no me dejaba loguearme
-    //     e.preventDefault();
-
-    //     let errores = {}
-        
-    //     if (campoEmail.value.match(expReg)) {
-    //         errores.email = "Ingresá un correo electrónico válido"
-    //     }
-
-    //     if (campoPassword.value=='') {
-    //         errores.password = "Ingresá tu contraseña"
-            
-    //     }
-
-    //     if (Object.keys(errores).length >=1) {
-
-
-    //         parrafoEmail.innerText = (errores.email) ? errores.email: "";
-    //         parrafoPassword.innerText = (errores.password) ? errores.password: "";
-           
-
-    //     } else {
-            
-    //         form.submit();
-            
-    //     }
-        
-       
-    // })
  
 }
