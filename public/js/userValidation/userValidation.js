@@ -1,4 +1,5 @@
-window.onload = function(){
+
+    window.onload = function(){
     //let formu =  document.getElementById('form');
     let campoEmail=document.getElementById('email');
     let campoPassword = document.querySelector('#password');
@@ -8,24 +9,34 @@ window.onload = function(){
     let iconEmail = document.getElementById('iconEmail');
     let iconPassword=document.getElementById('iconPassword');
     let btnEnviar=document.getElementById('btnEnviar');
+    let errorMsgPass = document.getElementById('errorMsgPass');
+    let errorMsgEmail = document.getElementById('errorMsgEmail');
+
 
     btnEnviar.addEventListener("click",(e)=>{
         //Revisar esta línea de preventDefault, porque como estaba no me dejaba loguearme
+        console.log(campoEmail.value);
         // e.preventDefault();
-        validarCorreo();
-        validarPassword();
+            validarCorreo();
+            validarPassword();
     })
+
 
     campoEmail.addEventListener("blur",(e)=>{
             validarCorreo();
-    })
+  
+
+        })
+
 
     campoPassword.addEventListener("blur",(e)=>{
-     
-        validarPassword();
+             validarPassword();
     })
 
-    
+
+
+
+
 
     const validarCorreo=()=>{
         expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -39,6 +50,7 @@ window.onload = function(){
              iconEmail.style.color="#19c8a6";
            // parrafoEmail.innerHTML=" FORMATO válido";
         }else{
+       
             parrafoEmail.innerHTML="El correo electrónico no es válido";
             parrafoEmail.style.display="block";
             parrafoEmail.classList.add('is-invalid');
@@ -47,9 +59,9 @@ window.onload = function(){
             iconEmail.classList.add('fa-circle-xmark');
             iconEmail.style.visibility="visible";
             iconEmail.style.color="#EF5350";
-        
+
+      
         } 
-   
     }
 
  
@@ -73,6 +85,7 @@ window.onload = function(){
             iconPassword.classList.toggle('fa-circle-check');
             iconPassword.style.visibility="visible";
             iconPassword.style.color="#19c8a6";
+
 
          
 
