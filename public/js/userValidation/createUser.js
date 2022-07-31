@@ -1,7 +1,7 @@
 window.onload = function () {
 
 
-
+    regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
     let inputNombre = document.querySelector("#nombre");
     let errorNombre = document.querySelector("#error-nombre");
     let inputApellido = document.querySelector("#apellido");
@@ -19,6 +19,7 @@ window.onload = function () {
 
     let botonSubmit = document.querySelector(".boton-enviar")
     let form = document.querySelector(".formulario-completo")
+    let samePass=document.getElementById('samePass');
 
 
 
@@ -185,7 +186,13 @@ window.onload = function () {
 
             inputPass.addEventListener("blur", function () {
 
-                validarPass()
+                    validarPass()
+                    passwordSame();
+                
+            })
+            inputPass2.addEventListener("blur",function(){
+                validarPass2()
+                passwordSame();
             })
 
 
@@ -223,7 +230,124 @@ window.onload = function () {
 
             }
 
-            inputPass2.addEventListener("blur", function(){
+
+
+            const validarPass2 = () => {
+                regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+      
+
+                if (inputPass2.value.length < 1) {
+                    errorPass2.innerText = "Ingresá tu contraseña";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+
+                }
+
+                else if (!(inputPass2.value.match(regularExp))) {
+                    errorPass2.innerText = "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+
+
+                } else {
+
+                    errorPass2.style.display = "none";
+                    inputPass2.style.border = "#19c8a6 2.1px solid";
+                    iconPass2.classList.remove("fa-circle-xmark")
+                    iconPass2.classList.add("fa-circle-check")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#19c8a6"
+                }
+
+            }
+
+
+
+            const passwordSame=()=>{
+                regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+
+                        if((inputPass2.value == inputPass.value)&&((inputPass.value.match(regularExp))&&(inputPass2.value.match(regularExp)))){
+                         
+                    samePass.style.display = "none";
+                    inputPass2.style.border = "#19c8a6 2.1px solid";
+                    iconPass2.classList.remove("fa-circle-xmark")
+                    iconPass2.classList.add("fa-circle-check")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#19c8a6"
+                    
+                    errorPass.style.display = "none";
+                    inputPass.style.border = "#19c8a6 2.1px solid";
+                    iconPass.classList.remove("fa-circle-xmark")
+                    iconPass.classList.add("fa-circle-check")
+                    iconPass.style.visibility = "visible"
+                    iconPass.style.color = "#19c8a6"
+                        }else{
+                            samePass.innerText = "Las contraseñas no coinciden";
+                            inputPass2.style.border = "2.1px solid #EF5350"
+                            iconPass2.classList.add("fa-circle-xmark")
+                            iconPass2.style.visibility = "visible"
+                            iconPass2.style.color = "#EF5350"
+                            samePass.style.display = "block";
+                            inputPass.style.border = "2.1px solid #EF5350"
+                            iconPass.classList.add("fa-circle-xmark")
+                            iconPass.style.visibility = "visible"
+                            iconPass.style.color = "#EF5350"
+
+                        }
+                    
+       
+            }
+
+
+
+
+    /*         const passwordSame=()=>{
+                let pass1=validarPass();
+                let pass2=validarPass2();
+                console.log(pass1);
+                console.log(pass2);
+                    if (validarPass2()&&validarPass()){
+                        if(inputPass2.value == inputPass.value){
+                         
+                    errorPass2.style.display = "none";
+                    inputPass2.style.border = "#19c8a6 2.1px solid";
+                    iconPass2.classList.remove("fa-circle-xmark")
+                    iconPass2.classList.add("fa-circle-check")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#19c8a6"
+                    
+                    errorPass.style.display = "none";
+                    inputPass.style.border = "#19c8a6 2.1px solid";
+                    iconPass.classList.remove("fa-circle-xmark")
+                    iconPass.classList.add("fa-circle-check")
+                    iconPass.style.visibility = "visible"
+                    iconPass.style.color = "#19c8a6"
+                        }else{
+                            errorPass2.innerText = "Las contraseñas no coinciden";
+                            inputPass2.style.border = "2.1px solid #EF5350"
+                            iconPass2.classList.add("fa-circle-xmark")
+                            iconPass2.style.visibility = "visible"
+                            iconPass2.style.color = "#EF5350"
+                          
+                            inputPass.style.border = "2.1px solid #EF5350"
+                            iconPass.classList.add("fa-circle-xmark")
+                            iconPass.style.visibility = "visible"
+                            iconPass.style.color = "#EF5350"
+                        }
+                    }
+       
+            }
+ */
+
+
+
+
+  /*           inputPass2.addEventListener("blur", function(){
+                
                 if (inputPass2.value != inputPass.value) {
                     errorPass2.innerText = "Las contraseñas no coinciden";
                     inputPass2.style.border = "2.1px solid #EF5350"
@@ -242,7 +366,20 @@ window.onload = function () {
 
                 }
 
-            })
+            }) */
+
+
+      
+
+
+
+
+
+
+
+
+
+
 
 
         botonSubmit.addEventListener("click", function(event){
