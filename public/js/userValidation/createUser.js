@@ -133,7 +133,24 @@ window.onload = function(){
                         iconDni.style.color = "#19c8a6"
     
                      }
-                     
+                     inputImagen.addEventListener("blur", function(){
+                        let extension = file.value.split(".").pop()
+                
+                        if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif" ) {
+                           
+                           errorImagen.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
+                           iconImagen.classList.add("fa-circle-xmark")
+                           iconImagen.style.visibility = "visible"
+                           iconImagen.style.color = "#EF5350"
+                
+                        } else {
+                            errorImagen.style.display = "none";
+                            iconImagen.classList.remove("fa-circle-xmark")
+                            iconImagen.classList.add("fa-circle-check")
+                            iconImagen.style.visibility = "visible"
+                            iconImagen.style.color = "#19c8a6" 
+                        }
+                    })
         
 
 
