@@ -22,6 +22,7 @@ const validar = [
   .isLength({min:2}).withMessage("El idioma debe tener al menos 2 caracteres"),
   body("precio").notEmpty().withMessage("Ingresá el precio del libro")
   .isLength({min:2}).withMessage("El precio debe tener al menos 2 caracteres"),
+  body("fecha_publicacion").notEmpty().withMessage("Ingresá el año de publicación"),
   body("isbn").notEmpty().withMessage("Ingresá el ISBN del libro"),
   body("cantidad").notEmpty().withMessage("Ingresá la cantidad de libros"),
   body("editorial")

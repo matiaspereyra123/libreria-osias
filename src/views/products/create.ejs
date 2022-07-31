@@ -66,8 +66,7 @@
                 <% }) %>
             </select>
             <i class="fa-solid fa-circle-xmark" id="iconPublisher"></i>
-            
-              <small class="is-invalid" id="error-publisher"></small>
+            <small class="is-invalid" id="error-publisher"></small>
           
             <% if(locals.errors && errors.editorial) {%>
               <div class="text-danger">
@@ -146,6 +145,8 @@
                             <div class="div-campos">
                             <label for="idioma" class="form-label">Idioma</label>
                             <input type="text" name="idioma" id="idioma" class="input-barras"  value="<%= locals.old ? old.idioma : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconIdioma"></i>
+                            <small class="is-invalid" id="error-idioma"></small>
                             <% if(locals.errors && errors.idioma) {%>
                               <div class="text-danger">
                        
@@ -158,6 +159,8 @@
                             <div class="div-campos">
                             <label for="isbn" class="form-label">ISBN</label>
                             <input type="text" name="isbn" id="isbn" class="input-barras"  value="<%= locals.old ? old.isbn : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconIsbn"></i>
+                            <small class="is-invalid" id="error-isbn"></small>
                             <% if(locals.errors && errors.isbn) {%>
                               <div class="text-danger">
                        
@@ -169,6 +172,8 @@
                             <div class="div-campos">
                             <label for="precio" class="form-label">Precio</label>
                             <input type="number" name="precio" id="precio" class="input-barras"  value="<%= locals.old ? old.precio : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconPrecio"></i>
+                            <small class="is-invalid" id="error-precio"></small>
                             <% if(locals.errors && errors.precio) {%>
                               <div class="text-danger">
                        
@@ -180,12 +185,24 @@
 
                             <div class="div-campos">
                             <label for="fecha_publicacion" class="form-label">Año de publicación</label>
-                            <input type="number" name="fecha_publicacion" id="fecha_publicacion" class="input-barras"  value="<%= locals.old ? old.fecha_publicacion : null %>">
+                            <input type="number" name="fecha_publicacion" id="fecha" class="input-barras"  value="<%= locals.old ? old.fecha_publicacion : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconFecha"></i>
+                            <small class="is-invalid" id="error-fecha"></small>
                           </div>
+                          <% if(locals.errors && errors.fecha_publicacion) {%>
+                            <div class="text-danger">
+                     
+                              <%= errors.fecha_publicacion.msg %>
+                     
+                            </div>
+                          </div>
+                            <% } %> 
 
                           <div class="div-campos">  
                           <label for="cantidad" class="form-label">Cantidad</label>
                             <input type="number" name="cantidad" id="cantidad" class="input-barras"  value="<%= locals.old ? old.cantidad : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconCantidad"></i>
+                            <small class="is-invalid" id="error-cantidad"></small>
                             <% if(locals.errors && errors.cantidad) {%>
                               <div class="text-danger">
                        
@@ -198,6 +215,8 @@
                             <div class="div-campos">  
                             <label for="paginas">Cantidad de páginas</label>
                             <input type="number" name="paginas" id="paginas" class="input-barras"  value="<%= locals.old ? old.paginas : null %>">
+                            <i class="fa-solid fa-circle-xmark" id="iconPaginas"></i>
+                            <small class="is-invalid" id="error-paginas"></small>
                             <% if(locals.errors && errors.paginas) {%>
                               <section class="text-danger">
                         
@@ -211,8 +230,7 @@
                               <label class="form-label" for="portada">Imagen de la portada</label>
                             <input type="file" name="imagen" class="input-avatar" id="imagen">
                             <i class="fa-solid fa-circle-xmark" id="iconImage"></i>
-                         
-                              <small class="is-invalid" id="error-image"></small>
+                            <small class="is-invalid" id="error-image"></small>
                             
                             <% if(locals.errors && errors.imagen) {%>
                               <section class="text-danger">

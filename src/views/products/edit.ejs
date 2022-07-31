@@ -27,10 +27,12 @@
                     
                       <label for="autor" class="form-label">Autor</label>
                       <div class="primerAutor">
-                      <input type="text" name="autor" id="autor" class="input-barras" value="<%=libroEditar.author%>">
+                      <input type="text" name="autor" id="author" class="input-barras" value="<%=libroEditar.author%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconAuthor"></i>
                       <i class="fa-solid fa-circle-plus"></i>
                       <i class="fa-solid fa-circle-minus"></i>
                     </div>
+                    <small class="is-invalid" id="error-author"></small>
                  
               
             
@@ -44,7 +46,7 @@
                      <div class="div-campos"> 
                      <label for="editorial" class="form-label">Seleccioná una editorial o creá una nueva <a
                         href="/product/createEditorial" class="linkAutor">aquí</a></label>
-                    <select name="editorial" value="<%= libroEditar.publisher %>" class="form-input-categoria">
+                    <select name="editorial" value="<%= libroEditar.publisher %>" class="form-input-categoria" id="publisher">
                       <option value="" disabled>Seleccioná una editorial</option>
                       <% editoriales.forEach(editorial => { %>
                         <option <%= libroEditar.editorial.name == editorial.name ? "selected": "" %> value="<%= editorial.id %>">
@@ -52,11 +54,16 @@
                         </option>
                       <% }) %>
                     </select>
+                    <i class="fa-solid fa-circle-xmark" id="iconPublisher"></i>
+                    <small class="is-invalid" id="error-publisher"></small>
+
                   </div>
                   
                       <div class="div-campos">
                       <label for="titulo" class="form-label">Título</label>  
-                      <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.title%>" >
+                      <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="input-barras" value="<%=libroEditar.title%>"  id="titulo">
+                      <i class="fa-solid fa-circle-xmark" id="iconTitle"></i>
+                      <small class="is-invalid" id="error-title"></small>
                     </div>
                      
 
@@ -76,46 +83,68 @@
                     <label for="genero" class="form-label">Género</label>
                       <!-- No queda seleccionado el género original -->
                       
-                      <select id="select" name="genero"  class="form-input-categoria">
+                      <select id="genero" name="genero"  class="form-input-categoria">
                         <option value="" disabled>Seleccioná un género</option>
                         <% generos.forEach(genero => { %>
                           <option <%= libroEditar.genero.name == genero.name ? "selected" : "" %>  value="<%= genero.id %>"><%= genero.name %> </option>
                         <% }) %>
                       </select>
+                      <i class="fa-solid fa-circle-xmark" id="iconGenre"></i>
+                      <small class="is-invalid" id="error-genre"></small>
                     </div>
                    
                      
-                    
+                    <div class="div-campos">
+                      <label for="idioma" class="form-label">Idioma</label>
+                      <input type="text" name="idioma" id="idioma" placeholder="Idioma" class="input-barras" value="<%=libroEditar.idioma%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconIdioma"></i>
+                      <small class="is-invalid" id="error-idioma"></small>
+                    </div>
+
+
                       <div class="div-campos">
                       <label for="isbn" class="form-label">ISBN</label>
-                      <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" value="<%=libroEditar.isbn%>"required>
+                      <input type="text" name="isbn" id="isbn" placeholder="ISBN" class="input-barras" value="<%=libroEditar.isbn%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconIsbn"></i>
+                      <small class="is-invalid" id="error-isbn"></small>
                     </div>
                     
                     <div class="div-campos">  
                     <label for="precio" class="form-label">Precio</label>
-                      <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.price%>" required>
+                      <input type="number" name="precio" id="precio" placeholder="Precio" class="input-barras"value="<%=libroEditar.price%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconPrecio"></i>
+                      <small class="is-invalid" id="error-precio"></small>
                       </div>
   
                    
 
                       <div class="div-campos">
-                      <label for="fechaLanzamiento" class="form-label">Fecha de publicación</label>
-                     <input type="year" name="fechaLanzamiento" class="input-barras" id="fechaLanzamiento" value="<%= libroEditar.publication_date %>" required> 
+                      <label for="fecha_publicacion" class="form-label">Fecha de publicación</label>
+                     <input type="number" name="fecha_publicacion" class="input-barras" id="fecha" value="<%= libroEditar.publication_date %>"> 
+                     <i class="fa-solid fa-circle-xmark" id="iconFecha"></i>
+                    <small class="is-invalid" id="error-fecha"></small>
                     </div> 
                    
                  
                     <div class="div-campos">
                     <label for="cantidad" class="form-label">Cantidad</label>
-                      <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.stock%>"required>
+                      <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="input-barras" value="<%=libroEditar.stock%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconCantidad"></i>
+                      <small class="is-invalid" id="error-cantidad"></small> 
                     </div>
+
                     <div class="div-campos">
                       <label for="paginas" class="form-label">Páginas</label>
-                      <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras"value="<%=libroEditar.pages%>" required>
+                      <input type="number" name="paginas" id="paginas" placeholder="Cantidad de páginas" class="input-barras"value="<%=libroEditar.pages%>">
+                      <i class="fa-solid fa-circle-xmark" id="iconPaginas"></i>
+                      <small class="is-invalid" id="error-paginas"></small>
                     </div>
               
                    <div class="div-campos">
                     <label for="portada" class="form-label">Imagen de la portada</label>
-                     <input type="file" name="imagen" class="input-avatar" id="images" value="<%=libroEditar.image%>">
+                     <input type="file" name="imagen" class="input-avatar" id="imagen" value="<%=libroEditar.image%>">
+                     <i class="fa-solid fa-circle-xmark" id="iconImage"></i>
+                    <small class="is-invalid" id="error-image"></small>
                     </div>
                     
                     <label for="descripcion" class="form-label">Descripción</label>
@@ -125,7 +154,10 @@
                         name="descripcion"
                         rows="20"
                         cols="50"
-                     ><%=libroEditar.description%></textarea> 
+                     ><%=libroEditar.description%></textarea>
+                     <i class="fa-solid fa-circle-xmark" id="iconDescription"></i>
+                     <br>
+                    <small class="is-invalid" id="error-description"></small> 
                      </div>   
         
                                <div class="botones-editar">
@@ -161,5 +193,5 @@
           </footer>
         
     </body>
-    <script src="/js/edit.js"></script>
+    <script src="/js/productValidation/edit.js"></script>
 </html>

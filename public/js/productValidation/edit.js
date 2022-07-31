@@ -1,9 +1,13 @@
-
 window.onload = function(){
 
-    let segundoAutor = document.querySelector(".segundoAutor");
-    let plusicon = document.querySelector(".fa-circle-plus");
-    let minusicon = document.querySelector(".fa-circle-minus");
+    let segundoAutor = document.querySelector(".segundoAutor")
+
+    let plusicon = document.querySelector(".fa-circle-plus")
+
+    let minusicon = document.querySelector(".fa-circle-minus")
+
+
+
 
     let inputAuthor = document.querySelector("#author");
     let errorAuthor = document.querySelector("#error-author");
@@ -29,22 +33,9 @@ window.onload = function(){
     let errorCantidad = document.querySelector("#error-cantidad");
     let inputPaginas = document.querySelector("#paginas");
     let errorPaginas = document.querySelector("#error-paginas");
-    
-    // let errorBack = document.querySelectorAll("div .text-danger");
-    // let inputs = document.querySelectorAll(".formulario-completo input")
 
-
-    let botonSubmit = document.querySelector(".boton-enviar");
+    let botonSubmit = document.querySelector(".edit-boton-enviar");
     let form = document.querySelector(".formulario-completo");
-
-
-
-
-
-
-    
-    
-
 
 
     plusicon.addEventListener("click", function(event){
@@ -59,7 +50,6 @@ window.onload = function(){
         segundoAutor.style.display = "none"
         
     })
-
 
     inputAuthor.addEventListener("blur", function(){
         if (inputAuthor.value.length < 1 ) {
@@ -415,3 +405,8 @@ window.onload = function(){
 
 
 }
+
+
+
+
+

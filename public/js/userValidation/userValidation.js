@@ -16,6 +16,8 @@ window.onload = function(){
         validarPassword();
     })
 
+    
+    
     campoEmail.addEventListener("blur",(e)=>{
             validarCorreo();
     })
@@ -78,5 +80,37 @@ window.onload = function(){
 
         }
     }
+
+
+    // btnEnviar.addEventListener("click",(e)=>{
+    //     //Revisar esta línea de preventDefault, porque como estaba no me dejaba loguearme
+    //     e.preventDefault();
+
+    //     let errores = {}
+        
+    //     if (campoEmail.value.match(expReg)) {
+    //         errores.email = "Ingresá un correo electrónico válido"
+    //     }
+
+    //     if (campoPassword.value=='') {
+    //         errores.password = "Ingresá tu contraseña"
+            
+    //     }
+
+    //     if (Object.keys(errores).length >=1) {
+
+
+    //         parrafoEmail.innerText = (errores.email) ? errores.email: "";
+    //         parrafoPassword.innerText = (errores.password) ? errores.password: "";
+           
+
+    //     } else {
+            
+    //         form.submit();
+            
+    //     }
+        
+       
+    // })
  
 }
