@@ -163,12 +163,11 @@ window.onload = function () {
             }
             })
 
-            //No funciona
 
-            inputImagen.addEventListener("blur", function () {
-                if (inputImagen.value >1) {
+            inputImagen.addEventListener("change", function () {
+               
                     validarImagen()      
-                }
+                
 
              
               
@@ -176,7 +175,7 @@ window.onload = function () {
                 
                 const validarImagen = () => {
 
-                    let extension = file.value.split(".").pop()
+                    let extension = inputImagen.value.split(".").pop()
 
                     if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif") {
                         errorImagen.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
