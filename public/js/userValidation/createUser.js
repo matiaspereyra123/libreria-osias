@@ -1,6 +1,5 @@
-
 window.onload = function () {
-    regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+    regularExp = /^(?=.\d)(?=.[\u0021-\u002b\u003c-\u0040])(?=.[A-Z])(?=.[a-z])\S{8,16}$/
     let inputNombre = document.querySelector("#nombre");
     let errorNombre = document.querySelector("#error-nombre");
     let inputApellido = document.querySelector("#apellido");
@@ -96,7 +95,7 @@ window.onload = function () {
 
 
     const validarCorreo = () => {
-        expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+        expReg = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
         if (inputEmail.value < 1) {
             errorEmail.innerHTML = "Ingresá el correo electrónico";
@@ -198,12 +197,11 @@ window.onload = function () {
                 passwordIguales()
             })
             
-       
     
 
 
             const validarPass = () => {
-                regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+                regularExp = /^(?=.\d)(?=.[\u0021-\u002b\u003c-\u0040])(?=.[A-Z])(?=.[a-z])\S{8,16}$/
 
 
                 if (inputPass.value.length < 1) {
@@ -240,8 +238,8 @@ window.onload = function () {
             
 
             const validarPass2 = () => {
-                regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
-
+                regularExp = /^(?=.\d)(?=.[\u0021-\u002b\u003c-\u0040])(?=.[A-Z])(?=.[a-z])\S{8,16}$/
+      
 
                 if (inputPass2.value.length < 1) {
                     errorPass2.innerText = "Confirmá tu contraseña";
@@ -284,7 +282,10 @@ window.onload = function () {
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
                     errorPass2.style.display = "block";
+               
+                    
                 }
+
             }
 
 
@@ -365,13 +366,12 @@ window.onload = function () {
 
 }
 
-        
 
 
 
 
 
-    
+
 
 
 
