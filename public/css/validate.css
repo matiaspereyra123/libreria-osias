@@ -20,3 +20,11 @@
   .fa-circle-check {
     visibility: hidden;
   }
+
+  .errorMsgEmail{
+    display:block;
+  }
+
+  .errorMsgPass{
+    display:block;
+  }

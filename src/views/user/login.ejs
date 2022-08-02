@@ -27,7 +27,7 @@
         <p id="emailP" style="display:none"></p>
         <% if(locals.errors && errors.email) {%>
           <section class="text-danger">
-            <%= errors.email.msg %>
+            <small class="errorMsgEmail"> <%= errors.email.msg %></small>
           </section>
         </div>    
        
@@ -38,8 +38,8 @@
             <input type="password" name="password" id="password" class="input-barras" minlength="4" ><i class="fa-solid fa-circle-xmark" id="iconPassword"></i>
             <p id="passwordP" style="display:none"></p>
             <% if(locals.errors && errors.password) {%>
-              <section class="text-danger">
-                <%= errors.password.msg %>
+              <section class="text-danger"> 
+                <small class="errorMsgPass"> <%= errors.password.msg %> </small>
               </section>
               <% } %>
                 <% if(locals.errors && errors.datos) {%>

@@ -70,6 +70,7 @@
   
                     <div class="div-campos"> 
                     <label for="fecha-nacimiento" class="label-nacimiento">Fecha de nacimiento</label>
+                    <input type="date" name="fecha-nacimiento" id="fecha-nacimiento"  class="input-barras">
                     </div>
                  
                     <div class="div-campos">  
@@ -93,12 +94,15 @@
                     <input type="password" name="password" id="password"  class="input-barras">
                     <i class="fa-solid fa-circle-xmark" id="iconPass"></i>
                     <small class="is-invalid" id="error-password"></small>
+                 
                     </div>
                     
                     <div class="div-campos">
                     <label for="password">Confirmar contraseña</label>
                     <input type="password" name="password2" id="password2"  class="input-barras">
-                    <i class="fa-solid fa-circle-xmark" id="iconPass2"></i>
+                    <i class="fa-solid fa-circle-xmark" id="iconPass2"></i>  
+                    <small class="is-invalid" id="samePass"></small> 
+                    <!-- <small class="is-invalid" id="error-password"></small> -->
                     <small class="is-invalid" id="error-password2"></small>
                     <% if (locals.errors && errors.password2) { %>
                       <div class="text-danger">

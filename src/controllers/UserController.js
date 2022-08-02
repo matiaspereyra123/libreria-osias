@@ -18,9 +18,8 @@ const userController = {
         let errors = validationResult(req); //guarda validacion errores
          const usuarioRegistrado = await db.Usuario.findOne({ where: { email: req.body.email} })
          try {
- 
              if(usuarioRegistrado===null){
-                 res.render("user/register", {
+                 res.render("user/login", {
                      errors: errors.mapped(),
                      old: req.body,
                      title: "Crear Usuario",
@@ -74,7 +73,7 @@ const userController = {
             title: "Registro",
         });
     },
-    
+
     save: async (req, res) => {
         let errors = validationResult(req); //guarda validacion errores
         console.log(errors);
@@ -121,7 +120,7 @@ const userController = {
 
     update: async (req, res) => {
         const passwordOld = await db.Usuario.findOne({ where: { id:req.params.id } });
-         try{
+         try {
                 if (req.body.password == req.body.password2) { 
                 db.Usuario.update({
                 first_name: req.body.nombre,
