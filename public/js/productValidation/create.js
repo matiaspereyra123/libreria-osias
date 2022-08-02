@@ -1,5 +1,5 @@
 
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', (event)=>{
 
 
     let segundoAutor = document.querySelector(".segundoAutor");
@@ -430,4 +430,4 @@ window.onload = function () {
     })
 
 
-}
+})

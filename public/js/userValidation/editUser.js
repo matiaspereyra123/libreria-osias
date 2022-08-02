@@ -1,9 +1,6 @@
+window.addEventListener('DOMContentLoaded', (event)=>{
 
-window.onload = function () {
-
-
-
-
+    
     regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
     let inputNombre = document.querySelector("#nombre");
     let errorNombre = document.querySelector("#error-nombre");
@@ -29,6 +26,7 @@ window.onload = function () {
     inputNombre.addEventListener("blur", function () {
 
         if (inputNombre.value.length < 1) {
+            errorNombre.style.display = "block"
             errorNombre.innerText = "Ingresá tu nombre";
             inputNombre.style.border = "2.1px solid #EF5350"
             iconNombre.classList.add("fa-circle-xmark")
@@ -37,6 +35,7 @@ window.onload = function () {
         }
 
         else if (inputNombre.value.length < 2) {
+            errorNombre.style.display = "block"
             errorNombre.innerText = "El nombre debe tener al menos 2 caracteres";
             inputNombre.style.border = "2.1px solid #EF5350"
             iconNombre.classList.add("fa-circle-xmark")
@@ -60,6 +59,7 @@ window.onload = function () {
     inputApellido.addEventListener("blur", function () {
 
         if (inputApellido.value.length < 1) {
+            errorApellido.style.display = "block"
             errorApellido.innerText = "Ingresá tu apellido";
             inputApellido.style.border = "2.1px solid #EF5350"
             iconApellido.classList.add("fa-circle-xmark")
@@ -68,6 +68,7 @@ window.onload = function () {
         }
 
         else if (inputApellido.value.length < 2) {
+            errorApellido.style.display = "block"
             errorApellido.innerText = "El apellido debe tener al menos 2 caracteres";
             inputApellido.style.border = "2.1px solid #EF5350"
             iconApellido.classList.add("fa-circle-xmark")
@@ -140,6 +141,7 @@ window.onload = function () {
         inputDni.addEventListener("blur", function () {
 
             if (inputDni.value.length < 1) {
+                errorDni.style.display = "block"
                 errorDni.innerText = "Ingresá tu DNI";
                 inputDni.style.border = "2.1px solid #EF5350"
                 iconDni.classList.add("fa-circle-xmark")
@@ -174,6 +176,7 @@ window.onload = function () {
                     let extension = inputImagen.value.split(".").pop()
 
                     if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif") {
+                        errorImagen.style.display = "block"
                         errorImagen.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
                         iconImagen.classList.add("fa-circle-xmark")
                         iconImagen.style.visibility = "visible"
@@ -193,16 +196,17 @@ window.onload = function () {
            
 
             inputPass.addEventListener("blur", function () {
-
                     validarPass()
-                   
-                
+                    passwordIguales()
             })
+
             inputPass2.addEventListener("blur",function(){
                 validarPass2()
-              
+                passwordIguales()
             })
-
+            
+       
+    
 
 
             const validarPass = () => {
@@ -210,26 +214,28 @@ window.onload = function () {
 
 
                 if (inputPass.value.length < 1) {
+                   
                     errorPass.innerText = "Ingresá tu contraseña";
                     inputPass.style.border = "2.1px solid #EF5350"
                     iconPass.classList.add("fa-circle-xmark")
                     iconPass.style.visibility = "visible"
                     iconPass.style.color = "#EF5350"
+                    errorPass.style.display = "block";
+                    
 
                 }
 
                 else if (!(inputPass.value.match(regularExp))) {
+                   
                     errorPass.innerText = "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.";
                     inputPass.style.border = "2.1px solid #EF5350"
                     iconPass.classList.add("fa-circle-xmark")
                     iconPass.style.visibility = "visible"
                     iconPass.style.color = "#EF5350"
+                    errorPass.style.display = "block";
 
-                }
 
-
-                
-                else {
+                } else {
                     errorPass.style.display = "none";
                     inputPass.style.border = "#19c8a6 2.1px solid";
                     iconPass.classList.remove("fa-circle-xmark")
@@ -240,40 +246,34 @@ window.onload = function () {
 
             }
 
-
+            
 
             const validarPass2 = () => {
                 regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
-      
+
 
                 if (inputPass2.value.length < 1) {
+                 
                     errorPass2.innerText = "Confirmá tu contraseña";
                     inputPass2.style.border = "2.1px solid #EF5350"
                     iconPass2.classList.add("fa-circle-xmark")
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
-
+                    errorPass2.style.display = "block";
                 }
 
                 else if (!(inputPass2.value.match(regularExp))) {
+                  
                     errorPass2.innerText = "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.";
                     inputPass2.style.border = "2.1px solid #EF5350"
                     iconPass2.classList.add("fa-circle-xmark")
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
-
+                    errorPass2.style.display = "block";
 
                 } 
                 
-                else if (inputPass2.value != inputPass.value) {
-                    errorPass2.innerText = "Las contraseñas no coinciden";
-                    inputPass2.style.border = "2.1px solid #EF5350"
-                    iconPass2.classList.add("fa-circle-xmark")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#EF5350"
-                    
-                }
-                
+   
                 else {
 
                     errorPass2.style.display = "none";
@@ -287,7 +287,17 @@ window.onload = function () {
             }
 
 
-
+            const passwordIguales = () => {
+              if (inputPass.value != inputPass2.value  ) {
+                   
+                    errorPass2.innerText = "Las contraseñas no coinciden";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+                    errorPass2.style.display = "block";
+                }
+            }
 
 
         botonSubmit.addEventListener("click", function(event){
@@ -346,7 +356,7 @@ window.onload = function () {
                     errorDni.innerText = (errores.dni) ? errores.dni: "";
                     errorPass.innerText = (errores.pass) ? errores.pass: "";
                     errorPass2.innerText = (errores.pass2) ? errores.pass2: "";
-                   
+                    // errorImagen.innerText = (errores.imagen) ? errores.imagen: "";
                    
     
         
@@ -365,29 +375,4 @@ window.onload = function () {
 
 
 
-}
-
-        
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
