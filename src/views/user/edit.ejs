@@ -22,21 +22,29 @@
                       <div class="div-campos">
                       <label for="nombre" class="form-label">Nombre</label>
                       <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="input-barras" value="<%=usuarioEditar.first_name %>">
+                      <i class="fa-solid fa-circle-xmark" id="iconNombre"></i>
+                      <small class="is-invalid" id="error-nombre"></small>
                       </div>
 
                       <div class="div-campos">
                       <label for="apellido" class="form-label">Apellido</label>
                       <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="input-barras" value="<%=usuarioEditar.last_name %>">
+                      <i class="fa-solid fa-circle-xmark" id="iconApellido"></i>
+                      <small class="is-invalid" id="error-apellido"></small>
                       </div>
 
                       <div class="div-campos">
                       <label for="email" class="form-label">Correo electrónico</label>
                       <input type="email" name="email" id="email" placeholder="E-mail" class="input-barras" value="<%=usuarioEditar.email %>" >
+                      <i class="fa-solid fa-circle-xmark" id="iconEmail"></i>
+                      <small class="is-invalid" id="error-email"></small>
                       </div>
 
                       <div class="div-campos">
                         <label for="dni" class="form-label">Documento</label>
                         <input type="text" name="dni" id="dni" placeholder="Documento" class="input-barras" value="<%=usuarioEditar.dni %>" >
+                        <i class="fa-solid fa-circle-xmark" id="iconDni"></i>
+                     <small class="is-invalid" id="error-dni"></small>
                       </div>
   
   
@@ -63,23 +71,30 @@
                
                     <div class="div-campos">
                     <label class="form-label" for="avatar">Seleccionar una imagen de perfil</label>
-                    <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.image %>" >
+                    <input type="file" name="imagen" class="input-avatar" value="<%=usuarioEditar.image %>" id="imagen">
+                    <i class="fa-solid fa-circle-xmark" id="iconImagen"></i>
+                    <small class="is-invalid" id="error-imagen"></small>
                     </div>
                 
                     <div class="div-campos">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" name="password" id="password" placeholder="Contraseña" class="input-barras" >
+                    <i class="fa-solid fa-circle-xmark" id="iconPass"></i>
+                    <small class="is-invalid" id="error-password"></small>
                     </div>
 
                     <div class="div-campos">
                     <label for="password" class="form-label">Confirmar contraseña</label>
                     <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="input-barras" >
+                    <i class="fa-solid fa-circle-xmark" id="iconPass2"></i>  
+                    <small class="is-invalid" id="error-password2"></small>  
                     <% if(locals.errors && errors.datos) {%>
                       <section class="text-danger">
                         <%= errors.datos.msg %>
                       </section>
-                    </div>
                       <% } %>
+                    </div>
+
                   <div class="botones-editar">
                     <button type="submit" class="edit-boton-enviar">ENVIAR</button>
                   </div>
@@ -103,6 +118,8 @@
           <footer class="footer-section">
             <%- include ("../partials/footer.ejs")%>
           </footer>
+
+      <script src="/js/userValidation/editUser.js"></script>
         
     </body>
 </html>

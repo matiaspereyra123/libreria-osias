@@ -1,5 +1,8 @@
+window.addEventListener('DOMContentLoaded', (event)=>{
 
-    window.onload = function(){
+
+    
+
     //let formu =  document.getElementById('form');
     let campoEmail=document.getElementById('email');
     let campoPassword = document.querySelector('#password');
@@ -92,4 +95,4 @@
         }
     }
  
-}
+})
