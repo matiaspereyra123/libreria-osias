@@ -276,24 +276,29 @@ window.onload = function(){
 
   
 
-    inputImage.addEventListener("blur", function(){
-        let extension = file.value.split(".").pop()
+    inputImage.addEventListener("change", function(e){
+      
+            let extension = inputImage.value.split(".").pop()
 
-        if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif" ) {
-           
-           errorImage.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
-           iconImage.classList.add("fa-circle-xmark")
-           iconImage.style.visibility = "visible"
-           iconImage.style.color = "#EF5350"
+            if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif" ) {
+               
+               errorImage.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
+               iconImage.classList.add("fa-circle-xmark")
+               iconImage.style.visibility = "visible"
+               iconImage.style.color = "#EF5350"
+    
+            } else {
+                errorImage.style.display = "none";
+                iconImage.classList.remove("fa-circle-xmark")
+                iconImage.classList.add("fa-circle-check")
+                iconImage.style.visibility = "visible"
+                iconImage.style.color = "#19c8a6" 
+            }
 
-        } else {
-            errorImage.style.display = "none";
-            iconImage.classList.remove("fa-circle-xmark")
-            iconImage.classList.add("fa-circle-check")
-            iconImage.style.visibility = "visible"
-            iconImage.style.color = "#19c8a6" 
-        }
-    })
+        
+        })           
+        
+ 
 
 
 

@@ -1,7 +1,7 @@
 
 window.onload = function () {
 
-    // const db = require("../../../src/database/models")
+
 
 
     regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
@@ -67,7 +67,7 @@ window.onload = function () {
             iconApellido.style.color = "#EF5350"
         }
 
-        else if (inputApellido.value.length < 5) {
+        else if (inputApellido.value.length < 2) {
             errorApellido.innerText = "El apellido debe tener al menos 2 caracteres";
             inputApellido.style.border = "2.1px solid #EF5350"
             iconApellido.classList.add("fa-circle-xmark")
@@ -166,8 +166,11 @@ window.onload = function () {
             //No funciona
 
             inputImagen.addEventListener("blur", function () {
+                if (inputImagen.value >1) {
+                    validarImagen()      
+                }
 
-                validarImagen()
+             
               
             })
                 
@@ -280,7 +283,7 @@ window.onload = function () {
 
         botonSubmit.addEventListener("click", function(event){
 
-                event.preventDefault();
+                
 
                 let errores = {};
 
@@ -308,8 +311,8 @@ window.onload = function () {
                 }
 
                 //no se está validando la contraseña
-                if (inputPass.value.length > 0) {
-                    validarPass()
+                if (inputPass.value.length < 1) {
+                  
                     errores.pass = "Ingresá una contraseña válida"
                 }
 
@@ -320,6 +323,8 @@ window.onload = function () {
 
                 if (Object.keys(errores).length >=1) {
 
+                   
+                    event.preventDefault();
 
                     errorNombre.innerText = (errores.nombre) ? errores.nombre: "";
                     errorApellido.innerText = (errores.apellido) ? errores.apellido: "";
@@ -329,16 +334,15 @@ window.onload = function () {
                     errorPass2.innerText = (errores.pass2) ? errores.pass2: "";
                     // errorImagen.innerText = (errores.imagen) ? errores.imagen: "";
                    
-        
+    
         
                 } else {
+
                     form.submit();
                     
                 }
 
-                
-
-
+        
 
 
             })
