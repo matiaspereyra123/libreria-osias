@@ -6,3 +6,14 @@ git checkout main
 git merge maria    (o el nombre de la rama)
 
 Depsués desde el repo remoto se hace un pull request y se autoriza la merge. 
+
+
+
+
+Fusionar los cambios de master en la rama en desarrollo
+Durante tu trabajo en el desarrollo del proyecto gestionado con Git también puede ser normal que se vayan haciendo cambios en la rama master, o en otras ramas en desarrollo, y quieras traerlos para tu rama actual. Por ejemplo, la rama experimental está tardando varios días o semanas en completarse y mientras tanto han agregado nuevas features que quieras que esté disponibles también en la rama experimental.
+
+Entonces seguramente querrás traerte los cambios de la rama master. Para ello, estando en la rama experimental, puedes lanzar el siguiente comando.
+
+git merge master -m 'Un mensaje del merge de master en el branch experimental'
+ desde tu rama haces un git merge main -m "MEnsaje"

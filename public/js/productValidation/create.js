@@ -280,28 +280,20 @@ window.onload = function(){
       
             let extension = inputImage.value.split(".").pop()
 
-            if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif" ) {
-               
+            if (extension != "jpg" && extension != "jpeg" && extension != "png" && extension != "gif" ) {    
                errorImage.innerText = "Las extensiones de archivo permitidas son .jpg, .jpeg, .png, .gif";
                iconImage.classList.add("fa-circle-xmark")
                iconImage.style.visibility = "visible"
                iconImage.style.color = "#EF5350"
-    
             } else {
                 errorImage.style.display = "none";
                 iconImage.classList.remove("fa-circle-xmark")
                 iconImage.classList.add("fa-circle-check")
                 iconImage.style.visibility = "visible"
                 iconImage.style.color = "#19c8a6" 
-            }
-
-        
+            }        
         })           
         
- 
-
-
-
 
     inputDescription.addEventListener("blur", function(){
         if (inputDescription.value.length < 20 ) {

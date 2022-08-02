@@ -1,9 +1,5 @@
 
 window.onload = function () {
-
-
-
-
     regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
     let inputNombre = document.querySelector("#nombre");
     let errorNombre = document.querySelector("#error-nombre");
@@ -193,16 +189,17 @@ window.onload = function () {
            
 
             inputPass.addEventListener("blur", function () {
-
                     validarPass()
-                   
-                
+                    passwordIguales()
             })
+
             inputPass2.addEventListener("blur",function(){
                 validarPass2()
-              
+                passwordIguales()
             })
-
+            
+       
+    
 
 
             const validarPass = () => {
@@ -215,6 +212,8 @@ window.onload = function () {
                     iconPass.classList.add("fa-circle-xmark")
                     iconPass.style.visibility = "visible"
                     iconPass.style.color = "#EF5350"
+                    errorPass.style.display = "block";
+                    
 
                 }
 
@@ -224,6 +223,7 @@ window.onload = function () {
                     iconPass.classList.add("fa-circle-xmark")
                     iconPass.style.visibility = "visible"
                     iconPass.style.color = "#EF5350"
+                    errorPass.style.display = "block";
 
 
                 } else {
@@ -237,11 +237,11 @@ window.onload = function () {
 
             }
 
-
+            
 
             const validarPass2 = () => {
                 regularExp = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
-      
+
 
                 if (inputPass2.value.length < 1) {
                     errorPass2.innerText = "Confirmá tu contraseña";
@@ -249,7 +249,7 @@ window.onload = function () {
                     iconPass2.classList.add("fa-circle-xmark")
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
-
+                    errorPass2.style.display = "block";
                 }
 
                 else if (!(inputPass2.value.match(regularExp))) {
@@ -258,19 +258,11 @@ window.onload = function () {
                     iconPass2.classList.add("fa-circle-xmark")
                     iconPass2.style.visibility = "visible"
                     iconPass2.style.color = "#EF5350"
-
+                    errorPass2.style.display = "block";
 
                 } 
                 
-                else if (inputPass2.value != inputPass.value) {
-                    errorPass2.innerText = "Las contraseñas no coinciden";
-                    inputPass2.style.border = "2.1px solid #EF5350"
-                    iconPass2.classList.add("fa-circle-xmark")
-                    iconPass2.style.visibility = "visible"
-                    iconPass2.style.color = "#EF5350"
-                    
-                }
-                
+   
                 else {
 
                     errorPass2.style.display = "none";
@@ -284,7 +276,16 @@ window.onload = function () {
             }
 
 
-
+            const passwordIguales = () => {
+              if (inputPass.value != inputPass2.value  ) {
+                    errorPass2.innerText = "Las contraseñas no coinciden";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+                    errorPass2.style.display = "block";
+                }
+            }
 
 
         botonSubmit.addEventListener("click", function(event){
