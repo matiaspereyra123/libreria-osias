@@ -98,10 +98,6 @@ window.onload = function () {
     })
 
 
-    
-
-
-  
 
     const validarCorreo = () => {
         expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -199,12 +195,12 @@ window.onload = function () {
             inputPass.addEventListener("blur", function () {
 
                     validarPass()
-                    passwordSame();
+                   
                 
             })
             inputPass2.addEventListener("blur",function(){
                 validarPass2()
-                passwordSame();
+              
             })
 
 
@@ -248,7 +244,7 @@ window.onload = function () {
       
 
                 if (inputPass2.value.length < 1) {
-                    errorPass2.innerText = "Ingresá tu contraseña";
+                    errorPass2.innerText = "Confirmá tu contraseña";
                     inputPass2.style.border = "2.1px solid #EF5350"
                     iconPass2.classList.add("fa-circle-xmark")
                     iconPass2.style.visibility = "visible"
@@ -264,7 +260,18 @@ window.onload = function () {
                     iconPass2.style.color = "#EF5350"
 
 
-                } else {
+                } 
+                
+                else if (inputPass2.value != inputPass.value) {
+                    errorPass2.innerText = "Las contraseñas no coinciden";
+                    inputPass2.style.border = "2.1px solid #EF5350"
+                    iconPass2.classList.add("fa-circle-xmark")
+                    iconPass2.style.visibility = "visible"
+                    iconPass2.style.color = "#EF5350"
+                    
+                }
+                
+                else {
 
                     errorPass2.style.display = "none";
                     inputPass2.style.border = "#19c8a6 2.1px solid";
@@ -300,18 +307,23 @@ window.onload = function () {
                     errores.apellido = "El apellido debe tener al menos 2 caracteres"
                 }
 
-                //no se está validando el mail
                 if (inputEmail.value.length < 1) {
                     errores.email = "Ingresá tu correo electrónico"
+                }
+                else if (!(inputEmail.value.match(expReg))){
+                    errores.email = "Ingresá un correo electrónico válido"
                 }
 
                 if (inputDni.value.length < 1) {
                     errores.dni = "Ingresá tu DNI"
                 }
 
-                //no se está validando la contraseña
-                if (inputPass.value.length < 1) {
-                  
+                
+                if (inputPass.value.length < 1) { 
+                    errores.pass = "Ingresá tu contraseña"
+                }
+
+                else if (!(inputPass.value.match(regularExp))) {
                     errores.pass = "Ingresá una contraseña válida"
                 }
 
