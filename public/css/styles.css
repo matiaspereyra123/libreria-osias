@@ -683,6 +683,32 @@ main {
 
 }
 
+.button-profile {
+    background: linear-gradient(180deg, rgba(236, 26, 65, 1) 0%, rgba(117, 4, 84, 1) 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Open Sans;
+    justify-content: center;
+    opacity: 0.8;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    width: 150px;
+}
+
+.button-profile:hover {
+    opacity: 1.0;
+
+}
+
+.anchor-profile {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+
 
 /* Footer */
 
