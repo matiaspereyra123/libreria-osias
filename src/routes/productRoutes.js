@@ -5,7 +5,7 @@ const multer = require("multer");
 let validations = require('../middlewares/validateCreateProduct');
 let notAdmin=require('../middlewares/notAdmin');
 const userNotLogged = require("../middlewares/userNotLogged");
-const productController = require("../controllers/productController");
+const productController = require("../controllers/ProductController");
 
 
 const storage = multer.diskStorage({
