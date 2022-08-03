@@ -28,7 +28,49 @@ const mainController = {
 
         })
 
+    },
+
+    historieta: (req, res)=>{
+        db.Libro.findAll({include: [{association: "genero", attribute: "name"},{ association: "editorial", attribute: "name"}]},
+        )
+        .then(function(libros){
+            
+            res.render("novelaGrafica", {libros: libros, title: "Novela gráfica & Historieta"})  
+        })
+        .catch(function(error){
+            console.log(error);
+
+        })
+
+    },
+
+    literatura: (req, res)=>{
+        db.Libro.findAll({include: [{association: "genero", attribute: "name"},{ association: "editorial", attribute: "name"}]},
+        )
+        .then(function(libros){
+            
+            res.render("literaturaIlustrada", {libros: libros, title: "Literatura ilustrada"})  
+        })
+        .catch(function(error){
+            console.log(error);
+
+        })
+
+    },
+    infantiles: (req, res)=>{
+        db.Libro.findAll({include: [{association: "genero", attribute: "name"},{ association: "editorial", attribute: "name"}]},
+        )
+        .then(function(libros){
+            
+            res.render("infantiles", {libros: libros, title: "Infantiles"})  
+        })
+        .catch(function(error){
+            console.log(error);
+
+        })
+
     }
+
 
 }
 

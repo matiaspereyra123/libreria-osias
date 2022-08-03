@@ -1,4 +1,4 @@
-window.onload = function(){
+window.addEventListener('DOMContentLoaded', (event)=>{
 
     let bar = document.querySelector(".search-bar")
     
@@ -11,6 +11,8 @@ window.onload = function(){
 
     let dropdown = document.querySelector(".menu-dropdown")
     let dropdown2 = document.querySelector(".menu-dropdown2")
+
+   
     
     hero = document.querySelector("hero")
     
@@ -40,7 +42,14 @@ window.onload = function(){
     dropdown2.addEventListener("mouseout", function(){
         dropdown2.style.display = "none"
     })
+
+  
+   
+    
+
+  
+
     
     
     
-    }
+    })

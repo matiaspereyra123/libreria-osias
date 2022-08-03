@@ -46,7 +46,7 @@
                 </div>
                 <div class="items-container">
                     <% libros.forEach(libro => { %>
-                        <% if (libro.genre_id == 1) { %>
+                        <% if (libro.genre_id == 1 && libro.id < 9) { %>
                             <article class="item">
                                 <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
                                  <h2> <%= libro.title %>  </h2>
