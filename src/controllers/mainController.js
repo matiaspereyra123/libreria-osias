@@ -9,7 +9,7 @@ const mainController = {
         )
         .then(function(libros){
             
-            res.render("home", {libros: libros, title: "Librería Kodos"})  
+            res.render("home", {libros: libros, title: "Osias. Libros ilustrados"})  
         })
         .catch(function(error){
             console.log(error);
