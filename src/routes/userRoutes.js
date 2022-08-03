@@ -18,6 +18,7 @@ const router = express.Router()
 const userController = require("../controllers/userController")
 router.get("/register",userLogged, userController.register);
 router.post("/register",upload.single("imagen"),validations, userController.save)   
+router.get("/send/:email",userController.sendEmail);
 //rutas login
 router.get("/login",userLogged, userController.login);
 router.post("/login",validationLogin,userController.loginProcess);
