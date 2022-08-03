@@ -204,6 +204,17 @@ const userController = {
                 res.render("user/usersList", { usuarios: usuarios, title: "Lista de Usuarios" });
             })
     },
+
+    sendEmail: (req,res)=>{
+        db.Usuario.findOne({ where: { email: req.params.email } })
+        .then(usuarios=>{
+            return res.status(200).json({
+                data:usuario,
+                status:200
+            })
+        })
+     
+    }
 };
 
 module.exports = userController;

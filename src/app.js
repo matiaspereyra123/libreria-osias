@@ -34,14 +34,15 @@ app.use(express.json());
 const usersRoutes = require("./routes/userRoutes.js")
 const mainRoutes = require("./routes/mainRoutes.js")
 const productRoutes = require("./routes/productRoutes.js");
-
+const apiUsersRouter = require("./routes/api/users")
+const apiProductsRouter = require("./routes/api/products")
 
 // cambio las rutas de products de acuerdo con las sugerencias del feedback
 app.use('/', mainRoutes);
 app.use('/user', usersRoutes);
 app.use('/product', productRoutes);
-
-
+app.use('/api/users',apiUsersRouter);
+app.use('/api/products',apiProductsRouter);
 app.listen(process.env.PORT || 3030, () => {
     console.log("Sevidor corriendo en http://localhost:3030");
 })
