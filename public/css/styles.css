@@ -59,6 +59,10 @@ body {
     justify-content: space-around;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 .menu__item:not(last-child) {
     cursor: pointer;
@@ -107,10 +111,18 @@ body {
  
 } 
 
-.menu-dropdown > li >a:hover, .menu-dropdown2 > li >a:hover  {
+.anchor-dropdown {
+    text-decoration: none;
+    color: #4F4F4F;
+ 
+}
+
+.dropdown-item:hover > .anchor-dropdown {
     color: whitesmoke;
     font-weight: 600;
 }
+
+
 
 .fa-angle-down {
     margin-left: 5px;
@@ -207,7 +219,7 @@ nav a:hover::after {
 }
 
 .search-bar:focus-within {
-    width: 300px;
+    width: 250px;
     background-color: whitesmoke;
 }
 
@@ -653,6 +665,23 @@ main {
     }
 
 
+.historieta-page{
+        background-color: #912941;
+        padding-bottom: 50px;
+    }
+.literatura-page {
+    background-color: #1C6078;
+    padding-bottom: 50px;
+
+}
+
+.infantiles-page {
+    background-color: #f7f6d5;
+    padding-bottom: 50px;
+
+}
+
+
 /* Footer */
 
 
@@ -799,7 +828,7 @@ main {
     text-decoration: none;
 }
 
-a {
+.medios-link {
     text-decoration: none;
 }
 
@@ -1096,8 +1125,7 @@ input {
 }
 
 
-.recuperacion-contraseña,
-a {
+ .link-recuperacion {
     color: #4F4F4F;
     padding-bottom: 15px;
     text-decoration: none;
