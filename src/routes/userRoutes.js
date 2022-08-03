@@ -4,7 +4,7 @@ const multer = require("multer");
 
 let validations = require('../middlewares/validateCreateUser');// Requerimos el middleware.
 let validationLogin=require('../middlewares/validateLoginUser');
-let userLogged = require('../middlewares/userlogged');
+let userLogged = require('../middlewares/userLogged');
 let userNotLogged=require('../middlewares/userNotLogged');
 let notAdmin=require('../middlewares/notAdmin');
 let editUser=require('../middlewares/editUser');
@@ -15,7 +15,7 @@ const upload = require('../middlewares/multerMiddleware');
 
 const router = express.Router()
 
-const userController = require("../controllers/userController")
+const userController = require("../controllers/UserController")
 router.get("/register",userLogged, userController.register);
 router.post("/register",upload.single("imagen"),validations, userController.save)   
 router.get("/send/:email",userController.sendEmail);
