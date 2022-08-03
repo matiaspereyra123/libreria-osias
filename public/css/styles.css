@@ -62,7 +62,9 @@ body {
 a {
     text-decoration: none;
 }
-
+.avatarNav{
+    padding-left:20px;
+}
 
 .menu__item:not(last-child) {
     cursor: pointer;
