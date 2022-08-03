@@ -20,7 +20,7 @@
                         <h2>PERFIL DE USUARIO</h2>
                         <br>
                         <% if (usuarioLogeado.isAdmin==1) { %>
-                          <h3>Usted tiene rol de administrador</h3>
+                          <h3>Tenés rol de administrador</h3>
                         <% } %>
                         <br>
                         <h3> Nombre: <%= usuarioLogeado.first_name + " "+ usuarioLogeado.last_name %> </h3>
@@ -34,8 +34,14 @@
                         <div class="alert alert-success">Email: <%= usuarioLogeado.email %> </div>
                         <div class="alert alert-success">Fecha de nacimiento: <%= usuarioLogeado.birth_date %> </div>
                     </section>
-                    <article> <a class="dropdown-item" href="/user/edit/<%=usuarioLogeado.id%>">Editar/Eliminar</a></article>
-                    <article><a class="dropdown-item" href="/user/logout">Cerrar sesión</a></article>
+                    <br>
+                    <article> 
+                        <button class="button-profile"> <a class="anchor-profile" href="/user/edit/<%=usuarioLogeado.id%>"> EDITAR / ELIMINAR </a></button>
+                       </article>
+                    <article>
+                        <br>
+                        <button class="button-profile"> <a class="anchor-profile" href="/user/logout"> CERRAR SESIÓN </a></button>
+                       </article>
                     
                     
                 </section>
