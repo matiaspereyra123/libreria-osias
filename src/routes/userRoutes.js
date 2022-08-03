@@ -4,7 +4,7 @@ const multer = require("multer");
 
 let validations = require('../middlewares/validateCreateUser');// Requerimos el middleware.
 let validationLogin=require('../middlewares/validateLoginUser');
-let userLogged = require('../middlewares/userLogged');
+let userLogged = require('../middlewares/userlogged');
 let userNotLogged=require('../middlewares/userNotLogged');
 let notAdmin=require('../middlewares/notAdmin');
 let editUser=require('../middlewares/editUser');
