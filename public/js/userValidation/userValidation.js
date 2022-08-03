@@ -11,7 +11,7 @@
     let btnEnviar=document.getElementById('btnEnviar');
     let errorMsgPass = document.getElementById('errorMsgPass');
     let errorMsgEmail = document.getElementById('errorMsgEmail');
-
+ 
 
     btnEnviar.addEventListener("click",(e)=>{
         //Revisar esta línea de preventDefault, porque como estaba no me dejaba loguearme

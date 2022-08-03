@@ -16,4 +16,4 @@ Durante tu trabajo en el desarrollo del proyecto gestionado con Git también pue
 Entonces seguramente querrás traerte los cambios de la rama master. Para ello, estando en la rama experimental, puedes lanzar el siguiente comando.
 
 git merge master -m 'Un mensaje del merge de master en el branch experimental'
- desde tu rama haces un git merge main -m "MEnsaje"
+ 
