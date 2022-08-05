@@ -357,6 +357,10 @@ window.addEventListener('DOMContentLoaded', (event)=>{
                     errores.dni = "Ingresá tu DNI"
                 }
 
+                if (inputNacimiento.value.length < 1) {
+                    errores.nacimiento = "Ingresá tu fecha de nacimiento"
+                }
+
                 
                 if (inputPass.value.length < 1) { 
                     errores.pass = "Ingresá tu contraseña"
@@ -380,6 +384,7 @@ window.addEventListener('DOMContentLoaded', (event)=>{
                     errorApellido.innerText = (errores.apellido) ? errores.apellido: "";
                     errorEmail.innerText = (errores.email) ? errores.email: "";
                     errorDni.innerText = (errores.dni) ? errores.dni: "";
+                    errorNacimiento.innerText = (errores.nacimiento) ? errores.nacimiento: "";
                     errorPass.innerText = (errores.pass) ? errores.pass: "";
                     errorPass2.innerText = (errores.pass2) ? errores.pass2: "";
                     // errorImagen.innerText = (errores.imagen) ? errores.imagen: "";
