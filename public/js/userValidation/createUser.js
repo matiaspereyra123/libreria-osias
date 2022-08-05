@@ -9,6 +9,8 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         let errorEmail = document.querySelector("#error-email");
         let inputDni = document.querySelector("#dni");
         let errorDni = document.querySelector("#error-dni");
+        let inputNacimiento = document.querySelector("#nacimiento");
+        let errorNacimiento = document.querySelector("#error-nacimiento");
         let inputImagen = document.querySelector("#imagen");
         let errorImagen = document.querySelector("#error-imagen");
         let inputPass = document.querySelector("#password");
@@ -176,6 +178,29 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     
                 }
                 })
+
+                inputNacimiento.addEventListener("blur", function () {
+    
+                    if (inputNacimiento.value.length < 1) {
+                        errorNacimiento.style.display = "block"
+                        errorNacimiento.innerText = "Ingresá tu fecha de nacimiento";
+                        inputNacimiento.style.border = "2.1px solid #EF5350"
+                        iconNacimiento.classList.add("fa-circle-xmark")
+                        iconNacimiento.style.visibility = "visible"
+                        iconNacimiento.style.color = "#EF5350"
+                    }
+        
+                    else {
+        
+                        errorNacimiento.style.display = "none";
+                        inputNacimiento.style.border = "#19c8a6 2.1px solid";
+                        iconNacimiento.classList.remove("fa-circle-xmark")
+                        iconNacimiento.classList.add("fa-circle-check")
+                        iconNacimiento.style.visibility = "visible"
+                        iconNacimiento.style.color = "#19c8a6"
+        
+                    }
+                    })
     
     
                 inputImagen.addEventListener("change", function () {
@@ -346,6 +371,10 @@ window.addEventListener('DOMContentLoaded', (event)=>{
                     if (inputDni.value.length < 1) {
                         errores.dni = "Ingresá tu DNI"
                     }
+
+                    if (inputNacimiento.value.length < 1) {
+                        errores.nacimiento = "Ingresá tu fecha de nacimiento"
+                    }
     
                     
                     if (inputPass.value.length < 1) { 
@@ -370,6 +399,7 @@ window.addEventListener('DOMContentLoaded', (event)=>{
                         errorApellido.innerText = (errores.apellido) ? errores.apellido: "";
                         errorEmail.innerText = (errores.email) ? errores.email: "";
                         errorDni.innerText = (errores.dni) ? errores.dni: "";
+                        errorNacimiento.innerText = (errores.nacimiento ? errores.nacimiento: "")
                         errorPass.innerText = (errores.pass) ? errores.pass: "";
                         errorPass2.innerText = (errores.pass2) ? errores.pass2: "";
                         // errorImagen.innerText = (errores.imagen) ? errores.imagen: "";

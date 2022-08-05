@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     let errorEmail = document.querySelector("#error-email");
     let inputDni = document.querySelector("#dni");
     let errorDni = document.querySelector("#error-dni");
+    let inputNacimiento = document.querySelector("#nacimiento");
+    let errorNacimiento = document.querySelector("#error-nacimiento");
     let inputImagen = document.querySelector("#imagen");
     let errorImagen = document.querySelector("#error-imagen");
     let inputPass = document.querySelector("#password");
@@ -160,6 +162,30 @@ window.addEventListener('DOMContentLoaded', (event)=>{
 
             }
             })
+
+
+            inputNacimiento.addEventListener("blur", function () {
+    
+                if (inputNacimiento.value.length < 1) {
+                    errorNacimiento.style.display = "block"
+                    errorNacimiento.innerText = "Ingresá tu fecha de nacimiento";
+                    inputNacimiento.style.border = "2.1px solid #EF5350"
+                    iconNacimiento.classList.add("fa-circle-xmark")
+                    iconNacimiento.style.visibility = "visible"
+                    iconNacimiento.style.color = "#EF5350"
+                }
+    
+                else {
+    
+                    errorNacimiento.style.display = "none";
+                    inputNacimiento.style.border = "#19c8a6 2.1px solid";
+                    iconNacimiento.classList.remove("fa-circle-xmark")
+                    iconNacimiento.classList.add("fa-circle-check")
+                    iconNacimiento.style.visibility = "visible"
+                    iconNacimiento.style.color = "#19c8a6"
+    
+                }
+                })
 
 
             inputImagen.addEventListener("change", function () {
