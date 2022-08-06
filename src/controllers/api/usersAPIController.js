@@ -1,8 +1,7 @@
 const db =require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-
-
+const { array } = require('../../middlewares/multerMiddleware');
 
 
 const usersAPIController={
@@ -13,7 +12,8 @@ const usersAPIController={
     .then(usuario=>{
         if(usuario){
             return res.status(200).json({
-               // data:usuario.email,
+                email:usuario.email,
+                id:usuario.id,
                 status:200,
                 //msg:'ok'
             })
@@ -27,10 +27,18 @@ const usersAPIController={
    })
 },
 'list': (req,res)=>{
-    db.Usuario.findAll()
-    .then(usuarios=>{
-        if(usuarios){
-            return res.status(200).json({total:usuarios.length,data:usuarios,status:200,msg:'Ok'});
+    db.Usuario.findAll({attributes:["id","first_name","last_name"]})
+ /*   let promUsuariosDetalle =db.Usuario.findAll({attributes:["id"]});
+   Promise
+   .all([promUsuarios,promUsuariosDetalle]) */
+    .then(usuarios=>{  
+         if(usuarios){
+      
+            return res.status(200).json({
+                total:usuarios.length,
+                data: usuarios,
+                status:200,msg:'Ok',
+                }); 
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
         }
@@ -40,9 +48,34 @@ const usersAPIController={
         return res.status(500).json({status:500,msg:error});
     })
     
+},
+'detail':(req,res)=>{
+    db.Usuario.findOne({
+        where:{
+            id:req.params.id}})
+    .then(usuario=>{
+        if(usuario){
+            return res.status(200).json({
+                email:usuario.email,
+                first_name:usuario.first_name,
+                last_name:usuario.last_name,
+                id:usuario.id,
+                image:`/images/users/${usuario.image}`,
+                status:200,
+                //msg:'ok'
+            })
+        }else{
+            return res.status(404).json({status:404,msg:'Usuario no encontrado'});
+        }
+    
+    })
+   .catch(error=>{
+    return res.status(500).json({status:500,msg:error});
+   })
 }
 
 }
+
 
 
 module.exports = usersAPIController;

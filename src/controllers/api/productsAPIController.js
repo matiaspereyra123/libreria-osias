@@ -27,10 +27,19 @@ const productsAPIController={
    })
 }, */
 'list': (req,res)=>{
-    db.Libro.findAll()
-    .then(productos=>{
-        if(productos){
-            return res.status(200).json({total:productos.length,data:productos,status:200,msg:'Ok'});
+    db.Libro.findAll({
+
+        include: [{
+            association: "genero", 
+            attribute: "name"
+        },{ 
+            association: "editorial", 
+            attribute: "name"
+        }
+        ]})
+    .then(libros=>{
+        if(libros){
+            return res.status(200).json({total:libros.length,libros:libros,status:200});
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
         }
@@ -40,7 +49,44 @@ const productsAPIController={
         return res.status(500).json({status:500,msg:error});
     })
     
+},
+'detail':(req,res)=>{
+    
+    db.Libro.findByPk(req.params.id,{
+        include:[{association:"genero",attribute:"name"}]
+    })
+    .then(libro=>{
+        if(libro){
+            return res.status(200).json({
+                libro:libro,
+                image:`/images/products/${libro.image}`,
+                status:200,
+            })
+        }else{
+            return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
+        }
+    })
 }
+
+/* db.Libro.findByPk(req.params.id, {
+    include: [{
+
+        association: "genero",
+        attribute: "name"
+
+    }
+
+]
+})
+.then(function(libro){
+    res.render("products/detail", {libro: libro, title: libro.title})
+})
+.catch(function(error){
+    console.log(error)
+})
+
+}, */
+
 
 }
 
