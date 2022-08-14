@@ -27,10 +27,22 @@ const usersAPIController={
    })
 },
 'list': (req,res)=>{
-    db.Usuario.findAll()
-    .then(usuarios=>{
-        if(usuarios){
-            return res.status(200).json({total:usuarios.length,data:usuarios,status:200,msg:'Ok'});
+    db.Usuario.findAll({attributes:["id","first_name","last_name","email","image"]})
+ /*   let promUsuariosDetalle =db.Usuario.findAll({attributes:["id"]});
+   Promise
+   .all([promUsuarios,promUsuariosDetalle]) */
+    .then(usuarios=>{  
+         if(usuarios){
+                    let respuesta ={
+                        meta:{ 
+                        status:200,
+                        total:usuarios.length,
+                        table:"Usuarios"
+                        },
+                        users:usuarios
+                    }
+                    res.json(respuesta);
+    
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
         }
@@ -40,7 +52,7 @@ const usersAPIController={
         return res.status(500).json({status:500,msg:error});
     })
     
-}
+},
 
 }
 

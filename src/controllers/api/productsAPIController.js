@@ -30,7 +30,7 @@ const productsAPIController={
     db.Libro.findAll()
     .then(productos=>{
         if(productos){
-            return res.status(200).json({total:productos.length,data:productos,status:200,msg:'Ok'});
+            return res.status(200).json({total:libros.length,libros:libros,status:200,table:"Libros"});
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
         }
