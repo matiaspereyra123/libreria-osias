@@ -38,6 +38,10 @@ body {
 
 }
 
+.logo {
+    width: 200px;
+}
+
 .main-title {
     color: whitesmoke;
     font-size: 18px;
