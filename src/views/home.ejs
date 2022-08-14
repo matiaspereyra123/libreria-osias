@@ -11,8 +11,90 @@
             <header>
                 <%- include("./partials/header.ejs")  %> 
             </header>
+
+
+
+            <div class="carousel">
     
-            <div class="hero-box">
+                <button class="carousel__button carousel__button--left is-hidden">
+                    <img src="/images/left.svg" alt="">
+                </button>
+                <div class="carousel__track-container">
+                    <ul class="carousel__track">
+                        
+                        <li class="carousel__slide current-slide">
+                          
+                            
+                                <img class="carousel__image" src="/images/products/Slide_Romeo-y-Julieta-03.jpeg" alt="">
+                                
+            
+                                <div class="carousel-box current-box">
+                                    <h3 class="box-title">Romeo y Julieta</h3>
+                                    <p class="box-text">La clásica tragedia de Shakespeare cobra nueva vida con el arte de Svetlin Vassilev</p>
+                                    <div class="button">
+                                        <button class="cfa">Leer un fragmento</button>
+                                    </div>
+                         
+            
+                              
+                               
+                            </div>
+                               
+                        </li>
+            
+            
+                        <li class="carousel__slide">
+    
+                               
+                                <img class="carousel__image" src="/images/products/Slide_Odas-a-la-comida-02.jpeg" alt="">
+                               
+            
+                                <div class="carousel-box current-box">
+                                    <h3 class="box-title">Odas a la comida</h3>
+                                    <p class="box-text">Una singular antología del Nobel chileno con originales estampas de Javier Zabala.</p>
+                                    <div class="button">
+                                        <button class="cfa-odas">Leer un fragmento</button>
+                                    </div>
+                                </div>
+                               
+                        
+                               
+                        </li>
+            
+                        <li class="carousel__slide">
+                          
+                                <img class="carousel__image" src="/images/products/Slide_Condesa-02.jpeg" alt="">
+                              
+                       
+            
+                                <div class="carousel-box current-box">
+                                    <h3 class="box-title">La condesa sangrienta</h3>
+                                    <p class="box-text">Un relato perturbador de Alejandra Pizarnik, recreado con admirable maestría en las estampas de Sebastián Caruso.</p>
+                                    <div class="button">
+                                        <button class="cfa-condesa">Leer un fragmento</button>
+                                    </div>
+                                
+                               
+                        </li>
+            
+                    </ul>
+                </div>
+            
+                <button class="carousel__button  carousel__button--right">
+                    <!-- <i class="fa-solid fa-chevron-right"></i> -->
+                    <img src="/images/right.svg" alt="">
+                </button>
+            
+                <div class="carousel__nav">
+                    <button class="carousel__indicator current-slide"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+            
+                </div>
+            
+            </div>
+    
+            <!-- <div class="hero-box">
                 <h2 class="box-title">Romeo y Julieta</h2>
                 <p class="box-text">La clásica tragedia de Shakespeare cobra nueva vida con el arte de Svetlin Vassilev</p>
                 <div class="button">
@@ -23,7 +105,7 @@
                 <p class="down-section__text">Romeo y Julieta, ilustrado por Svetlin Vassilev</p>
                 <button class="down-section__button">LEER UN FRAGMENTO</button>
             </div>
-            <div class="oculto">
+            <div class="oculto"> -->
     
             <!-- <div class="left-arrow">
                 <i class="fa-solid fa-angle-left"></i>
@@ -31,9 +113,9 @@
             <div class="right-arrow">
                 <i class="fa-solid fa-angle-right"></i>
             </div> -->
-            </div>
+            <!-- </div>
     
-        </div>
+        </div> -->
         <!-- End of Hero section -->
     
         <main>
@@ -177,4 +259,5 @@
         
         <%- include ("./partials/footer.ejs")%>
     </footer>
+    <script src="/js/carousel.js"></script>  
     </body>

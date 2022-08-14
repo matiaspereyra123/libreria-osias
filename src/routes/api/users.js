@@ -2,7 +2,7 @@
 const router = express.Router();
 const usersAPIController = require('../../controllers/api/usersAPIController');
 
-router.get('/list',usersAPIController.list);
+router.get('/',usersAPIController.list);
 router.get('/search',usersAPIController.search);
 
 module.exports = router;

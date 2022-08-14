@@ -8,7 +8,6 @@
     box-sizing: border-box;
     font-family: "Open Sans", "Segoe UI", "Lucida Grande", Verdana, sans-serif;
     margin: 0;
-    padding: 0;
     scroll-behavior: smooth;
 
 }
@@ -16,7 +15,7 @@
 body {
     margin-right: auto;
     margin-left: auto;
-    padding: 0%;
+ 
 
 }
 
@@ -94,6 +93,7 @@ a {
     padding: 3px;
     position: absolute;
     width: 12rem;
+    z-index: 1;
 
 }
 
@@ -235,7 +235,22 @@ nav a:hover::after {
 }
 
 
-.hero {
+/* Carousel */
+
+.carousel {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* .hero {
     background-image: url("/images/products/cortada_Romeo-y-Julieta.jpeg");
     background-color: #464646;
     background-position: left center;
@@ -247,10 +262,10 @@ nav a:hover::after {
     height: 100vh;
     justify-content: space-between;
     margin: 0;
-}
+} */
 
 
-
+/* 
 .hero-box {
     align-self: flex-end;
     background-color: white;
@@ -265,7 +280,7 @@ nav a:hover::after {
     flex-wrap: wrap;
     display: none;
 
-}
+} */
 
 
 .box-title,
@@ -283,17 +298,54 @@ nav a:hover::after {
     color: whitesmoke;
     cursor: pointer;
     font-family: Open Sans;
+    font-size: 12px;
     justify-content: center;
-    opacity: 0.8;
-    padding-bottom: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
+    padding: 16px;
+
 }
 
-.cfa:hover {
-    opacity: 1.0;
+.cfa-odas {
+    background: linear-gradient(180deg, rgba(222,58,58,1) 0%, rgba(250,105,11,1) 100%);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+    font-family: Open Sans;
+    justify-content: center;
+    padding: 16px;
 
+}
+
+.cfa-condesa {
+    background: linear-gradient(180deg, rgba(119,2,2,1) 12%, rgba(250,11,22,1) 100%);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+    font-family: Open Sans;
+    justify-content: center;
+    padding: 16px;
+
+}
+
+
+.cfa:hover, .cfa-odas:hover, .cfa-condesa:hover {
+    background: #de3a3a;
+}
+
+
+.down-section__button {
+    /* background: linear-gradient(180deg, rgba(236, 26, 65, 1) 0%, rgba(117, 4, 84, 1) 100%); */
+    background: transparent;
+    border: 2px solid black;
+    color: black;
+    padding: 12px;
+    text-align: center;
+}
+
+.down-section__button:hover {
+    background-color: #2a2a2a;
+    color: white;
 }
 
 .box-text {
@@ -1456,6 +1508,12 @@ td {
         width: 47%;
     }
 
+    .box-text {
+        font-size: 15px;
+    }
+
+   
+
 
 
     .literature-container {
@@ -1541,6 +1599,127 @@ td {
     .up-section {
         height: 80px;
     }
+
+    /* Carousel */
+
+.carousel {
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+    top: 30px;
+    display: block;
+}
+
+.carousel__track-container {
+    height: 80%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.carousel__track {
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: transform 250ms ease-in;
+}
+
+.carousel__slide {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.carousel__image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+   
+   
+}
+
+.carousel-box {
+    background-color: #f8f8ee;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 25%;
+    display: block;
+
+}
+
+
+.carousel__button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+ 
+}
+
+.carousel__button--left {
+    left: -40px
+}
+
+.carousel__button--right {
+    right: -40px;
+}
+
+.carousel__button img {
+    width: 20px;
+}
+
+
+.carousel__nav{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+
+.carousel__indicator {
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(0, 0, 0, 0.3);
+    margin: 0 12px;
+}
+
+.carousel__indicator.current-slide {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.is-hidden {
+    display: none;
+}
+
+/* media previos */
+    /* .carousel__track-container {
+        height: 80%;
+      
+    } */
+
+
+
+ 
+
 
     .hero-box {
         display: block;
