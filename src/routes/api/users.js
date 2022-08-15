@@ -3,6 +3,9 @@ const router = express.Router();
 const usersAPIController = require('../../controllers/api/usersAPIController');
 
 router.get('/',usersAPIController.list);
+
+router.get('/detail/:id',usersAPIController.detail);
+
 router.get('/search',usersAPIController.search);
 
 module.exports = router;
