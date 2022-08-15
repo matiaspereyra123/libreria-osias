@@ -3,10 +3,9 @@ const router = express.Router();
 const usersAPIController = require('../../controllers/api/usersAPIController');
 
 router.get('/',usersAPIController.list);
-<<<<<<< HEAD
+
 router.get('/detail/:id',usersAPIController.detail);
-=======
->>>>>>> 844b50357fc37a64d9954bc97c59b7865fd7c04b
+
 router.get('/search',usersAPIController.search);
 
 module.exports = router;
