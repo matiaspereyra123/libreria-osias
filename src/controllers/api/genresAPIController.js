@@ -14,14 +14,34 @@ const genresAPIController={
                     status : 200,
                     total: genres.length,
                     url: 'api/genres',
-                    table:'Categorias'
+                    table:"Géneros"
                 },
-                data: genres
+                generos: genres
             }
                 res.json(respuesta);
             })
     },
-    
+    'list2': (req, res) => {
+        db.Genero.findAll({
+
+            include: [{
+                association: "genero", 
+              
+            }
+            ]})
+        .then(genres => {
+            let respuesta = {
+                meta: {
+                    status : 200,
+                    total: genres.length,
+                    url: 'api/genres',
+                    table:"Géneros"
+                },
+                generos: genres
+            }
+                res.json(respuesta);
+            })
+    },
 
 }
 
