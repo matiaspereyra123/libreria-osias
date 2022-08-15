@@ -27,9 +27,18 @@ const productsAPIController={
    })
 }, */
 'list': (req,res)=>{
-    db.Libro.findAll()
-    .then(productos=>{
-        if(productos){
+    db.Libro.findAll({
+
+        include: [{
+            association: "genero", 
+            attribute: "name"
+        },{ 
+            association: "editorial", 
+            attribute: "name"
+        }
+        ]})
+    .then(libros=>{
+        if(libros){
             return res.status(200).json({total:libros.length,libros:libros,status:200,table:"Libros"});
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
@@ -40,7 +49,7 @@ const productsAPIController={
         return res.status(500).json({status:500,msg:error});
     })
     
-}
+},
 
 }
 
