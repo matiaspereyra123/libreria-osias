@@ -39,7 +39,7 @@ const productsAPIController={
         ]})
     .then(libros=>{
         if(libros){
-            return res.status(200).json({total:libros.length,libros:libros,status:200});
+            return res.status(200).json({total:libros.length,libros:libros,status:200,table:"Libros"});
         }else{
             return res.status(404).json({status:404,msg:'No hay resultado para tu busqueda'});
         }
