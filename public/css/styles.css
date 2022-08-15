@@ -1610,13 +1610,13 @@ td {
     height: 600px;
     margin: 0 auto;
     position: relative;
-    width: 80%;
+    width: 90%;
     top: 30px;
     display: block;
 }
 
 .carousel__track-container {
-    height: 80%;
+    height: 85%;
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;

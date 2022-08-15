@@ -13,7 +13,8 @@ const genresAPIController={
                 meta: {
                     status : 200,
                     total: genres.length,
-                    url: 'api/genres'
+                    url: 'api/genres',
+                    table:"Géneros"
                 },
                 data: genres
             }
