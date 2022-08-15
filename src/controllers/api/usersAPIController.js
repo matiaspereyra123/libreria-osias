@@ -53,7 +53,7 @@ const usersAPIController={
     })
     
 },
-<<<<<<< HEAD
+
 'detail':(req,res)=>{
     db.Usuario.findOne({
         where:{
@@ -78,8 +78,7 @@ const usersAPIController={
     return res.status(500).json({status:500,msg:error});
    })
 }
-=======
->>>>>>> 844b50357fc37a64d9954bc97c59b7865fd7c04b
+
 
 }
 
