@@ -17,6 +17,10 @@ app.use(session({         //pasar middleware como aplicacion
 	resave: false,    // para que no haya erres de configuraciones
 	saveUninitialized: false,  //
 }));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 844b50357fc37a64d9954bc97c59b7865fd7c04b
 app.use(cors());
 app.use(cookies());
 app.use(express.urlencoded({extended: false}));

@@ -50,6 +50,7 @@ const productsAPIController={
     })
     
 },
+<<<<<<< HEAD
 'detail':(req,res)=>{
     
     db.Libro.findByPk(req.params.id,{
@@ -67,6 +68,8 @@ const productsAPIController={
         }
     })
 }
+=======
+>>>>>>> 844b50357fc37a64d9954bc97c59b7865fd7c04b
 
 /* db.Libro.findByPk(req.params.id, {
     include: [{
