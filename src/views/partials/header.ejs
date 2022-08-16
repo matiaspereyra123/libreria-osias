@@ -37,7 +37,7 @@
             <% }else{ %>
                 <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 
-                <li class="avatarNav"><img src="/images/users/<%=locals.usuarioLogeado.image%>" width="40" style="border-radius:100%"alt=""></li>
+                <!-- <li class="avatarNav"><img src="/images/users/<%=locals.usuarioLogeado.image%>" width="40" style="border-radius:100%"alt=""></li> -->
                 <li class="menu__item profile"> <a href="/user/profile"> <%= locals.usuarioLogeado.first_name %></a>
                 <% } %>
                 <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
@@ -49,6 +49,7 @@
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/product/create">CREAR PRODUCTO </a></li>
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/user/usersList">LISTA DE USUARIOS </a></li>
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/product/productsList">LISTA DE LIBROS </a></li>
+                    <li class="dropdown-item"><a class="anchor-dropdown" href="https://dashboardosias.netlify.app/">DASHBOARD</a></li>
                     <li class="dropdown-item"><a class="anchor-dropdown" href="/user/logout">CERRAR SESIÓN</a></li>
                 </ul>
                 <% } else { %>
