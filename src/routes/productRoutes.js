@@ -40,6 +40,7 @@ router.put("/disable/:id", productController.disable)
 router.delete('/delete/:id', productController.destroy); 
 
 router.get('/productsList',productController.list);
+router.get('/search',productController.search);
 
 
 module.exports = router;

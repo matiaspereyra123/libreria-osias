@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator'); // requerimos para poder validar errores
 
 const { body } = require("express-validator");
-
+const { Op } = require("sequelize");
 const db = require("../database/models");
 
 
@@ -233,9 +233,36 @@ const productController = {
 			.catch(function(error){
 				console.log(error)
 			})
-	}
+	},
 
-
+	search:(req,res)=>{
+	
+ 	
+		db.Libro.findAll({
+			where:{
+				
+			title:{[Op.like]: '%'+req.query.search +'%'}
+			},
+						include: [{
+							association: "genero", 
+							attribute: "name"
+						},{ 
+							association: "editorial", 
+							attribute: "name"
+						}
+						]})
+					.then(function(libros){
+						
+						res.render("products/search", {libros: libros, title: "Librería Kodos"})  
+					})
+					.catch(function(error){
+						console.log(error);
+			
+					})
+}
 }
 
 module.exports = productController;
+
+
+

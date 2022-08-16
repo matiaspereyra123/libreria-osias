@@ -61,10 +61,14 @@
                   <% } %>
                   <li class="menu__item">
                   <div class="search-bar">
-                    <input class ="search-bar__input" type="text" placeholder="Buscá por título, autor, etc." aria-label="search">
+                    <form action="/product/search" method="GET">
+
+                             <input class ="search-bar__input" type="search"  name ="search"placeholder="Buscá por título, autor, etc." aria-label="search">
                     <button class="search-bar__submit">
                         <i class="fa fa-search" aria-label="submit search"></i>
                     </button>
+                    </form>
+               
                     </div>
                 </li>  
 

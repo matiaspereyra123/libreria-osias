@@ -25,7 +25,7 @@ const genresAPIController={
         db.Genero.findAll({
 
             include: [{
-                association: "genero", 
+                association: "libros", 
               
             }
             ]})
