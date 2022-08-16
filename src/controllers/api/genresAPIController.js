@@ -60,7 +60,7 @@ const genresAPIController={
                 },
                 data: genres
             }
-                res.json(genres);
+                res.json(respuesta);
             })
     },
     

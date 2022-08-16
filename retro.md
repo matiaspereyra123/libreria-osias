@@ -1,3 +1,29 @@
+## Retrospectiva del Sprint 7
+
+## 1. Hicimos bien
+* Cumplimos en tiempo con los objetivos del Sprint, pero además llegamos a incorporar requerimientos opcionales del Sprint, como la búsqueda del email en la base de datos por medio de una API y la validación de todos los formularios del sitio. 
+* Incorporamos estilos en la validación de los formularios, para que muestre un ícono verde o rojo, según corresponda, y pinte el borde del input.    
+* Tuvimos más reuniones y trabajamos más tiempo en el Sprint. 
+* Aprovechamos más las distintas funcionalidades del Trello, desglosando más las tareas y agregando comentarios a medida que avanzábamos en las tareas.
+* Usamos más las distintas ramas del Git, lo que facilitó la resolución de conflictos al trabajar en forma paralela.
+* Revisamos los materiales de la entrega antes de subirlos.     
+
+## 2. Hicimos mal
+* No avanzamos tanto en las tareas pendientes para el mejoramiento del sitio, con lo que nos quedaron varias para el último Sprint. 
+* No asignamos peso a las tareas en Trello, mediante el Pocker Planning o alguna otra modalidad.    
+
+## 3. Empezar a hacer
+* Llegamos al final del camino, incorporar todos los aprendizajes del trabajo en equipo en nuestros futuros trabajos.
+* Seguir mejorando el proyecto en nuestro tiempo libre para mostrar una versión mejorada en nuestros portfolios.   
+
+## 4. Dejar de hacer
+* Postergar pequeños cambios para mejorar la página. 
+* No hacer el resumen de las reuniones diarias o semanales para llevar el registro de los avances y los problemas con los que nos encontramos. 
+ 
+
+-----------------------------------------------------------------------------------
+
+
 ## Retrospectiva del Sprint 6
 
 ## 1. Hicimos bien
