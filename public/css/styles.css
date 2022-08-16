@@ -2055,14 +2055,14 @@ td {
 
 
     .whatsapp{
-        background-color: #370a6d;
+        background-color: #25D366;
         color:white;
-        width: 60px;
+        width: 50px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         font-size: 30px;
         text-align: center;
-        padding: 8px 0 15px 0;
+        padding: 8px 0 8px 0;
         right: 80px;
         position: fixed;
         bottom: 0px;
