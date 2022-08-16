@@ -1,10 +1,10 @@
 window.addEventListener('DOMContentLoaded', (event)=>{
 
-    let bar = document.querySelector(".search-bar")
+    // let bar = document.querySelector(".search-bar")
     
-    let input = document.querySelector(".search-bar__input")
+    // let input = document.querySelector(".search-bar__input")
     
-    icon = document.querySelector(".fa-search")
+    // icon = document.querySelector(".fa-search")
 
     let catalogo = document.querySelector(".catalogo")
     let profile = document.querySelector(".profile")
@@ -17,15 +17,15 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     hero = document.querySelector("hero")
     
     
-    input.addEventListener("focus", function(){
-        icon.style.color = "#c53758"
+    // input.addEventListener("focus", function(){
+    //     icon.style.color = "#c53758"
     
-    })
+    // })
     
-    input.addEventListener("blur", function(){
-        icon.style.color = "white"
+    // input.addEventListener("blur", function(){
+    //     icon.style.color = "white"
     
-    })
+    // })
 
     catalogo.addEventListener("mouseover", function(){
         dropdown.style.display = "block"

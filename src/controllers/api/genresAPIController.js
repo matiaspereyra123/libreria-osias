@@ -43,13 +43,13 @@ const genresAPIController={
             })
     },
     'list2': (req, res) => {
-        db.Genero.findAll(({
+        db.Genero.findAll({
 
             include: [{
                 association: "libros", 
-                // attribute: "name"
+              
             }
-            ]}))
+            ]})
         .then(genres => {
             let respuesta = {
                 meta: {
@@ -58,7 +58,7 @@ const genresAPIController={
                     url: 'api/genres',
                     table:"Géneros"
                 },
-                data: genres
+                generos: genres
             }
                 res.json(respuesta);
             })

@@ -169,7 +169,7 @@ nav .animation::after {
     height: 0.3rem;
     position: absolute;
     bottom: 0.5rem;
-    left: 1rem;
+    left: 0.3rem;
     transition: all ease-in-out 250ms;
     width: 0%;
 }
@@ -186,11 +186,16 @@ nav a:hover::after {
     position: relative;
     transition: width 400ms cubic-bezier(0.18, 0.89, 0.32, 1.15);
     overflow: hidden;
+    width: 240px;
+    background-color: whitesmoke;
 }
 
 .search-bar__input {
     background: whitesmoke;
-    flex-grow: 1;
+    width: 200px;
+
+    
+    /* flex-grow: 1;
     padding: 0 0.5rem;
     border: 0;
     position: absolute;
@@ -198,7 +203,7 @@ nav a:hover::after {
     bottom: 0;
     left: 0;
     opacity: 0;
-    cursor: pointer ;
+    cursor: pointer ; */
 
 }
 
@@ -208,7 +213,7 @@ nav a:hover::after {
 }
 
 .fa-search {
-    color: whitesmoke
+    color:#c53758
 }
 
 
@@ -219,24 +224,24 @@ nav a:hover::after {
     color: whitesmoke;
     cursor: pointer;
     border: none;
-    width: 40px;
+    width: 30px;
     height: 40px;
     margin-left: auto;
     
 }
 
-.search-bar:focus-within {
+/* .search-bar:focus-within {
     width: 250px;
     background-color: whitesmoke;
-}
+} */
 
 
-.search-bar__input:focus-within {
+/* .search-bar__input:focus-within {
     opacity: 1;
     cursor: initial;
     width: 75%;
    
-}
+} */
 
 
 /* Carousel */
@@ -1495,9 +1500,7 @@ td {
     }
 
 
-    .hamburguer-menu {
-        display: none;
-    }
+ 
 
 
     .item:hover {
@@ -1597,11 +1600,27 @@ td {
         max-width: 500px
     }
 
+    .main-menu {
+        display: none;
+    }
+
 }
 
 @media (min-width: 1280px) {
+
+    .main-menu {
+        display: block;
+    }
     .up-section {
         height: 80px;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        display: none;
     }
 
     /* Carousel */
