@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         isbn: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            unique: true
+            
         },
         pages: {
             type: DataTypes.INTEGER,
