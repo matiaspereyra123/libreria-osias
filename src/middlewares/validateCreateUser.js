@@ -16,7 +16,7 @@ const validar = [
     .withMessage("Debés escribir un formato de correo válido"),
     body('imagen').custom((value, { req }) => {
       let file = req.file;
-      let acceptedExtensions = ['.jpg', 'jpeg', '.png', '.gif'];
+      let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
   
       if (file) {
         let fileExtension = path.extname(file.originalname);

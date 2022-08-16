@@ -237,11 +237,20 @@ const productController = {
 
 	search:(req,res)=>{
 	
- 	
+
 		db.Libro.findAll({
 			where:{
-				
-			title:{[Op.like]: '%'+req.query.search +'%'}
+					
+						[Op.or]:[
+								{
+									title:{	[Op.like]: '%' +req.query.search +'%'}
+								}, 
+							 	{
+									author:{[Op.like]: '%' + req.query.search }
+								}  
+						] 
+					
+			
 			},
 						include: [{
 							association: "genero", 
@@ -259,10 +268,32 @@ const productController = {
 						console.log(error);
 			
 					})
-}
+},
+
 }
 
 module.exports = productController;
 
 
 
+
+  
+/*  Foo.findAll({
+  where: {
+    {
+      [Op.or]: [
+        {
+          title: {
+            [Op.like]: 'Boat%'
+          }
+        },
+        {
+          description: {
+            [Op.like]: '%boat%'
+          }
+        }
+      ]
+    }
+    // title LIKE 'Boat%' OR description LIKE '%boat%'
+  }
+}); */
