@@ -69,7 +69,12 @@ const mainController = {
 
         })
 
-    }
+    },
+    contact: (req, res)=> {
+            
+        res.render("contact",{title:"contacto"});
+   
+    },
 
 
 }

@@ -10,5 +10,6 @@ router.get('/viajes', mainController.viajes);
 router.get('/historieta', mainController.historieta);
 router.get('/literaturaIlustrada', mainController.literatura);
 router.get('/infantiles', mainController.infantiles);
+router.get('/contact',mainController.contact);
 
 module.exports = router

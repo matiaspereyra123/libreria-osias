@@ -193,7 +193,7 @@ nav a:hover::after {
 .search-bar__input {
     background: whitesmoke;
     width: 200px;
-
+/*     text-transform: lowercase; */
     
     /* flex-grow: 1;
     padding: 0 0.5rem;
@@ -1828,7 +1828,23 @@ td {
 
 
 
-
-
+    .whatsapp{
+        background-color: #370a6d;
+        color:white;
+        width: 60px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 30px;
+        text-align: center;
+        padding: 8px 0 15px 0;
+        right: 80px;
+        position: fixed;
+        bottom: 0px;
+    
+    }
+    .whatsapp a{
+        color: white;
+        
+    }
 
 }
