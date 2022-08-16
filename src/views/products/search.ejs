@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <%- include ("../partials/head.ejs")  %> 
+
+   
+    </head>
+    <body>
+    <header>     
+       <%- include("../partials/header.ejs")  %> 
+    </header>
+        
+   
+
+        <main>
+
+            <section class="full-list">
+                <div class="title-container">
+                    <h1 class="section__title">
+                        > Resultado de tu busqueda:
+                    </h1>
+                </div>
+                <div class="items-container">
+                    <% libros.forEach(libro => { %>
+                        <% if (libro.active === 1) { %>
+                          <article class="item">
+                                <a href="/product/detail/<%= libro.id %> "><img src="/images/products/<%= libro.image %>" alt="">
+                                 <h2> <%= libro.title %>  </h2>
+                             
+                                    <p> <%= libro.author%></p>
+
+                                    
+                                    <p> <%= libro.second_author %>  </p> 
+                            
+                                    <% if (libro.illustrator) { %>
+                                        <p>Ilustr: <%= libro.illustrator %> </p> 
+                                    <% } %>
+                                                                   
+
+                                 
+                                 
+                                 <p class="precio"> $ <%= libro.price %></p></a>  
+                             </article> 
+                        <% } %>
+                           
+                    <% }) %>
+    
+                    
+    
+                </div>
+            </section>
+
+         
+           
+        </main>
+
+    <footer class="footer-section">
+        
+        <%- include ("../partials/footer.ejs")%>
+    </footer>
+    </body>
