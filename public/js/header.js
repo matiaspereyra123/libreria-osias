@@ -11,6 +11,10 @@ window.addEventListener('DOMContentLoaded', (event)=>{
 
     let dropdown = document.querySelector(".menu-dropdown")
     let dropdown2 = document.querySelector(".menu-dropdown2")
+    let hamburguerIcon = document.getElementById("hamburguerIcon")
+
+    let dropdownHamburguer = document.getElementById("dropdownHamburguer")
+    
 
    
     
@@ -42,6 +46,10 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     profile.addEventListener("mouseover", function(){
         dropdown2.style.display = "block"
     })
+
+   
+
+
     
     dropdown2.addEventListener("mouseout", function(){
         dropdown2.style.display = "none"
@@ -51,9 +59,19 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         dropdown2.style.display = "none"
     })
 
+    hamburguerIcon.addEventListener("click", function(){
+        dropdownHamburguer.style.display = "block"
+    })
+
+
+ // hamburguer.addEventListener("click", function(){
+    //     dropdown3.style.display = "block"
+    // })
+
+ 
+
   
    
-    
 
   
 
@@ -61,3 +79,5 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     
     
     })
+
+
