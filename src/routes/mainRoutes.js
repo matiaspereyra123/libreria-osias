@@ -11,5 +11,6 @@ router.get('/historieta', mainController.historieta);
 router.get('/literaturaIlustrada', mainController.literatura);
 router.get('/infantiles', mainController.infantiles);
 router.get('/contact',mainController.contact);
+router.get('/proximamente',mainController.building);
 
 module.exports = router
