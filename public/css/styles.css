@@ -62,6 +62,8 @@ body {
 .menu {
     align-items: center;
     display: flex;
+ 
+    justify-content: flex-end;
 
 }
 
