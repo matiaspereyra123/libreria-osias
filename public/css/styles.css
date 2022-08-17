@@ -41,13 +41,13 @@ body {
 }
 
 .logo {
-    width: 200px;
+    width: 180px;
 }
 
 .main-title {
     color: whitesmoke;
     font-size: 18px;
-    margin-left: 30px;
+    margin-left: 15px;
     width: 40%;
 
 }
@@ -1693,6 +1693,10 @@ td {
     margin: 0 2px 0 0;
 }
 
+.whatsapp {
+    display: none;
+}
+
 
 
 
@@ -1702,7 +1706,13 @@ td {
 @media (min-width: 768px) {
 
 
+    .logo {
+        width: 200px;
+    }
 
+    .main-title {
+        margin-left: 30px;
+    }
 
     .mobile {
         display: none;
@@ -2222,6 +2232,7 @@ td {
         position: fixed;
         bottom: 0px;
         margin-right: 0px;
+        display: block;
     
     }
     .whatsapp a{
