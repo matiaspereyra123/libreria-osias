@@ -72,7 +72,13 @@ const mainController = {
     },
     contact: (req, res)=> {
             
-        res.render("contact",{title:"contacto"});
+        res.render("contact",{title:"Contacto"});
+   
+    },
+
+    building: (req, res)=> {
+            
+        res.render("building",{title:"Próximamente"});
    
     },
 
