@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', (event)=>{
  
 
     const validarPassword=()=>{
-        if(campoPassword.value==''){
+        if(campoPassword.value=='' || campoPassword.value.length<8){
             parrafoPassword.style.display="block";
             campoPassword.style.border="2.1px solid #EF5350";
             parrafoPassword.classList.add('is-invalid');
