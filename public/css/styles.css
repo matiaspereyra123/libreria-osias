@@ -19,7 +19,7 @@ body {
 
 }
 
-.up-section {
+.up-section {display:block;
     align-items: center;
     background: #c53758;
     opacity: 0.8;
@@ -31,6 +31,7 @@ body {
     margin-right: auto;
     /* margin-top: 8px; */
     width: 100%;
+    
 }
 
 .up-section:hover {
@@ -353,7 +354,6 @@ nav a:hover::after {
     display: flex;
     flex-wrap: wrap;
     display: none;
-
 } */
 
 
@@ -731,7 +731,33 @@ main {
 .items-container a {
     text-decoration: none;
 }
+.more-genres2 {
+   
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+   /*  display:none; */
+    
+}
+.viajes2{
 
+height:5vw;
+color: whitesmoke;
+font-size: 25px;
+font-weight: bold;
+letter-spacing: 2px;
+ padding: 50px; 
+text-align: center;
+background-color: #556270;
+margin-bottom: 3px;
+opacity: 0.8
+}
+
+.viajes2 a{
+    color: whitesmoke;
+     cursor: pointer; 
+    text-decoration: none;
+}
 
 .more-genres {
     display: flex;
@@ -1655,10 +1681,22 @@ td {
 
 
 
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    .up-section{
+        display: none;
+    }
+    .more-genres2{
+        display:block;
+    }
+}
 
 @media (min-width: 768px) {
-
+    .up-section{
+        display: none;
+    }
+    .more-genres2{
+        display:block;
+    }
 
     .main-title {
         width: 33%;
@@ -1925,6 +1963,19 @@ td {
 }
 
 @media (min-width: 992px) {
+    .more-genres2{
+        display:none;
+    }
+ 
+    .main-menu {
+        display: block;
+    }
+
+    .up-section {  
+         display:block;
+        height: 80px;
+        justify-content: flex-start;
+    }
 
     .box-text {
         display: block;
@@ -1932,6 +1983,7 @@ td {
 
     .carousel__image {
         object-fit: cover;
+        margin-top:50px;
     }
 
  
@@ -1939,11 +1991,17 @@ td {
 }
 
 @media (min-width: 1280px) {
-
+ 
+    .more-genres2{
+        display:none;
+    }
+ 
     .main-menu {
         display: block;
     }
-    .up-section {
+
+    .up-section {  
+         display:block;
         height: 80px;
         justify-content: flex-start;
     }
@@ -1970,14 +2028,12 @@ td {
     top: 30px;
     display: block;
 }
-
 .carousel__track-container {
     height: 85%;
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
 }
-
 .carousel__track {
     height: 100%;
     list-style: none;
@@ -1986,17 +2042,12 @@ td {
     position: relative;
     transition: transform 250ms ease-in;
 }
-
 .carousel__slide {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
 }
-
-
-
-
 .carousel__image {
     height: 100%;
     object-fit: cover;
@@ -2004,7 +2055,6 @@ td {
    
    
 }
-
 .carousel-box {
     background-color: #f8f8ee;
     border: 1px solid #ccc;
@@ -2017,10 +2067,7 @@ td {
     transform: translateY(-50%);
     max-width: 25%;
     display: block;
-
 }
-
-
 .carousel__button {
     background: transparent;
     border: 0;
@@ -2030,28 +2077,21 @@ td {
     transform: translateY(-50%);
  
 }
-
 .carousel__button--left {
     left: -40px
 }
-
 .carousel__button--right {
     right: -40px;
 }
-
 .carousel__button img {
     width: 20px;
 }
-
-
 .carousel__nav{
     display: flex;
     justify-content: center;
     margin-top: 15px;
     padding: 10px 0;
 }
-
-
 .carousel__indicator {
     border: 0;
     border-radius: 50%;
@@ -2061,11 +2101,9 @@ td {
     background-color: rgb(0, 0, 0, 0.3);
     margin: 0 12px;
 }
-
 .carousel__indicator.current-slide {
     background: rgba(0, 0, 0, 0.75);
 }
-
 .is-hidden {
     display: none;
 } */
@@ -2190,3 +2228,7 @@ td {
 
 
 }
+
+
+
+

@@ -243,10 +243,10 @@ const productController = {
 					
 						[Op.or]:[
 								{
-									title:{	[Op.like]: '%' +req.query.search +'%'}
+									title:{	[Op.like]:  '%'+req.query.search +'%'}
 								}, 
 							 	{
-									author:{[Op.like]: '%' + req.query.search }
+									author:{[Op.like]: '%'+ req.query.search +'%'}
 								}  
 						] 
 					
