@@ -35,9 +35,9 @@ router.get('/edit/:id',notAdmin, productController.edit);
 router.put('/edit/:id',upload.single("imagen"), productController.update);
 
 // para deshabilitar libro
-router.put("/disable/:id", productController.disable)
+router.put("/disable/:id",notAdmin, productController.disable)
 /** */
-router.delete('/delete/:id', productController.destroy); 
+router.delete('/delete/:id',notAdmin, productController.destroy); 
 
 router.get('/productsList',productController.list);
 router.get('/search',productController.search);

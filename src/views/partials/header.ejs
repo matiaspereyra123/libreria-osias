@@ -1,45 +1,12 @@
-
-    <!-- <nav class="menu-barra">
-        <label class="logo-barra">Logo</label>
-        <ul class="menu_items">
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#">Mi Cuenta</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Infantiles</a></li>
-            <li><a href="#">Viajes</a></li>
-        </ul>   <span class="btn_menu">
-    <i class="fa fa-bars"></i>
-</span>
-</nav> -->
-
-
-<section>
-    <div class="more-genres2">
-        <p class="viajes2"><a href="/viajes">> VIAJES</a></p>
-        <p class="viajes2"><a href="/viajes">> VIAJES</a></p>
-        <p class="viajes2"><a href="/viajes">> VIAJES</a></p>
-        <p class="viajes2"><a href="/viajes">> VIAJES</a></p>
-        <form action="/product/search" method="GET">
-    
-            <input class ="search-bar__input" type="search"  name ="search"placeholder="Buscá por título" aria-label="search">
-    <button class="search-bar__submit">
-       <i class="fa fa-search" aria-label="submit search"></i>
-    </button>
-    </form>
-        <!-- <p class="biografia"><a href="">> ARTE</a></p> -->
-    
-    </div>
-</section>
 <section class="up-section">
     <div class="main-title">
         <img class="logo" src="/images/osiasLogo.png" alt="">
     </div>
-
     <nav class="main-menu">
         <ul class="menu">
             <li class="menu__item"><a class="animation" href="/">Inicio</a></li>
-            <li class="menu__item"><a class="animation" href="">Nuestra librería</a></li>
-            <li class="menu__item catalogo"><a class="animation" href="">Catálogo <i class="fa-solid fa-angle-down"></i></a>
+            <li class="menu__item"><a class="animation" href="/proximamente">Nuestra librería</a></li>
+            <li class="menu__item catalogo"><a class="animation" href="">Catálogo </a>
                 <ul class="menu-dropdown">
                     <li class="dropdown-item">
                         <a class="anchor-dropdown" href="/historieta">Historieta & Novela gráfica</a>
@@ -57,21 +24,19 @@
                         <a class="anchor-dropdown" href="/proximamente">Humor</a>
                     </li >
                     <li class="dropdown-item">
-                        <a class="anchor-dropdown" href="/proximamente">Fotografía</a>
+                        <a class="anchor-dropdown" href="">Fotografía</a>
                     </li>
                 </ul>
             </li>
             <% if (!locals.userLogged) { %>
             <li><a href="/user/register"><i class="fa-regular fa-user"></i></a></li>
             <li><a href="/user/login"><i class="fas fa-sign-in-alt"></i></a></li> 
-            <%= console.log("header") %> 
-            <%= console.log(locals.usuarioLogeado) %> 
-            <%= console.log("fin header") %> 
+            
             <% }else{ %>
-                <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="/product/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 
                 <!-- <li class="avatarNav"><img src="/images/users/<%=locals.usuarioLogeado.image%>" width="40" style="border-radius:100%"alt=""></li> -->
-                <li class="menu__item profile"> <a href="/user/profile"> <%= locals.usuarioLogeado.first_name %></a>
+            <li class="menu__item profile"> <a href="/user/profile"> <%= locals.usuarioLogeado.first_name %></a>
                 <% } %>
                 <% if (locals.userLogged && locals.usuarioLogeado.isAdmin==1) { %>
                 <%= console.log("inicio Head") %> 
@@ -96,26 +61,34 @@
                   <li class="menu__item">
                   <div class="search-bar">
                     <form action="/product/search" method="GET">
-
-                             <input class ="search-bar__input" type="search"  name ="search"placeholder="Buscá por título" aria-label="search">
+                    <input class ="search-bar__input" type="search"  name ="search"placeholder="Buscá por título" aria-label="search">
                     <button class="search-bar__submit">
                         <i class="fa fa-search" aria-label="submit search"></i>
                     </button>
                     </form>
                
                     </div>
-                </li>  
+                </li>
+                <li class="menu__item-hamburguer" id="menuHamburguer">
+                        <i class="fa fa-bars burger" id="#hamburguerIcon"></i>
+                        <ul class="menu-dropdown-hamburguer" id="dropdownHamburguer"> 
+                            <li class="dropdown-item"><a class="anchor-dropdown" href="/">INICIO</a></li>
+                            <li class="dropdown-item"><a class="anchor-dropdown" href="/product/productsList">CATÁLOGO</a></li>
+                            <li class="dropdown-item"><a class="anchor-dropdown" href="/user/register">CREAR CUENTA</a></li>
+                            <li class="dropdown-item"><a class="anchor-dropdown" href="/user/login">INGRESAR</a></li>
+                        </ul>
+                  
+
+                </li>
 
         </ul>
-       
-      <!--   <div class="hamburguer-menu"> 
-            <i class="fa fa-bars burger"></i>
-            
-        </div> -->
+
+        
+ 
     </nav>
 
-  
-</section>
 
-<script src="/js/app.js"></script>
+   
+   
+</section>
 <script src="/js/header.js"></script>
