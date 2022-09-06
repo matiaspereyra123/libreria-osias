@@ -196,7 +196,7 @@ const productController = {
 			]})
         .then(function(libros){
             
-            res.render("products/productsList", {libros: libros, title: "Librería Kodos"})  
+            res.render("products/productsList", {libros: libros, title: "Osías"})  
         })
         .catch(function(error){
             console.log(error);
